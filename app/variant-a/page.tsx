@@ -41,7 +41,7 @@ function useCountdown(hours: number) {
 }
 
 /* ─── emojis per module ────────────────────────────────── */
-const moduleEmojis = ["🔍", "✨", "🔥", "🧭", "🚀", "🦋"];
+const moduleEmojis = ["◇", "✦", "△", "○", "→", "∞"];
 const moduleColors = [
   "bg-sage",
   "bg-dusty-blue",
@@ -51,7 +51,7 @@ const moduleColors = [
   "bg-dusty-blue",
 ];
 
-const resonanceEmojis = ["🪞", "🧠", "🌀", "⚡", "🎯"];
+const resonanceEmojis = ["—", "—", "—", "—", "—"];
 const resonanceBorders = [
   "border-l-sage",
   "border-l-dusty-blue",
@@ -72,7 +72,7 @@ const whyAccents = [
   "text-terracotta",
   "text-ink",
 ];
-const whyIcons = ["🌬️", "🎬", "🎧", "🫀"];
+const whyIcons = ["◯", "▷", "◈", "◉"];
 
 /* ─── main component ──────────────────────────────────── */
 export default function VariantA() {
@@ -85,24 +85,33 @@ export default function VariantA() {
       {/* ════════════════════════════════════════════════
           1. ANNOUNCEMENT BAR
          ════════════════════════════════════════════════ */}
-      <div className="fixed top-0 inset-x-0 z-50 bg-fomo-red text-white text-center py-2.5 px-4 text-xs sm:text-sm font-sans flex items-center justify-center gap-3 flex-wrap">
-        <span>
-          ✦ Founding Member Pricing: <strong>$497</strong> · Save $500 ·
-          Pricing available for{" "}
-          <span className="font-bold tabular-nums" suppressHydrationWarning>
-            {countdown}
+      <div className="fixed top-0 inset-x-0 z-50 bg-fomo-red text-white text-center py-2 px-3 sm:px-4 text-xs sm:text-sm font-sans">
+        <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+          <span className="hidden sm:inline">
+            ✦ Founding Member Pricing: <strong>$497</strong> · Save $500 ·
+            Pricing available for{" "}
+            <span className="font-bold tabular-nums" suppressHydrationWarning>
+              {countdown}
+            </span>
           </span>
-        </span>
-        <a
-          href={checkoutUrl}
-          className="inline-block bg-white text-fomo-red font-bold px-4 py-1 rounded-full text-xs hover:scale-105 transition-transform"
-        >
-          Enroll Now →
-        </a>
+          <span className="sm:hidden flex items-center gap-2">
+            <span>✦ <strong>$497</strong></span>
+            <span className="text-white/60">·</span>
+            <span className="font-bold tabular-nums" suppressHydrationWarning>
+              {countdown}
+            </span>
+          </span>
+          <a
+            href={checkoutUrl}
+            className="inline-block bg-white text-fomo-red font-bold px-3 sm:px-4 py-1 rounded-full text-xs hover:scale-105 transition-transform"
+          >
+            Enroll Now →
+          </a>
+        </div>
       </div>
 
       {/* spacer for fixed bar */}
-      <div className="h-8" />
+      <div className="h-24 sm:h-10" />
 
       {/* ════════════════════════════════════════════════
           2. HERO
@@ -127,9 +136,10 @@ export default function VariantA() {
              <Image
   src="/assets/green_logo.png"
   alt="Dream Life Mapping"
-  width={96}
-  height={96}
+  width={400}
+  height={400}
   priority
+  unoptimized
   className="h-10 sm:h-12 lg:h-14 w-auto"
 />
             </motion.div>
@@ -149,16 +159,16 @@ export default function VariantA() {
               A step-by-step course + year-long community to help you step into your highest timeline
             </motion.p>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
+            <motion.div variants={fadeUp} className="flex gap-3 sm:gap-4">
               <a
                 href={checkoutUrl}
-                className="bg-deep-sage text-white font-bold px-8 py-4 rounded-full text-base hover:scale-105 transition-transform shadow-lg shadow-deep-sage/30"
+                className="bg-sage text-white font-bold px-5 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm sm:text-base hover:scale-105 transition-transform shadow-lg shadow-sage/30"
               >
                 Join for $497 →
               </a>
               <a
                 href="#modules"
-                className="border-2 border-ink text-ink font-bold px-8 py-4 rounded-full text-base hover:bg-ink hover:text-cream transition-colors"
+                className="border-2 border-ink text-ink font-bold px-5 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm sm:text-base hover:bg-ink hover:text-cream transition-colors"
               >
                 See What&rsquo;s Inside
               </a>
@@ -189,7 +199,7 @@ export default function VariantA() {
           />
         </div>
             <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-3 flex items-center gap-2 text-xs font-sans">
-              <span className="text-lg">🏄‍♀️</span>
+              <span className="text-lg">✦</span>
               <span className="text-ink/80">
                 Charlotte &amp; Katja — your guides
               </span>
@@ -201,7 +211,7 @@ export default function VariantA() {
       {/* ════════════════════════════════════════════════
           3. PAIN SECTION
          ════════════════════════════════════════════════ */}
-      <section className="relative bg-deep-sage py-20 sm:py-28 px-4 overflow-hidden">
+      <section className="relative bg-sage py-20 sm:py-28 px-4 overflow-hidden">
         <div className="absolute top-8 right-12 w-24 h-24 rounded-full bg-cream/10 animate-float" />
         <motion.div
           initial="hidden"
@@ -367,13 +377,112 @@ export default function VariantA() {
       <section className="bg-cream py-12 px-4 text-center">
         <a
           href={checkoutUrl}
-          className="inline-block bg-deep-sage text-white font-bold px-10 py-4 rounded-full text-base hover:scale-105 transition-transform shadow-lg shadow-deep-sage/30"
+          className="inline-block bg-sage text-white font-bold px-10 py-4 rounded-full text-base hover:scale-105 transition-transform shadow-lg shadow-sage/30"
         >
           I&rsquo;m Ready — Join for $497 →
         </a>
         <p className="mt-3 text-xs text-ink/50 font-sans">
           Or 3 × $177 · 30-day guarantee
         </p>
+      </section>
+
+      {/* ════════════════════════════════════════════════
+          10. FOUNDERS
+         ════════════════════════════════════════════════ */}
+      <section className="bg-offwhite py-20 sm:py-28 px-4 relative overflow-hidden">
+        <div className="absolute -bottom-12 -left-12 w-40 h-40 rounded-full bg-sage/10 animate-float" />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={stagger}
+          className="max-w-5xl mx-auto"
+        >
+          <motion.p
+            variants={fadeUp}
+            className="text-center font-sans text-terracotta uppercase tracking-widest text-xs mb-4"
+          >
+            Your Guides
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            className="text-center font-display text-3xl sm:text-4xl text-ink mb-14"
+          >
+            We didn&rsquo;t just build this. {marker("We lived it.")}
+          </motion.h2>
+
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            {/* Charlotte */}
+            <motion.div variants={fadeUp}>
+              <div className="relative aspect-[3/4] w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-xl mb-6 rotate-1 hover:rotate-0 transition-transform duration-500">
+                <Image
+                  src="/assets/charlotte_founderheadshot.jpg"
+                  alt="Charlotte"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <h3 className="font-display text-2xl text-ink mb-2">
+                Charlotte
+              </h3>
+              <p className="font-sans text-ink/70 leading-relaxed">
+                Charlotte followed the path that looked right—business school, startups, a life that worked on paper. But something in her kept asking: is this actually mine?
+              </p>
+              <p className="font-sans text-ink/70 leading-relaxed mt-3">
+                That question changed everything.
+              </p>
+              <p className="font-sans text-ink/70 leading-relaxed mt-3">
+                What began as a quiet pull turned into bold, messy action—building a multi-million dollar beauty brand with 100,000+ customers across 50+ countries. Not from certainty, but from trusting what she couldn't ignore.
+              </p>
+              <p className="font-sans text-ink/70 leading-relaxed mt-3">
+                Today, she's a life purpose coach and life design educator, guiding others to create lives that feel like theirs. Living by the ocean in Costa Rica, she blends strategy, spirituality, and deep inner work to help you choose more—even when everything looks "fine" from the outside.
+              </p>
+            </motion.div>
+
+            {/* Katja */}
+            <motion.div variants={fadeUp}>
+              <div className="relative aspect-[3/4] w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-xl mb-6 -rotate-1 hover:rotate-0 transition-transform duration-500">
+                <Image
+                  src="/assets/katja_headshot_new.jpg"
+                  alt="Katja"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <h3 className="font-display text-2xl text-ink mb-2">Katja</h3>
+              <p className="font-sans text-ink/70 leading-relaxed">
+                Katja did everything she was supposed to—top degrees, corporate career, long-term relationship. From the outside, it all made sense. Inside, she felt nothing.
+              </p>
+              <p className="font-sans text-ink/70 leading-relaxed mt-3">
+                A solo trip through Latin America cracked that numbness open. Surrounded by people living differently, something deeper than logic woke up—and she chose to follow it.
+              </p>
+              <p className="font-sans text-ink/70 leading-relaxed mt-3">
+                She left the career, the relationship, the life she had built, and started again from intuition.
+              </p>
+              <p className="font-sans text-ink/70 leading-relaxed mt-3">
+                Now a yoga teacher, sound healer, and embodiment guide, Katja helps you reconnect to your body, your truth, and your aliveness—bringing grounded structure and a gentle push forward when you feel stuck.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* shared photo */}
+          <motion.div variants={fadeUp} className="mt-12">
+            <div className="relative aspect-video w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/assets/founders_working.jpg"
+                alt="Charlotte and Katja working together"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <p className="text-center font-subtitle italic text-ink/50 text-sm mt-4">
+              Building Season of Self from the coast — laptops, palm trees, and
+              a shared mission.
+            </p>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* ════════════════════════════════════════════════
@@ -549,17 +658,17 @@ export default function VariantA() {
           <div className="grid sm:grid-cols-3 gap-6">
             {[
               {
-                icon: "📅",
+                icon: "◇",
                 title: "12 Monthly Live Q&A",
                 desc: "Real-time coaching with Charlotte & Katja. Bring your questions, get direct support.",
               },
               {
-                icon: "💬",
+                icon: "○",
                 title: "Private Community",
                 desc: "A curated space of individuals doing this work alongside you. Real conversations. Real support.",
               },
               {
-                icon: "🤝",
+                icon: "△",
                 title: "Direct Access",
                 desc: "Both coaches are active inside the community. You can reach us when you need us.",
               },
@@ -569,7 +678,7 @@ export default function VariantA() {
                 variants={fadeUp}
                 className="bg-cream/10 backdrop-blur-sm border border-cream/10 rounded-2xl p-6 text-center hover:bg-cream/15 transition-colors"
               >
-                <span className="text-4xl mb-4 block">{item.icon}</span>
+                <span className="text-4xl mb-4 block text-cream">{item.icon}</span>
                 <h3 className="font-display text-xl text-cream mb-2">
                   {item.title}
                 </h3>
@@ -644,108 +753,9 @@ export default function VariantA() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          10. FOUNDERS
-         ════════════════════════════════════════════════ */}
-      <section className="bg-offwhite py-20 sm:py-28 px-4 relative overflow-hidden">
-        <div className="absolute -bottom-12 -left-12 w-40 h-40 rounded-full bg-sage/10 animate-float" />
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={stagger}
-          className="max-w-5xl mx-auto"
-        >
-          <motion.p
-            variants={fadeUp}
-            className="text-center font-sans text-terracotta uppercase tracking-widest text-xs mb-4"
-          >
-            Your Guides
-          </motion.p>
-          <motion.h2
-            variants={fadeUp}
-            className="text-center font-display text-3xl sm:text-4xl text-ink mb-14"
-          >
-            We didn&rsquo;t just build this. {marker("We lived it.")}
-          </motion.h2>
-
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-            {/* Charlotte */}
-            <motion.div variants={fadeUp}>
-              <div className="relative aspect-[3/4] w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-xl mb-6 rotate-1 hover:rotate-0 transition-transform duration-500">
-                <Image
-                  src="/assets/charlotte_founderheadshot.jpg"
-                  alt="Charlotte"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              <h3 className="font-display text-2xl text-ink mb-2">
-                Charlotte
-              </h3>
-              <p className="font-sans text-ink/70 leading-relaxed">
-                Charlotte followed the path that looked right—business school, startups, a life that worked on paper. But something in her kept asking: is this actually mine?
-              </p>
-              <p className="font-sans text-ink/70 leading-relaxed mt-3">
-                That question changed everything.
-              </p>
-              <p className="font-sans text-ink/70 leading-relaxed mt-3">
-                What began as a quiet pull turned into bold, messy action—building a multi-million dollar beauty brand with 100,000+ customers across 50+ countries. Not from certainty, but from trusting what she couldn't ignore.
-              </p>
-              <p className="font-sans text-ink/70 leading-relaxed mt-3">
-                Today, she's a life purpose coach and life design educator, guiding others to create lives that feel like theirs. Living by the ocean in Costa Rica, she blends strategy, spirituality, and deep inner work to help you choose more—even when everything looks "fine" from the outside.
-              </p>
-            </motion.div>
-
-            {/* Katja */}
-            <motion.div variants={fadeUp}>
-              <div className="relative aspect-[3/4] w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-xl mb-6 -rotate-1 hover:rotate-0 transition-transform duration-500">
-                <Image
-                  src="/assets/katja_founderheadshot.jpg"
-                  alt="Katja"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              <h3 className="font-display text-2xl text-ink mb-2">Katja</h3>
-              <p className="font-sans text-ink/70 leading-relaxed">
-                Katja did everything she was supposed to—top degrees, corporate career, long-term relationship. From the outside, it all made sense. Inside, she felt nothing.
-              </p>
-              <p className="font-sans text-ink/70 leading-relaxed mt-3">
-                A solo trip through Latin America cracked that numbness open. Surrounded by people living differently, something deeper than logic woke up—and she chose to follow it.
-              </p>
-              <p className="font-sans text-ink/70 leading-relaxed mt-3">
-                She left the career, the relationship, the life she had built, and started again from intuition.
-              </p>
-              <p className="font-sans text-ink/70 leading-relaxed mt-3">
-                Now a yoga teacher, sound healer, and embodiment guide, Katja helps you reconnect to your body, your truth, and your aliveness—bringing grounded structure and a gentle push forward when you feel stuck.
-              </p>
-            </motion.div>
-          </div>
-
-          {/* shared photo */}
-          <motion.div variants={fadeUp} className="mt-12">
-            <div className="relative aspect-video w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="/assets/founders_working.jpg"
-                alt="Charlotte and Katja working together"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <p className="text-center font-subtitle italic text-ink/50 text-sm mt-4">
-              Building Season of Self from the coast — laptops, palm trees, and
-              a shared mission.
-            </p>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* ════════════════════════════════════════════════
           11. GIVE BACK
          ════════════════════════════════════════════════ */}
-      <section className="bg-deep-sage py-20 sm:py-28 px-4 relative overflow-hidden">
+      <section className="bg-terracotta py-20 sm:py-28 px-4 relative overflow-hidden">
         <div className="absolute top-10 right-20 w-20 h-20 rounded-full bg-cream/5 animate-float" />
         <motion.div
           initial="hidden"
@@ -880,9 +890,9 @@ export default function VariantA() {
             {/* pay in full — featured */}
             <motion.div
               variants={fadeUp}
-              className="relative bg-white border-2 border-deep-sage rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-shadow"
+              className="relative bg-white border-2 border-sage rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-shadow"
             >
-              <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-deep-sage text-white text-xs font-bold px-4 py-1 rounded-full">
+              <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-sage text-white text-xs font-bold px-4 py-1 rounded-full">
                 BEST VALUE ✦
               </span>
               <h3 className="font-display text-xl text-ink mb-1">
@@ -891,13 +901,13 @@ export default function VariantA() {
               <p className="font-sans text-ink/50 text-sm mb-4 line-through">
                 $997
               </p>
-              <p className="font-display text-5xl text-deep-sage mb-1">$497</p>
+              <p className="font-display text-5xl text-sage mb-1">$497</p>
               <p className="font-sans text-sage text-sm font-medium mb-6">
                 Save $500 — founding price
               </p>
               <a
                 href={checkoutUrl}
-                className="block text-center bg-deep-sage text-white font-bold py-4 rounded-full hover:scale-105 transition-transform shadow-lg shadow-deep-sage/30"
+                className="block text-center bg-sage text-white font-bold py-4 rounded-full hover:scale-105 transition-transform shadow-lg shadow-sage/30"
               >
                 Join Now — $497 →
               </a>
@@ -970,22 +980,33 @@ export default function VariantA() {
             variants={fadeUp}
             className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-sage/20 text-4xl mb-6"
           >
-            🛡️
+            ✦
           </motion.div>
           <motion.h2
             variants={fadeUp}
-            className="font-display text-3xl sm:text-4xl text-ink mb-4"
+            className="font-display text-3xl sm:text-4xl text-ink mb-6"
           >
             Risk-free.
           </motion.h2>
-          <motion.p
+          <motion.div
             variants={fadeUp}
-            className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-6"
+            className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-6 space-y-4"
           >
-            Try Dream Life Mapping for 30 days. If it&rsquo;s not what you
-            hoped for, email us and we&rsquo;ll refund every cent. No hoops, no
-            hassle, no hard feelings. We only want you inside if it feels right.
-          </motion.p>
+            <p>
+              Go through the course. Do the exercises. Actually meet the process.
+            </p>
+            <p>
+              If you don&rsquo;t come out of it with real clarity — on what you want,
+              where you&rsquo;re going, and what your next steps are —
+              we&rsquo;ll refund you.
+            </p>
+            <p>
+              No back-and-forth. No friction.
+            </p>
+            <p>
+              You either get clarity, or you don&rsquo;t pay.
+            </p>
+          </motion.div>
           <motion.p
             variants={fadeUp}
             className="font-display italic text-sage text-lg"
@@ -1098,7 +1119,7 @@ export default function VariantA() {
           <motion.div variants={fadeUp}>
             <a
               href={checkoutUrl}
-              className="inline-block bg-white text-deep-sage font-bold px-12 py-5 rounded-full text-lg hover:scale-105 transition-transform shadow-2xl shadow-black/20"
+              className="inline-block bg-white text-sage font-bold px-12 py-5 rounded-full text-lg hover:scale-105 transition-transform shadow-2xl shadow-black/20"
             >
               Begin Your Dream Life — $497 →
             </a>

@@ -29,21 +29,21 @@ const stagger = {
 /* ─── data ───────────────────────────────────────────── */
 const learnings = [
   {
-    emoji: "🧭",
+    emoji: "◎",
     title: "Your Inner GPS",
     description:
       "Why you keep second-guessing yourself, and how to start making decisions from a place of deep inner knowing instead of fear or outside opinions.",
     border: "border-l-sage",
   },
   {
-    emoji: "🫀",
+    emoji: "◈",
     title: "Your Signals",
     description:
       "How to read the subtle cues your body is already sending you, and use them to navigate your life with more clarity and less overthinking.",
     border: "border-l-dusty-blue",
   },
   {
-    emoji: "⚡",
+    emoji: "↗",
     title: "Your Pull",
     description:
       "The thing that separates people who actually change their lives from those who keep planning and never starting. (It\u2019s not willpower. It\u2019s not a perfect plan. It\u2019s this.)",
@@ -71,7 +71,7 @@ export default function ClarityPage() {
       <div className="fixed top-0 inset-x-0 z-50 bg-fomo-red text-white text-center py-2.5 px-4 text-xs sm:text-sm font-sans flex items-center justify-center gap-3 flex-wrap">
         <span>✦ Free Workshop — Watch Instantly</span>
         <a
-          href="/workshop"
+          href="#signup"
           className="inline-block bg-white text-fomo-red font-bold px-4 py-1 rounded-full text-xs hover:scale-105 transition-transform"
         >
           Watch Now →
@@ -137,6 +137,7 @@ export default function ClarityPage() {
 
             {/* ── form ── */}
             <motion.form
+              id="signup"
               variants={fadeUp}
               onSubmit={handleSubmit}
               className="space-y-3 max-w-md"
@@ -191,62 +192,11 @@ export default function ClarityPage() {
               />
             </div>
             <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-3 flex items-center gap-2 text-xs font-sans">
-              <span className="text-lg">✨</span>
+              <span className="text-lg">✦</span>
               <span className="text-ink/80">Free · 45 min · Watch instantly</span>
             </div>
           </motion.div>
         </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════
-          WHAT YOU'LL LEARN
-         ════════════════════════════════════════════════ */}
-      <section className="bg-linen/50 py-20 sm:py-28 px-4 overflow-hidden relative">
-        <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-sage/10 animate-float" />
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={stagger}
-          className="max-w-4xl mx-auto"
-        >
-          <motion.p
-            variants={fadeUp}
-            className="text-center font-sans text-terracotta uppercase tracking-widest text-xs mb-4"
-          >
-            What You&rsquo;ll Discover
-          </motion.p>
-          <motion.h2
-            variants={fadeUp}
-            className="text-center font-display text-3xl sm:text-4xl text-ink mb-14"
-          >
-            In this workshop, you&rsquo;ll discover:
-          </motion.h2>
-
-          <div className="space-y-4">
-            {learnings.map((item, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                className={`border-l-4 ${item.border} bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300`}
-              >
-                <div className="flex items-start gap-4">
-                  <span className="text-2xl flex-shrink-0 mt-0.5">
-                    {item.emoji}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-xl sm:text-2xl text-ink mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="font-sans text-ink/70 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </section>
 
       {/* ════════════════════════════════════════════════
@@ -301,7 +251,7 @@ export default function ClarityPage() {
             <motion.div variants={fadeUp}>
               <div className="relative aspect-[3/4] w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-xl mb-6 -rotate-1 hover:rotate-0 transition-transform duration-500">
                 <Image
-                  src="/assets/katja_founderheadshot.jpg"
+                  src="/assets/katja_headshot_new.jpg"
                   alt="Katja"
                   fill
                   className="object-cover"
@@ -326,6 +276,57 @@ export default function ClarityPage() {
             We&rsquo;re not here to tell you what your dream life looks like.
             We&rsquo;re here to help you {marker("remember.")}
           </motion.p>
+        </motion.div>
+      </section>
+
+      {/* ════════════════════════════════════════════════
+          WHAT YOU'LL LEARN
+         ════════════════════════════════════════════════ */}
+      <section className="bg-linen/50 py-20 sm:py-28 px-4 overflow-hidden relative">
+        <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-sage/10 animate-float" />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={stagger}
+          className="max-w-4xl mx-auto"
+        >
+          <motion.p
+            variants={fadeUp}
+            className="text-center font-sans text-terracotta uppercase tracking-widest text-xs mb-4"
+          >
+            What You&rsquo;ll Discover
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            className="text-center font-display text-3xl sm:text-4xl text-ink mb-14"
+          >
+            In this workshop, you&rsquo;ll discover:
+          </motion.h2>
+
+          <div className="space-y-4">
+            {learnings.map((item, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className={`border-l-4 ${item.border} bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300`}
+              >
+                <div className="flex items-start gap-4">
+                  <span className="text-xl text-ink/25 flex-shrink-0 mt-1">
+                    {item.emoji}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-xl sm:text-2xl text-ink mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="font-sans text-ink/70 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </section>
 
@@ -361,7 +362,7 @@ export default function ClarityPage() {
 
           <motion.div variants={fadeUp}>
             <a
-              href="/workshop"
+              href="#signup"
               className="inline-block bg-white text-deep-sage font-bold px-10 py-4 rounded-full text-base hover:scale-105 transition-transform shadow-lg"
             >
               Watch the Free Workshop →

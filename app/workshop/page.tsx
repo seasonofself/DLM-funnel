@@ -256,17 +256,6 @@ export default function WorkshopPage() {
           )}
         </AnimatePresence>
 
-        {/* ── dev/testing: manual reveal button ── */}
-        {!showOffer && (
-          <div className="max-w-4xl mx-auto mt-4 text-center">
-            <button
-              onClick={() => setShowOffer(true)}
-              className="text-xs text-ink/20 hover:text-ink/40 transition-colors font-sans cursor-pointer"
-            >
-              Preview offer panel →
-            </button>
-          </div>
-        )}
       </section>
 
       {/* ════════════════════════════════════════════════
