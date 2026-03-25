@@ -124,14 +124,14 @@ export default function VariantA() {
               variants={fadeUp}
               className="mb-3 flex justify-start"
             >
-              <Image
-                src="/assets/green_logo.png"
-                alt="Dream Life Mapping"
-                width={96}
-                height={96}
-                priority
-                className="h-24 w-auto"
-              />
+             <Image
+  src="/assets/green_logo.png"
+  alt="Dream Life Mapping"
+  width={96}
+  height={96}
+  priority
+  className="h-14 w-auto"
+/>
             </motion.div>
 
             <motion.h1
