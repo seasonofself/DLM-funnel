@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { modules, faqs, valueStack, resonanceCards, whyItWorks } from "@/lib/data";
 
 /* ─── helpers ──────────────────────────────────────────── */
-const checkoutUrl = process.env.NEXT_PUBLIC_CHECKOUT_URL || "#pricing";
+const checkoutUrl = process.env.NEXT_PUBLIC_CHECKOUT_URL || "#checkout";
 
 const marker = (text: string) => (
   <span
