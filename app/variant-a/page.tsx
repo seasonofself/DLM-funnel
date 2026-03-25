@@ -130,18 +130,17 @@ export default function VariantA() {
   width={96}
   height={96}
   priority
-  className="h-14 w-auto"
+  className="h-10 sm:h-12 lg:h-14 w-auto"
 />
             </motion.div>
-
             <motion.h1
-              variants={fadeUp}
-              className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-ink leading-[1.1] mb-3"
-            >
-              Get clear on your{" "}
-              <span className="text-terracotta">{marker("dream life")}</span>{" "}
-              and start actually living it
-            </motion.h1>
+  variants={fadeUp}
+  className="font-display text-[2rem] leading-[0.95] sm:text-4xl lg:text-5xl xl:text-6xl text-ink"
+>
+  Get clear on your{" "}
+  <span className="text-terracotta">{marker("dream life")}</span>{" "}
+  and start actually living it
+</motion.h1>
 
             <motion.p
               variants={fadeUp}
