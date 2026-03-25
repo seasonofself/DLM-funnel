@@ -232,7 +232,7 @@ export default function VariantA() {
           >
             You don&rsquo;t hate your life.
             <br />
-            <span className="text-terracotta">
+           <span className="text-cream">
               That&rsquo;s almost what makes it harder.
             </span>
           </motion.h2>
@@ -444,8 +444,7 @@ export default function VariantA() {
             <motion.div variants={fadeUp}>
               <div className="relative aspect-[3/4] w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-xl mb-6 -rotate-1 hover:rotate-0 transition-transform duration-500">
                 <Image
-                  src="/assets/katja_headshot_new.jpg"
-                  alt="Katja"
+src="/assets/katja.jpg"                  alt="Katja"
                   fill
                   className="object-cover"
                   priority
