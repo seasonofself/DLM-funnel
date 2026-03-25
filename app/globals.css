@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────
+   FONTS
+   Display: Playfair Display (similar to Safira March — elegant serif)
+   Body:    Inter (similar to Neue Montreal — clean geometric sans)
+   Subtitle: Source Sans 3 (italic subtitles)
+───────────────────────────────────────── */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap");
+
+:root {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-subtitle: "Source Sans 3", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f6f4ef;
+  color: #222222;
+  overflow-x: hidden;
+}
+
+/* ── Display font helper ── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-subtitle {
+  font-family: var(--font-subtitle);
+  font-style: italic;
+}
+
+/* ── Gradient text utility ── */
+.text-gradient-terracotta {
+  background: linear-gradient(135deg, #c19673 0%, #d7cfac 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-sage {
+  background: linear-gradient(135deg, #939e7a 0%, #6b7a5a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-earth {
+  background: linear-gradient(135deg, #939e7a 0%, #c19673 50%, #9caec1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Marker highlight ── */
+.highlight-blue {
+  background: linear-gradient(to top, rgba(156, 174, 193, 0.3) 40%, transparent 40%);
+}
+
+.highlight-linen {
+  background: linear-gradient(to top, rgba(215, 207, 172, 0.4) 40%, transparent 40%);
+}
+
+.highlight-sage {
+  background: linear-gradient(to top, rgba(147, 158, 122, 0.3) 40%, transparent 40%);
+}
+
+.highlight-terracotta {
+  background: linear-gradient(to top, rgba(193, 150, 115, 0.3) 40%, transparent 40%);
+}
+
+/* ── Selection color ── */
+::selection {
+  background-color: #c8d4e0;
+  color: #222222;
+}
+
+/* ── Dot pattern bg ── */
+.bg-dots {
+  background-image: radial-gradient(circle, #222222 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.04;
+}
+
+/* ── Smooth link transitions ── */
+a {
+  @apply transition-all duration-200;
+}

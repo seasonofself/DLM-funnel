@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Program Files/nodejs/**)",
+      "Read(//c/Users/Charl/AppData/Roaming/**)",
+      "Read(//c/Users/Charl/AppData/Local/**)",
+      "Bash(cmd.exe /c \"where node\")",
+      "Bash(cmd.exe /c \"where npm\")",
+      "Bash(export PATH=\"/c/Program Files/nodejs:$PATH\")",
+      "Bash(npm --version)",
+      "Bash(powershell.exe -Command \"Get-Command node -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source; Get-Command npm -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(powershell.exe -Command \"\\(Get-Command npm\\).Source\")",
+      "Bash(ls \"/c/Users/Charl/AppData/Roaming/nvm/\"*)",
+      "Bash(ls \"/c/Users/Charl/AppData/Local/fnm/\"*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(\"C:/Program Files/nodejs/node.exe\" node_modules/next/dist/bin/next build)"
+    ]
+  }
+}
