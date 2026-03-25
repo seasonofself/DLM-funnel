@@ -251,7 +251,8 @@ export default function ClarityPage() {
             <motion.div variants={fadeUp}>
               <div className="relative aspect-[3/4] w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-xl mb-6 -rotate-1 hover:rotate-0 transition-transform duration-500">
                 <Image
-src="/assets/katja.jpg"                  alt="Katja"
+src="/assets/katja_hero"
+               alt="Katja"
                   fill
                   className="object-cover"
                 />
