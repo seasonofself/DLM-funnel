@@ -30,23 +30,23 @@ const stagger = {
 const learnings = [
   {
     emoji: "◎",
-    title: "Your Inner GPS",
+    title: "Inner GPS",
     description:
-      "Why you keep second-guessing yourself, and how to start making decisions from a place of deep inner knowing instead of fear or outside opinions.",
+      "Why you already know what to do but keep second-guessing it, and how to start trusting your decisions",
     border: "border-l-sage",
   },
   {
     emoji: "◈",
-    title: "Your Signals",
+    title: "Signals",
     description:
-      "How to read the subtle cues your body is already sending you, and use them to navigate your life with more clarity and less overthinking.",
+      "How to recognize what your body is already telling you so you stop overthinking every move",
     border: "border-l-dusty-blue",
   },
   {
     emoji: "↗",
-    title: "Your Pull",
+    title: "Pull",
     description:
-      "The thing that separates people who actually change their lives from those who keep planning and never starting. (It\u2019s not willpower. It\u2019s not a perfect plan. It\u2019s this.)",
+      "Why some people actually change their lives and others stay stuck, even when they know what they want",
     border: "border-l-terracotta",
   },
 ];
@@ -130,9 +130,8 @@ export default function ClarityPage() {
               variants={fadeUp}
               className="font-subtitle italic text-ink/70 text-base sm:text-lg max-w-lg mb-6"
             >
-              A free workshop for anyone who suspects they&rsquo;re meant for
-              something more — but keeps waiting for the right moment to
-              actually go after it.
+              A free workshop for women who know they&rsquo;re meant for more
+              and are ready to stop overthinking and actually move on it
             </motion.p>
 
             {/* ── form ── */}
@@ -184,7 +183,7 @@ export default function ClarityPage() {
           >
             <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500">
               <Image
-                src="/assets/vertical_hero.jpg"
+                src="/assets/founders_vibing.jpg"
                 alt="Dream Life Mapping"
                 fill
                 className="object-cover"
@@ -193,7 +192,7 @@ export default function ClarityPage() {
             </div>
             <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-3 flex items-center gap-2 text-xs font-sans">
               <span className="text-lg">✦</span>
-              <span className="text-ink/80">Free · 45 min · Watch instantly</span>
+              <span className="text-ink/80">Free · 27 min · Watch instantly</span>
             </div>
           </motion.div>
         </div>
@@ -316,11 +315,11 @@ src="/assets/katja_hero.jpeg"
                     {item.emoji}
                   </span>
                   <div>
-                    <h3 className="font-display text-xl sm:text-2xl text-ink mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="font-sans text-ink/70 leading-relaxed">
-                      {item.description}
+                    <p className="font-sans text-ink/75 leading-relaxed text-base sm:text-lg">
+                      <span className="font-display text-xl sm:text-2xl text-ink">
+                        {item.title}
+                      </span>{" "}
+                      - {item.description}
                     </p>
                   </div>
                 </div>

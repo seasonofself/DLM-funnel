@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -43,36 +43,79 @@ const included = [
 export default function WorkshopPage() {
   const [showOffer, setShowOffer] = useState(false);
   const countdown = useCountdown(60);
+  const offerRef = useRef<HTMLDivElement | null>(null);
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+
+  const openOffer = useCallback((shouldScroll = false) => {
+    setShowOffer(true);
+
+    if (shouldScroll) {
+      window.setTimeout(() => {
+        offerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 80);
+    }
+  }, []);
+
+  const subscribeToVimeo = useCallback(() => {
+    const playerWindow = iframeRef.current?.contentWindow;
+
+    if (!playerWindow) {
+      return;
+    }
+
+    playerWindow.postMessage(
+      JSON.stringify({ method: "addEventListener", value: "timeupdate" }),
+      "https://player.vimeo.com",
+    );
+  }, []);
 
   /* ── listen for Vimeo Player events via postMessage ── */
   const handleMessage = useCallback((e: MessageEvent) => {
-    // Vimeo sends JSON messages with event data
-    if (typeof e.data === "string") {
+    let data = e.data;
+
+    if (typeof data === "string") {
       try {
-        const data = JSON.parse(e.data);
-        // Vimeo Player API: timeupdate fires with seconds
-        if (data.event === "timeupdate" && data.data?.seconds >= 22 * 60) {
-          setShowOffer(true);
-        }
+        data = JSON.parse(data);
       } catch {
-        // ignore non-JSON messages
+        return;
       }
     }
-  }, []);
+
+    if (
+      typeof data === "object" &&
+      data !== null &&
+      "event" in data &&
+      data.event === "timeupdate" &&
+      typeof data.data?.seconds === "number" &&
+      data.data.seconds >= 22 * 60
+    ) {
+      openOffer();
+    }
+  }, [openOffer]);
 
   useEffect(() => {
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
   }, [handleMessage]);
 
+  useEffect(() => {
+    subscribeToVimeo();
+
+    const timer = window.setTimeout(() => {
+      subscribeToVimeo();
+    }, 1200);
+
+    return () => window.clearTimeout(timer);
+  }, [subscribeToVimeo]);
+
   /* ── also allow manual reveal after 22 min on page ── */
   useEffect(() => {
-    const timer = setTimeout(() => setShowOffer(true), 22 * 60 * 1000);
+    const timer = window.setTimeout(() => openOffer(), 22 * 60 * 1000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [openOffer]);
 
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative overflow-hidden pb-24 sm:pb-28">
       {/* ════════════════════════════════════════════════
           ANNOUNCEMENT BAR
          ════════════════════════════════════════════════ */}
@@ -91,6 +134,28 @@ export default function WorkshopPage() {
 
       {/* spacer for fixed bar */}
       <div className="h-8" />
+
+      <div className="pointer-events-none fixed inset-x-4 bottom-4 z-50 sm:inset-x-auto sm:right-6 sm:w-[23rem]">
+        <motion.button
+          type="button"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.35 }}
+          whileHover={{ y: -2 }}
+          onClick={() => openOffer(true)}
+          className="pointer-events-auto w-full rounded-[26px] border border-white/10 bg-deep-sage px-5 py-4 text-left text-white shadow-2xl shadow-deep-sage/25"
+        >
+          <p className="font-sans text-[10px] uppercase tracking-[0.28em] text-white/60">
+            Dream Life Mapping offer
+          </p>
+          <p className="mt-1 font-display text-xl leading-tight">
+            Click here to view offer
+          </p>
+          <p className="mt-2 font-sans text-sm leading-relaxed text-white/75">
+            Jump to the Dream Life Mapping details anytime.
+          </p>
+        </motion.button>
+      </div>
 
       {/* ════════════════════════════════════════════════
           HERO
@@ -153,7 +218,9 @@ export default function WorkshopPage() {
           >
             <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-xl bg-ink/5">
               <iframe
-                src="https://player.vimeo.com/video/1177071654?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                ref={iframeRef}
+                onLoad={subscribeToVimeo}
+                src="https://player.vimeo.com/video/1177071654?badge=0&amp;autopause=0&amp;player_id=season-of-self-workshop&amp;app_id=58479&amp;api=1"
                 className="absolute inset-0 w-full h-full"
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -168,6 +235,8 @@ export default function WorkshopPage() {
         <AnimatePresence>
           {showOffer && (
             <motion.div
+              id="offer"
+              ref={offerRef}
               initial={{ opacity: 0, y: 30, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 30 }}
@@ -269,27 +338,20 @@ export default function WorkshopPage() {
           variants={stagger}
           className="max-w-3xl mx-auto text-center"
         >
-          <motion.p
-            variants={fadeUp}
-            className="font-sans text-terracotta uppercase tracking-widest text-xs mb-4"
-          >
-            Your Next Step
-          </motion.p>
-
           <motion.h2
             variants={fadeUp}
             className="font-display text-3xl sm:text-4xl text-ink leading-tight mb-6"
           >
-            If this resonated, Dream Life Mapping is your next step
+            If you&rsquo;re feeling that &ldquo;this is me&rdquo;&hellip;
+            here&rsquo;s your next step
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
             className="font-sans text-ink/60 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto"
           >
-            Everything you felt in this workshop — the clarity, the pull, the
-            recognition — Dream Life Mapping takes you deeper. Step by step.
-            With support.
+            We&rsquo;ve built a process to help you get clear on your direction
+            and actually start moving on it
           </motion.p>
 
           <motion.div variants={fadeUp}>
@@ -297,8 +359,12 @@ export default function WorkshopPage() {
               href="/dream-life"
               className="inline-block bg-deep-sage text-white font-bold px-10 py-4 rounded-full text-base hover:scale-105 transition-transform shadow-lg shadow-deep-sage/30"
             >
-              Explore Dream Life Mapping →
+              Learn About Dream Life Mapping →
             </a>
+            <p className="mt-4 font-sans text-sm text-ink/50 max-w-md mx-auto leading-relaxed">
+              The course, community + coaching Charlotte &amp; Katja created to
+              walk you through this, step by step.
+            </p>
           </motion.div>
         </motion.div>
       </section>

@@ -5,6 +5,14 @@ export const metadata: Metadata = {
   title: "Dream Life Mapping — Season of Self",
   description:
     "Get clear on your dream life and start actually living it. A step-by-step course + year-long community to help you step into your highest timeline.",
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: "/favicon-32x32.png",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Dream Life Mapping — Season of Self",
     description:
