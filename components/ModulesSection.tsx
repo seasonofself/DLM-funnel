@@ -80,11 +80,13 @@ function ModuleRow({
                 <p className="font-sans text-body-lg text-ink/50 leading-relaxed max-w-2xl">
                   {module.description}
                 </p>
-                <div className="inline-flex items-center gap-3 border-l-2 border-terracotta pl-4">
-                  <span className="font-sans text-sm text-ink/60">
-                    {module.deliverable}
-                  </span>
-                </div>
+                {('deliverable' in module) && (
+                  <div className="inline-flex items-center gap-3 border-l-2 border-terracotta pl-4">
+                    <span className="font-sans text-sm text-ink/60">
+                      {(module as any).deliverable}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           </motion.div>

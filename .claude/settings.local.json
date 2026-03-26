@@ -15,7 +15,8 @@
       "Bash(ls \"/c/Users/Charl/AppData/Local/fnm/\"*)",
       "Bash(npm install:*)",
       "Bash(npm run:*)",
-      "Bash(\"C:/Program Files/nodejs/node.exe\" node_modules/next/dist/bin/next build)"
+      "Bash(\"C:/Program Files/nodejs/node.exe\" node_modules/next/dist/bin/next build)",
+      "Bash(npx next:*)"
     ]
   }
 }

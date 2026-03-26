@@ -7,142 +7,125 @@ export const modules = [
   {
     number: "01",
     keyword: "ASSESS",
-    title: "Understanding Your Current Reality",
+    title: "The Alignment Audit",
     description:
-      "Before anything changes, you need to see clearly where you actually are — not the version you present, but the one you're living. You'll map your life across all key areas, reflect on what your days actually feel like, and look honestly at where your current path is leading.",
-    deliverable: "Life Alignment Wheel — honest snapshot across 10 areas of life",
+      "Before you create your future, you get honest about where you are. You step out of autopilot and actually look at your life. How your days feel, where your energy goes, what feels aligned and what doesn\u2019t. You map out the key areas of your life and see the patterns clearly, so you understand what is working and what is quietly asking for change.",
   },
   {
     number: "02",
     keyword: "VISUALIZE",
-    title: "Your Highest Timeline — Felt, Not Just Imagined",
+    title: "Your Highest Timeline",
     description:
-      "You'll be guided through a breathwork session and visualization designed to take you out of your analytical mind and into a deeper, more intuitive state — where your real desires come through. Map your 'dream day,' define your non-negotiables, and create a vision based on what actually feels aligned.",
-    deliverable: "Dream Day Journaling + Cinema of Your Future Life guided visualization",
+      "This is where you connect to the life you want to live. Through breathwork and guided visualization, you access a deeper state where your mind quiets down and something more intuitive comes forward. You experience your highest timeline across every layer of your life, so it stops feeling abstract and starts feeling real and familiar. This becomes the reference point you move toward.",
   },
   {
     number: "03",
     keyword: "RELEASE",
     title: "Move Through Fear and Contraction",
     description:
-      "Once you get clear on what you want, the resistance shows up. The doubts, the overthinking, the 'what if this doesn't work.' You'll identify the beliefs keeping you stuck, rewrite them so they feel true, and create your own subconscious audio to start shifting them at a deeper level.",
-    deliverable: "Personal Subconscious Audio — your voice layered over theta binaural beats",
+      "Once you connect to what you want, everything that says it is not possible shows up. Fear, doubt, resistance, the inner voice that questions everything. In this module, you learn how to work with those responses instead of being stopped by them. You identify limiting beliefs, understand how they show up in your body, and practice moving through contraction so you can keep moving forward even when fear is present.",
   },
   {
     number: "04",
-    keyword: "PURPOSE",
-    title: "Discovering Your Ikigai",
+    keyword: "ALIGN",
+    title: "Discover Your Zone of Genius",
     description:
-      "This is where you explore what you're actually drawn to — without the pressure of getting it 'perfect.' Through Ikigai mapping, values work, and reflective exercises, you'll start to see patterns in what you enjoy, what you're good at, and what feels meaningful to you.",
-    deliverable: "Ikigai Map + Values Clarification + Childhood Clue exercise",
+      "This is where you answer the question: what direction actually makes sense for me? You explore the intersection of your strengths, your interests, your values, and the kind of life you want to create. You follow what feels alive, instead of trying to force a perfect answer, and begin to see a direction that feels both meaningful and sustainable. You leave with a clear next direction to explore.",
   },
   {
     number: "05",
     keyword: "CREATE",
-    title: "Turn Curiosity Into Movement",
+    title: "Start Moving Toward Your Dream",
     description:
-      "This is where you stop thinking about your life and start moving in it. You'll define a simple 30-day exploration plan based on what genuinely interests you — and begin taking consistent, low-pressure action toward what pulls you.",
-    deliverable: "30-Day Exploration Framework + AI Thought Partner session",
+      "Now you begin. Instead of waiting for a perfect plan, you learn how to move through exploration. You follow your curiosity, pay attention to what pulls you, and take action from a place of expansion rather than pressure. You start building momentum, trusting that clarity comes through movement and that your path forms as you go.",
   },
   {
     number: "06",
-    keyword: "IDENTITY",
-    title: "& Rituals: Becoming You",
+    keyword: "EMBODY",
+    title: "Live as the Version of You Who Has This Life",
     description:
-      "This is where everything integrates. You define the version of you who already lives this life, and start embodying her now — through small, daily shifts in how you think, decide, and show up. This doesn't stay a temporary shift — it becomes your new normal.",
-    deliverable: "Future Self Identity Declaration + Daily Ritual System",
+      "This is where everything integrates. You begin living as the version of you who already inhabits that life. You align your habits, your environment, and your daily choices with your vision so it becomes something you are actively living, not just thinking about. This is what makes the shift real and sustainable.",
+  },
+  {
+    number: "✧",
+    keyword: "SOMATIC TOOLKIT",
+    title: "Feel, Reset, and Return to Yourself",
+    description:
+      "This is where you go when something feels off. When you feel overwhelmed, stuck, or in your head, this toolkit helps you come back into your body and back into clarity. Inside, you\u2019ll find simple somatic practices to process emotions, regulate your nervous system, and move through contraction so you can move forward from a more grounded place. You don\u2019t need to push through or force decisions. You reset, reconnect, and act from what actually feels right. This is what keeps you in alignment as you step into your next level.",
   },
 ];
 
 export const valueStack = [
-  "Full 6-module Dream Life Mapping course — self-paced, 12 months access",
-  "40-minute guided breathwork session — shifts your brain into theta, the state of deep subconscious receptivity",
-  "Cinema of Your Future Life — guided visualization across all 10 areas of your life",
-  "Dream Day Journaling + Non-Negotiable Standards framework",
-  "Vision Board — built around feeling, not goals (neuroscience-backed)",
-  "Belief Upgrade Exercise — every fear and doubt, rewritten",
-  "Personal Subconscious Audio — a 7–10 min script recorded in your own voice, layered over theta binaural beats",
-  "Life Alignment Wheel — honest snapshot across 10 areas of life",
-  "Ikigai Mapping + Values Clarification + Childhood Clue exercise",
-  "AI Thought Partner session — connect the dots across your vision, values, and direction",
-  "30-Day Exploration Framework — imperfect, consistent movement toward what pulls you",
-  "Future Self Identity Declaration + Daily Ritual System",
-  "12 months inside the Season of Self community container",
-  "12 monthly live group Q&A coaching calls with Charlotte & Katja",
   "Direct access to both coaches inside the community",
-  "10% of your purchase donated to SOMA Surf + Abriendo Mentes",
+  "10% of profit from your purchase donated to SOMA Surf + Abriendo Mentes",
 ];
 
 export const faqs = [
   {
-    question: "How long do I have access to the course?",
+    question: "What if I don\u2019t know what I want at all?",
     answer:
-      "You have one full year of access to everything — all course content, the community container, and the monthly live Q&A calls — from the date you join.",
+      "Then we help you reconnect to the part of you that does. You\u2019re not starting from nothing. You\u2019ve just lost connection to it. This process brings you back to your intuition so you can actually hear what feels true for you.",
   },
   {
-    question: "Is this for me if I have no idea what I want?",
+    question: "Is this focused on work or my whole life?",
     answer:
-      "Yes — especially then. Clarity isn't something you need to arrive with. It's something we build together, starting in Module 1. The entire course is designed to take you from unclear → to grounded, directed, and in motion.",
+      "Both. We use your work and path as the anchor, but what we\u2019re really doing is helping you realign your life. When your work feels right, everything else shifts with it. Your energy, your relationships, how you move through your day.",
   },
   {
-    question: "I've started courses before and not finished them. How is this different?",
+    question: "What if I\u2019m scared to change anything?",
     answer:
-      "Most courses transfer information. This one creates experience. It's self-paced — no pressure, no expiry — and it works at the level of the body, which means the shifts are felt, not just understood. The community means you're not alone in it. That combination changes how it lands.",
+      "That\u2019s completely normal. We help you welcome it and move through it so it stops making your decisions for you. You don\u2019t need to feel fearless. You just need to be willing to take the next step.",
   },
   {
-    question: "What if my life is pretty good — I'm just not fully happy?",
+    question: "What if I have too many ideas and don\u2019t know which one to choose?",
     answer:
-      "That's exactly who this is for. You don't need to be in crisis to want more. If there's a quiet sense that something is missing — that a version of your life that feels more like you is possible — that's enough. That's the pull. You're allowed to follow it even when things look fine from the outside.",
+      "You\u2019ll leave with a direction that feels clear enough to move on. Not a final answer for the rest of your life. A path that feels aligned right now and worth exploring.",
   },
   {
-    question: "Do I need any experience with breathwork or somatic practices?",
+    question: "How much time do I need for this?",
     answer:
-      "Not at all. Everything is fully guided and explained from the beginning. All you need is a quiet space, an open mind, and a journal.",
+      "This is deep work. Most people take a few weeks to move through it properly. Some take longer. You\u2019ll have access for 12 months, so you can move at your own pace and come back to it as you step into your next level.",
   },
   {
-    question: "Is there a payment plan?",
+    question: "Do I need to want to start a business for this to be relevant?",
     answer:
-      "Yes — you can join in full for $497, or split it into 3 monthly payments of $177. Same access, same start date, either way.",
+      "No. This is about finding your most aligned path. For some people that\u2019s a business. For others it\u2019s a career shift or a different way of working.",
   },
   {
-    question: "When does the course start?",
+    question: "Will this give me a step-by-step plan?",
     answer:
-      "Immediately. The moment you join, you'll have instant access to the full community and all course content. You can begin today.",
+      "No fixed plan. Everyone\u2019s dream life looks different. We guide you to get clear on your direction and create a plan that actually fits you, so you can start taking aligned action toward it.",
   },
   {
-    question: "Where does the course take place?",
+    question: "What makes this different from other personal development courses?",
     answer:
-      "Everything lives inside our Circle community platform — accessible from any device, anytime. The monthly live calls are held inside Circle as well.",
+      "This isn\u2019t just mindset or reflection. We combine clarity, action, and somatic work so you\u2019re not just thinking about your life, you\u2019re actually moving forward and building it.",
+  },
+  {
+    question: "Do I get support during the process?",
+    answer:
+      "Yes. You\u2019ll have access to the community for 12 months, plus monthly Q&As where you can ask questions, get guidance, and stay in momentum.",
+  },
+  {
+    question: "What if I already feel like I know\u2026 I\u2019m just not moving?",
+    answer:
+      "Then this is exactly what you need. This process helps you move on what you already feel, instead of staying stuck in your head.",
+  },
+  {
+    question: "Do I get 1:1 support?",
+    answer:
+      "This isn\u2019t a 1:1 coaching container. You\u2019ll get support inside the Circle community, where you can ask questions and receive guidance, as well as on our monthly calls where we answer submitted questions. You\u2019re supported throughout the process, just not through private one-on-one calls.",
   },
 ];
 
 export const resonanceCards = [
-  "Your life looks fine — but it doesn't fully feel like yours",
-  "You keep overthinking decisions you already feel the answer to",
-  "You get clear… and then second-guess yourself out of it",
-  "You feel your potential, but you're not fully living it",
-  "You're tired of being 'almost there'",
+  "You\u2019ve done a lot of inner work, read the books and you know you\u2019re capable of more",
+  "On paper, your life works, but your work doesn\u2019t feel fully aligned or fulfilling",
+  "You have ideas, maybe even a few paths you could take, but you\u2019re not moving on any of them",
+  "You keep overthinking decisions you already feel in your body",
+  "You\u2019re ready to take your dreams seriously and build something that actually reflects who you are",
+  "You don\u2019t just want a small improvement, you want a timeline jump",
 ];
 
-export const whyItWorks = [
-  {
-    title: "Breathwork",
-    description:
-      "Shifts your brain from beta (analytical) into theta — the state where your subconscious is most receptive to new patterns. This is where real change begins.",
-  },
-  {
-    title: "Visualization",
-    description:
-      "Neuroscience shows the brain responds to vividly imagined experiences almost identically to real ones. We use this to anchor your future self as a felt reality — not a fantasy.",
-  },
-  {
-    title: "Subconscious Audio",
-    description:
-      "Your own voice, layered over theta binaural beats, speaks directly to your nervous system. Repetition here rewires belief at a level that thinking alone can't reach.",
-  },
-  {
-    title: "Somatic Release",
-    description:
-      "Fear and contraction live in the body, not just the mind. We move through them somatically — so the shifts are embodied, durable, and actually yours.",
-  },
-];
+// Legacy export — kept for unused components that still import it
+export const whyItWorks: { title: string; description: string }[] = [];
