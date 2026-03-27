@@ -240,69 +240,36 @@ export default function VariantA() {
           className="relative max-w-5xl mx-auto"
         >
           <div className="rounded-[32px] border border-white/15 bg-white/8 px-6 py-8 shadow-[0_30px_80px_-40px_rgba(34,34,34,0.55)] backdrop-blur-[2px] sm:p-10 lg:p-12">
-            <div className="mx-auto max-w-4xl">
-              <div className="text-center">
-                <motion.p
-                  variants={fadeUp}
-                  className="font-sans text-cream/65 uppercase tracking-[0.28em] text-xs mb-4"
-                >
-                  Let&rsquo;s be honest
-                </motion.p>
-                <motion.h2
-                  variants={fadeUp}
-                  className="mx-auto max-w-3xl font-display text-2xl leading-tight text-white sm:text-3xl lg:text-4xl"
-                >
-                  You have a good life. There&rsquo;s a lot you&rsquo;re genuinely grateful for.
-                </motion.h2>
-                <motion.p
-                  variants={fadeUp}
-                  className="mt-5 font-display italic text-xl sm:text-2xl text-white"
-                >
-                  But it&rsquo;s not it.
-                </motion.p>
-              </div>
-
-              <div className="mt-8 space-y-5 sm:space-y-6">
-                <motion.div
-                  variants={fadeUp}
-                  className="border-l border-white/25 pl-5 sm:pl-7"
-                >
-                  <p className="mb-3 font-sans text-[10px] uppercase tracking-[0.28em] text-white/60">
-                    Everything looks fine
-                  </p>
-                  <p className="font-sans text-white text-base leading-relaxed">
-                    But when it comes to your work, something&rsquo;s missing.
-                    You&rsquo;re going through the motions. And it&rsquo;s fine.
-                  </p>
-                </motion.div>
-                <motion.div
-                  variants={fadeUp}
-                  className="border-l border-white/25 pl-5 sm:pl-7"
-                >
-                  <p className="mb-3 font-sans text-[10px] uppercase tracking-[0.28em] text-white/60">
-                    You feel it
-                  </p>
-                  <p className="font-sans text-white text-base leading-relaxed">
-                    You&rsquo;re not connected to your purpose. You&rsquo;re not
-                    using your full potential, and it&rsquo;s frustrating
-                    because you know there&rsquo;s more in you.
-                  </p>
-                </motion.div>
-                <motion.div
-                  variants={fadeUp}
-                  className="border-l border-white/25 pl-5 sm:pl-7"
-                >
-                  <p className="mb-3 font-sans text-[10px] uppercase tracking-[0.28em] text-white/60">
-                    More is asking for you
-                  </p>
-                  <p className="font-sans text-white text-base leading-relaxed">
-                    More impact. More expression. A bigger life you&rsquo;re
-                    meant to be living. And time is passing. You want to step
-                    into that next level, you just don&rsquo;t know what it is
-                    or how to move on it.
-                  </p>
-                </motion.div>
-              </div>
+            <div className="mx-auto max-w-3xl text-center">
+              <motion.h2
+                variants={fadeUp}
+                className="font-display text-2xl leading-tight text-white sm:text-3xl lg:text-4xl"
+              >
+                You have a good life. There&rsquo;s a lot you&rsquo;re genuinely
+                grateful for.
+              </motion.h2>
+              <motion.div
+                variants={fadeUp}
+                className="mt-6 space-y-4 font-sans text-base leading-relaxed text-white sm:text-lg"
+              >
+                <p>
+                  But when it comes to your work&hellip; something&rsquo;s
+                  missing.
+                </p>
+                <p>
+                  You&rsquo;re not connected to your purpose.
+                  <br />
+                  You&rsquo;re not using your full potential.
+                </p>
+                <p>
+                  And it&rsquo;s frustrating, because you know there&rsquo;s
+                  more in you.
+                </p>
+                <p>
+                  More impact, more service, a bigger life that you could be
+                  living.
+                </p>
+              </motion.div>
             </div>
           </div>
         </motion.div>
@@ -326,24 +293,20 @@ export default function VariantA() {
           <motion.p variants={fadeUp} className="font-display text-2xl sm:text-3xl text-ink leading-tight mb-6">
             At this stage, it&rsquo;s not about working harder.
           </motion.p>
-          <motion.p variants={fadeUp} className="font-display italic text-xl sm:text-2xl text-terracotta mb-8">
-            It&rsquo;s about getting clear.
-          </motion.p>
           <motion.p variants={fadeUp} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-4">
-            Clear on what&rsquo;s actually alive for you.<br />
-            Clear on what&rsquo;s worth moving on.
-          </motion.p>
-          <motion.p variants={fadeUp} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-4">
-            Because right now everything stays in your head.
+            It&rsquo;s about getting clear on what the most aligned path is for
+            you.
           </motion.p>
           <motion.p variants={fadeUp} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed">
-            And the shift happens when you see your path clearly, clear what&rsquo;s been holding you back, and start moving while it&rsquo;s still alive.
+            The shift happens when you see your path clearly, clear what&rsquo;s
+            been holding you back, and start moving while it&rsquo;s still
+            alive.
           </motion.p>
         </motion.div>
       </section>
 
       {/* ════════════════════════════════════════════════
-          5. PIVOT
+          5. PIVOT + USP
          ════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden bg-linen/50 px-4 py-16 sm:py-20 lg:py-16">
         <motion.div
@@ -360,33 +323,9 @@ export default function VariantA() {
           <motion.p variants={fadeUp} className="font-display text-2xl sm:text-3xl lg:text-4xl text-ink leading-tight mb-8">
             That&rsquo;s what {marker("Dream Life Mapping")} is designed for.
           </motion.p>
-          <motion.p variants={fadeUp} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-4">
-            To help you get clear on what you&rsquo;re actually meant to be doing, what your zone of genius is, and what path makes the most sense for you right now.
-          </motion.p>
-          <motion.p variants={fadeUp} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-4">
-            Whether that&rsquo;s building a business, a personal brand, or stepping into a role that actually lights you up.
-          </motion.p>
-          <motion.p variants={fadeUp} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed">
-            And then actually moving on it, with the clarity, structure, and support to follow through.
-          </motion.p>
-        </motion.div>
-      </section>
-
-      {/* ════════════════════════════════════════════════
-          6. USP
-         ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-20 sm:py-28 px-4">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={stagger}
-          className="max-w-3xl mx-auto"
-        >
-          <motion.p variants={fadeUp} className="text-center font-display text-2xl sm:text-3xl text-ink leading-tight mb-8">
-            Dream Life Mapping helps you {marker("connect your vision")},{" "}
-            {marker("your purpose")}, and {marker("your zone of genius")} and
-            bring it into reality.
+          <motion.p variants={fadeUp} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-8">
+            To help you connect your vision, your purpose, and your zone of
+            genius and bring it into reality.
           </motion.p>
           <motion.p variants={fadeUp} className="text-center font-sans text-ink/60 uppercase tracking-widest text-xs mb-6">
             Inside, you&rsquo;ll:
@@ -447,62 +386,10 @@ export default function VariantA() {
 
           <motion.p
             variants={fadeUp}
-            className="text-center font-sans text-ink/70 text-base sm:text-lg mt-8 max-w-2xl mx-auto leading-relaxed"
+            className="text-center font-sans font-semibold text-ink text-base sm:text-lg mt-8 max-w-2xl mx-auto leading-relaxed underline decoration-sage/50 underline-offset-4"
           >
             You&rsquo;re not starting from zero. You&rsquo;re on the edge of breakthrough, you just need clarity and the right support to move forward.
           </motion.p>
-        </motion.div>
-      </section>
-
-      {/* ════════════════════════════════════════════════
-          8. WHAT THIS IS
-         ════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-offwhite px-4 pt-2 pb-16 sm:pt-4 sm:pb-20">
-        <motion.div
-          style={{ y: softGlowY }}
-          className="absolute -left-8 top-12 h-40 w-40 rounded-full bg-terracotta/15 blur-3xl"
-        />
-        <motion.div
-          style={{ x: ribbonShift }}
-          className="absolute right-0 top-24 h-48 w-48 rounded-full bg-dusty-blue/20 blur-3xl"
-        />
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={stagger}
-          className="relative max-w-4xl mx-auto"
-        >
-          <div className="rounded-[32px] border border-sage/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(246,244,239,0.88))] p-6 shadow-lifted sm:p-10 lg:p-12">
-            <motion.p
-              variants={fadeUp}
-              className="font-sans text-sage uppercase tracking-[0.28em] text-xs mb-4"
-            >
-              What this is
-            </motion.p>
-            <motion.h2
-              variants={fadeUp}
-              className="font-display text-3xl sm:text-4xl text-ink leading-tight mb-5"
-            >
-              Dream Life Mapping is a process that helps you get clear on what
-              you actually want and start building it.
-            </motion.h2>
-            <motion.p
-              variants={fadeUp}
-              className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-5"
-            >
-              You reconnect to your intuition, identify the path that feels
-              aligned for you, and learn how to move on it without getting stuck
-              in overthinking.
-            </motion.p>
-            <motion.p
-              variants={fadeUp}
-              className="font-display italic text-terracotta text-xl sm:text-2xl"
-            >
-              It&rsquo;s where your ideas turn into direction, and your
-              direction turns into action.
-            </motion.p>
-          </div>
         </motion.div>
       </section>
 
@@ -618,21 +505,20 @@ export default function VariantA() {
               Imagine this:
             </motion.h2>
 
-            <div className="mx-auto grid max-w-4xl gap-x-10 gap-y-5 md:grid-cols-2">
-              {imagineMoments.map((moment, index) => (
-                <motion.div
+            <motion.ul
+              variants={fadeUp}
+              className="mx-auto max-w-3xl space-y-2 text-left"
+            >
+              {imagineMoments.map((moment) => (
+                <li
                   key={moment}
-                  variants={fadeUp}
-                  whileHover={{ x: index % 2 === 0 ? 6 : -6 }}
-                  className="flex items-start gap-3 rounded-[24px] bg-white/7 px-4 py-4"
+                  className="flex items-start gap-3 font-sans text-base leading-relaxed text-white sm:text-lg"
                 >
-                  <span className="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-cream" />
-                  <p className="font-sans text-white text-base sm:text-lg leading-relaxed">
-                    {moment}
-                  </p>
-                </motion.div>
+                  <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cream" />
+                  <span>{moment}</span>
+                </li>
               ))}
-            </div>
+            </motion.ul>
 
             <motion.p
               variants={fadeUp}
@@ -974,70 +860,6 @@ export default function VariantA() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          15. REGULAR PRICE
-         ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-16 sm:py-20 px-4">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={stagger}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <motion.h2
-            variants={fadeUp}
-            className="font-display text-3xl sm:text-4xl text-ink mb-6"
-          >
-            What this would normally cost
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-6"
-          >
-            To get this level of clarity and support, most people invest in
-            multiple programs, coaching, and years of trial and error.
-          </motion.p>
-          <motion.p
-            variants={fadeUp}
-            className="font-display text-2xl sm:text-3xl text-ink leading-tight mb-4"
-          >
-            Normally Dream Life Mapping is priced at $997.
-          </motion.p>
-          <motion.p
-            variants={fadeUp}
-            className="font-sans text-ink/75 text-base sm:text-lg leading-relaxed mb-2"
-          >
-            Right now, you can join for $497 as a founding member.
-          </motion.p>
-          <motion.p
-            variants={fadeUp}
-            className="font-sans text-sage text-base sm:text-lg leading-relaxed font-medium"
-          >
-            Or 3 payments of $177.
-          </motion.p>
-
-          <motion.div
-            variants={fadeUp}
-            className="mt-8 rounded-[28px] border border-sage/10 bg-sage/5 px-6 py-7 sm:px-8"
-          >
-            <h3 className="font-display text-2xl sm:text-3xl text-ink mb-4">
-              Why we&rsquo;re offering this price
-            </h3>
-            <div className="space-y-4 font-sans text-ink/70 text-base sm:text-lg leading-relaxed">
-              <p>This is the first version of Dream Life Mapping.</p>
-              <p>
-                We&rsquo;re building this with the founding group, refining it
-                in real time, and making it better as people move through it.
-              </p>
-              <p className="text-ink/80">
-                In exchange, you get access at a significantly reduced price.
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* ════════════════════════════════════════════════
           17. SCARCITY — Why now
          ════════════════════════════════════════════════ */}
       <section className="bg-linen/50 py-16 sm:py-20 px-4">
@@ -1070,7 +892,7 @@ export default function VariantA() {
       {/* ════════════════════════════════════════════════
           19. PURCHASE DETAILS — What happens next
          ════════════════════════════════════════════════ */}
-      <section className="bg-offwhite py-16 sm:py-20 px-4">
+      <section className="bg-offwhite pt-16 pb-8 sm:pt-20 sm:pb-10 px-4">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -1095,7 +917,7 @@ export default function VariantA() {
       {/* ════════════════════════════════════════════════
           20. GUARANTEE
          ════════════════════════════════════════════════ */}
-      <section className="bg-sage/10 py-16 sm:py-20 px-4">
+      <section className="bg-sage/10 pt-8 pb-16 sm:pt-10 sm:pb-20 px-4">
         <motion.div
           initial="hidden"
           whileInView="visible"
