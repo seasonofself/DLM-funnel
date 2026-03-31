@@ -19,14 +19,6 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.14, delayChildren: 0.3 } },
 };
 
-const thisIsForYou = [
-  { icon: "✧", text: "You've done the inner work and you know you're capable of more" },
-  { icon: "◌", text: "You feel the pull toward a bigger life, but you're not fully moving on it yet" },
-  { icon: "↗", text: "You have ideas, but you're stuck between options or overthinking your next step" },
-  { icon: "◎", text: "You want your work, your life, and your energy to actually feel aligned" },
-  { icon: "♡", text: "You're ready to stop waiting and start building something that feels true to you" },
-];
-
 const whatWeFocus = [
   { icon: "◎", text: "Helping you get clear on what you actually want" },
   { icon: "◈", text: "Helping you identify your zone of genius and most aligned path" },
@@ -251,7 +243,7 @@ export default function HomePage() {
           <AnimatedSection delay={0.2}>
             <p className="font-sans text-body-lg text-ink/55 leading-relaxed">
               It&apos;s where you reconnect to your intuition, your desires, and your
-              natural way of moving through the world — and begin creating from
+              natural way of moving through the world, and begin creating from
               that place.
             </p>
           </AnimatedSection>
@@ -297,8 +289,8 @@ export default function HomePage() {
 
             <AnimatedSection delay={0.2}>
               <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-6">
-                It&apos;s both a relationship with yourself — your truth, your
-                expansion, your potential — and with something greater. A sense
+                It&apos;s both a relationship with yourself (your truth, your
+                expansion, your potential) and with something greater. A sense
                 that life is supporting you when you move in alignment.
               </p>
             </AnimatedSection>
@@ -326,52 +318,6 @@ export default function HomePage() {
               />
             </div>
           </AnimatedSection>
-        </div>
-      </section>
-
-      <SectionDivider variant="thick" color="sage" />
-
-      {/* ════════════════════════════════════════════════
-          THIS IS FOR YOU IF…
-         ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
-        <div className="max-w-4xl mx-auto">
-          <AnimatedSection>
-            <p className="font-sans text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-terracotta mb-5">
-              Is this you?
-            </p>
-            <h2 className="font-display text-display-xl text-ink mb-12 sm:mb-16">
-              This is for you if…
-            </h2>
-          </AnimatedSection>
-
-          <div className="space-y-0">
-            {thisIsForYou.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -16 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="flex items-start gap-4 sm:gap-5 py-6 sm:py-8 group">
-                  <motion.span
-                    whileHover={{ scale: 1.15, rotate: 8 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                    className="shrink-0 w-10 h-10 rounded-full bg-sage/15 flex items-center justify-center font-display text-base text-sage-dark cursor-default"
-                  >
-                    {item.icon}
-                  </motion.span>
-                  <p className="font-sans text-body-lg text-ink/70 leading-relaxed pt-1.5 group-hover:text-ink transition-colors duration-300">
-                    {item.text}
-                  </p>
-                </div>
-                {i < thisIsForYou.length - 1 && (
-                  <SectionDivider variant="line" color="ink" />
-                )}
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -459,7 +405,7 @@ export default function HomePage() {
             <AnimatedSection delay={0.15}>
               <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-4">
                 You move from feeling stuck or uncertain to knowing what you&apos;re
-                doing — and actually moving on it.
+                doing, and actually moving on it.
               </p>
             </AnimatedSection>
 
@@ -581,13 +527,14 @@ export default function HomePage() {
                 universities, a stable corporate career, a 10-year relationship.
                 But internally, she felt disconnected and numb. A solo
                 backpacking trip through Latin America shifted something deeper
-                than she thought. She met people living differently, felt
+                than she expected. She met people living differently, felt
                 something open, and chose to follow it. She left her job, ended
-                her relationship, sold her belongings, and moved to Nicaragua
-                without knowing exactly what came next. From there, she rebuilt
-                her life around what actually felt true. Today, she helps women
-                reconnect with their body and intuition, and create lives that
-                feel aligned, grounded, and fully expressed.
+                her relationship, sold her belongings, and set off without
+                knowing exactly what came next. From there, she rebuilt
+                her life around what actually felt true. Today, she&apos;s building a
+                slow life in Portugal and helps women reconnect with their body
+                and intuition, and create lives that feel aligned, grounded,
+                and fully expressed.
               </p>
             </AnimatedSection>
           </div>
