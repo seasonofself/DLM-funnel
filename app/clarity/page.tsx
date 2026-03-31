@@ -51,16 +51,44 @@ const learnings = [
   },
 ];
 
+/* ─── Kit form config ────────────────────────────────── */
+const KIT_FORM_ID = "9217328";
+const KIT_FORM_UID = "6063fa4338";
+
 /* ─── main component ─────────────────────────────────── */
 export default function ClarityPage() {
   const router = useRouter();
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Connect to Kit (ConvertKit) when ready
-    router.push("/workshop");
+    setIsSubmitting(true);
+
+    try {
+      /* Submit to Kit form — this subscribes them and enters
+         the DLM Webinar Funnel automation (Sequence 1). */
+      await fetch(
+        `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email_address: email,
+            first_name: firstName,
+          }),
+        }
+      );
+    } catch (err) {
+      /* Don't block the redirect if Kit call fails —
+         the user should still see the workshop. */
+      console.error("Kit subscription error:", err);
+    }
+
+    /* Redirect to workshop, passing email so we can tag
+       them as "watched" when the page loads. */
+    router.push(`/workshop?e=${encodeURIComponent(email)}`);
   };
 
   return (
@@ -159,9 +187,10 @@ export default function ClarityPage() {
               />
               <button
                 type="submit"
-                className="w-full bg-deep-sage text-white font-bold px-8 py-4 rounded-full text-base hover:scale-105 transition-transform shadow-lg shadow-deep-sage/30"
+                disabled={isSubmitting}
+                className="w-full bg-deep-sage text-white font-bold px-8 py-4 rounded-full text-base hover:scale-105 transition-transform shadow-lg shadow-deep-sage/30 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Watch the Free Workshop →
+                {isSubmitting ? "Taking you there…" : "Watch the Free Workshop →"}
               </button>
             </motion.form>
 

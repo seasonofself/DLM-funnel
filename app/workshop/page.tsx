@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -41,10 +42,25 @@ const included = [
 
 /* ─── main component ─────────────────────────────────── */
 export default function WorkshopPage() {
+  const searchParams = useSearchParams();
   const [showOffer, setShowOffer] = useState(false);
   const countdown = useCountdown(60);
   const offerRef = useRef<HTMLDivElement | null>(null);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
+  const taggedRef = useRef(false);
+
+  /* ── Tag subscriber as "webinar watched" on page load ── */
+  useEffect(() => {
+    const email = searchParams.get("e");
+    if (!email || taggedRef.current) return;
+    taggedRef.current = true;
+
+    fetch("/api/kit-tag", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    }).catch((err) => console.error("Tag error:", err));
+  }, [searchParams]);
 
   const openOffer = useCallback((shouldScroll = false) => {
     setShowOffer(true);

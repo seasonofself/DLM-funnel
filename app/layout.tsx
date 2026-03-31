@@ -31,16 +31,28 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* ──────────────────────────────────────────────
-            ANALYTICS — paste your tracking scripts here
+        {/* ── Google Analytics (GA4) ── */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-P4L88WXR3S"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-P4L88WXR3S');
+            `,
+          }}
+        />
 
-            Meta Pixel example:
+        {/* ──────────────────────────────────────────────
+            META PIXEL — uncomment and add your Pixel ID when ready
+
             <script dangerouslySetInnerHTML={{ __html: `
               !function(f,b,e,v,n,t,s){...}('YOUR_PIXEL_ID');
             `}} />
-
-            Google Analytics example:
-            <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_ID" />
         ────────────────────────────────────────────── */}
       </head>
       <body>{children}</body>
