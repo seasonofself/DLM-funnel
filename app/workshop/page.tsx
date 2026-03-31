@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -41,7 +41,7 @@ const included = [
 ];
 
 /* ─── main component ─────────────────────────────────── */
-export default function WorkshopPage() {
+function WorkshopPageContent() {
   const searchParams = useSearchParams();
   const [showOffer, setShowOffer] = useState(false);
   const countdown = useCountdown(60);
@@ -402,5 +402,13 @@ export default function WorkshopPage() {
       {/* footer bar */}
       <div className="h-2 bg-ink" />
     </main>
+  );
+}
+
+export default function WorkshopPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-cream" />}>
+      <WorkshopPageContent />
+    </Suspense>
   );
 }
