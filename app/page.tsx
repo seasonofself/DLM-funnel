@@ -588,7 +588,7 @@ export default function HomePage() {
          ════════════════════════════════════════════════ */}
       <footer className="bg-ink py-16 sm:py-20 px-6 sm:px-10">
         <div className="max-w-7xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16">
             {/* col 1 — brand */}
             <div>
               <Image
@@ -642,7 +642,56 @@ export default function HomePage() {
               </ul>
             </div>
 
-            {/* col 3 — mailing list */}
+            {/* col 3 — legal */}
+            <div>
+              <p className="font-sans text-xs font-medium tracking-[0.2em] uppercase text-cream/40 mb-4">
+                Legal
+              </p>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href="/terms-of-service"
+                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                  >
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/privacy-policy"
+                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                  >
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/cookie-policy"
+                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                  >
+                    Cookie Policy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/refund-policy"
+                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                  >
+                    Refund Policy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/disclaimer"
+                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                  >
+                    Disclaimer
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* col 4 — mailing list */}
             <div>
               <p className="font-sans text-xs font-medium tracking-[0.2em] uppercase text-cream/40 mb-4">
                 Join the mailing list
