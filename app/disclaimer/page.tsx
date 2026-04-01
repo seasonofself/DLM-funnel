@@ -92,7 +92,7 @@ export default function Disclaimer() {
         <strong>Season of Self LLC</strong><br />
         312 W 2nd St, Unit #A8972<br />
         Casper, WY 82601<br />
-        Email: charlotte@suntouched.co<br />
+        Email: hello@seasonofself.co<br />
         Website: seasonofself.co
       </p>
     </LegalPage>

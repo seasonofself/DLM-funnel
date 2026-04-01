@@ -34,7 +34,7 @@ export default function RefundPolicy() {
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">How to Request a Refund</h2>
       <p className="mb-4">
-        If you'd like to request a refund, it's simple and straightforward. Send an email to charlotte@suntouched.co with the subject line "Refund Request" and include the following information:
+        If you'd like to request a refund, it's simple and straightforward. Send an email to hello@seasonofself.co with the subject line "Refund Request" and include the following information:
       </p>
       <p className="mb-4">
         Your name and the email address associated with your purchase account.
@@ -68,7 +68,7 @@ export default function RefundPolicy() {
         Our 30-day money-back guarantee applies specifically to the Dream Life Mapping course. Refund eligibility may vary for other services, such as one-on-one coaching sessions or community memberships, depending on their nature and your engagement.
       </p>
       <p className="mb-4">
-        Requests for refunds made after the 30-day guarantee period has expired are not eligible for a full refund. If you have questions about your specific situation or believe there are extenuating circumstances, please reach out to us directly at charlotte@suntouched.co, and we'll do our best to work with you.
+        Requests for refunds made after the 30-day guarantee period has expired are not eligible for a full refund. If you have questions about your specific situation or believe there are extenuating circumstances, please reach out to us directly at hello@seasonofself.co, and we'll do our best to work with you.
       </p>
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">Processing Time</h2>
@@ -87,7 +87,7 @@ export default function RefundPolicy() {
         <strong>Season of Self LLC</strong><br />
         312 W 2nd St, Unit #A8972<br />
         Casper, WY 82601<br />
-        Email: charlotte@suntouched.co<br />
+        Email: hello@seasonofself.co<br />
         Website: seasonofself.co
       </p>
     </LegalPage>

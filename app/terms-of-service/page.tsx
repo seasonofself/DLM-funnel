@@ -133,7 +133,7 @@ export default function TermsOfServicePage() {
         If you have any questions about these Terms of Service, or if you need to report a violation or concern, please contact us at:
       </p>
       <p>
-        Season of Self LLC&bull; 312 W 2nd St, Unit #A8972, Casper, WY 82601&bull; charlotte@suntouched.co&bull; seasonofself.co
+        Season of Self LLC&bull; 312 W 2nd St, Unit #A8972, Casper, WY 82601&bull; hello@seasonofself.co&bull; seasonofself.co
       </p>
       <p>
         We will make reasonable efforts to address your concerns and respond to inquiries within a reasonable timeframe.

@@ -107,7 +107,7 @@ export default function PrivacyPolicyPage() {
       </p>
       <p className="mb-4">
         To exercise any of these rights, please contact us at
-        charlotte@suntouched.co with your request. We will respond within 30
+        hello@seasonofself.co with your request. We will respond within 30
         days.
       </p>
 
@@ -134,7 +134,7 @@ export default function PrivacyPolicyPage() {
         information, we will take steps to delete such information and
         terminate the child's account. Parents or guardians who believe their
         child has provided information to Season of Self should contact us
-        immediately at charlotte@suntouched.co.
+        immediately at hello@seasonofself.co.
       </p>
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">
@@ -183,10 +183,10 @@ export default function PrivacyPolicyPage() {
         <p className="mb-0">
           Email:{" "}
           <a
-            href="mailto:charlotte@suntouched.co"
+            href="mailto:hello@seasonofself.co"
             className="text-link hover:text-linkHover underline"
           >
-            charlotte@suntouched.co
+            hello@seasonofself.co
           </a>
         </p>
       </div>
