@@ -96,23 +96,22 @@ export default function ClarityPage() {
       {/* ════════════════════════════════════════════════
           ANNOUNCEMENT BAR
          ════════════════════════════════════════════════ */}
-      <div className="fixed top-0 inset-x-0 z-50 bg-fomo-red text-white text-center py-2.5 px-4 text-xs sm:text-sm font-sans flex items-center justify-center gap-3 flex-wrap">
-        <span>✦ Free Workshop — Watch Instantly</span>
-        <a
-          href="#signup"
-          className="inline-block bg-white text-fomo-red font-bold px-4 py-1 rounded-full text-xs hover:scale-105 transition-transform"
-        >
-          Watch Now →
-        </a>
+      <div className="sticky top-0 inset-x-0 z-50 bg-fomo-red px-4 py-2.5 text-white shadow-sm">
+        <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-2 text-center font-sans text-[11px] sm:flex-row sm:gap-3 sm:text-sm">
+          <span>✦ Free Workshop — Watch Instantly</span>
+          <a
+            href="#signup"
+            className="inline-flex min-h-10 items-center justify-center rounded-full bg-white px-4 py-2 text-xs font-bold text-fomo-red hover:scale-105 sm:min-h-0 sm:py-1"
+          >
+            Watch Now →
+          </a>
+        </div>
       </div>
-
-      {/* spacer for fixed bar */}
-      <div className="h-8" />
 
       {/* ════════════════════════════════════════════════
           HERO
          ════════════════════════════════════════════════ */}
-      <section className="relative bg-cream py-6 sm:py-10 lg:py-14 px-4 overflow-hidden">
+      <section className="relative overflow-hidden bg-cream px-4 py-8 sm:py-10 lg:py-14">
         {/* floating shapes */}
         <div className="absolute top-10 left-6 w-20 h-20 rounded-full bg-sage/20 animate-float" />
         <div className="absolute bottom-20 right-10 w-32 h-32 rounded-full bg-dusty-blue/15 animate-float [animation-delay:1s]" />
@@ -188,7 +187,7 @@ export default function ClarityPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-deep-sage text-white font-bold px-8 py-4 rounded-full text-base hover:scale-105 transition-transform shadow-lg shadow-deep-sage/30 disabled:opacity-60 disabled:cursor-not-allowed"
+                className="min-h-14 w-full rounded-full bg-deep-sage px-8 py-4 text-[15px] font-bold text-white shadow-lg shadow-deep-sage/30 transition-transform hover:scale-105 disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
               >
                 {isSubmitting ? "Taking you there…" : "Watch the Free Workshop →"}
               </button>
@@ -216,7 +215,7 @@ export default function ClarityPage() {
                 alt="Dream Life Mapping"
                 fill
                 className="object-cover"
-                priority
+                sizes="(min-width: 1024px) 28rem, 0px"
               />
             </div>
             <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-3 flex items-center gap-2 text-xs font-sans">

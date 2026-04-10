@@ -2,7 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 /**
  * POST /api/kit-tag
- * Adds the "dlm-webinar-watched" tag to a Kit subscriber.
+ * 1. Adds the "dlm-webinar-watched" tag to a Kit subscriber.
+ * 2. Removes them from DLM-Sequence-1-Webinar-Reminders so they
+ *    stop getting "don't forget to watch" emails.
+ *
+ * The tag also triggers the DLM-Watched-Tag-Trigger automation
+ * in Kit, which enters them into DLM-Sequence-2-Sales.
  *
  * Body: { email: string }
  *
@@ -12,6 +17,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const KIT_API_SECRET = process.env.KIT_API_SECRET;
 const TAG_NAME = "dlm-webinar-watched";
+const SEQUENCE_1_ID = "2703194"; // DLM-Sequence-1-Webinar-Reminders
 
 export async function POST(req: NextRequest) {
   try {
@@ -80,6 +86,22 @@ export async function POST(req: NextRequest) {
       console.error("Kit tag error:", err);
       return NextResponse.json({ error: "Tag failed" }, { status: 500 });
     }
+
+    /* ── Step 3: Remove from Sequence 1 (Webinar Reminders) ──
+       They watched the workshop, so stop sending "don't forget
+       to watch" reminder emails. Fire-and-forget — if this fails
+       the tag still went through and the sales sequence will start. */
+    fetch(
+      `https://api.convertkit.com/v3/sequences/${SEQUENCE_1_ID}/unsubscribe`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          api_secret: KIT_API_SECRET,
+          email,
+        }),
+      }
+    ).catch((err) => console.error("Sequence 1 removal error:", err));
 
     return NextResponse.json({ success: true });
   } catch (err) {

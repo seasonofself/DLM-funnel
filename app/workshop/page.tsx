@@ -49,19 +49,6 @@ function WorkshopPageContent() {
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const taggedRef = useRef(false);
 
-  /* ── Tag subscriber as "webinar watched" on page load ── */
-  useEffect(() => {
-    const email = searchParams.get("e");
-    if (!email || taggedRef.current) return;
-    taggedRef.current = true;
-
-    fetch("/api/kit-tag", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    }).catch((err) => console.error("Tag error:", err));
-  }, [searchParams]);
-
   const openOffer = useCallback((shouldScroll = false) => {
     setShowOffer(true);
 
@@ -85,6 +72,19 @@ function WorkshopPageContent() {
     );
   }, []);
 
+  /* ── Tag subscriber as "webinar watched" after 5 min of video ── */
+  const tagSubscriber = useCallback(() => {
+    const email = searchParams.get("e");
+    if (!email || taggedRef.current) return;
+    taggedRef.current = true;
+
+    fetch("/api/kit-tag", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    }).catch((err) => console.error("Tag error:", err));
+  }, [searchParams]);
+
   /* ── listen for Vimeo Player events via postMessage ── */
   const handleMessage = useCallback((e: MessageEvent) => {
     let data = e.data;
@@ -102,12 +102,19 @@ function WorkshopPageContent() {
       data !== null &&
       "event" in data &&
       data.event === "timeupdate" &&
-      typeof data.data?.seconds === "number" &&
-      data.data.seconds >= 22 * 60
+      typeof data.data?.seconds === "number"
     ) {
-      openOffer();
+      /* Tag as "watched" after 5 minutes of video */
+      if (data.data.seconds >= 5 * 60) {
+        tagSubscriber();
+      }
+
+      /* Show the DLM offer after 22 minutes */
+      if (data.data.seconds >= 22 * 60) {
+        openOffer();
+      }
     }
-  }, [openOffer]);
+  }, [openOffer, tagSubscriber]);
 
   useEffect(() => {
     window.addEventListener("message", handleMessage);
@@ -124,10 +131,22 @@ function WorkshopPageContent() {
     return () => window.clearTimeout(timer);
   }, [subscribeToVimeo]);
 
-  /* ── also allow manual reveal after 22 min on page ── */
+  /* ── also allow manual reveal after 22 min on page ──
+     Uses an interval checking real elapsed time instead of
+     a single setTimeout, so it still fires on mobile even
+     if the browser pauses timers (screen lock, background tab). */
   useEffect(() => {
-    const timer = window.setTimeout(() => openOffer(), 22 * 60 * 1000);
-    return () => clearTimeout(timer);
+    const startTime = Date.now();
+    const REVEAL_MS = 22 * 60 * 1000;
+
+    const id = setInterval(() => {
+      if (Date.now() - startTime >= REVEAL_MS) {
+        openOffer();
+        clearInterval(id);
+      }
+    }, 5000);
+
+    return () => clearInterval(id);
   }, [openOffer]);
 
   return (
@@ -135,23 +154,22 @@ function WorkshopPageContent() {
       {/* ════════════════════════════════════════════════
           ANNOUNCEMENT BAR
          ════════════════════════════════════════════════ */}
-      <div className="fixed top-0 inset-x-0 z-50 bg-fomo-red text-white text-center py-2.5 px-4 text-xs sm:text-sm font-sans flex items-center justify-center gap-3 flex-wrap">
-        <span>
-          ✦ Dream Life Mapping — Founding Member Pricing:{" "}
-          <strong>$497</strong>
-        </span>
-        <a
-          href="/dream-life"
-          className="inline-block bg-white text-fomo-red font-bold px-4 py-1 rounded-full text-xs hover:scale-105 transition-transform"
-        >
-          Learn More →
-        </a>
+      <div className="sticky top-0 inset-x-0 z-50 bg-fomo-red px-4 py-2.5 text-white shadow-sm">
+        <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-2 text-center font-sans text-[11px] sm:flex-row sm:gap-3 sm:text-sm">
+          <span>
+            ✦ Dream Life Mapping — Founding Member Pricing:{" "}
+            <strong>$497</strong>
+          </span>
+          <a
+            href="/dream-life"
+            className="inline-flex min-h-10 items-center justify-center rounded-full bg-white px-4 py-2 text-xs font-bold text-fomo-red hover:scale-105 sm:min-h-0 sm:py-1"
+          >
+            Learn More →
+          </a>
+        </div>
       </div>
 
-      {/* spacer for fixed bar */}
-      <div className="h-8" />
-
-      <div className="pointer-events-none fixed inset-x-4 bottom-4 z-50 sm:inset-x-auto sm:right-6 sm:w-[23rem]">
+      <div className="pointer-events-none fixed bottom-4 left-1/2 z-50 hidden w-[23rem] -translate-x-1/2 sm:block lg:left-auto lg:right-6 lg:translate-x-0">
         <motion.button
           type="button"
           initial={{ opacity: 0, y: 18 }}
@@ -172,6 +190,34 @@ function WorkshopPageContent() {
           </p>
         </motion.button>
       </div>
+
+      <AnimatePresence>
+        {showOffer && (
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 18 }}
+            transition={{ duration: 0.3 }}
+            className="pointer-events-none fixed inset-x-4 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-50 sm:hidden"
+          >
+            <button
+              type="button"
+              onClick={() => openOffer(true)}
+              className="pointer-events-auto flex w-full items-center justify-between rounded-full bg-deep-sage px-5 py-3 text-left text-white shadow-2xl shadow-deep-sage/25"
+            >
+              <span>
+                <span className="block font-sans text-[10px] uppercase tracking-[0.24em] text-white/60">
+                  Offer unlocked
+                </span>
+                <span className="block font-display text-lg leading-tight">
+                  View Dream Life Mapping
+                </span>
+              </span>
+              <span className="ml-4 text-sm font-bold">Open →</span>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ════════════════════════════════════════════════
           HERO
@@ -245,6 +291,25 @@ function WorkshopPageContent() {
               />
             </div>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.55 }}
+            className="mt-4 rounded-2xl border border-ink/5 bg-white/90 p-4 shadow-sm sm:hidden"
+          >
+            <p className="font-sans text-sm leading-relaxed text-ink/65">
+              Watching on your phone? The offer is easy to open below whenever
+              you&rsquo;re ready.
+            </p>
+            <button
+              type="button"
+              onClick={() => openOffer(true)}
+              className="mt-3 min-h-12 w-full rounded-full bg-deep-sage px-5 py-3 text-sm font-bold text-white shadow-lg shadow-deep-sage/20"
+            >
+              View Dream Life Mapping →
+            </button>
+          </motion.div>
         </div>
 
         {/* ── offer panel (reveals below video at ~22 min) ── */}
@@ -257,7 +322,7 @@ function WorkshopPageContent() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 30 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="max-w-2xl mx-auto mt-8 bg-white rounded-2xl shadow-xl border border-ink/5 overflow-hidden"
+              className="mx-auto mt-8 max-w-2xl scroll-mt-24 overflow-hidden rounded-2xl border border-ink/5 bg-white shadow-xl sm:scroll-mt-28"
             >
               {/* countdown header */}
               <div className="bg-fomo-red text-white text-center py-3 px-4">
