@@ -96,14 +96,14 @@ export default function VariantA() {
       <div className="fixed top-0 inset-x-0 z-50 bg-fomo-red text-white text-center py-2 px-3 sm:px-4 text-xs sm:text-sm font-sans">
         <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
           <span className="hidden sm:inline">
-            ✦ Founding Member Pricing: <strong>$497</strong> · Save $500 ·
+            ✦ Founding Member Pricing: <strong>$197</strong> · Save $300 ·
             Pricing available for{" "}
             <span className="font-bold tabular-nums" suppressHydrationWarning>
               {countdown}
             </span>
           </span>
           <span className="sm:hidden flex items-center gap-2">
-            <span>✦ <strong>$497</strong></span>
+            <span>✦ <strong>$197</strong></span>
             <span className="text-white/60">·</span>
             <span className="font-bold tabular-nums" suppressHydrationWarning>
               {countdown}
@@ -189,7 +189,7 @@ export default function VariantA() {
               variants={fadeUp}
               className="mt-3 text-xs text-ink/50 font-sans"
             >
-              $497 USD · Founding member price · Full value $997 · Money-back guarantee
+              $197 USD · Founding member price · Usually $497 · 30-day money-back guarantee
             </motion.p>
           </motion.div>
 
@@ -772,25 +772,19 @@ export default function VariantA() {
                   title: "Dream Life Mapping Course",
                   description:
                     "A complete process to help you get clear on your direction and start building it",
-                  value: "$997",
+                  value: "$797",
                 },
                 {
                   title: "12-Month Community Access",
                   description:
-                    "A space to stay in momentum, ask questions, and be surrounded by people who are also building aligned lives",
+                    "A space to stay in momentum, ask questions, and be surrounded by people who are also building aligned lives — with async support from your guides",
                   value: "$480",
-                },
-                {
-                  title: "Monthly Q&A Calls",
-                  description:
-                    "Direct access to guidance, support, and coaching as you move through your next steps",
-                  value: "$1,200",
                 },
                 {
                   title: "Somatic Toolkit",
                   description:
                     "Practices to help you move through fear, regulate your nervous system, and stay connected to your intuition",
-                  value: "$197",
+                  value: "$97",
                 },
               ].map((item) => (
                 <motion.div
@@ -820,13 +814,13 @@ export default function VariantA() {
                 Value Summary
               </p>
               <p className="font-display text-3xl sm:text-4xl mb-2">
-                Total Value: $2,874
+                Total Value: $1,374
               </p>
               <p className="font-display text-4xl sm:text-5xl mb-2">
-                Today: $497
+                Today: $197
               </p>
               <p className="font-sans text-base sm:text-lg text-white/80">
-                or 3 payments of $177
+                or 3 payments of $77
               </p>
             </motion.div>
 
@@ -846,13 +840,13 @@ export default function VariantA() {
                 href={checkoutUrl}
                 className="inline-block bg-sage text-white font-bold px-8 py-4 rounded-full text-base hover:scale-105 transition-transform shadow-lg shadow-sage/30"
               >
-                Join Now — $497 →
+                Join Now — $197 →
               </a>
               <a
                 href={checkoutUrl}
                 className="inline-block border-2 border-ink text-ink font-bold px-8 py-4 rounded-full text-base hover:bg-ink hover:text-cream transition-colors"
               >
-                Choose 3 Payments of $177 →
+                Choose 3 Payments of $77 →
               </a>
             </motion.div>
           </div>
@@ -909,7 +903,7 @@ export default function VariantA() {
           <div className="space-y-4 font-sans text-ink/70 text-base sm:text-lg leading-relaxed">
             <motion.p variants={fadeUp}>Once you join, you get immediate access to all modules.</motion.p>
             <motion.p variants={fadeUp}>You can move through the course at your own pace and start applying it right away.</motion.p>
-            <motion.p variants={fadeUp}>You&rsquo;ll also get access to the community space for the next 12 months, where we host Q&amp;A calls every month.</motion.p>
+            <motion.p variants={fadeUp}>You&rsquo;ll also get access to the community space for the next 12 months, where you can ask questions any time and get async support from us as your guides.</motion.p>
           </div>
         </motion.div>
       </section>
@@ -988,17 +982,17 @@ export default function VariantA() {
                 Join Dream Life Mapping
               </h3>
               <p className="font-sans text-ink/50 text-sm mb-4 line-through">
-                $997
+                $497
               </p>
-              <p className="font-display text-5xl text-sage mb-1">$497</p>
+              <p className="font-display text-5xl text-sage mb-1">$197</p>
               <p className="font-sans text-sage text-sm font-medium mb-6">
-                USD — Save $500
+                USD — Save $300
               </p>
               <a
                 href={checkoutUrl}
                 className="block text-center bg-sage text-white font-bold py-4 rounded-full hover:scale-105 transition-transform shadow-lg shadow-sage/30"
               >
-                Join Now — $497 →
+                Join Now — $197 →
               </a>
               <p className="text-center text-xs text-ink/40 mt-3">
                 One-time payment · Instant access
@@ -1017,7 +1011,7 @@ export default function VariantA() {
                 3 monthly payments
               </p>
               <p className="font-display text-5xl text-ink mb-1">
-                3 × $177
+                3 × $77
               </p>
               <p className="font-sans text-ink/50 text-sm mb-6">
                 USD
@@ -1026,7 +1020,7 @@ export default function VariantA() {
                 href={checkoutUrl}
                 className="block text-center border-2 border-ink text-ink font-bold py-4 rounded-full hover:bg-ink hover:text-cream transition-colors"
               >
-                Join Now — 3 × $177 →
+                Join Now — 3 × $77 →
               </a>
               <p className="text-center text-xs text-ink/40 mt-3">
                 Same access · Instant start
@@ -1036,7 +1030,7 @@ export default function VariantA() {
 
           {/* trust badges */}
           <motion.div variants={fadeUp} className="text-center font-sans text-sm text-ink/60 mb-4">
-            Founding member price · Full value $997 · You save $500 · Full money-back guarantee
+            Founding member price · Usually $497 · You save $300 · 30-day money-back guarantee
           </motion.div>
           <motion.div variants={fadeUp} className="max-w-md mx-auto space-y-2">
             {valueStack.map((item, i) => (
@@ -1142,10 +1136,10 @@ export default function VariantA() {
               href={checkoutUrl}
               className="inline-block bg-white text-sage font-bold px-12 py-5 rounded-full text-lg hover:scale-105 transition-transform shadow-2xl shadow-black/20"
             >
-              Join Dream Life Mapping — $497 →
+              Join Dream Life Mapping — $197 →
             </a>
             <p className="mt-4 text-white/50 text-sm font-sans">
-              Or 3 × $177 · 30-day money-back guarantee · Instant access
+              Or 3 × $77 · 30-day money-back guarantee · Instant access
             </p>
           </motion.div>
         </motion.div>

@@ -104,7 +104,7 @@ export const faqs = [
   {
     question: "Do I get support during the process?",
     answer:
-      "Yes. You\u2019ll have access to the community for 12 months, plus monthly Q&As where you can ask questions, get guidance, and stay in momentum.",
+      "Yes. You\u2019ll have access to the community for 12 months, where you can ask us questions directly and get async support from your guides as you move through the process \u2014 alongside a community of like-minded women on the same journey.",
   },
   {
     question: "What if I already feel like I know\u2026 I\u2019m just not moving?",
@@ -114,7 +114,7 @@ export const faqs = [
   {
     question: "Do I get 1:1 support?",
     answer:
-      "This isn\u2019t a 1:1 coaching container. You\u2019ll get support inside the Circle community, where you can ask questions and receive guidance, as well as on our monthly calls where we answer submitted questions. You\u2019re supported throughout the process, just not through private one-on-one calls.",
+      "This isn\u2019t a 1:1 coaching container. You\u2019ll get async support from us inside the Circle community for the full 12 months \u2014 you can ask questions and receive guidance whenever you need it. You\u2019re supported throughout the process, just not through private one-on-one calls.",
   },
 ];
 
