@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import Header from "@/components/Header";
 
 /* ─── helpers (same as /dream-life) ──────────────────── */
 const fadeUp = {
@@ -168,6 +169,8 @@ function WorkshopPageContent() {
           </a>
         </div>
       </div>
+
+      <Header sticky={false} />
 
       <div className="pointer-events-none fixed bottom-4 left-1/2 z-50 hidden w-[23rem] -translate-x-1/2 sm:block lg:left-auto lg:right-6 lg:translate-x-0">
         <motion.button

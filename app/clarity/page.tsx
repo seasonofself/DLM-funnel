@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import Header from "@/components/Header";
 
 /* ─── helpers (same as /dream-life) ──────────────────── */
 const marker = (text: string) => (
@@ -107,6 +108,8 @@ export default function ClarityPage() {
           </a>
         </div>
       </div>
+
+      <Header sticky={false} />
 
       {/* ════════════════════════════════════════════════
           HERO

@@ -9,6 +9,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { modules, faqs, valueStack, resonanceCards } from "@/lib/data";
+import Header from "@/components/Header";
 
 /* ─── helpers ──────────────────────────────────────────── */
 const checkoutUrl =
@@ -120,6 +121,8 @@ export default function VariantA() {
 
       {/* spacer for fixed bar */}
       <div className="h-14 sm:h-10" />
+
+      <Header sticky={false} />
 
       {/* ════════════════════════════════════════════════
           2. HERO

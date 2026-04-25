@@ -8,6 +8,7 @@ import SectionDivider from "@/components/ui/SectionDivider";
 import CTAButton from "@/components/ui/CTAButton";
 import Highlight from "@/components/ui/Highlight";
 import PillTag from "@/components/ui/PillTag";
+import Header from "@/components/Header";
 
 /* ─── helpers ──────────────────────────────────────────── */
 const fadeUp = {
@@ -43,49 +44,7 @@ export default function HomePage() {
 
   return (
     <main className="relative overflow-hidden">
-      {/* ════════════════════════════════════════════════
-          NAV
-         ════════════════════════════════════════════════ */}
-      <motion.nav
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        className="fixed top-0 inset-x-0 z-50"
-      >
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-10 py-4 sm:py-5">
-          <a href="/" aria-label="Season of Self — home" className="flex items-center">
-            <Image
-              src="/assets/green_logo.png"
-              alt="Season of Self"
-              width={200}
-              height={200}
-              priority
-              unoptimized
-              className="h-8 sm:h-9 w-auto brightness-[10] drop-shadow-md"
-            />
-          </a>
-          <div className="flex items-center gap-4 sm:gap-6">
-            <a
-              href="/about"
-              className="font-sans text-xs sm:text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors drop-shadow-sm"
-            >
-              About
-            </a>
-            <a
-              href="#gifts"
-              className="font-sans text-xs sm:text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors drop-shadow-sm"
-            >
-              Gifts
-            </a>
-            <a
-              href="/dream-life"
-              className="font-sans text-xs sm:text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors drop-shadow-sm"
-            >
-              Dream Life Mapping →
-            </a>
-          </div>
-        </div>
-      </motion.nav>
+      <Header />
 
       {/* ════════════════════════════════════════════════
           HERO — stacked on mobile, full-bleed overlay on desktop
