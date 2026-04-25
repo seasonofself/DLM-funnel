@@ -150,15 +150,17 @@ export default function VariantA() {
               variants={fadeUp}
               className="mb-3 flex justify-start"
             >
-              <Image
-                src="/assets/green_logo.png"
-                alt="Season of Self"
-                width={400}
-                height={400}
-                priority
-                unoptimized
-                className="h-10 sm:h-12 lg:h-14 w-auto"
-              />
+              <a href="/" aria-label="Season of Self — home" className="inline-block">
+                <Image
+                  src="/assets/green_logo.png"
+                  alt="Season of Self"
+                  width={400}
+                  height={400}
+                  priority
+                  unoptimized
+                  className="h-10 sm:h-12 lg:h-14 w-auto"
+                />
+              </a>
             </motion.div>
             <motion.h1
               variants={fadeUp}

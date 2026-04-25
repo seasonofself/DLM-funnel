@@ -53,7 +53,7 @@ export default function HomePage() {
         className="fixed top-0 inset-x-0 z-50"
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-10 py-4 sm:py-5">
-          <a href="/" className="flex items-center">
+          <a href="/" aria-label="Season of Self — home" className="flex items-center">
             <Image
               src="/assets/green_logo.png"
               alt="Season of Self"
@@ -64,12 +64,26 @@ export default function HomePage() {
               className="h-8 sm:h-9 w-auto brightness-[10] drop-shadow-md"
             />
           </a>
-          <a
-            href="/dream-life"
-            className="font-sans text-xs sm:text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors drop-shadow-sm"
-          >
-            Dream Life Mapping →
-          </a>
+          <div className="flex items-center gap-4 sm:gap-6">
+            <a
+              href="/about"
+              className="font-sans text-xs sm:text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors drop-shadow-sm"
+            >
+              About
+            </a>
+            <a
+              href="#gifts"
+              className="font-sans text-xs sm:text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors drop-shadow-sm"
+            >
+              Gifts
+            </a>
+            <a
+              href="/dream-life"
+              className="font-sans text-xs sm:text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors drop-shadow-sm"
+            >
+              Dream Life Mapping →
+            </a>
+          </div>
         </div>
       </motion.nav>
 
@@ -365,6 +379,81 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════
+          GIFTS — free resources
+         ════════════════════════════════════════════════ */}
+      <section id="gifts" className="bg-offwhite py-24 sm:py-32 lg:py-40 px-6 sm:px-10 scroll-mt-20">
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection className="text-center mb-12 sm:mb-16">
+            <p className="font-sans text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-terracotta mb-5">
+              Free Gifts
+            </p>
+            <h2 className="font-display text-display-xl text-ink mb-6">
+              Start with a <Highlight color="sage">free gift</Highlight> from us
+            </h2>
+            <p className="font-sans text-body-lg text-ink/55 leading-relaxed max-w-2xl mx-auto">
+              Resources we&apos;ve created to help you get clear on your direction and
+              start building a life that feels true to you.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {/* Ikigai Quiz */}
+            <AnimatedSection direction="left">
+              <a
+                href="https://ikigai.seasonofself.co"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block h-full bg-white rounded-2xl shadow-sm hover:shadow-lifted transition-all duration-300 hover:-translate-y-1 border border-ink/5 overflow-hidden"
+              >
+                <div className="p-8 sm:p-10">
+                  <PillTag color="sage" size="md" className="mb-5">
+                    Quiz · 5 min
+                  </PillTag>
+                  <h3 className="font-display text-display-md text-ink mb-4">
+                    Ikigai Quiz
+                  </h3>
+                  <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-6">
+                    Discover the intersection of what you love, what you&apos;re
+                    great at, and what the world needs. A short quiz to help you
+                    reconnect to your most aligned path.
+                  </p>
+                  <span className="inline-flex items-center gap-2 font-sans text-sm font-medium text-sage group-hover:gap-3 transition-all">
+                    Take the quiz <span aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </a>
+            </AnimatedSection>
+
+            {/* Clarity Workshop */}
+            <AnimatedSection direction="right">
+              <a
+                href="/clarity"
+                className="group block h-full bg-white rounded-2xl shadow-sm hover:shadow-lifted transition-all duration-300 hover:-translate-y-1 border border-ink/5 overflow-hidden"
+              >
+                <div className="p-8 sm:p-10">
+                  <PillTag color="terracotta" size="md" className="mb-5">
+                    Workshop · 27 min
+                  </PillTag>
+                  <h3 className="font-display text-display-md text-ink mb-4">
+                    Free Clarity Workshop
+                  </h3>
+                  <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-6">
+                    The 3 secrets to creating a life that actually feels like
+                    yours. A free on-demand workshop with Charlotte &amp; Katja.
+                  </p>
+                  <span className="inline-flex items-center gap-2 font-sans text-sm font-medium text-terracotta group-hover:gap-3 transition-all">
+                    Watch the workshop <span aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </a>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider variant="thick" color="terracotta" />
+
+      {/* ════════════════════════════════════════════════
           START HERE — DREAM LIFE MAPPING
          ════════════════════════════════════════════════ */}
       <section className="bg-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
@@ -605,12 +694,46 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* col 2 — links */}
+            {/* col 2 — explore */}
             <div>
               <p className="font-sans text-xs font-medium tracking-[0.2em] uppercase text-cream/40 mb-4">
-                Connect
+                Explore
               </p>
               <ul className="space-y-3">
+                <li>
+                  <a
+                    href="/about"
+                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                  >
+                    About Us →
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://ikigai.seasonofself.co"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                  >
+                    Ikigai Quiz →
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/clarity"
+                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                  >
+                    Free Workshop →
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/dream-life"
+                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                  >
+                    Dream Life Mapping →
+                  </a>
+                </li>
                 <li>
                   <a
                     href="https://www.instagram.com/seasonofself.co"
@@ -628,15 +751,7 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                     className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
                   >
-                    Substack →
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/dream-life"
-                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
-                  >
-                    Dream Life Mapping →
+                    Season of Self Substack →
                   </a>
                 </li>
               </ul>

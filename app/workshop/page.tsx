@@ -233,14 +233,16 @@ function WorkshopPageContent() {
           className="relative z-10 max-w-3xl mx-auto text-center"
         >
           <motion.div variants={fadeUp} className="mb-4 flex justify-center">
-            <Image
-              src="/assets/green_logo.png"
-              alt="Season of Self"
-              width={96}
-              height={96}
-              priority
-              className="h-10 sm:h-12 w-auto"
-            />
+            <a href="/" aria-label="Season of Self — home" className="inline-block">
+              <Image
+                src="/assets/green_logo.png"
+                alt="Season of Self"
+                width={96}
+                height={96}
+                priority
+                className="h-10 sm:h-12 w-auto"
+              />
+            </a>
           </motion.div>
 
           <motion.p
