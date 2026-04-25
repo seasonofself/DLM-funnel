@@ -10,12 +10,12 @@ import Header from "@/components/Header";
 export const metadata: Metadata = {
   title: "About Us — Charlotte & Katja",
   description:
-    "Two friends from opposite sides of the world: Katja from Germany, Charlotte from Canada. We met in Nicaragua and built Season of Self together to help women bridge the gap between where they are and where they want to be.",
+    "Meet Charlotte and Katja, the founders of Season of Self. A French-Canadian life-purpose coach and a German yoga teacher who met in Nicaragua and built an online education space to help women find their life path, get clarity on their direction, and step into their most aligned life.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Season of Self — Charlotte & Katja",
     description:
-      "Meet Charlotte and Katja, the founders of Season of Self. An online education space for women ready to take the leap toward their wildest dreams.",
+      "Meet Charlotte and Katja, the founders of Season of Self. Guidance for women navigating life-path questions — purpose, direction, and aligned next steps.",
     url: "/about",
     type: "website",
   },
