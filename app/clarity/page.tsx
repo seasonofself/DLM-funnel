@@ -128,19 +128,6 @@ export default function ClarityPage() {
             variants={stagger}
             className="relative z-10"
           >
-            <motion.div variants={fadeUp} className="mb-3 flex justify-start">
-              <a href="/" aria-label="Season of Self — home" className="inline-block">
-                <Image
-                  src="/assets/green_logo.png"
-                  alt="Season of Self"
-                  width={96}
-                  height={96}
-                  priority
-                  className="h-10 sm:h-12 lg:h-14 w-auto"
-                />
-              </a>
-            </motion.div>
-
             <motion.p
               variants={fadeUp}
               className="font-sans text-sage uppercase tracking-widest text-xs mb-4"

@@ -36,7 +36,6 @@ const included = [
   "40-min guided breathwork session",
   "Personal subconscious audio creation",
   "12 months in the Season of Self community",
-  "12 monthly live Q&A calls with Charlotte & Katja",
   "Direct access to both coaches",
   "10% donated to SOMA Surf + Abriendo Mentes",
 ];
@@ -159,7 +158,7 @@ function WorkshopPageContent() {
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-2 text-center font-sans text-[11px] sm:flex-row sm:gap-3 sm:text-sm">
           <span>
             ✦ Dream Life Mapping — Founding Member Pricing:{" "}
-            <strong>$497</strong>
+            <strong>$197</strong>
           </span>
           <a
             href="/dream-life"
@@ -287,7 +286,7 @@ function WorkshopPageContent() {
               <iframe
                 ref={iframeRef}
                 onLoad={subscribeToVimeo}
-                src="https://player.vimeo.com/video/1177071654?badge=0&amp;autopause=0&amp;player_id=season-of-self-workshop&amp;app_id=58479&amp;api=1"
+                src="https://player.vimeo.com/video/1187399930?badge=0&amp;autopause=0&amp;player_id=season-of-self-workshop&amp;app_id=58479&amp;api=1"
                 className="absolute inset-0 w-full h-full"
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -385,13 +384,13 @@ function WorkshopPageContent() {
                 {/* pricing */}
                 <div className="text-center mb-5">
                   <p className="font-sans text-ink/35 text-sm line-through mb-1">
-                    $997
-                  </p>
-                  <p className="font-display text-3xl text-deep-sage font-bold">
                     $497
                   </p>
+                  <p className="font-display text-3xl text-deep-sage font-bold">
+                    $197
+                  </p>
                   <p className="font-sans text-ink/40 text-xs mt-1">
-                    Founding member price · Save $500
+                    Founding member price · Save $300
                   </p>
                 </div>
 
