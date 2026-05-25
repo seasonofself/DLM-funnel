@@ -173,12 +173,16 @@ export default function EricieraRetreatPage() {
               variants={fadeUp}
               className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed max-w-xl"
             >
-              A slow week by the ocean for women who know they want something
-              different and are not sure where to begin. Yoga, meditation,
-              breathwork, hikes, and proper rest. Plus the part we love most:
-              getting honest about the life you want and the first real steps
-              to build it. You will leave knowing where you are headed, with
-              seven women walking it with you.
+              Our signature Dream Life trip. A retreat made for women who
+              feel the pull toward something different and want to actually
+              live it, for a week on the coast of Ericeira, Portugal. Your
+              days hold yoga, breathwork, meditation, ocean hikes, surf, and
+              the spaciousness to finally rest. Alongside it: spirituality
+              and manifestation work, and honest career coaching that turns
+              &ldquo;someday&rdquo; into a real plan. This is more than a
+              getaway, it&rsquo;s a full immersion in a different way of
+              living. You&rsquo;ll head home clear on where you&rsquo;re
+              going, with a sisterhood of seven women walking it beside you.
             </motion.p>
           </motion.div>
 
