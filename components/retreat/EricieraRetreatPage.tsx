@@ -66,8 +66,10 @@ export default function EricieraRetreatPage() {
           HERO — full-bleed drone video, copy on left, no overlay
          ════════════════════════════════════════════════ */}
       <section className="relative bg-ink overflow-hidden min-h-[88vh] lg:min-h-[92vh] flex items-center">
-        {/* Full-bleed drone video — shifted right so faces sit on
-            the right half, away from the text column on the left */}
+        {/* Full-bleed drone video — responsive framing:
+            mobile pulls faces into view (centered, slightly up),
+            desktop pushes the framing to the right so faces sit
+            clear of the text column on the left. */}
         <video
           autoPlay
           loop
@@ -75,8 +77,7 @@ export default function EricieraRetreatPage() {
           playsInline
           preload="metadata"
           aria-hidden="true"
-          style={{ objectPosition: "85% center" }}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-[60%_30%] lg:object-[85%_50%]"
         >
           <source src="/assets/drone-video.mp4" type="video/mp4" />
         </video>
