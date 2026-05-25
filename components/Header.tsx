@@ -13,6 +13,7 @@ const links: HeaderLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/dream-life", label: "Dream Life Mapping" },
+  { href: "/retreats/ericeira", label: "Dream Life Retreats" },
   { href: "https://ikigai.seasonofself.co", label: "Quiz", external: true },
   { href: "/#gifts", label: "Gifts" },
 ];
