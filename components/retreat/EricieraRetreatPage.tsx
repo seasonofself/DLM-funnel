@@ -117,7 +117,7 @@ export default function EricieraRetreatPage() {
               className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[28px] overflow-hidden shadow-[0_40px_80px_-40px_rgba(34,34,34,0.35)]"
             >
               <Image
-                src="/assets/SS_Nosara_11-02-26-242.jpg"
+                src="/assets/vertical_hero.jpg"
                 alt="A small wellness week in Ericeira, Portugal"
                 fill
                 priority
@@ -201,8 +201,8 @@ export default function EricieraRetreatPage() {
           >
             <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[24px] overflow-hidden">
               <Image
-                src="/assets/af7583d10aa3eae4cd078fc584c557e3.jpg"
-                alt="A slow week by the ocean"
+                src="/assets/yoga-shott.jpg"
+                alt="Yoga, meditation, and rest"
                 fill
                 className="object-cover"
               />
@@ -314,7 +314,7 @@ export default function EricieraRetreatPage() {
           >
             <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[24px] overflow-hidden">
               <Image
-                src="/assets/SS_Nosara_11-02-26-221.jpg"
+                src="/assets/ericeira.jpg"
                 alt="Ericeira, Portugal — Atlantic coast"
                 fill
                 className="object-cover"
@@ -469,9 +469,8 @@ export default function EricieraRetreatPage() {
             transition={{ duration: 0.85, delay: 0.1 }}
             className="font-sans text-ink/75 text-base sm:text-lg leading-relaxed mb-10 max-w-2xl"
           >
-            Eight women only, so it will fill fast. The waitlist hears
-            everything first: accommodation, dates, all of it. Adding your
-            name commits you to nothing. It just keeps you first in line.
+            Be the first to know when the retreat is live. We only have 8
+            spots, so spots will fill fast.
           </motion.p>
 
           <motion.div
@@ -536,19 +535,22 @@ export default function EricieraRetreatPage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          FINAL CTA — full bleed dark
+          FINAL CTA — full bleed dark, video atmosphere
          ════════════════════════════════════════════════ */}
       <section className="relative bg-deep-brown text-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10 overflow-hidden">
-        {/* faint background image for atmosphere */}
-        <div className="absolute inset-0 opacity-25">
-          <Image
-            src="/assets/4a71f74567f3bffff2e7bc9b56352850.jpg"
-            alt=""
-            fill
-            className="object-cover object-[50%_40%]"
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-deep-brown via-deep-brown/85 to-deep-brown/60" />
+        {/* background video for atmosphere */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-35"
+        >
+          <source src="/assets/retreat-bg.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-t from-deep-brown via-deep-brown/85 to-deep-brown/55" />
 
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <motion.p
