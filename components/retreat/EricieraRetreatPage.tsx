@@ -63,10 +63,11 @@ export default function EricieraRetreatPage() {
       <Header />
 
       {/* ════════════════════════════════════════════════
-          HERO — full-bleed drone video, copy on left
+          HERO — full-bleed drone video, copy on left, no overlay
          ════════════════════════════════════════════════ */}
       <section className="relative bg-ink overflow-hidden min-h-[88vh] lg:min-h-[92vh] flex items-center">
-        {/* Full-bleed drone video */}
+        {/* Full-bleed drone video — shifted right so faces sit on
+            the right half, away from the text column on the left */}
         <video
           autoPlay
           loop
@@ -74,43 +75,45 @@ export default function EricieraRetreatPage() {
           playsInline
           preload="metadata"
           aria-hidden="true"
+          style={{ objectPosition: "85% center" }}
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/assets/drone-video.mp4" type="video/mp4" />
         </video>
 
-        {/* Scrim — cream wash on mobile (full), cream-to-transparent on desktop
-            so faces on the right stay visible while the left copy reads clean. */}
-        <div className="absolute inset-0 bg-cream/80 lg:bg-gradient-to-r lg:from-cream lg:via-cream/85 lg:via-40% lg:to-transparent lg:to-70%" />
+        {/* Soft left-side darkening only — gives just enough contrast
+            for the cream text. Fully transparent on the right so the
+            video and the two of you stay visible. */}
+        <div className="absolute inset-0 lg:bg-gradient-to-r lg:from-ink/55 lg:via-ink/25 lg:via-35% lg:to-transparent lg:to-60% bg-ink/35" />
 
         <div className="relative z-10 w-full max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-20 py-20 sm:py-24 lg:py-28">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="max-w-2xl lg:max-w-[640px]"
+            className="max-w-2xl lg:max-w-[600px]"
           >
             <motion.p
               variants={fadeUp}
-              className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-deep-sage mb-7"
+              className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-linen mb-7"
             >
-              <span className="inline-block w-8 h-px bg-deep-sage align-middle mr-3" />
+              <span className="inline-block w-8 h-px bg-linen align-middle mr-3" />
               Ericeira, Portugal · October 5–11, 2026
             </motion.p>
 
             <motion.h1
               variants={fadeUp}
-              className="font-display text-[2.4rem] sm:text-[3.2rem] lg:text-[4.2rem] xl:text-[4.8rem] leading-[0.96] text-ink mb-7 tracking-[-0.025em]"
+              className="font-display text-[2.4rem] sm:text-[3.2rem] lg:text-[4.2rem] xl:text-[4.8rem] leading-[0.96] text-cream mb-7 tracking-[-0.025em] [text-shadow:0_2px_18px_rgba(0,0,0,0.35)]"
             >
               You know you want a{" "}
-              <span className="italic text-terracotta-dark">different life</span>.
+              <span className="italic text-linen">different life</span>.
               This is where you{" "}
-              <span className="marker marker--linen">start</span>.
+              <span className="italic">start</span>.
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="font-subtitle italic text-ink/65 text-base sm:text-lg lg:text-xl max-w-xl leading-relaxed mb-9"
+              className="font-subtitle italic text-cream/85 text-base sm:text-lg lg:text-xl max-w-xl leading-relaxed mb-9 [text-shadow:0_1px_10px_rgba(0,0,0,0.4)]"
             >
               A small wellness week in Ericeira, Portugal. Yoga, rest, and
               honest work on what you actually want, with seven other women
@@ -119,6 +122,7 @@ export default function EricieraRetreatPage() {
 
             <motion.div variants={fadeUp}>
               <WaitlistForm
+                variant="dark"
                 microline="8 spots only · The waitlist hears everything first"
               />
             </motion.div>
