@@ -945,58 +945,72 @@ export default function VariantA() {
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">
-            <motion.div
+            <motion.a
+              href="https://www.somasurf.org/"
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.85 }}
-              className="bg-white rounded-[24px] overflow-hidden"
+              className="group block bg-white rounded-[24px] overflow-hidden hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
             >
-              <div className="relative aspect-[16/10]">
+              <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
                   src="/assets/somasurf.jpg"
                   alt="SOMA Surf"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               </div>
               <div className="p-7 sm:p-8">
                 <h3 className="font-display text-2xl text-ink mb-3">
                   SOMA Surf · S&atilde;o Tom&eacute;, Africa
                 </h3>
-                <p className="font-sans text-ink/70 leading-relaxed text-[15px]">
+                <p className="font-sans text-ink/70 leading-relaxed text-[15px] mb-5">
                   A surf therapy program for girls and women, using the ocean
                   and movement to build confidence, resilience, and a sense of
                   self that no classroom can teach.
                 </p>
+                <span className="inline-flex items-center gap-2 font-sans text-[11px] font-semibold tracking-[0.28em] uppercase text-terracotta-dark">
+                  Visit somasurf.org
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+                </span>
               </div>
-            </motion.div>
+            </motion.a>
 
-            <motion.div
+            <motion.a
+              href="https://abriendomentes.org/"
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.85, delay: 0.1 }}
-              className="bg-white rounded-[24px] overflow-hidden"
+              className="group block bg-white rounded-[24px] overflow-hidden hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
             >
-              <div className="relative aspect-[16/10]">
+              <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
                   src="/assets/abriendomendes.png"
                   alt="Abriendo Mentes"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               </div>
               <div className="p-7 sm:p-8">
                 <h3 className="font-display text-2xl text-ink mb-3">
                   Abriendo Mentes · Costa Rica
                 </h3>
-                <p className="font-sans text-ink/70 leading-relaxed text-[15px]">
+                <p className="font-sans text-ink/70 leading-relaxed text-[15px] mb-5">
                   A local nonprofit providing education, technology, and
                   opportunities for young people in rural communities.
                 </p>
+                <span className="inline-flex items-center gap-2 font-sans text-[11px] font-semibold tracking-[0.28em] uppercase text-terracotta-dark">
+                  Visit abriendomentes.org
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+                </span>
               </div>
-            </motion.div>
+            </motion.a>
           </div>
         </div>
       </section>

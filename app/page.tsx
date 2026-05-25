@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Marquee from "@/components/ui/Marquee";
+import SectionMarquee from "@/components/ui/SectionMarquee";
 import Header from "@/components/Header";
 
 /* ─── helpers ──────────────────────────────────────────── */
@@ -90,11 +91,12 @@ export default function HomePage() {
 
             <motion.h1
               variants={fadeUp}
-              className="font-display text-[3rem] sm:text-[3.6rem] lg:text-[5rem] xl:text-[6rem] leading-[0.94] text-ink mb-8 tracking-[-0.01em]"
+              className="font-display text-[3rem] sm:text-[3.6rem] lg:text-[5rem] xl:text-[6rem] leading-[0.94] text-ink mb-8 tracking-[-0.025em]"
             >
               Build a{" "}
               <span className="italic text-terracotta-dark">soft life</span>{" "}
-              around work you{" "}
+              around{" "}
+              <span className="marker marker--linen">work</span> you{" "}
               <span className="italic">love</span>.
             </motion.h1>
 
@@ -336,7 +338,7 @@ export default function HomePage() {
               className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink mb-9"
             >
               Creating your dream life takes a{" "}
-              <span className="italic">season</span>.
+              <span className="italic marker marker--sage">season</span>.
             </motion.h2>
 
             <motion.div
@@ -386,54 +388,70 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          WHAT WE FOCUS ON — cream w/ editorial list
+          WHAT WE FOCUS ON — editorial pill-badge list
+          with running-head marquee & mono body copy
          ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 sm:mb-20">
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.7 }}
-              className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-6"
-            >
-              What we focus on
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.05 }}
-              className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink max-w-3xl mx-auto"
-            >
-              Clarity, alignment,{" "}
-              <span className="italic">and action</span>.
-            </motion.h2>
-          </div>
+      <section className="bg-cream pt-20 sm:pt-28 lg:pt-32 pb-24 sm:pb-32 lg:pb-40 px-0 sm:px-0">
+        {/* Big editorial running-head marquee */}
+        <SectionMarquee
+          text="What we focus on"
+          separator="✦"
+          speed={90}
+          italic={false}
+          textClassName="text-ink"
+          className="mb-16 sm:mb-24 lg:mb-28"
+        />
 
+        <div className="max-w-5xl mx-auto px-6 sm:px-10">
           <div className="max-w-3xl mx-auto">
-            {whatWeFocus.map((text, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: i * 0.06 }}
-              >
-                <div className="flex items-baseline gap-6 sm:gap-8 py-6 sm:py-7">
-                  <span className="font-display italic text-deep-sage text-2xl sm:text-3xl shrink-0 w-10 sm:w-12">
-                    0{i + 1}
-                  </span>
-                  <p className="font-display text-ink text-xl sm:text-2xl lg:text-[1.65rem] leading-snug">
-                    {text}
-                  </p>
-                </div>
-                {i < whatWeFocus.length - 1 && (
-                  <div className="border-t border-ink/12" aria-hidden="true" />
-                )}
-              </motion.div>
-            ))}
+            {whatWeFocus.map((text, i) => {
+              const pillColors = [
+                "bg-terracotta text-cream",
+                "bg-deep-sage text-cream",
+                "bg-ink text-cream",
+                "bg-terracotta-dark text-cream",
+                "bg-sage text-cream",
+              ];
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.6, delay: i * 0.06 }}
+                >
+                  <div className="grid grid-cols-12 gap-4 sm:gap-6 py-8 sm:py-10 items-start">
+                    {/* Pill-badge number */}
+                    <div className="col-span-2 sm:col-span-1 pt-1">
+                      <span
+                        className={`inline-flex items-center justify-center w-12 h-7 sm:w-14 sm:h-8 rounded-full font-mono text-[11px] sm:text-xs font-medium tracking-[0.1em] ${pillColors[i % pillColors.length]}`}
+                      >
+                        0{i + 1}
+                      </span>
+                    </div>
+
+                    {/* Serif headline */}
+                    <h3 className="col-span-10 sm:col-span-7 font-display text-ink text-[1.75rem] sm:text-[2rem] lg:text-[2.4rem] leading-[1.1] tracking-[-0.02em]">
+                      {text}
+                    </h3>
+
+                    {/* Mono body — only visible on desktop, gives editorial credit-line feel */}
+                    <p className="hidden sm:block sm:col-span-4 font-mono text-[12px] leading-[1.7] text-ink/55 pt-3">
+                      {[
+                        "Past the noise of \"shoulds\". What you actually want — not what's expected.",
+                        "The specific work only you can do. Where talent meets fascination meets fit.",
+                        "The patterns that keep you spinning. Why action stalls and clarity slips.",
+                        "Movement that lasts beyond motivation. Aligned with how you actually live.",
+                        "Work woven into a life that holds you — not the other way around.",
+                      ][i]}
+                    </p>
+                  </div>
+                  {i < whatWeFocus.length - 1 && (
+                    <div className="border-t border-ink/15" aria-hidden="true" />
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -805,6 +823,19 @@ export default function HomePage() {
             </p>
           </motion.div>
         </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════
+          EDITORIAL CLOSING STATEMENT — big serif marquee
+         ════════════════════════════════════════════════ */}
+      <section className="bg-cream py-20 sm:py-28 lg:py-32 overflow-hidden">
+        <SectionMarquee
+          text="A soft life, on purpose"
+          separator="✦"
+          speed={95}
+          italic={true}
+          textClassName="text-ink"
+        />
       </section>
 
       {/* ════════════════════════════════════════════════

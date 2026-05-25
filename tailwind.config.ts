@@ -28,9 +28,10 @@ const config: Config = {
         "fomo-red": "#c0392b",
       },
       fontFamily: {
-        display: ["var(--font-display)", "Playfair Display", "Georgia", "serif"],
-        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
-        subtitle: ["var(--font-subtitle)", "Source Sans 3", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Fraunces", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "DM Sans", "system-ui", "sans-serif"],
+        subtitle: ["var(--font-subtitle)", "Fraunces", "Georgia", "serif"],
+        mono: ["var(--font-mono)", "JetBrains Mono", "ui-monospace", "monospace"],
       },
       fontSize: {
         "display-mega": ["clamp(4rem, 10vw, 9rem)", { lineHeight: "0.92", fontWeight: "700" }],

@@ -3,18 +3,20 @@
 @tailwind utilities;
 
 /* ─────────────────────────────────────────
-   FONTS
-   Display: Playfair Display (similar to Safira March — elegant serif)
-   Body:    Inter (similar to Neue Montreal — clean geometric sans)
-   Subtitle: Source Sans 3 (italic subtitles)
+   FONTS — Editorial system
+   Display:  Fraunces (variable serif w/ opsz + SOFT axes — gives
+             headlines real character at large sizes, gentleness in italics)
+   Body:     DM Sans (variable, clean geometric — Neue Montreal feel)
+   Mono:     JetBrains Mono (editorial metadata labels)
 ───────────────────────────────────────── */
 
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap");
 
 :root {
-  --font-display: "Playfair Display", Georgia, serif;
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-subtitle: "Source Sans 3", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-subtitle: "Fraunces", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 html {
@@ -29,16 +31,69 @@ body {
   background-color: #f6f4ef;
   color: #222222;
   overflow-x: hidden;
+  font-feature-settings: "ss01", "cv11", "kern";
+  font-variation-settings: "opsz" 14;
 }
 
-/* ── Display font helper ── */
+/* ── Display font helper — Fraunces tuned for editorial display ──
+   opsz 144 = largest optical size (most contrast, most personality)
+   SOFT 50  = medium-soft letterforms (warm without being twee)
+─────────────────────────────────────────────────────────────────── */
 .font-display {
   font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  letter-spacing: -0.02em;
+  font-feature-settings: "ss01", "kern", "liga";
+}
+
+/* When italic is applied to .font-display, push SOFT higher
+   so italic moments feel even softer & more romantic */
+.font-display em,
+.font-display i,
+.font-display .italic,
+em.font-display,
+i.font-display,
+.italic.font-display {
+  font-variation-settings: "opsz" 144, "SOFT" 100;
 }
 
 .font-subtitle {
   font-family: var(--font-subtitle);
   font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  letter-spacing: -0.01em;
+}
+
+/* ── Editorial mono label — small tracked metadata captions ──
+   Use for eyebrows, section numbers, dateline, footer credits.
+   Pair with text-[10px]/text-[11px] + tracking + uppercase.
+─────────────────────────────────────────────────────────── */
+.font-mono-label {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-feature-settings: "ss01", "kern";
+}
+
+/* Auto-promote tight-tracked uppercase labels to mono —
+   any element with .uppercase + tracking ≥ 0.2em reads as
+   editorial metadata, so swap to JetBrains Mono automatically.
+   Higher specificity than .font-sans so no !important needed. */
+.uppercase[class*="tracking-[0.2"],
+.uppercase[class*="tracking-[0.3"],
+.uppercase[class*="tracking-[0.4"] {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-feature-settings: "ss01", "kern";
+}
+
+/* Tighten weight for any bolder-than-medium mono labels —
+   JetBrains Mono semibold gets visually heavy fast. */
+.uppercase.font-semibold[class*="tracking-[0.2"],
+.uppercase.font-semibold[class*="tracking-[0.3"],
+.uppercase.font-semibold[class*="tracking-[0.4"] {
+  font-weight: 500;
 }
 
 /* ── Gradient text utility ── */
@@ -63,7 +118,30 @@ body {
   background-clip: text;
 }
 
-/* ── Marker highlight ── */
+/* ── Marker highlight — pill-shaped block of color behind a word.
+   Editorial magazine style. Sits BEHIND the text. ── */
+.marker {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.25em;
+  isolation: isolate;
+}
+.marker::before {
+  content: "";
+  position: absolute;
+  inset: 0.05em -0.1em 0.05em -0.1em;
+  background: var(--marker-color, rgba(215, 207, 172, 0.85));
+  z-index: -1;
+  border-radius: 0.15em;
+  transform: skew(-6deg) rotate(-1deg);
+}
+.marker--linen { --marker-color: #e8dfba; }
+.marker--terracotta { --marker-color: #e7c9a8; }
+.marker--sage { --marker-color: #c8d2b3; }
+.marker--blue { --marker-color: #c8d4e0; }
+.marker--cream { --marker-color: #ede9e0; }
+
+/* Legacy underline-style highlights kept for backward compat */
 .highlight-blue {
   background: linear-gradient(to top, rgba(156, 174, 193, 0.3) 40%, transparent 40%);
 }
