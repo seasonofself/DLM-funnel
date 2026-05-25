@@ -535,10 +535,10 @@ export default function EricieraRetreatPage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          FINAL CTA — full bleed dark, video atmosphere
+          FINAL CTA — full bleed video background
          ════════════════════════════════════════════════ */}
-      <section className="relative bg-deep-brown text-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10 overflow-hidden">
-        {/* background video for atmosphere */}
+      <section className="relative bg-ink text-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10 overflow-hidden">
+        {/* full-strength background video */}
         <video
           autoPlay
           loop
@@ -546,11 +546,12 @@ export default function EricieraRetreatPage() {
           playsInline
           preload="metadata"
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover opacity-35"
+          className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/assets/retreat-bg.mp4" type="video/mp4" />
+          <source src="/assets/drone-video.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-t from-deep-brown via-deep-brown/85 to-deep-brown/55" />
+        {/* minimal scrim so the copy stays legible */}
+        <div className="absolute inset-0 bg-ink/35" />
 
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <motion.p
