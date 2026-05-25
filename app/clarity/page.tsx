@@ -87,13 +87,6 @@ export default function ClarityPage() {
           HERO — editorial split
          ════════════════════════════════════════════════ */}
       <section className="relative bg-cream pt-10 sm:pt-12 lg:pt-14 pb-16 sm:pb-20 lg:pb-28 overflow-hidden">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-6 sm:-top-10 left-1/2 -translate-x-1/2 font-display italic text-[14rem] sm:text-[22rem] lg:text-[28rem] xl:text-[34rem] leading-none text-ink/[0.035] select-none whitespace-nowrap"
-        >
-          clarity
-        </div>
-
         <div className="relative max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-20 grid lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-24 items-center">
           <motion.div
             initial="hidden"

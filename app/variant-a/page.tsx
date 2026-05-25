@@ -78,13 +78,6 @@ export default function VariantA() {
           2. HERO — editorial split, no copy on faces
          ════════════════════════════════════════════════ */}
       <section className="relative bg-cream pt-10 sm:pt-12 lg:pt-14 pb-16 sm:pb-20 lg:pb-28 overflow-hidden">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-6 sm:-top-10 left-1/2 -translate-x-1/2 font-display italic text-[14rem] sm:text-[22rem] lg:text-[28rem] xl:text-[34rem] leading-none text-ink/[0.035] select-none whitespace-nowrap"
-        >
-          mapping
-        </div>
-
         <div className="hidden lg:flex absolute left-6 xl:left-10 top-1/2 -translate-y-1/2 z-20 items-center gap-4 [writing-mode:vertical-rl] rotate-180">
           <span className="font-sans text-[10px] font-semibold tracking-[0.42em] uppercase text-ink/40">
             Dream Life Mapping · Cohort 01
