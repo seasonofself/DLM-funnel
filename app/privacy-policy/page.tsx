@@ -1,7 +1,7 @@
 import LegalPage from "../../components/LegalPage";
 
 export const metadata = {
-  title: "Privacy Policy — Season of Self",
+  title: "Privacy Policy · Season of Self",
 };
 
 export default function PrivacyPolicyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
         platform and services. We collect information you provide directly, such
         as your name, email address, and any other information you submit
         through our platform. When you make a purchase or enroll in courses, we
-        collect payment information through third-party payment processors—we do
+        collect payment information through third-party payment processors. We do
         not store your complete credit card details.
       </p>
       <p className="mb-4">

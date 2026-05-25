@@ -1,21 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import AnimatedSection from "@/components/ui/AnimatedSection";
-import SectionDivider from "@/components/ui/SectionDivider";
-import Highlight from "@/components/ui/Highlight";
-import PillTag from "@/components/ui/PillTag";
-import CTAButton from "@/components/ui/CTAButton";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "About Us — Charlotte & Katja",
+  title: "About Us · Charlotte & Katja",
   description:
     "Meet Charlotte and Katja, the founders of Season of Self. A French-Canadian life-purpose coach and a German yoga teacher who met in Nicaragua and built an online education space to help women find their life path, get clarity on their direction, and step into their most aligned life.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Season of Self — Charlotte & Katja",
+    title: "About Season of Self · Charlotte & Katja",
     description:
-      "Meet Charlotte and Katja, the founders of Season of Self. Guidance for women navigating life-path questions — purpose, direction, and aligned next steps.",
+      "Meet Charlotte and Katja, the founders of Season of Self. Guidance for women navigating life-path questions: purpose, direction, and aligned next steps.",
     url: "/about",
     type: "website",
   },
@@ -27,113 +22,100 @@ export default function AboutPage() {
       <Header />
 
       {/* ════════════════════════════════════════════════
-          HERO
+          HERO — editorial split
          ════════════════════════════════════════════════ */}
-      <section className="relative h-[70svh] min-h-[480px] overflow-hidden">
-        <Image
-          src="/assets/founders_smiling.jpg"
-          alt="Charlotte and Katja, founders of Season of Self"
-          fill
-          className="object-cover object-[50%_30%]"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-ink/30" />
-        <div className="relative z-10 h-full flex flex-col justify-end items-center text-center max-w-4xl mx-auto px-6 sm:px-10 pb-16 sm:pb-20">
-          <p className="font-sans text-xs font-medium tracking-[0.3em] uppercase text-white/60 mb-4">
-            About Us
-          </p>
-          <h1 className="mb-5 font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.95] text-white">
-            Two friends, one <span className="italic text-terracotta">mission</span>
-          </h1>
-          <p className="font-subtitle italic text-white/70 text-base sm:text-lg max-w-xl leading-relaxed">
-            Two friends from opposite sides of the world who met in a tiny surf town and
-            built Season of Self together.
-          </p>
+      <section className="relative bg-cream pt-10 sm:pt-12 lg:pt-16 pb-16 sm:pb-20 lg:pb-28 overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-6 sm:-top-10 left-1/2 -translate-x-1/2 font-display italic text-[14rem] sm:text-[22rem] lg:text-[28rem] xl:text-[34rem] leading-none text-ink/[0.035] select-none whitespace-nowrap"
+        >
+          us
         </div>
-      </section>
 
-      <SectionDivider variant="thick" color="sage" />
-
-      {/* ════════════════════════════════════════════════
-          OUR STORY
-         ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-24 sm:py-32 px-6 sm:px-10">
-        <div className="max-w-3xl mx-auto">
-          <AnimatedSection>
-            <p className="font-sans text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-terracotta mb-5">
-              Our story
+        <div className="relative max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-20 grid lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-24 items-center">
+          <div className="lg:col-span-7 order-2 lg:order-1 relative z-10">
+            <p className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-7">
+              <span className="inline-block w-8 h-px bg-deep-sage align-middle mr-3" />
+              About Us
             </p>
-            <h2 className="font-display text-display-lg text-ink mb-10">
-              How <Highlight color="sage">Season of Self</Highlight> was born
-            </h2>
-          </AnimatedSection>
 
-          <div className="space-y-6 font-sans text-body-lg text-ink/65 leading-relaxed">
-            <AnimatedSection delay={0.05}>
-              <p>
-                We&apos;re two friends from opposite sides of the world. Katja
-                is from Germany. Charlotte is from Canada. We met in Nicaragua
-                — in Popoyo, a tiny surf town — and the universe brought us
-                together. Instant best friends.
-              </p>
-            </AnimatedSection>
+            <h1 className="font-display text-[3rem] sm:text-[3.6rem] lg:text-[5rem] xl:text-[5.8rem] leading-[0.94] text-ink mb-8 tracking-[-0.01em]">
+              Two friends, one{" "}
+              <span className="italic text-terracotta-dark">mission</span>.
+            </h1>
 
-            <AnimatedSection delay={0.1}>
-              <p>
-                We bonded over surfing, over a shared love of living slowly,
-                and over a desire we both kept circling back to: building a
-                life with real freedom. The kind where you get to choose where
-                you live, how you spend your days, and what you say yes to.
-                Where the work is meaningful and the schedule is yours.
-              </p>
-            </AnimatedSection>
+            <p className="font-subtitle italic text-ink/60 text-base sm:text-lg lg:text-xl max-w-xl leading-relaxed">
+              Two friends from opposite sides of the world who met in a tiny
+              surf town and built Season of Self together.
+            </p>
+          </div>
 
-            <AnimatedSection delay={0.15}>
-              <p>
-                For a couple of years, we stayed close across continents. And
-                the more we talked about our respective work, the more we
-                noticed how much our missions overlapped — almost like we&apos;d
-                been building toward the same thing from two different corners
-                of the planet.
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <p>
-                So we decided to build it together. Katja flew to Costa Rica,
-                where Charlotte lives, and Season of Self was born.
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.25}>
-              <p>
-                It&apos;s an online education space designed to help women
-                bridge the gap between where they are and where they want to
-                be. We&apos;re here to encourage you to take the leap toward
-                your wildest dreams, support you on your highest timeline, and
-                remind you that the life you want is closer than you think.
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.3}>
-              <p className="font-display italic text-2xl sm:text-3xl text-ink/80 pt-4">
-                This work is really about one thing: uplifting you into your
-                own potential.
-              </p>
-            </AnimatedSection>
+          <div className="lg:col-span-5 order-1 lg:order-2 relative">
+            <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[28px] overflow-hidden shadow-[0_40px_80px_-40px_rgba(34,34,34,0.35)]">
+              <Image
+                src="/assets/season_couch.jpg"
+                alt="Charlotte and Katja"
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <SectionDivider variant="thick" color="terracotta" />
+      {/* ════════════════════════════════════════════════
+          OUR STORY
+         ════════════════════════════════════════════════ */}
+      <section className="bg-[#dde2d2] py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
+        <div className="max-w-3xl mx-auto">
+          <p className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-6">
+            Our story
+          </p>
+          <h2 className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink mb-12">
+            How Season of Self was{" "}
+            <span className="italic">born</span>.
+          </h2>
+
+          <div className="space-y-6 font-sans text-ink/70 text-base sm:text-[17px] leading-relaxed">
+            <p>
+              We&apos;re two friends from opposite sides of the world. Katja is
+              from Germany. Charlotte is from Canada. We met in Nicaragua, in
+              Popoyo, a tiny surf town, and the universe brought us together.
+              Instant best friends.
+            </p>
+            <p>
+              We bonded over surfing, over a shared love of living slowly, and
+              over a desire we both kept circling back to: building a life with
+              real freedom. The kind where you get to choose where you live,
+              how you spend your days, and what you say yes to. Where the work
+              is meaningful and the schedule is yours.
+            </p>
+            <p>
+              For a couple of years, we stayed close across continents. And the
+              more we talked about our respective work, the more we noticed how
+              much our missions overlapped. Almost like we&apos;d been building
+              toward the same thing from two different corners of the planet.
+            </p>
+            <p>
+              So we decided to build it together. Katja flew to Costa Rica,
+              where Charlotte lives, and Season of Self was born.
+            </p>
+            <p className="font-display italic text-2xl sm:text-3xl text-ink/85 pt-4 leading-snug">
+              This work is really about one thing: uplifting you into your own
+              potential.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* ════════════════════════════════════════════════
           MEET CHARLOTTE
          ════════════════════════════════════════════════ */}
-      <section className="bg-offwhite py-24 sm:py-32 px-6 sm:px-10">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <AnimatedSection direction="left" className="lg:col-span-5">
-            <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-2xl overflow-hidden shadow-lifted">
+      <section className="bg-cream py-24 sm:py-32 px-6 sm:px-10">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div className="lg:col-span-5">
+            <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-[24px] overflow-hidden shadow-[0_40px_80px_-40px_rgba(34,34,34,0.3)]">
               <Image
                 src="/assets/charlotte_founderheadshot.jpg"
                 alt="Charlotte, co-founder of Season of Self"
@@ -141,38 +123,28 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
-          </AnimatedSection>
+          </div>
 
           <div className="lg:col-span-7">
-            <AnimatedSection>
-              <PillTag color="terracotta" size="md" className="mb-5">
-                Meet Charlotte
-              </PillTag>
-            </AnimatedSection>
+            <p className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-terracotta-dark mb-6">
+              Meet Charlotte
+            </p>
+            <h2 className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink mb-8">
+              Hi, I&apos;m <span className="italic">Charlotte</span>
+            </h2>
 
-            <AnimatedSection delay={0.05}>
-              <h2 className="font-display text-display-lg text-ink mb-6">
-                Hi, I&apos;m <span className="italic">Charlotte</span>
-              </h2>
-            </AnimatedSection>
-
-            <div className="space-y-5 font-sans text-body-lg text-ink/65 leading-relaxed">
-              <AnimatedSection delay={0.1}>
-                <p>
-                  I&apos;m french Canadian, currently based in Costa Rica, and
-                  I built my first brand, Suntouched, while traveling the world
-                  — growing it to over 100,000 customers along the way. I&apos;m
-                  a certified life purpose coach, deep into mindset work, and
-                  transcendental meditation.
-                </p>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.15}>
-                <p>
-                  My work is about helping people bridge the gap between where
-                  they are and where they wanna be.
-                </p>
-              </AnimatedSection>
+            <div className="space-y-5 font-sans text-ink/70 text-base sm:text-[17px] leading-relaxed">
+              <p>
+                I&apos;m french Canadian, currently based in Costa Rica, and I
+                built my first brand, Suntouched, while traveling the world,
+                growing it to over 100,000 customers along the way. I&apos;m a
+                certified life purpose coach, deep into mindset work, and
+                transcendental meditation.
+              </p>
+              <p>
+                My work is about helping people bridge the gap between where
+                they are and where they wanna be.
+              </p>
             </div>
           </div>
         </div>
@@ -181,44 +153,33 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════════
           MEET KATJA
          ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-24 sm:py-32 px-6 sm:px-10">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <div className="lg:col-span-7 lg:order-1 order-2">
-            <AnimatedSection>
-              <PillTag color="sage" size="md" className="mb-5">
-                Meet Katja
-              </PillTag>
-            </AnimatedSection>
+      <section className="bg-cream pb-24 sm:pb-32 px-6 sm:px-10">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div className="lg:col-span-7 order-2 lg:order-1">
+            <p className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-6">
+              Meet Katja
+            </p>
+            <h2 className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink mb-8">
+              Hi, I&apos;m <span className="italic">Katja</span>
+            </h2>
 
-            <AnimatedSection delay={0.05}>
-              <h2 className="font-display text-display-lg text-ink mb-6">
-                Hi, I&apos;m <span className="italic">Katja</span>
-              </h2>
-            </AnimatedSection>
-
-            <div className="space-y-5 font-sans text-body-lg text-ink/65 leading-relaxed">
-              <AnimatedSection delay={0.1}>
-                <p>
-                  I&apos;m German, a yoga teacher, and most of my work lives
-                  at the intersection of the body and the mind. I&apos;m big
-                  into mindset, somatic practice, and helping women reconnect
-                  to themselves through breath, movement, and stillness.
-                </p>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.15}>
-                <p>
-                  I came to this work because I needed it myself, and what I
-                  know for sure is that you can&apos;t think your way into a
-                  different life. At some point you have to feel your way
-                  there.
-                </p>
-              </AnimatedSection>
+            <div className="space-y-5 font-sans text-ink/70 text-base sm:text-[17px] leading-relaxed">
+              <p>
+                I&apos;m German, a yoga teacher, and most of my work lives at
+                the intersection of the body and the mind. I&apos;m big into
+                mindset, somatic practice, and helping women reconnect to
+                themselves through breath, movement, and stillness.
+              </p>
+              <p>
+                I came to this work because I needed it myself, and what I know
+                for sure is that you can&apos;t think your way into a different
+                life. At some point you have to feel your way there.
+              </p>
             </div>
           </div>
 
-          <AnimatedSection direction="right" className="lg:col-span-5 lg:order-2 order-1">
-            <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-2xl overflow-hidden shadow-lifted">
+          <div className="lg:col-span-5 order-1 lg:order-2">
+            <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-[24px] overflow-hidden shadow-[0_40px_80px_-40px_rgba(34,34,34,0.3)]">
               <Image
                 src="/assets/katja_hero.jpeg"
                 alt="Katja, co-founder of Season of Self"
@@ -226,32 +187,17 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════
-          BOTH SIDES
-         ════════════════════════════════════════════════ */}
-      <section className="bg-sage py-20 sm:py-28 px-6 sm:px-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <AnimatedSection>
-            <p className="font-display italic text-2xl sm:text-3xl lg:text-4xl text-white leading-relaxed">
-              Together, we hold both sides of the work. The strategy and the
-              somatics. The doing and the being. The dream and the woman
-              who&apos;s already becoming her.
-            </p>
-          </AnimatedSection>
+          </div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════
           GIVING BACK
          ════════════════════════════════════════════════ */}
-      <section className="bg-offwhite py-24 sm:py-32 px-6 sm:px-10">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <AnimatedSection direction="left" className="lg:col-span-5">
-            <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-2xl overflow-hidden shadow-lifted">
+      <section className="bg-cream py-24 sm:py-32 px-6 sm:px-10">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div className="lg:col-span-5">
+            <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[24px] overflow-hidden shadow-[0_40px_80px_-40px_rgba(34,34,34,0.3)]">
               <Image
                 src="/assets/founders_vibing.jpg"
                 alt="Charlotte and Katja in Costa Rica"
@@ -259,51 +205,41 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
-          </AnimatedSection>
+          </div>
 
           <div className="lg:col-span-7">
-            <AnimatedSection>
-              <PillTag color="sage" size="md" className="mb-5">
-                Giving back
-              </PillTag>
-            </AnimatedSection>
+            <p className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-6">
+              Giving back
+            </p>
+            <h2 className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink mb-8">
+              10% of every purchase goes to{" "}
+              <span className="italic text-terracotta-dark">education</span>.
+            </h2>
 
-            <AnimatedSection delay={0.05}>
-              <h2 className="font-display text-display-lg text-ink mb-6">
-                10% of every purchase goes to{" "}
-                <Highlight color="terracotta">education</Highlight>
-              </h2>
-            </AnimatedSection>
-
-            <div className="space-y-5 font-sans text-body-lg text-ink/65 leading-relaxed">
-              <AnimatedSection delay={0.1}>
-                <p>
-                  A huge part of this work, for us, is being able to give back.
-                  We both really care about education, and 10% of every Season
-                  of Self purchase goes to two organizations doing meaningful
-                  work in our local Costa Rican community:
-                </p>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.15}>
-                <ul className="space-y-3 pl-1">
-                  <li className="flex items-start gap-3">
-                    <span className="text-terracotta mt-2 flex-shrink-0">✦</span>
-                    <span>
-                      <strong className="text-ink/80">SOMA Surf</strong> — a
-                      surf therapy program for girls and women.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-terracotta mt-2 flex-shrink-0">✦</span>
-                    <span>
-                      <strong className="text-ink/80">Abriendo Mentes</strong>{" "}
-                      — education and opportunities for young people in rural
-                      communities.
-                    </span>
-                  </li>
-                </ul>
-              </AnimatedSection>
+            <div className="space-y-5 font-sans text-ink/70 text-base sm:text-[17px] leading-relaxed">
+              <p>
+                A huge part of this work, for us, is being able to give back.
+                We both really care about education, and 10% of every Season of
+                Self purchase goes to two organizations doing meaningful work
+                in our local Costa Rican community:
+              </p>
+              <ul className="space-y-3 pl-1">
+                <li className="flex items-start gap-3">
+                  <span className="text-terracotta mt-2 flex-shrink-0">✦</span>
+                  <span>
+                    <strong className="text-ink/85">SOMA Surf</strong>, a surf
+                    therapy program for girls and women.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-terracotta mt-2 flex-shrink-0">✦</span>
+                  <span>
+                    <strong className="text-ink/85">Abriendo Mentes</strong>,
+                    education and opportunities for young people in rural
+                    communities.
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -312,41 +248,41 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════════
           SIGN OFF + CTA
          ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-24 sm:py-32 px-6 sm:px-10">
+      <section className="bg-[#dde2d2] py-24 sm:py-32 px-6 sm:px-10">
         <div className="max-w-3xl mx-auto text-center">
-          <AnimatedSection>
-            <p className="font-display italic text-2xl sm:text-3xl text-ink/70 mb-12">
-              With love, from the jungle —{" "}
-              <span className="text-terracotta">Charlotte &amp; Katja</span>
-            </p>
-          </AnimatedSection>
+          <p className="font-display italic text-2xl sm:text-3xl text-ink/75 mb-14 leading-snug">
+            With love, from the jungle.{" "}
+            <span className="text-terracotta-dark not-italic font-semibold">
+              Charlotte &amp; Katja
+            </span>
+          </p>
 
-          <AnimatedSection delay={0.1}>
-            <h2 className="font-display text-display-md text-ink mb-6">
-              Ready to start your <span className="italic">Season of Self</span>?
-            </h2>
-            <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-10">
-              Take a free gift to start, or step into Dream Life Mapping when
-              you&apos;re ready.
-            </p>
-          </AnimatedSection>
+          <h2 className="font-display text-[2.2rem] sm:text-4xl lg:text-[3rem] leading-[1.05] text-ink mb-7">
+            Ready to start your{" "}
+            <span className="italic">Season of Self</span>?
+          </h2>
+          <p className="font-sans text-ink/65 text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+            Take a free gift to start, or step into Dream Life Mapping when
+            you&apos;re ready.
+          </p>
 
-          <AnimatedSection delay={0.15}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <CTAButton href="/#gifts" variant="ink" size="lg">
-                Free Gifts →
-              </CTAButton>
-              <CTAButton href="/dream-life" variant="terracotta" size="lg">
-                Dream Life Mapping →
-              </CTAButton>
-            </div>
-          </AnimatedSection>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href="/#gifts"
+              className="inline-flex items-center gap-3 border border-ink text-ink font-sans font-medium text-[11px] tracking-[0.32em] uppercase px-8 py-[18px] rounded-full hover:bg-ink hover:text-cream transition-colors"
+            >
+              Free Gifts →
+            </a>
+            <a
+              href="/dream-life"
+              className="inline-flex items-center gap-3 bg-ink text-cream font-sans font-medium text-[11px] tracking-[0.32em] uppercase px-8 py-[18px] rounded-full hover:bg-deep-sage transition-colors"
+            >
+              Dream Life Mapping →
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════
-          FOOTER (mini)
-         ════════════════════════════════════════════════ */}
       <footer className="bg-ink py-10 px-6">
         <div className="max-w-3xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <a

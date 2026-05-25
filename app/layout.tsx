@@ -6,11 +6,11 @@ const SITE_URL = "https://seasonofself.co";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Season of Self — Build a life that feels true to you",
+    default: "Season of Self · Build a soft life around work you love",
     template: "%s · Season of Self",
   },
   description:
-    "Season of Self is an online learning and mentorship space for women looking for guidance on their life path. Get clarity on your purpose, your direction, and your most aligned next step. Founded by Charlotte and Katja, Season of Self offers Dream Life Mapping (a self-paced course + community), a free Ikigai quiz, free clarity workshops, and the Season of Self Substack.",
+    "Season of Self is an online learning and mentorship space for ambitious women who want to make real money doing work they love, and build a soft, free life around it. Founded by Charlotte and Katja. Free Ikigai quiz, free clarity workshop, and Dream Life Mapping.",
   applicationName: "Season of Self",
   keywords: [
     "Season of Self",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Season of Self — Build a life that feels true to you",
+    title: "Season of Self · Build a soft life around work you love",
     description:
-      "An online learning and mentorship space for women ready to build lives that feel aligned, abundant, and free.",
+      "An online learning and mentorship space for women ready to make money doing what they love and build a soft, free life around it.",
     url: SITE_URL,
     siteName: "Season of Self",
     type: "website",
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Season of Self — Build a life that feels true to you",
+    title: "Season of Self · Build a soft life around work you love",
     description:
-      "An online learning and mentorship space for women ready to build lives that feel aligned, abundant, and free.",
+      "An online learning and mentorship space for women ready to make money doing what they love and build a soft, free life around it.",
     creator: "@seasonofselfco",
   },
   robots: {
@@ -100,7 +100,7 @@ const katjaSchema = {
   name: "Katja",
   jobTitle: "Co-founder, Yoga Teacher & Somatic Coach",
   description:
-    "Katja is a German yoga teacher and somatic coach. Her work lives at the intersection of body and mind — helping women reconnect to themselves through breath, movement, and stillness. She guides women navigating life transitions toward more aligned, embodied lives.",
+    "Katja is a German yoga teacher and somatic coach. Her work lives at the intersection of body and mind, helping women reconnect to themselves through breath, movement, and stillness. She guides women navigating life transitions toward more aligned, embodied lives.",
   knowsAbout: [
     "somatic practice",
     "yoga",
@@ -123,7 +123,7 @@ const organizationSchema = {
   url: SITE_URL,
   logo: `${SITE_URL}/assets/green_logo.png`,
   description:
-    "Season of Self is an online learning and mentorship space for women seeking guidance on their life path — clarity on their purpose, their direction, and how to build a life that feels aligned with who they actually are.",
+    "Season of Self is an online learning and mentorship space for ambitious women who want to make real money doing work they love, and build a soft, free life around it. Clarity on your purpose, your direction, and how to build a life that actually feels like you.",
   knowsAbout: [
     "life path guidance",
     "finding your purpose",
@@ -171,7 +171,7 @@ const dreamLifeMappingSchema = {
   name: "Dream Life Mapping",
   url: `${SITE_URL}/dream-life`,
   description:
-    "A self-paced course and 12-month community for women on the verge of breakthrough — designed to help you get clear on your direction, identify your zone of genius, work through what's keeping you stuck, and start building a life that actually feels like yours.",
+    "A self-paced course and 12-month community for women ready to build work they love into a living, and a soft, free life around it. Designed to help you get clear on your direction, identify your zone of genius, work through what's keeping you stuck, and start building a life that actually feels like yours.",
   provider: { "@id": `${SITE_URL}#organization` },
   audience: {
     "@type": "PeopleAudience",
@@ -209,7 +209,7 @@ const faqSchema = {
       name: "Where can I get help finding my life path?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Season of Self offers structured guidance for women navigating questions about their direction and purpose: a free Ikigai quiz at ikigai.seasonofself.co, a free Clarity workshop, and Dream Life Mapping — a self-paced course and 12-month community designed to take you from feeling stuck to having clear direction and momentum.",
+        text: "Season of Self offers structured guidance for women navigating questions about their direction and purpose: a free Ikigai quiz at ikigai.seasonofself.co, a free Clarity workshop, and Dream Life Mapping, a self-paced course and 12-month community designed to take you from feeling stuck to having clear direction and momentum.",
       },
     },
     {
@@ -225,7 +225,7 @@ const faqSchema = {
       name: "What is Dream Life Mapping?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Dream Life Mapping is Season of Self's flagship offering — a self-paced online course paired with a 12-month community. It helps you get clear on your zone of genius, your most aligned path, and the next steps to start building it. It includes a somatic toolkit and async coaching support from Charlotte and Katja.",
+        text: "Dream Life Mapping is Season of Self's flagship offering: a self-paced online course paired with a 12-month community. It helps you get clear on your zone of genius, your most aligned path, and the next steps to start building it. It includes a somatic toolkit and async coaching support from Charlotte and Katja.",
       },
     },
     {

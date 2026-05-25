@@ -157,7 +157,7 @@ function WorkshopPageContent() {
       <div className="sticky top-0 inset-x-0 z-50 bg-fomo-red px-4 py-2.5 text-white shadow-sm">
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-2 text-center font-sans text-[11px] sm:flex-row sm:gap-3 sm:text-sm">
           <span>
-            ✦ Dream Life Mapping — Founding Member Pricing:{" "}
+            ✦ Dream Life Mapping · Founding Member Pricing:{" "}
             <strong>$197</strong>
           </span>
           <a
@@ -235,7 +235,7 @@ function WorkshopPageContent() {
           className="relative z-10 max-w-3xl mx-auto text-center"
         >
           <motion.div variants={fadeUp} className="mb-4 flex justify-center">
-            <a href="/" aria-label="Season of Self — home" className="inline-block">
+            <a href="/" aria-label="Season of Self, home" className="inline-block">
               <Image
                 src="/assets/green_logo.png"
                 alt="Season of Self"
@@ -291,7 +291,7 @@ function WorkshopPageContent() {
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
-                title="Free Workshop — Season of Self"
+                title="Free Workshop · Season of Self"
               />
             </div>
           </motion.div>
@@ -331,7 +331,7 @@ function WorkshopPageContent() {
               {/* countdown header */}
               <div className="bg-fomo-red text-white text-center py-3 px-4">
                 <p className="font-sans text-xs uppercase tracking-wider mb-0.5">
-                  Founding Member Price — Limited Time
+                  Founding Member Price · Limited Time
                 </p>
                 <p
                   className="font-bold text-lg tabular-nums"

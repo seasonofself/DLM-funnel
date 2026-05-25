@@ -2,39 +2,43 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import AnimatedSection from "@/components/ui/AnimatedSection";
-import SectionDivider from "@/components/ui/SectionDivider";
-import CTAButton from "@/components/ui/CTAButton";
-import Highlight from "@/components/ui/Highlight";
-import PillTag from "@/components/ui/PillTag";
+import { motion } from "framer-motion";
+import Marquee from "@/components/ui/Marquee";
 import Header from "@/components/Header";
 
 /* ─── helpers ──────────────────────────────────────────── */
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
 };
 
 const stagger = {
-  visible: { transition: { staggerChildren: 0.14, delayChildren: 0.3 } },
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
 };
 
+const QUIZ_URL = "https://ikigai.seasonofself.co";
+
 const whatWeFocus = [
-  { icon: "◎", text: "Helping you get clear on what you actually want" },
-  { icon: "◈", text: "Helping you identify your zone of genius and most aligned path" },
-  { icon: "△", text: "Helping you move through fear, resistance, and overthinking" },
-  { icon: "→", text: "Helping you take action that feels aligned and sustainable" },
-  { icon: "✦", text: "Helping you build a life and work that reflects who you are" },
+  "Get crystal clear on what you actually want, past all the “shoulds”",
+  "Find your zone of genius and the path only you could walk",
+  "Move through the fear, resistance, and overthinking that keep you circling",
+  "Take action that feels aligned and stays sustainable",
+  "Build work you love into a life that supports you, softly and fully",
+];
+
+const marqueeWords = [
+  "Build a soft life",
+  "Make money doing what you love",
+  "Slow mornings",
+  "Work that feels like you",
+  "Aligned, soft, free",
+  "Live on purpose",
 ];
 
 /* ─── main component ──────────────────────────────────── */
 export default function HomePage() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
-
-  const { scrollYProgress } = useScroll();
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,293 +47,390 @@ export default function HomePage() {
   };
 
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative overflow-hidden bg-cream">
       <Header />
 
       {/* ════════════════════════════════════════════════
-          HERO — stacked on mobile, full-bleed overlay on desktop
+          HERO — editorial split. Photo lives as its own
+          clean card on the right; copy breathes on the left.
+          No overlay on faces. One soft cohesive background.
          ════════════════════════════════════════════════ */}
-
-      {/* ── MOBILE hero (palm trees bg with white text overlay) ── */}
-      <section className="sm:hidden relative overflow-hidden">
-        <Image
-          src="/assets/homepage_header.jpg"
-          alt=""
-          fill
-          className="object-cover object-[50%_15%]"
-          priority
-        />
-        {/* overlay for readability */}
-        <div className="absolute inset-0 bg-ink/40" />
-
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={stagger}
-          className="relative z-10 px-6 pt-20 pb-12"
+      <section className="relative bg-cream pt-10 sm:pt-12 lg:pt-14 pb-16 sm:pb-20 lg:pb-28 overflow-hidden">
+        {/* Decorative oversized italic word in background — subtle wash */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-6 sm:-top-10 left-1/2 -translate-x-1/2 font-display italic text-[14rem] sm:text-[22rem] lg:text-[28rem] xl:text-[34rem] leading-none text-ink/[0.035] select-none whitespace-nowrap"
         >
-          <motion.p
-            variants={fadeUp}
-            className="font-sans text-[10px] font-medium tracking-[0.3em] uppercase text-white/60 mb-4"
-          >
-            Season of Self
-          </motion.p>
+          season
+        </div>
 
-          <motion.h1
-            variants={fadeUp}
-            className="mb-4 font-display text-[2.5rem] leading-[0.9] text-white"
-          >
-            Build a life that feels
-            <br />
-            <span className="italic text-terracotta">true to you</span>
-          </motion.h1>
+        {/* Vertical eyebrow on left edge — editorial detail */}
+        <div className="hidden lg:flex absolute left-6 xl:left-10 top-1/2 -translate-y-1/2 z-20 items-center gap-4 [writing-mode:vertical-rl] rotate-180">
+          <span className="font-sans text-[10px] font-semibold tracking-[0.42em] uppercase text-ink/40">
+            Season of Self · Est. 2026
+          </span>
+          <span className="h-12 w-px bg-ink/25" />
+        </div>
 
-          <motion.p
-            variants={fadeUp}
-            className="font-subtitle italic text-white/70 text-[15px] leading-relaxed mb-7"
-          >
-            An online learning and mentorship space for women ready to step into
-            their full potential and create lives that feel aligned, abundant, and free.
-          </motion.p>
-
-          <motion.div variants={fadeUp}>
-            <a
-              href="/dream-life"
-              className="inline-flex items-center gap-2 font-display font-semibold text-base bg-white text-ink px-7 py-3.5 rounded-full whitespace-nowrap hover:scale-[1.02] transition-transform"
-            >
-              Explore Dream Life Mapping <span>→</span>
-            </a>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* ── DESKTOP hero (full-bleed, shorter) ── */}
-      <section className="relative hidden sm:block h-[75svh] min-h-[500px] overflow-hidden">
-        <Image
-          src="/assets/homepage_header.jpg"
-          alt="Charlotte and Katja with surfboards"
-          fill
-          className="object-cover object-[50%_35%]"
-          priority
-        />
-
-        {/* gradient — strong at bottom-center for text, transparent at top/sides for faces */}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent" />
-
-        {/* content centered at bottom — between the two people */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={stagger}
-          style={{ opacity: heroOpacity }}
-          className="relative z-10 h-full flex flex-col justify-end items-center text-center max-w-5xl mx-auto px-10 pb-20 lg:pb-24"
-        >
-          <motion.p
-            variants={fadeUp}
-            className="font-sans text-xs font-medium tracking-[0.3em] uppercase text-white/50 mb-4"
-          >
-            Season of Self
-          </motion.p>
-
-          <motion.h1
-            variants={fadeUp}
-            className="mb-5 font-display text-5xl leading-[0.92] text-white lg:text-6xl xl:text-7xl"
-          >
-            Build a life that feels
-            <br />
-            <span className="italic text-terracotta">true to you</span>
-          </motion.h1>
-
-          <motion.p
-            variants={fadeUp}
-            className="font-subtitle italic text-white/50 text-base lg:text-lg max-w-lg mb-8 leading-relaxed"
-          >
-            An online learning and mentorship space for women ready to step into
-            their full potential and create lives that feel aligned, abundant, and free.
-          </motion.p>
-
-          <motion.div variants={fadeUp}>
-            <CTAButton href="/dream-life" variant="white" size="md">
-              Explore Dream Life Mapping →
-            </CTAButton>
-          </motion.div>
-        </motion.div>
-
-        {/* scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.8, duration: 0.8 }}
-          style={{ opacity: heroOpacity }}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
-        >
+        <div className="relative max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-20 grid lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-24 items-center">
+          {/* LEFT — copy */}
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center pt-1.5"
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+            className="lg:col-span-7 order-2 lg:order-1 relative z-10"
           >
-            <div className="w-1 h-1.5 rounded-full bg-white/40" />
+            <motion.p
+              variants={fadeUp}
+              className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-7"
+            >
+              <span className="inline-block w-8 h-px bg-deep-sage align-middle mr-3" />
+              Season of Self
+            </motion.p>
+
+            <motion.h1
+              variants={fadeUp}
+              className="font-display text-[3rem] sm:text-[3.6rem] lg:text-[5rem] xl:text-[6rem] leading-[0.94] text-ink mb-8 tracking-[-0.01em]"
+            >
+              Build a{" "}
+              <span className="italic text-terracotta-dark">soft life</span>{" "}
+              around work you{" "}
+              <span className="italic">love</span>.
+            </motion.h1>
+
+            <motion.p
+              variants={fadeUp}
+              className="font-subtitle italic text-ink/60 text-base sm:text-lg lg:text-xl max-w-xl leading-relaxed mb-10"
+            >
+              A learning and mentorship space for ambitious women who want to
+              make real money doing something they love, and build a soft, free
+              life around it.
+            </motion.p>
+
+            <motion.div
+              variants={fadeUp}
+              className="flex flex-wrap items-center gap-5 sm:gap-6 mb-12"
+            >
+              <a
+                href={QUIZ_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 bg-ink text-cream font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-8 sm:px-9 py-[18px] rounded-full hover:bg-deep-sage transition-colors"
+              >
+                Take the free quiz
+                <span
+                  aria-hidden="true"
+                  className="transition-transform group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </a>
+              <a
+                href="/dream-life"
+                className="font-sans text-sm text-ink/70 hover:text-ink underline decoration-ink/30 underline-offset-4 hover:decoration-ink/70 transition-colors"
+              >
+                Or explore Dream Life Mapping
+              </a>
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp}
+              className="flex items-start gap-4 max-w-lg"
+            >
+              <div className="flex -space-x-3 shrink-0">
+                <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-cream">
+                  <Image
+                    src="/assets/charlotte_founderheadshot.jpg"
+                    alt="Charlotte"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-cream">
+                  <Image
+                    src="/assets/katja_hero.jpeg"
+                    alt="Katja"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              <p className="font-sans text-[13px] leading-relaxed text-ink/60">
+                Created by Charlotte &amp; Katja. Charlotte built a{" "}
+                <strong className="text-ink font-semibold">
+                  multi-million-dollar brand
+                </strong>{" "}
+                serving 100,000+ customers in 50+ countries.
+              </p>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </section>
 
-      <SectionDivider variant="thick" color="sage" />
+          {/* RIGHT — single clean photo */}
+          <div className="lg:col-span-5 order-1 lg:order-2 relative">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[28px] overflow-hidden shadow-[0_40px_80px_-40px_rgba(34,34,34,0.35)]"
+            >
+              <Image
+                src="/assets/founders_couch_posed.jpg"
+                alt="Charlotte and Katja"
+                fill
+                priority
+                className="object-cover"
+              />
+            </motion.div>
 
-      {/* ════════════════════════════════════════════════
-          A SPECIFIC MOMENT
-         ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
-        <div className="max-w-3xl mx-auto">
-          <AnimatedSection>
-            <h2 className="font-display text-display-lg text-ink mb-8">
-              Season of Self is a space for a very{" "}
-              <Highlight color="terracotta">specific moment</Highlight> in your
-              life.
-            </h2>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.1}>
-            <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-6">
-              The moment where you stop living on autopilot and start asking:
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.15}>
-            <div className="space-y-4 mb-10 pl-4 border-l-2 border-terracotta/30">
-              {["What do I actually want?", "What am I here to build?", "What does my most aligned life look like?"].map(
-                (q, i) => (
-                  <motion.p
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.6, delay: 0.1 * i, ease: [0.22, 1, 0.36, 1] }}
-                    className="font-display italic text-xl sm:text-2xl text-ink/70"
-                  >
-                    {q}
-                  </motion.p>
-                )
-              )}
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.2}>
-            <p className="font-sans text-body-lg text-ink/55 leading-relaxed">
-              It&apos;s where you reconnect to your intuition, your desires, and your
-              natural way of moving through the world, and begin creating from
-              that place.
-            </p>
-          </AnimatedSection>
+            {/* Floating tag — top right */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.8 }}
+              className="absolute -top-3 -right-2 sm:-top-4 sm:-right-6 bg-white rounded-full shadow-[0_12px_30px_-12px_rgba(34,34,34,0.3)] px-4 py-2.5 flex items-center gap-2.5"
+            >
+              <span className="inline-block h-2 w-2 rounded-full bg-sage" />
+              <span className="font-sans text-[10px] font-semibold tracking-[0.22em] uppercase text-ink/70">
+                Now open · Founding cohort
+              </span>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      <SectionDivider variant="thick" color="terracotta" />
+      {/* ════════════════════════════════════════════════
+          MARQUEE — sage stripe with brand mantra
+         ════════════════════════════════════════════════ */}
+      <section className="bg-sage py-6 sm:py-7">
+        <Marquee items={marqueeWords} textClassName="text-cream" speed={55} />
+      </section>
 
       {/* ════════════════════════════════════════════════
-          WHY "SEASON OF SELF"
+          INTRO — centered italic serif + editorial collage
          ════════════════════════════════════════════════ */}
-      <section className="bg-offwhite py-24 sm:py-32 lg:py-40 px-6 sm:px-10 overflow-hidden">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* copy */}
-          <div className="lg:col-span-7">
-            <AnimatedSection>
-              <p className="font-sans text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-terracotta mb-5">
-                Why &ldquo;Season of Self&rdquo;
-              </p>
-            </AnimatedSection>
+      <section className="bg-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center font-display text-[2.2rem] sm:text-5xl lg:text-[3.6rem] leading-[1.08] text-ink mb-16 sm:mb-20 max-w-4xl mx-auto"
+          >
+            We help <span className="italic">ambitious women</span> build a
+            life of <span className="italic">freedom</span> around work they
+            love.
+          </motion.h2>
 
-            <AnimatedSection delay={0.05}>
-              <h2 className="font-display text-display-xl text-ink mb-8">
-                Creating your dream life requires a{" "}
-                <Highlight color="linen">season</Highlight>.
-              </h2>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.1}>
-              <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-6">
-                A devoted chapter where you turn inward and get clear on who you
-                are, what you want, and the kind of life you&apos;re here to build.
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.15}>
-              <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-6">
-                A season of reconnecting with your gifts, your desires, your
-                intuition. A season of tuning out the noise, grounding into your
-                vision, and showing up for the future you&apos;re creating.
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-6">
-                It&apos;s both a relationship with yourself (your truth, your
-                expansion, your potential) and with something greater. A sense
-                that life is supporting you when you move in alignment.
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.25}>
-              <p className="font-sans text-body-lg text-ink/70 leading-relaxed font-medium mb-2">
-                Season of Self represents that commitment.
-              </p>
-              <div className="flex flex-wrap gap-x-6 gap-y-1 font-display text-lg sm:text-xl text-ink/50 italic">
-                <span>To clarity.</span>
-                <span>To alignment.</span>
-                <span>To intentional creation.</span>
+          {/* Editorial collage row */}
+          <div className="grid grid-cols-12 gap-3 sm:gap-5 items-start mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="col-span-3 lg:col-span-2 mt-12 sm:mt-20"
+            >
+              <div className="relative aspect-[3/4] w-full rounded-[16px] overflow-hidden">
+                <Image
+                  src="/assets/surfing_palms.jpg"
+                  alt=""
+                  fill
+                  className="object-cover"
+                />
               </div>
-            </AnimatedSection>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, delay: 0.05 }}
+              className="col-span-6 lg:col-span-5"
+            >
+              <div className="relative aspect-[4/5] w-full rounded-[20px] overflow-hidden">
+                <Image
+                  src="/assets/nosara_car.jpg"
+                  alt="Charlotte and Katja"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="col-span-3 lg:col-span-2 mt-8 sm:mt-16"
+            >
+              <div className="relative aspect-square w-full rounded-[14px] overflow-hidden">
+                <Image
+                  src="/assets/SS_Nosara_11-02-26-242.jpg"
+                  alt=""
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.9, delay: 0.2 }}
+              className="hidden lg:block lg:col-span-3 mt-32"
+            >
+              <div className="relative aspect-[3/4] w-full rounded-[16px] overflow-hidden">
+                <Image
+                  src="/assets/founders_smiling_porch.jpg"
+                  alt=""
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </motion.div>
           </div>
 
-          {/* image */}
-          <AnimatedSection direction="right" className="lg:col-span-5">
-            <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:max-w-none rounded-2xl overflow-hidden shadow-lifted">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.8 }}
+            className="max-w-2xl mx-auto text-center"
+          >
+            <p className="font-sans text-ink/65 text-base sm:text-lg leading-relaxed mb-5">
+              The moment you stop living on autopilot and start asking the
+              questions you have been too busy to face.
+            </p>
+            <p className="font-display italic text-ink/80 text-xl sm:text-2xl leading-snug">
+              What do I actually want? What am I here to build? What would my
+              life look like if I designed it on purpose?
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════
+          WHY "SEASON OF SELF" — light sage band
+         ════════════════════════════════════════════════ */}
+      <section className="bg-[#dde2d2] py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div className="lg:col-span-7">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7 }}
+              className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-6"
+            >
+              Why “Season of Self”
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, delay: 0.05 }}
+              className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink mb-9"
+            >
+              Creating your dream life takes a{" "}
+              <span className="italic">season</span>.
+            </motion.h2>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, delay: 0.1 }}
+              className="space-y-5 font-sans text-ink/70 text-base sm:text-lg leading-relaxed max-w-xl"
+            >
+              <p>
+                We say that, and we mean it literally. The kind of life we are
+                talking about, a soft life where you make real money doing
+                something you love, grows over a real chapter of time.
+              </p>
+              <p>
+                A season where you slow down, turn inward, and get honest with
+                yourself about who you are and what you actually want to build.
+              </p>
+              <p>
+                You quiet the noise, you get clear on where you are headed, and
+                you show up for the life you are creating.
+              </p>
+              <p className="font-display italic text-ink/85 text-xl sm:text-2xl pt-2 leading-snug">
+                Season of Self is you choosing, on purpose, to give yourself
+                that season.
+              </p>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.9, delay: 0.1 }}
+            className="lg:col-span-5"
+          >
+            <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-[24px] overflow-hidden">
               <Image
-                src="/assets/founders_smiling.jpg"
+                src="/assets/season_doorway.jpg"
                 alt="Charlotte and Katja"
                 fill
                 className="object-cover"
               />
             </div>
-          </AnimatedSection>
+          </motion.div>
         </div>
       </section>
 
-      <SectionDivider variant="thick" color="sage" />
-
       {/* ════════════════════════════════════════════════
-          WHAT WE FOCUS ON
+          WHAT WE FOCUS ON — cream w/ editorial list
          ════════════════════════════════════════════════ */}
-      <section className="bg-sage py-16 sm:py-20 lg:py-24 px-6 sm:px-10">
-        <div className="max-w-4xl mx-auto">
-          <AnimatedSection>
-            <p className="font-sans text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-white/50 mb-4">
+      <section className="bg-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16 sm:mb-20">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7 }}
+              className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-6"
+            >
               What we focus on
-            </p>
-            <h2 className="font-display text-display-xl text-white mb-8 sm:mb-10">
-              Clarity, alignment, and{" "}
-              <span className="italic text-linen">action</span>.
-            </h2>
-          </AnimatedSection>
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, delay: 0.05 }}
+              className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink max-w-3xl mx-auto"
+            >
+              Clarity, alignment,{" "}
+              <span className="italic">and action</span>.
+            </motion.h2>
+          </div>
 
-          <div className="space-y-0">
-            {whatWeFocus.map((item, i) => (
+          <div className="max-w-3xl mx-auto">
+            {whatWeFocus.map((text, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.45, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.6, delay: i * 0.06 }}
               >
-                <div className="flex items-baseline gap-4 py-4 sm:py-5">
-                  <span className="font-display text-lg text-linen/60 shrink-0">
-                    {item.icon}
+                <div className="flex items-baseline gap-6 sm:gap-8 py-6 sm:py-7">
+                  <span className="font-display italic text-deep-sage text-2xl sm:text-3xl shrink-0 w-10 sm:w-12">
+                    0{i + 1}
                   </span>
-                  <p className="font-sans text-body-lg text-white leading-relaxed">
-                    {item.text}
+                  <p className="font-display text-ink text-xl sm:text-2xl lg:text-[1.65rem] leading-snug">
+                    {text}
                   </p>
                 </div>
                 {i < whatWeFocus.length - 1 && (
-                  <div className="border-t border-white/15" aria-hidden="true" />
+                  <div className="border-t border-ink/12" aria-hidden="true" />
                 )}
               </motion.div>
             ))}
@@ -338,228 +439,321 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          GIFTS — free resources
+          GIFTS — "START Your JOURNEY" inspo style
          ════════════════════════════════════════════════ */}
-      <section id="gifts" className="bg-offwhite py-24 sm:py-32 lg:py-40 px-6 sm:px-10 scroll-mt-20">
-        <div className="max-w-6xl mx-auto">
-          <AnimatedSection className="text-center mb-12 sm:mb-16">
-            <p className="font-sans text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-terracotta mb-5">
+      <section
+        id="gifts"
+        className="relative bg-[#cdd8e1] py-24 sm:py-32 lg:py-40 px-6 sm:px-10 scroll-mt-20 overflow-hidden"
+      >
+        <div className="relative max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-4"
+          >
+            <p className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-ink/55">
               Free Gifts
             </p>
-            <h2 className="font-display text-display-xl text-ink mb-6">
-              Start with a <Highlight color="sage">free gift</Highlight> from us
-            </h2>
-            <p className="font-sans text-body-lg text-ink/55 leading-relaxed max-w-2xl mx-auto">
-              Resources we&apos;ve created to help you get clear on your direction and
-              start building a life that feels true to you.
-            </p>
-          </AnimatedSection>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {/* Ikigai Quiz */}
-            <AnimatedSection direction="left">
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.85, delay: 0.05 }}
+            className="text-center font-display text-[2.6rem] sm:text-[3.4rem] lg:text-[5rem] leading-[0.98] text-ink mb-3"
+          >
+            START <span className="italic">Your</span> JOURNEY
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-center font-subtitle italic text-ink/65 text-base sm:text-lg max-w-2xl mx-auto mb-16 sm:mb-20"
+          >
+            “I know I’m meant to do something I love. I just don’t know what.”
+            If that lives rent-free in your head, start here.
+          </motion.p>
+
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+            {/* PRIMARY — Ikigai Quiz */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
               <a
-                href="https://ikigai.seasonofself.co"
+                href={QUIZ_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block h-full bg-white rounded-2xl shadow-sm hover:shadow-lifted transition-all duration-300 hover:-translate-y-1 border border-ink/5 overflow-hidden"
+                className="group block h-full bg-white rounded-[28px] p-8 sm:p-10 lg:p-12 hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
               >
-                <div className="p-8 sm:p-10">
-                  <PillTag color="sage" size="md" className="mb-5">
-                    Quiz · 5 min
-                  </PillTag>
-                  <h3 className="font-display text-display-md text-ink mb-4">
-                    Ikigai Quiz
-                  </h3>
-                  <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-6">
-                    Discover the intersection of what you love, what you&apos;re
-                    great at, and what the world needs. A short quiz to help you
-                    reconnect to your most aligned path.
-                  </p>
-                  <span className="inline-flex items-center gap-2 font-sans text-sm font-medium text-sage group-hover:gap-3 transition-all">
-                    Take the quiz <span aria-hidden="true">→</span>
-                  </span>
-                </div>
+                <p className="font-sans text-[10px] font-semibold tracking-[0.32em] uppercase text-deep-sage mb-5">
+                  Quiz · 10 minutes
+                </p>
+                <h3 className="font-display text-[1.8rem] sm:text-[2.2rem] lg:text-[2.6rem] leading-[1.05] text-ink mb-5">
+                  Find the work that is{" "}
+                  <span className="italic">actually yours</span>
+                </h3>
+                <p className="font-sans text-ink/65 text-base sm:text-lg leading-relaxed mb-10 max-w-md">
+                  Our free Ikigai quiz helps you find the meeting point of
+                  what you love, what you’re great at, what the world needs,
+                  and what you can build a living around.
+                </p>
+                <span className="inline-flex items-center gap-3 border border-ink/85 rounded-full px-6 sm:px-7 py-3 sm:py-[14px] font-sans font-medium text-[11px] tracking-[0.32em] uppercase text-ink group-hover:bg-ink group-hover:text-cream transition-colors">
+                  Take the free quiz
+                  <span aria-hidden="true">→</span>
+                </span>
+                <p className="mt-4 font-sans text-xs text-ink/45">
+                  No email required to start.
+                </p>
               </a>
-            </AnimatedSection>
+            </motion.div>
 
-            {/* Clarity Workshop */}
-            <AnimatedSection direction="right">
+            {/* SECONDARY — Workshop */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, delay: 0.18 }}
+            >
               <a
                 href="/clarity"
-                className="group block h-full bg-white rounded-2xl shadow-sm hover:shadow-lifted transition-all duration-300 hover:-translate-y-1 border border-ink/5 overflow-hidden"
+                className="group block h-full bg-white rounded-[28px] p-8 sm:p-10 lg:p-12 hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
               >
-                <div className="p-8 sm:p-10">
-                  <PillTag color="terracotta" size="md" className="mb-5">
-                    Workshop · 27 min
-                  </PillTag>
-                  <h3 className="font-display text-display-md text-ink mb-4">
-                    Free Clarity Workshop
-                  </h3>
-                  <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-6">
-                    The 3 secrets to creating a life that actually feels like
-                    yours. A free on-demand workshop with Charlotte &amp; Katja.
-                  </p>
-                  <span className="inline-flex items-center gap-2 font-sans text-sm font-medium text-terracotta group-hover:gap-3 transition-all">
-                    Watch the workshop <span aria-hidden="true">→</span>
-                  </span>
-                </div>
+                <p className="font-sans text-[10px] font-semibold tracking-[0.32em] uppercase text-terracotta-dark mb-5">
+                  Workshop · 27 minutes
+                </p>
+                <h3 className="font-display text-[1.8rem] sm:text-[2.2rem] lg:text-[2.6rem] leading-[1.05] text-ink mb-5">
+                  Prefer to go{" "}
+                  <span className="italic">deeper</span> first?
+                </h3>
+                <p className="font-sans text-ink/65 text-base sm:text-lg leading-relaxed mb-10 max-w-md">
+                  Watch our free 27-minute workshop on the 3 secrets to
+                  creating a life that actually feels like yours.
+                </p>
+                <span className="inline-flex items-center gap-3 border border-ink/85 rounded-full px-6 sm:px-7 py-3 sm:py-[14px] font-sans font-medium text-[11px] tracking-[0.32em] uppercase text-ink group-hover:bg-ink group-hover:text-cream transition-colors">
+                  Watch the workshop
+                  <span aria-hidden="true">→</span>
+                </span>
               </a>
-            </AnimatedSection>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      <SectionDivider variant="thick" color="terracotta" />
-
       {/* ════════════════════════════════════════════════
-          START HERE — DREAM LIFE MAPPING
+          DREAM LIFE MAPPING — secondary CTA section
          ════════════════════════════════════════════════ */}
       <section className="bg-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* image */}
-          <AnimatedSection direction="left" className="lg:col-span-5">
-            <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-lifted">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.85 }}
+            className="lg:col-span-6 order-2 lg:order-1"
+          >
+            <div className="relative aspect-[4/5] w-full max-w-md lg:max-w-none mx-auto rounded-[24px] overflow-hidden">
               <Image
-                src="/assets/founders_working.jpg"
+                src="/assets/founders_laptop.jpg"
                 alt="Dream Life Mapping"
                 fill
                 className="object-cover"
               />
             </div>
-          </AnimatedSection>
+          </motion.div>
 
-          {/* copy */}
-          <div className="lg:col-span-7">
-            <AnimatedSection>
-              <PillTag color="terracotta" size="md" className="mb-5">
-                Start Here
-              </PillTag>
-            </AnimatedSection>
+          <div className="lg:col-span-6 order-1 lg:order-2">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7 }}
+              className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-terracotta-dark mb-6"
+            >
+              When you are ready to go all in
+            </motion.p>
 
-            <AnimatedSection delay={0.05}>
-              <h2 className="font-display text-display-lg text-ink mb-6">
-                Dream Life Mapping
-              </h2>
-            </AnimatedSection>
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, delay: 0.05 }}
+              className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink mb-7"
+            >
+              Dream Life <span className="italic">Mapping</span>
+            </motion.h2>
 
-            <AnimatedSection delay={0.1}>
-              <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-4">
-                A guided process to help you get clear on your direction and
-                start building it.
-              </p>
-            </AnimatedSection>
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, delay: 0.1 }}
+              className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-10 max-w-xl"
+            >
+              A guided process that takes what you discover in the quiz and
+              turns it into a real plan you can move on, with the structure,
+              tools, and support to follow through.
+            </motion.p>
 
-            <AnimatedSection delay={0.15}>
-              <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-4">
-                You move from feeling stuck or uncertain to knowing what you&apos;re
-                doing, and actually moving on it.
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-8">
-                With structure, tools, and support to follow through.
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.25}>
-              <CTAButton href="/dream-life" variant="terracotta" size="lg">
-                Explore Dream Life Mapping →
-              </CTAButton>
-            </AnimatedSection>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+            >
+              <a
+                href="/dream-life"
+                className="inline-flex items-center gap-3 border border-ink/85 rounded-full px-7 py-[14px] font-sans font-medium text-[11px] tracking-[0.32em] uppercase text-ink hover:bg-ink hover:text-cream transition-colors"
+              >
+                Explore Dream Life Mapping
+                <span aria-hidden="true">→</span>
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>
-
-      <SectionDivider variant="thick" color="blue" />
 
       {/* ════════════════════════════════════════════════
-          OUR APPROACH
+          APPROACH — full-bleed image w/ overlay
          ════════════════════════════════════════════════ */}
-      <section className="bg-offwhite py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <AnimatedSection>
-            <p className="font-sans text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-terracotta mb-5">
-              Our approach
-            </p>
-            <h2 className="font-display text-display-xl text-ink mb-8">
-              Where <Highlight color="sage">intuition</Highlight> meets{" "}
-              <Highlight color="blue">strategy</Highlight>.
-            </h2>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.1}>
-            <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-4">
-              We don&apos;t believe success comes from working harder.
-            </p>
-            <p className="font-sans text-body-lg text-ink/55 leading-relaxed">
-              It comes from coming home to yourself and taking aligned action
-              from there.
-            </p>
-          </AnimatedSection>
+      <section className="relative min-h-[60svh] sm:min-h-[70svh] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/horizontal_heroimage.jpg"
+            alt="Charlotte and Katja"
+            fill
+            className="object-cover object-[50%_30%]"
+          />
         </div>
+        <div className="absolute inset-0 bg-ink/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
 
-        <AnimatedSection delay={0.15} className="mt-16 sm:mt-20">
-          <div className="max-w-4xl mx-auto relative aspect-[16/9] rounded-2xl overflow-hidden shadow-lifted">
-            <Image
-              src="/assets/horizontal_heroimage.jpg"
-              alt="Charlotte and Katja"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </AnimatedSection>
+        <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-12 py-24 sm:py-32 min-h-[60svh] sm:min-h-[70svh] flex flex-col justify-center text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7 }}
+            className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-cream/70 mb-6"
+          >
+            Our approach
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.85, delay: 0.05 }}
+            className="font-display text-[2.2rem] sm:text-4xl lg:text-[3.2rem] leading-[1.08] text-cream mb-7"
+          >
+            Where <span className="italic">intuition</span> meets{" "}
+            <span className="italic">strategy</span>.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.85, delay: 0.1 }}
+            className="font-sans text-cream/80 text-base sm:text-lg leading-relaxed max-w-xl mx-auto"
+          >
+            We do not think success comes from working harder. It comes from
+            getting clear on what you actually want, and then building it with
+            real structure and real support behind you.
+          </motion.p>
+        </div>
       </section>
-
-      <SectionDivider variant="thick" color="blue" />
 
       {/* ════════════════════════════════════════════════
           FOUNDERS
          ════════════════════════════════════════════════ */}
       <section className="bg-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
         <div className="max-w-7xl mx-auto">
-          <AnimatedSection className="text-center mb-16 sm:mb-20">
-            <p className="font-sans text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-terracotta mb-5">
+          <div className="text-center mb-16 sm:mb-20">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7 }}
+              className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-6"
+            >
               Who we are
-            </p>
-            <h2 className="font-display text-display-xl text-ink">
-              Meet the founders
-            </h2>
-          </AnimatedSection>
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, delay: 0.05 }}
+              className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink"
+            >
+              Meet the <span className="italic">founders</span>
+            </motion.h2>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-16 max-w-6xl mx-auto">
             {/* Charlotte */}
-            <AnimatedSection direction="left">
-              <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-lifted mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85 }}
+            >
+              <div className="relative aspect-[3/4] w-full rounded-[20px] overflow-hidden mb-8">
                 <Image
-                  src="/assets/wienermom.jpg"
+                  src="/assets/charlotte_founderheadshot.jpg"
                   alt="Charlotte"
                   fill
                   className="object-cover"
                 />
               </div>
-              <h3 className="font-display text-display-md text-ink mb-4">
+              <h3 className="font-display text-3xl sm:text-4xl text-ink mb-5">
                 Charlotte
               </h3>
-              <p className="font-sans text-body-lg text-ink/55 leading-relaxed">
-                Charlotte was doing everything she was supposed to do. Business
-                school, work at a startup, a good life in Montreal. From the
-                outside, it all made sense. But she had never actually stopped to
-                ask herself if it was what she wanted. That changed when something
-                clicked in her body that she couldn&apos;t ignore. Not logical, just
-                clear. She followed it without having a full plan, took messy
-                action, tried things that didn&apos;t work, and kept going. That path
-                led her to build a multi-million dollar beauty brand with over
-                100,000 customers across 50+ countries. Today, she lives by the
-                ocean in Costa Rica and helps women get clear on their direction
-                and build lives that feel aligned with who they actually are.
-              </p>
-            </AnimatedSection>
+              <div className="font-sans text-ink/70 text-base sm:text-[17px] leading-relaxed space-y-4">
+                <p>
+                  Charlotte was doing everything she was supposed to do.
+                  Business school, work at a startup, a good life in Montreal.
+                  From the outside, it all made sense. But she had never
+                  actually stopped to ask herself if it was what she wanted.
+                </p>
+                <p>
+                  That changed when something clicked in her body that she
+                  couldn’t ignore. She followed it without having a full plan,
+                  took messy action, and kept going.
+                </p>
+                <div className="my-6 border-l-2 border-terracotta pl-5 py-1">
+                  <p className="font-display text-xl sm:text-2xl text-ink leading-snug italic">
+                    A multi-million-dollar beauty brand with{" "}
+                    <span className="not-italic font-semibold text-terracotta-dark">
+                      100,000+ customers
+                    </span>{" "}
+                    across{" "}
+                    <span className="not-italic font-semibold text-terracotta-dark">
+                      50+ countries.
+                    </span>
+                  </p>
+                </div>
+                <p>
+                  Today, she lives by the ocean in Costa Rica and helps women
+                  get clear on their direction and build lives that feel
+                  aligned with who they actually are.
+                </p>
+              </div>
+            </motion.div>
 
             {/* Katja */}
-            <AnimatedSection direction="right">
-              <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-lifted mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, delay: 0.1 }}
+            >
+              <div className="relative aspect-[3/4] w-full rounded-[20px] overflow-hidden mb-8">
                 <Image
                   src="/assets/katja_hero.jpeg"
                   alt="Katja"
@@ -567,34 +761,57 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="font-display text-display-md text-ink mb-4">
+              <h3 className="font-display text-3xl sm:text-4xl text-ink mb-5">
                 Katja
               </h3>
-              <p className="font-sans text-body-lg text-ink/55 leading-relaxed">
-                Katja had built a life that looked right on paper. Top-ranked
-                universities, a stable corporate career, a 10-year relationship.
-                But internally, she felt disconnected and numb. A solo
-                backpacking trip through Latin America shifted something deeper
-                than she expected. She met people living differently, felt
-                something open, and chose to follow it. She left her job, ended
-                her relationship, sold her belongings, and set off without
-                knowing exactly what came next. From there, she rebuilt
-                her life around what actually felt true. Today, she&apos;s building a
-                slow life in Portugal and helps women reconnect with their body
-                and intuition, and create lives that feel aligned, grounded,
-                and fully expressed.
-              </p>
-            </AnimatedSection>
+              <div className="font-sans text-ink/70 text-base sm:text-[17px] leading-relaxed space-y-4">
+                <p>
+                  Katja had built a life that looked right on paper. Top-ranked
+                  universities, a stable corporate career, a 10-year
+                  relationship. But internally, she felt disconnected and numb.
+                </p>
+                <p>
+                  A solo backpacking trip through Latin America shifted
+                  something deeper than she expected. She met people living
+                  differently, felt something open, and chose to follow it.
+                </p>
+                <p>
+                  She left her job, ended her relationship, sold her
+                  belongings, and set off without knowing exactly what came
+                  next. From there, she rebuilt her life around what actually
+                  felt true.
+                </p>
+                <p>
+                  Today, she’s building a slow life in Portugal and helps women
+                  reconnect with their body and intuition, and create lives
+                  that feel aligned, grounded, and fully expressed.
+                </p>
+              </div>
+            </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.85, delay: 0.15 }}
+            className="mt-20 max-w-3xl mx-auto text-center"
+          >
+            <div className="w-12 h-px bg-ink/25 mx-auto mb-8" />
+            <p className="font-display italic text-2xl sm:text-3xl text-ink/75 leading-relaxed">
+              Two different starting points, one shared decision: to stop
+              performing a life and start building a real one. That is the work
+              we now do with you.
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════
-          FINAL CTA — modern split
+          FINAL CTA — split, light blue background
          ════════════════════════════════════════════════ */}
-      <section className="bg-offwhite">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 min-h-[500px] lg:min-h-[600px]">
-          {/* left — photo */}
+      <section className="bg-[#cdd8e1]">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 min-h-[520px] lg:min-h-[640px]">
           <div className="relative aspect-[4/3] lg:aspect-auto overflow-hidden">
             <Image
               src="/assets/founders_vibing.jpg"
@@ -604,31 +821,61 @@ export default function HomePage() {
             />
           </div>
 
-          {/* right — CTA content */}
-          <div className="flex flex-col items-center justify-center text-center px-8 sm:px-12 lg:px-16 py-16 sm:py-20 lg:py-24">
-            <AnimatedSection>
-              <p className="font-sans text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-terracotta mb-5">
-                Your next step
-              </p>
-              <h2 className="font-display text-display-xl text-ink mb-6 leading-tight">
-                If you&apos;re ready for your{" "}
-                <span className="italic text-terracotta">Season of Self</span>
-              </h2>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.1}>
-              <p className="font-sans text-body-lg text-ink/55 leading-relaxed mb-10">
-                Get clear on what you actually want and start building it.
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <CTAButton href="/dream-life" variant="terracotta" size="lg">
-                Start with Dream Life Mapping →
-              </CTAButton>
-            </AnimatedSection>
+          <div className="flex flex-col items-start justify-center px-8 sm:px-12 lg:px-16 py-20 sm:py-24">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7 }}
+              className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-6"
+            >
+              Your next step
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, delay: 0.05 }}
+              className="font-display text-[2.2rem] sm:text-4xl lg:text-[3rem] leading-[1.05] text-ink mb-7"
+            >
+              Your Season of Self starts with one{" "}
+              <span className="italic">honest question</span>.
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, delay: 0.1 }}
+              className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-10 max-w-md"
+            >
+              Find out what you are actually meant to build, and how to make a
+              living from it, in about 10 minutes, free.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+            >
+              <a
+                href={QUIZ_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-deep-sage text-cream font-sans font-medium text-[11px] tracking-[0.32em] uppercase px-9 py-[18px] rounded-full hover:bg-sage transition-colors"
+              >
+                Take the Ikigai quiz
+                <span aria-hidden="true">→</span>
+              </a>
+            </motion.div>
           </div>
         </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════
+          MARQUEE — closing strip
+         ════════════════════════════════════════════════ */}
+      <section className="bg-sage py-6 sm:py-7">
+        <Marquee items={marqueeWords} textClassName="text-cream" speed={55} />
       </section>
 
       {/* ════════════════════════════════════════════════
@@ -637,7 +884,6 @@ export default function HomePage() {
       <footer className="bg-ink py-16 sm:py-20 px-6 sm:px-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16">
-            {/* col 1 — brand */}
             <div>
               <Image
                 src="/assets/green_logo.png"
@@ -647,32 +893,32 @@ export default function HomePage() {
                 unoptimized
                 className="h-8 w-auto mb-4 brightness-[10]"
               />
-              <p className="font-sans text-sm text-cream/30 leading-relaxed">
-                An online learning and mentorship space for women ready to build
-                lives that feel aligned, abundant, and free.
+              <p className="font-sans text-sm text-cream/40 leading-relaxed">
+                An online learning and mentorship space for women ready to make
+                money doing what they love and build a soft, free life around
+                it.
               </p>
             </div>
 
-            {/* col 2 — explore */}
             <div>
-              <p className="font-sans text-xs font-medium tracking-[0.2em] uppercase text-cream/40 mb-4">
+              <p className="font-sans text-xs font-semibold tracking-[0.28em] uppercase text-cream/50 mb-5">
                 Explore
               </p>
               <ul className="space-y-3">
                 <li>
                   <a
                     href="/about"
-                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
                     About Us →
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://ikigai.seasonofself.co"
+                    href={QUIZ_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
                     Ikigai Quiz →
                   </a>
@@ -680,7 +926,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="/clarity"
-                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
                     Free Workshop →
                   </a>
@@ -688,7 +934,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="/dream-life"
-                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
                     Dream Life Mapping →
                   </a>
@@ -698,7 +944,7 @@ export default function HomePage() {
                     href="https://www.instagram.com/seasonofself.co"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
                     Instagram →
                   </a>
@@ -708,7 +954,7 @@ export default function HomePage() {
                     href="https://substack.com/@seasonofselfco"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
                     Season of Self Substack →
                   </a>
@@ -716,16 +962,15 @@ export default function HomePage() {
               </ul>
             </div>
 
-            {/* col 3 — legal */}
             <div>
-              <p className="font-sans text-xs font-medium tracking-[0.2em] uppercase text-cream/40 mb-4">
+              <p className="font-sans text-xs font-semibold tracking-[0.28em] uppercase text-cream/50 mb-5">
                 Legal
               </p>
               <ul className="space-y-3">
                 <li>
                   <a
                     href="/terms-of-service"
-                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
                     Terms of Service
                   </a>
@@ -733,7 +978,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="/privacy-policy"
-                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
                     Privacy Policy
                   </a>
@@ -741,7 +986,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="/cookie-policy"
-                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
                     Cookie Policy
                   </a>
@@ -749,7 +994,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="/refund-policy"
-                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
                     Refund Policy
                   </a>
@@ -757,7 +1002,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="/disclaimer"
-                    className="font-sans text-sm text-cream/50 hover:text-cream transition-colors"
+                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
                     Disclaimer
                   </a>
@@ -765,9 +1010,8 @@ export default function HomePage() {
               </ul>
             </div>
 
-            {/* col 4 — mailing list */}
             <div>
-              <p className="font-sans text-xs font-medium tracking-[0.2em] uppercase text-cream/40 mb-4">
+              <p className="font-sans text-xs font-semibold tracking-[0.28em] uppercase text-cream/50 mb-5">
                 Join the mailing list
               </p>
               {!submitted ? (
@@ -778,29 +1022,28 @@ export default function HomePage() {
                     placeholder="you@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-white/10 border border-cream/15 rounded-full px-5 py-3 text-sm text-cream placeholder:text-cream/25 font-sans focus:outline-none focus:border-cream/30 transition-colors"
+                    className="w-full bg-white/10 border border-cream/15 rounded-full px-5 py-3 text-sm text-cream placeholder:text-cream/30 font-sans focus:outline-none focus:border-cream/30 transition-colors"
                   />
                   <button
                     type="submit"
-                    className="w-full bg-terracotta text-white font-sans font-medium text-sm px-5 py-3 rounded-full hover:scale-[1.02] active:scale-[0.98] transition-transform"
+                    className="w-full bg-deep-sage text-cream font-sans font-medium text-xs tracking-[0.28em] uppercase px-5 py-3 rounded-full hover:bg-sage transition-colors"
                   >
                     Subscribe →
                   </button>
                 </form>
               ) : (
-                <p className="font-sans text-sm text-cream/50">
-                  Thank you! We&apos;ll be in touch.
+                <p className="font-sans text-sm text-cream/60">
+                  Thank you. We’ll be in touch.
                 </p>
               )}
             </div>
           </div>
 
-          {/* bottom bar */}
           <div className="border-t border-cream/10 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-            <p className="font-sans text-xs text-cream/20 leading-relaxed">
+            <p className="font-sans text-xs text-cream/25 leading-relaxed">
               Season of Self LLC · 312 W 2nd St, Unit #A8972, Casper, WY 82601
             </p>
-            <p className="font-sans text-xs text-cream/15">
+            <p className="font-sans text-xs text-cream/20">
               © {new Date().getFullYear()} Season of Self. All rights reserved.
             </p>
           </div>
@@ -809,4 +1052,3 @@ export default function HomePage() {
     </main>
   );
 }
-

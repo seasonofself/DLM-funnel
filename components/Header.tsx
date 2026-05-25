@@ -27,7 +27,7 @@ export default function Header({ sticky = true }: { sticky?: boolean }) {
       className={`${positionClass} z-30 bg-cream/95 backdrop-blur-sm border-b border-ink/5`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-10 py-3.5 sm:py-4">
-        <a href="/" aria-label="Season of Self — home" className="flex items-center">
+        <a href="/" aria-label="Season of Self, home" className="flex items-center">
           <Image
             src="/assets/green_logo.png"
             alt="Season of Self"

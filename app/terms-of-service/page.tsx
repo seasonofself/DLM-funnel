@@ -1,7 +1,7 @@
 import LegalPage from "../../components/LegalPage";
 
 export const metadata = {
-  title: "Terms of Service — Season of Self",
+  title: "Terms of Service · Season of Self",
 };
 
 export default function TermsOfServicePage() {
@@ -96,7 +96,7 @@ export default function TermsOfServicePage() {
         Season of Self provides educational and personal development services and content for informational purposes only. Our Services are not intended to provide medical, psychological, therapeutic, financial, legal, or professional advice of any kind. The content provided through our Services should not be construed as a substitute for professional medical, psychological, financial, or legal consultation.
       </p>
       <p>
-        You acknowledge that your participation in our Services, including online courses, coaching sessions, breathwork sessions, and all Digital Content, is for educational and personal development purposes only. You agree to consult with appropriate licensed professionals—including medical doctors, mental health providers, financial advisors, or attorneys—before making any significant decisions based on information provided through our Services.
+        You acknowledge that your participation in our Services, including online courses, coaching sessions, breathwork sessions, and all Digital Content, is for educational and personal development purposes only. You agree to consult with appropriate licensed professionals (including medical doctors, mental health providers, financial advisors, or attorneys) before making any significant decisions based on information provided through our Services.
       </p>
       <p>
         To the maximum extent permitted by law, Season of Self LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the Website or Services, even if we have been advised of the possibility of such damages. In no event shall our total liability to you exceed the amount you have paid us for the Services in the twelve months preceding the claim.

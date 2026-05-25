@@ -1,7 +1,7 @@
 import LegalPage from "../../components/LegalPage";
 
 export const metadata = {
-  title: "Cookie Policy — Season of Self",
+  title: "Cookie Policy · Season of Self",
 };
 
 export default function CookiePolicy() {

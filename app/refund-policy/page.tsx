@@ -1,7 +1,7 @@
 import LegalPage from "../../components/LegalPage";
 
 export const metadata = {
-  title: "Refund & Cancellation Policy — Season of Self",
+  title: "Refund & Cancellation Policy · Season of Self",
 };
 
 export default function RefundPolicy() {
