@@ -380,21 +380,19 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          WHAT WE FOCUS ON — editorial pill-badge list
-          with running-head marquee & mono body copy
+          WHAT WE FOCUS ON — compact editorial pill list
          ════════════════════════════════════════════════ */}
-      <section className="bg-cream pt-20 sm:pt-28 lg:pt-32 pb-24 sm:pb-32 lg:pb-40 px-0 sm:px-0">
-        {/* Big editorial running-head marquee */}
+      <section className="bg-cream pt-16 sm:pt-20 lg:pt-24 pb-20 sm:pb-24 lg:pb-28">
         <SectionMarquee
           text="What we focus on"
           separator="✦"
           speed={90}
           italic={false}
           textClassName="text-ink"
-          className="mb-16 sm:mb-24 lg:mb-28"
+          className="mb-10 sm:mb-14 lg:mb-16"
         />
 
-        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+        <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="max-w-3xl mx-auto">
             {whatWeFocus.map((text, i) => {
               const pillColors = [
@@ -407,39 +405,23 @@ export default function HomePage() {
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.6, delay: i * 0.06 }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
                 >
-                  <div className="grid grid-cols-12 gap-4 sm:gap-6 py-8 sm:py-10 items-start">
-                    {/* Pill-badge number */}
-                    <div className="col-span-2 sm:col-span-1 pt-1">
-                      <span
-                        className={`inline-flex items-center justify-center w-12 h-7 sm:w-14 sm:h-8 rounded-full font-mono text-[11px] sm:text-xs font-medium tracking-[0.1em] ${pillColors[i % pillColors.length]}`}
-                      >
-                        0{i + 1}
-                      </span>
-                    </div>
-
-                    {/* Serif headline */}
-                    <h3 className="col-span-10 sm:col-span-7 font-display text-ink text-[1.75rem] sm:text-[2rem] lg:text-[2.4rem] leading-[1.1] tracking-[-0.02em]">
+                  <div className="flex items-center gap-4 sm:gap-5 py-3.5 sm:py-4">
+                    <span
+                      className={`inline-flex items-center justify-center w-10 h-6 sm:w-12 sm:h-7 rounded-full font-mono text-[10px] sm:text-[11px] font-medium tracking-[0.08em] shrink-0 ${pillColors[i % pillColors.length]}`}
+                    >
+                      0{i + 1}
+                    </span>
+                    <h3 className="font-display text-ink text-[1.05rem] sm:text-[1.2rem] lg:text-[1.4rem] leading-snug tracking-[-0.015em]">
                       {text}
                     </h3>
-
-                    {/* Mono body — only visible on desktop, gives editorial credit-line feel */}
-                    <p className="hidden sm:block sm:col-span-4 font-mono text-[12px] leading-[1.7] text-ink/55 pt-3">
-                      {[
-                        "Past the noise of \"shoulds\". What you actually want — not what's expected.",
-                        "The specific work only you can do. Where talent meets fascination meets fit.",
-                        "The patterns that keep you spinning. Why action stalls and clarity slips.",
-                        "Movement that lasts beyond motivation. Aligned with how you actually live.",
-                        "Work woven into a life that holds you — not the other way around.",
-                      ][i]}
-                    </p>
                   </div>
                   {i < whatWeFocus.length - 1 && (
-                    <div className="border-t border-ink/15" aria-hidden="true" />
+                    <div className="border-t border-ink/12" aria-hidden="true" />
                   )}
                 </motion.div>
               );

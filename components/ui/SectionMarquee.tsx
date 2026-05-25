@@ -39,7 +39,7 @@ export default function SectionMarquee({
         {[...items, ...items].map((item, i) => (
           <span
             key={i}
-            className={`inline-flex items-center gap-8 px-6 font-display text-[3.5rem] sm:text-[5rem] lg:text-[7rem] xl:text-[8.5rem] leading-[1] tracking-[-0.02em] ${
+            className={`inline-flex items-center gap-5 sm:gap-7 px-4 sm:px-5 font-display text-[1.65rem] sm:text-[2.4rem] lg:text-[3.4rem] xl:text-[4rem] leading-[1] tracking-[-0.02em] ${
               italic ? "italic" : ""
             } ${textClassName}`}
           >

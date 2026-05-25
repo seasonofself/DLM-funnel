@@ -201,8 +201,8 @@ export default function EricieraRetreatPage() {
           >
             <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[24px] overflow-hidden">
               <Image
-                src="/assets/SS_Nosara_11-02-26-221.jpg"
-                alt="Coastal retreat life"
+                src="/assets/af7583d10aa3eae4cd078fc584c557e3.jpg"
+                alt="A slow week by the ocean"
                 fill
                 className="object-cover"
               />
@@ -249,44 +249,39 @@ export default function EricieraRetreatPage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          SECTION 3 — What the week holds (pill-badge list)
+          SECTION 3 — What the week holds (compact pill list)
          ════════════════════════════════════════════════ */}
-      <section className="bg-cream pt-20 sm:pt-28 pb-20 sm:pb-28 lg:pb-32">
+      <section className="bg-cream pt-16 sm:pt-20 lg:pt-24 pb-20 sm:pb-24 lg:pb-28">
         <SectionMarquee
           text="What the week holds"
           separator="✦"
           speed={90}
           textClassName="text-ink"
-          className="mb-14 sm:mb-20"
+          className="mb-10 sm:mb-14 lg:mb-16"
         />
 
-        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+        <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="max-w-3xl mx-auto">
             {weekHolds.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: i * 0.06 }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
               >
-                <div className="grid grid-cols-12 gap-4 sm:gap-6 py-7 sm:py-9 items-start">
-                  <div className="col-span-2 sm:col-span-1 pt-1">
-                    <span
-                      className={`inline-flex items-center justify-center w-12 h-7 sm:w-14 sm:h-8 rounded-full font-mono text-[11px] sm:text-xs font-medium tracking-[0.1em] ${item.color}`}
-                    >
-                      0{i + 1}
-                    </span>
-                  </div>
-                  <h3 className="col-span-10 sm:col-span-7 font-display text-ink text-[1.6rem] sm:text-[1.85rem] lg:text-[2.2rem] leading-[1.1] tracking-[-0.02em]">
+                <div className="flex items-center gap-4 sm:gap-5 py-3.5 sm:py-4">
+                  <span
+                    className={`inline-flex items-center justify-center w-10 h-6 sm:w-12 sm:h-7 rounded-full font-mono text-[10px] sm:text-[11px] font-medium tracking-[0.08em] shrink-0 ${item.color}`}
+                  >
+                    0{i + 1}
+                  </span>
+                  <h3 className="font-display text-ink text-[1.05rem] sm:text-[1.2rem] lg:text-[1.4rem] leading-snug tracking-[-0.015em]">
                     {item.title}
                   </h3>
-                  <p className="hidden sm:block sm:col-span-4 font-mono text-[12px] leading-[1.7] text-ink/55 pt-3">
-                    {item.note}
-                  </p>
                 </div>
                 {i < weekHolds.length - 1 && (
-                  <div className="border-t border-ink/15" aria-hidden="true" />
+                  <div className="border-t border-ink/12" aria-hidden="true" />
                 )}
               </motion.div>
             ))}
@@ -297,7 +292,7 @@ export default function EricieraRetreatPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="max-w-2xl mx-auto mt-14 font-subtitle italic text-ink/65 text-lg sm:text-xl leading-relaxed text-center"
+            className="max-w-2xl mx-auto mt-10 sm:mt-14 font-subtitle italic text-ink/65 text-base sm:text-lg leading-relaxed text-center"
           >
             At its heart this is a wellness week. If the ocean is good, a surf
             session is a happy bonus.
@@ -319,8 +314,8 @@ export default function EricieraRetreatPage() {
           >
             <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[24px] overflow-hidden">
               <Image
-                src="/assets/af7583d10aa3eae4cd078fc584c557e3.jpg"
-                alt="Ericeira, Portugal — coastal life"
+                src="/assets/SS_Nosara_11-02-26-221.jpg"
+                alt="Ericeira, Portugal — Atlantic coast"
                 fill
                 className="object-cover"
               />
