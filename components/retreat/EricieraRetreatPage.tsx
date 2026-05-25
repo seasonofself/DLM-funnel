@@ -77,7 +77,7 @@ export default function EricieraRetreatPage() {
           playsInline
           preload="metadata"
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-[60%_30%] lg:object-[85%_50%]"
+          className="absolute inset-0 w-full h-full object-cover object-[50%_35%] lg:object-[85%_50%]"
         >
           <source src="/assets/drone-video.mp4" type="video/mp4" />
         </video>
@@ -106,19 +106,20 @@ export default function EricieraRetreatPage() {
               variants={fadeUp}
               className="font-display text-[2.4rem] sm:text-[3.2rem] lg:text-[4.2rem] xl:text-[4.8rem] leading-[0.96] text-cream mb-7 tracking-[-0.025em] [text-shadow:0_2px_18px_rgba(0,0,0,0.35)]"
             >
-              You know you want a{" "}
+              You already know you want a{" "}
               <span className="italic text-linen">different life</span>.
               This is where you{" "}
-              <span className="italic">start</span>.
+              <span className="italic">begin</span>.
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
               className="font-subtitle italic text-cream/85 text-base sm:text-lg lg:text-xl max-w-xl leading-relaxed mb-9 [text-shadow:0_1px_10px_rgba(0,0,0,0.4)]"
             >
-              A small wellness week in Ericeira, Portugal. Yoga, rest, and
-              honest work on what you actually want, with seven other women
-              who feel the same pull.
+              A wellness &amp; personal development retreat on the coast of
+              Ericeira, Portugal. Yoga, rest, and real clarity on the life
+              you actually want, alongside other women who feel the same
+              pull.
             </motion.p>
 
             <motion.div variants={fadeUp}>
