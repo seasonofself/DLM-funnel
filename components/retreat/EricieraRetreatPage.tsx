@@ -63,16 +63,32 @@ export default function EricieraRetreatPage() {
       <Header />
 
       {/* ════════════════════════════════════════════════
-          HERO
+          HERO — full-bleed drone video, copy on left
          ════════════════════════════════════════════════ */}
-      <section className="relative bg-cream pt-12 sm:pt-16 lg:pt-20 pb-16 sm:pb-20 lg:pb-28">
-        <div className="relative max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-20 grid lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-20 items-center">
-          {/* LEFT — copy + form */}
+      <section className="relative bg-ink overflow-hidden min-h-[88vh] lg:min-h-[92vh] flex items-center">
+        {/* Full-bleed drone video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/drone-video.mp4" type="video/mp4" />
+        </video>
+
+        {/* Scrim — cream wash on mobile (full), cream-to-transparent on desktop
+            so faces on the right stay visible while the left copy reads clean. */}
+        <div className="absolute inset-0 bg-cream/80 lg:bg-gradient-to-r lg:from-cream lg:via-cream/85 lg:via-40% lg:to-transparent lg:to-70%" />
+
+        <div className="relative z-10 w-full max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-20 py-20 sm:py-24 lg:py-28">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="lg:col-span-7 order-2 lg:order-1 relative z-10"
+            className="max-w-2xl lg:max-w-[640px]"
           >
             <motion.p
               variants={fadeUp}
@@ -84,7 +100,7 @@ export default function EricieraRetreatPage() {
 
             <motion.h1
               variants={fadeUp}
-              className="font-display text-[2.6rem] sm:text-[3.4rem] lg:text-[4.6rem] xl:text-[5.4rem] leading-[0.96] text-ink mb-8 tracking-[-0.025em]"
+              className="font-display text-[2.4rem] sm:text-[3.2rem] lg:text-[4.2rem] xl:text-[4.8rem] leading-[0.96] text-ink mb-7 tracking-[-0.025em]"
             >
               You know you want a{" "}
               <span className="italic text-terracotta-dark">different life</span>.
@@ -94,7 +110,7 @@ export default function EricieraRetreatPage() {
 
             <motion.p
               variants={fadeUp}
-              className="font-subtitle italic text-ink/65 text-base sm:text-lg lg:text-xl max-w-xl leading-relaxed mb-10"
+              className="font-subtitle italic text-ink/65 text-base sm:text-lg lg:text-xl max-w-xl leading-relaxed mb-9"
             >
               A small wellness week in Ericeira, Portugal. Yoga, rest, and
               honest work on what you actually want, with seven other women
@@ -107,37 +123,6 @@ export default function EricieraRetreatPage() {
               />
             </motion.div>
           </motion.div>
-
-          {/* RIGHT — photo */}
-          <div className="lg:col-span-5 order-1 lg:order-2 relative">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[28px] overflow-hidden shadow-[0_40px_80px_-40px_rgba(34,34,34,0.35)]"
-            >
-              <Image
-                src="/assets/vertical_hero.jpg"
-                alt="A small wellness week in Ericeira, Portugal"
-                fill
-                priority
-                className="object-cover"
-              />
-            </motion.div>
-
-            {/* Floating tag */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.8 }}
-              className="absolute -top-3 -right-2 sm:-top-4 sm:-right-6 bg-white rounded-full shadow-[0_12px_30px_-12px_rgba(34,34,34,0.3)] px-4 py-2.5 flex items-center gap-2.5"
-            >
-              <span className="inline-block h-2 w-2 rounded-full bg-sage" />
-              <span className="font-sans text-[10px] font-semibold tracking-[0.22em] uppercase text-ink/70">
-                Waitlist open · 8 women only
-              </span>
-            </motion.div>
-          </div>
         </div>
       </section>
 
@@ -201,8 +186,8 @@ export default function EricieraRetreatPage() {
           >
             <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[24px] overflow-hidden">
               <Image
-                src="/assets/yoga-shott.jpg"
-                alt="Yoga, meditation, and rest"
+                src="/assets/vertical_hero.jpg"
+                alt="Charlotte and Katja with surfboards"
                 fill
                 className="object-cover"
               />
@@ -535,31 +520,16 @@ export default function EricieraRetreatPage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          FINAL CTA — full bleed video background
+          FINAL CTA — sage brand color with paper texture
          ════════════════════════════════════════════════ */}
-      <section className="relative bg-ink text-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10 overflow-hidden">
-        {/* full-strength background video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/assets/drone-video.mp4" type="video/mp4" />
-        </video>
-        {/* minimal scrim so the copy stays legible */}
-        <div className="absolute inset-0 bg-ink/35" />
-
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
+      <section className="paper-texture bg-sage text-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10 overflow-hidden">
+        <div className="max-w-3xl mx-auto text-center">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7 }}
-            className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-terracotta mb-7"
+            className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-linen mb-7"
           >
             Final word
           </motion.p>
