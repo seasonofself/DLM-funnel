@@ -43,6 +43,7 @@ const weekHolds = [
 ];
 
 const goodToKnow = [
+  { label: "Status", value: "Waitlist open. Bookings open soon." },
   { label: "When", value: "October 5 to 11, 2026" },
   { label: "Where", value: "Ericeira, Portugal" },
   { label: "Who", value: "8 women, hosted by Charlotte and Katja" },
@@ -53,7 +54,8 @@ const goodToKnow = [
   },
   {
     label: "Still being finalised",
-    value: "Accommodation and details. The waitlist gets them first.",
+    value:
+      "Accommodation, pricing, and booking link. Released to the waitlist first.",
   },
 ];
 
@@ -63,13 +65,9 @@ export default function EricieraRetreatPage() {
       <Header />
 
       {/* ════════════════════════════════════════════════
-          HERO — full-bleed drone video, copy on left, no overlay
+          HERO - full-bleed drone video, copy on left, no overlay
          ════════════════════════════════════════════════ */}
       <section className="relative bg-ink overflow-hidden min-h-[88vh] lg:min-h-[92vh] flex items-center">
-        {/* Full-bleed drone video — responsive framing:
-            mobile pulls faces into view (centered, slightly up),
-            desktop pushes the framing to the right so faces sit
-            clear of the text column on the left. */}
         <video
           autoPlay
           loop
@@ -82,9 +80,6 @@ export default function EricieraRetreatPage() {
           <source src="/assets/drone-video.mp4" type="video/mp4" />
         </video>
 
-        {/* Soft left-side darkening only — gives just enough contrast
-            for the cream text. Fully transparent on the right so the
-            video and the two of you stay visible. */}
         <div className="absolute inset-0 lg:bg-gradient-to-r lg:from-ink/55 lg:via-ink/25 lg:via-35% lg:to-transparent lg:to-60% bg-ink/35" />
 
         <div className="relative z-10 w-full max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-20 py-20 sm:py-24 lg:py-28">
@@ -96,10 +91,18 @@ export default function EricieraRetreatPage() {
           >
             <motion.p
               variants={fadeUp}
-              className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-linen mb-7"
+              className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-linen mb-5"
             >
               <span className="inline-block w-8 h-px bg-linen align-middle mr-3" />
               Ericeira, Portugal · October 5–11, 2026
+            </motion.p>
+
+            <motion.p
+              variants={fadeUp}
+              className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-ink bg-linen/95 px-3 py-1.5 rounded-full mb-7 [text-shadow:none]"
+            >
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse" />
+              Waitlist now open · 8 spots, October 2026
             </motion.p>
 
             <motion.h1
@@ -119,34 +122,19 @@ export default function EricieraRetreatPage() {
               A wellness &amp; personal development retreat on the coast of
               Ericeira, Portugal. Yoga, rest, and real clarity on the life
               you actually want, alongside other women who feel the same
-              pull.
+              pull. Bookings open soon - join the waitlist to be first in
+              line for one of the 8 spots.
             </motion.p>
 
             <motion.div variants={fadeUp}>
-              <WaitlistForm
-                variant="dark"
-                microline="8 spots only · The waitlist hears everything first"
-              />
+              <WaitlistForm variant="dark" />
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════
-          MARQUEE divider — editorial running head
-         ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-10 sm:py-12 border-y border-ink/10">
-        <SectionMarquee
-          text="A week to come home to yourself"
-          separator="✦"
-          speed={95}
-          italic={true}
-          textClassName="text-ink"
-        />
-      </section>
-
-      {/* ════════════════════════════════════════════════
-          SECTION 1 — What it is
+          SECTION - What it is
          ════════════════════════════════════════════════ */}
       <section className="bg-cream py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -157,12 +145,6 @@ export default function EricieraRetreatPage() {
             variants={stagger}
             className="lg:col-span-7"
           >
-            <motion.p
-              variants={fadeUp}
-              className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-terracotta-dark mb-6"
-            >
-              Section 01 · The Week
-            </motion.p>
             <motion.h2
               variants={fadeUp}
               className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.6rem] leading-[1.02] text-ink mb-8 tracking-[-0.02em]"
@@ -184,6 +166,8 @@ export default function EricieraRetreatPage() {
               getaway, it&rsquo;s a full immersion in a different way of
               living. You&rsquo;ll head home clear on where you&rsquo;re
               going, with a sisterhood of seven women walking it beside you.
+              Bookings haven&rsquo;t opened yet - the waitlist is how you get
+              first access when they do.
             </motion.p>
           </motion.div>
 
@@ -196,8 +180,8 @@ export default function EricieraRetreatPage() {
           >
             <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[24px] overflow-hidden">
               <Image
-                src="/assets/vertical_hero.jpg"
-                alt="Charlotte and Katja with surfboards"
+                src="/assets/yoga-shot.jpg"
+                alt="Yoga on the retreat"
                 fill
                 className="object-cover"
               />
@@ -207,19 +191,10 @@ export default function EricieraRetreatPage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          SECTION 2 — Who it is for
+          SECTION - Who it is for
          ════════════════════════════════════════════════ */}
       <section className="bg-[#dde2d2] py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7 }}
-            className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-deep-sage mb-6"
-          >
-            Section 02 · For you
-          </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -244,7 +219,7 @@ export default function EricieraRetreatPage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          SECTION 3 — What the week holds (compact pill list)
+          SECTION - What the week holds (compact pill list)
          ════════════════════════════════════════════════ */}
       <section className="bg-cream pt-16 sm:pt-20 lg:pt-24 pb-20 sm:pb-24 lg:pb-28">
         <SectionMarquee
@@ -292,11 +267,85 @@ export default function EricieraRetreatPage() {
             At its heart this is a wellness week. If the ocean is good, a surf
             session is a happy bonus.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.9 }}
+            className="mt-14 sm:mt-20 max-w-5xl mx-auto"
+          >
+            <div className="relative aspect-[16/10] w-full rounded-[24px] overflow-hidden">
+              <Image
+                src="/assets/SheFlows-2.jpg"
+                alt="Yoga and surf, the rhythm of the week"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════
-          SECTION 4 — Where
+          SECTION - Nourishment
+         ════════════════════════════════════════════════ */}
+      <section className="bg-[#f1ead8] py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={stagger}
+            className="lg:col-span-6"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.6rem] leading-[1.02] text-ink mb-7 tracking-[-0.02em]"
+            >
+              Food that&rsquo;s part of the{" "}
+              <span className="italic">ritual</span>
+            </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              className="font-sans text-ink/75 text-base sm:text-lg leading-relaxed max-w-xl"
+            >
+              Nourishment is a core part of the retreat experience. Throughout
+              the week, you&rsquo;ll be deeply cared for with three delicious
+              home-cooked meals a day, prepared by our private Brazilian chef.
+              Inspired by Brazilian and Portuguese cuisine, every dish is
+              created with fresh, locally sourced, farm-to-table ingredients
+              - vibrant, nourishing, and full of flavour. Our menu is entirely
+              vegetarian and thoughtfully designed to support your body from
+              the inside out: energising breakfasts, wholesome lunches, and
+              beautiful three-course dinners, finished with homemade dessert
+              each evening. Food at the retreat is more than just meals -
+              it&rsquo;s part of the ritual, the connection, and the
+              nourishment of coming back to yourself.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.9 }}
+            className="lg:col-span-6"
+          >
+            <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[24px] overflow-hidden">
+              <Image
+                src="/assets/SheFlows-6.jpg"
+                alt="Home-cooked, farm-to-table meals at the retreat"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════
+          SECTION - Where
          ════════════════════════════════════════════════ */}
       <section className="bg-[#cdd8e1] py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -309,8 +358,8 @@ export default function EricieraRetreatPage() {
           >
             <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[24px] overflow-hidden">
               <Image
-                src="/assets/ericeira.jpg"
-                alt="Ericeira, Portugal — Atlantic coast"
+                src="/assets/SheFlows-24.jpg"
+                alt="Ericeira, Portugal, Atlantic coast"
                 fill
                 className="object-cover"
               />
@@ -324,12 +373,6 @@ export default function EricieraRetreatPage() {
             variants={stagger}
             className="lg:col-span-6 order-1 lg:order-2"
           >
-            <motion.p
-              variants={fadeUp}
-              className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-deep-sage mb-6"
-            >
-              Section 04 · Location
-            </motion.p>
             <motion.h2
               variants={fadeUp}
               className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.6rem] leading-[1.02] text-ink mb-7 tracking-[-0.02em]"
@@ -349,20 +392,11 @@ export default function EricieraRetreatPage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          SECTION 5 — Your hosts
+          SECTION - Your hosts
          ════════════════════════════════════════════════ */}
       <section className="bg-cream py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14 sm:mb-20">
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.7 }}
-              className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-terracotta-dark mb-6"
-            >
-              Section 05 · Your hosts
-            </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -374,14 +408,14 @@ export default function EricieraRetreatPage() {
             </motion.h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10 lg:gap-14 max-w-5xl mx-auto items-start">
+          <div className="grid grid-cols-2 gap-4 sm:gap-8 lg:gap-12 max-w-3xl mx-auto items-start">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.85 }}
             >
-              <div className="relative aspect-[3/4] w-full rounded-[20px] overflow-hidden mb-6">
+              <div className="relative aspect-[3/4] w-full rounded-[16px] sm:rounded-[20px] overflow-hidden mb-4 sm:mb-5">
                 <Image
                   src="/assets/charlotte_founderheadshot.jpg"
                   alt="Charlotte"
@@ -389,10 +423,10 @@ export default function EricieraRetreatPage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="font-display text-2xl sm:text-3xl text-ink mb-2">
+              <h3 className="font-display text-lg sm:text-2xl lg:text-3xl text-ink mb-1 sm:mb-2">
                 Charlotte
               </h3>
-              <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-ink/50">
+              <p className="font-mono text-[9px] sm:text-[11px] tracking-[0.18em] uppercase text-ink/50">
                 Co-founder, Season of Self
               </p>
             </motion.div>
@@ -403,7 +437,7 @@ export default function EricieraRetreatPage() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.85, delay: 0.1 }}
             >
-              <div className="relative aspect-[3/4] w-full rounded-[20px] overflow-hidden mb-6">
+              <div className="relative aspect-[3/4] w-full rounded-[16px] sm:rounded-[20px] overflow-hidden mb-4 sm:mb-5">
                 <Image
                   src="/assets/katja_hero.jpeg"
                   alt="Katja"
@@ -411,10 +445,10 @@ export default function EricieraRetreatPage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="font-display text-2xl sm:text-3xl text-ink mb-2">
+              <h3 className="font-display text-lg sm:text-2xl lg:text-3xl text-ink mb-1 sm:mb-2">
                 Katja
               </h3>
-              <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-ink/50">
+              <p className="font-mono text-[9px] sm:text-[11px] tracking-[0.18em] uppercase text-ink/50">
                 Co-founder, Season of Self
               </p>
             </motion.div>
@@ -435,19 +469,39 @@ export default function EricieraRetreatPage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          SECTION 6 — Why the waitlist (inline form)
+          SECTION - Testimonial
          ════════════════════════════════════════════════ */}
-      <section className="bg-[#dde2d2] py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
-        <div className="max-w-3xl mx-auto">
+      <section className="bg-linen py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.blockquote
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.85, delay: 0.05 }}
+            className="font-display italic text-ink/85 text-2xl sm:text-3xl lg:text-[2.4rem] leading-[1.2] tracking-[-0.015em] max-w-3xl mx-auto"
+          >
+            &ldquo;It was such a special experience - a beautiful combination
+            of slowing down, reconnecting with yourself, and growing stronger
+            within who you are. Every part was thoughtfully curated and
+            filled with heart.&rdquo;
+          </motion.blockquote>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7 }}
-            className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-deep-sage mb-6"
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="mt-8 font-mono text-[11px] tracking-[0.22em] uppercase text-ink/55"
           >
-            Section 06 · Why the waitlist
+            - Past retreat guest
           </motion.p>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════
+          SECTION - Why the waitlist (inline form)
+         ════════════════════════════════════════════════ */}
+      <section className="bg-[#dde2d2] py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
+        <div className="max-w-3xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -464,8 +518,9 @@ export default function EricieraRetreatPage() {
             transition={{ duration: 0.85, delay: 0.1 }}
             className="font-sans text-ink/75 text-base sm:text-lg leading-relaxed mb-10 max-w-2xl"
           >
-            Be the first to know when the retreat is live. We only have 8
-            spots, so spots will fill fast.
+            The waitlist hears first, books first, and gets early-bird
+            pricing. With only 8 spots, the retreat is expected to sell out
+            from the waitlist alone.
           </motion.p>
 
           <motion.div
@@ -480,19 +535,10 @@ export default function EricieraRetreatPage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          SECTION 7 — Good to know
+          SECTION - Good to know
          ════════════════════════════════════════════════ */}
       <section className="bg-cream py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-4xl mx-auto">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7 }}
-            className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-terracotta-dark mb-6 text-center"
-          >
-            Section 07 · Logistics
-          </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -530,42 +576,26 @@ export default function EricieraRetreatPage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          FINAL CTA — sage brand color with paper texture
+          FULL-WIDTH BANNER - the retreat at a glance
          ════════════════════════════════════════════════ */}
-      <section className="paper-texture bg-sage text-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10 overflow-hidden">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7 }}
-            className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-linen mb-7"
-          >
-            Final word
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.85, delay: 0.05 }}
-            className="font-display text-[2.4rem] sm:text-[3rem] lg:text-[4rem] leading-[1.02] text-cream mb-10 tracking-[-0.02em]"
-          >
-            You know you want something different.{" "}
-            <span className="italic">Start here.</span>
-          </motion.h2>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="max-w-2xl mx-auto text-left"
-          >
-            <WaitlistForm
-              variant="dark"
-              microline="October 5–11, 2026 · Ericeira, Portugal · 8 women"
-            />
-          </motion.div>
-        </div>
+      <section className="bg-cream">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 1 }}
+          className="relative w-full"
+          style={{ aspectRatio: "1576 / 786" }}
+        >
+          <Image
+            src="/assets/sheflows.jpeg"
+            alt="Scenes from the retreat, yoga, food, ocean, gathering"
+            fill
+            sizes="100vw"
+            className="object-contain"
+            priority={false}
+          />
+        </motion.div>
       </section>
 
       {/* ════════════════════════════════════════════════

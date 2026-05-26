@@ -149,7 +149,7 @@ export default function WaitlistForm({
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className={`inline-flex items-center justify-center gap-3 font-mono text-[11px] font-medium tracking-[0.28em] uppercase px-9 py-[18px] rounded-full transition-colors disabled:opacity-60 disabled:cursor-not-allowed ${buttonClass}`}
+                className={`inline-flex items-center justify-center gap-3 shrink-0 whitespace-nowrap font-mono text-[13px] sm:text-[14px] font-medium tracking-[0.22em] uppercase px-12 sm:px-14 py-[22px] sm:py-[24px] rounded-full transition-colors disabled:opacity-60 disabled:cursor-not-allowed ${buttonClass}`}
               >
                 {status === "loading" ? "Adding you..." : buttonLabel}
                 {status !== "loading" && (
