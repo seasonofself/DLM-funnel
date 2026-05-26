@@ -247,6 +247,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* ── Meta domain verification (covers the whole seasonofself.co
+            apex, including ikigai.seasonofself.co automatically) ── */}
+        <meta
+          name="facebook-domain-verification"
+          content="738xwvwktk44srr9uxqv1zl5ztouns"
+        />
+
         {/* ── Google Analytics (GA4) ── */}
         <script
           async
@@ -289,13 +296,37 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
 
-        {/* ──────────────────────────────────────────────
-            META PIXEL — uncomment and add your Pixel ID when ready
-
-            <script dangerouslySetInnerHTML={{ __html: `
-              !function(f,b,e,v,n,t,s){...}('YOUR_PIXEL_ID');
-            `}} />
-        ────────────────────────────────────────────── */}
+        {/* ── Meta Pixel (PageView only on the marketing site) ──
+            Pixel id is shared with ikigai.seasonofself.co so Meta sees
+            one customer journey across both domains. Lead + Purchase
+            events fire on the ikigai quiz subdomain — this site only
+            fires PageView so we can retarget visitors who browsed the
+            main site but didn't take the quiz. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '1529049885442415');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1529049885442415&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
       </head>
       <body>{children}</body>
     </html>
