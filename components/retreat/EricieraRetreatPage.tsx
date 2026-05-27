@@ -65,9 +65,9 @@ export default function EricieraRetreatPage() {
       <Header />
 
       {/* ════════════════════════════════════════════════
-          HERO - full-bleed drone video, copy on left, no overlay
+          HERO - cinematic video banner (no text overlay)
          ════════════════════════════════════════════════ */}
-      <section className="relative bg-ink overflow-hidden min-h-[88vh] lg:min-h-[92vh] flex items-center">
+      <section className="relative bg-ink overflow-hidden h-[55vh] sm:h-[60vh] lg:h-[68vh]">
         <video
           autoPlay
           loop
@@ -75,68 +75,58 @@ export default function EricieraRetreatPage() {
           playsInline
           preload="metadata"
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-[50%_35%] lg:object-[85%_50%]"
+          className="absolute inset-0 w-full h-full object-cover object-[50%_50%]"
         >
           <source src="/assets/drone-video.mp4" type="video/mp4" />
         </video>
+      </section>
 
-        <div className="absolute inset-0 lg:bg-gradient-to-r lg:from-ink/55 lg:via-ink/25 lg:via-35% lg:to-transparent lg:to-60% bg-ink/35" />
-
-        <div className="relative z-10 w-full max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-20 py-20 sm:py-24 lg:py-28">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="max-w-2xl lg:max-w-[600px]"
+      {/* ════════════════════════════════════════════════
+          HERO TEXT - spacious, centered, on cream
+         ════════════════════════════════════════════════ */}
+      <section className="bg-cream pt-10 sm:pt-12 lg:pt-14 pb-10 sm:pb-12 lg:pb-14 px-6 sm:px-10">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={stagger}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <motion.p
+            variants={fadeUp}
+            className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-ink bg-linen/80 px-3 py-1.5 rounded-full mb-10"
           >
-            <motion.p
-              variants={fadeUp}
-              className="font-sans text-[11px] font-semibold tracking-[0.32em] uppercase text-linen mb-5"
-            >
-              <span className="inline-block w-8 h-px bg-linen align-middle mr-3" />
-              Ericeira, Portugal · October 5–11, 2026
-            </motion.p>
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse" />
+            Waitlist now open · 8 spots, October 2026
+          </motion.p>
 
-            <motion.p
-              variants={fadeUp}
-              className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-ink bg-linen/95 px-3 py-1.5 rounded-full mb-7 [text-shadow:none]"
-            >
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse" />
-              Waitlist now open · 8 spots, October 2026
-            </motion.p>
+          <motion.h1
+            variants={fadeUp}
+            className="font-display text-[2.2rem] sm:text-[2.9rem] lg:text-[3.6rem] xl:text-[4.2rem] leading-[1.05] text-ink mb-10 tracking-[-0.02em] text-balance"
+          >
+            Dream Life Retreat in Ericeira, Portugal · October 5–11, 2026
+          </motion.h1>
 
-            <motion.h1
-              variants={fadeUp}
-              className="font-display text-[2.4rem] sm:text-[3.2rem] lg:text-[4.2rem] xl:text-[4.8rem] leading-[0.96] text-cream mb-7 tracking-[-0.025em] [text-shadow:0_2px_18px_rgba(0,0,0,0.35)]"
-            >
-              You already know you want a{" "}
-              <span className="italic text-linen">different life</span>.
-              This is where you{" "}
-              <span className="italic">begin</span>.
-            </motion.h1>
+          <motion.p
+            variants={fadeUp}
+            className="font-sans text-ink/75 text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto mb-12"
+          >
+            A wellness &amp; personal development retreat on the coast of
+            Ericeira, Portugal. Yoga, rest, and real clarity on the life you
+            actually want, alongside other women who feel the same pull.
+            Bookings open soon - join the waitlist to be first in line for
+            one of the 8 spots.
+          </motion.p>
 
-            <motion.p
-              variants={fadeUp}
-              className="font-subtitle italic text-cream/85 text-base sm:text-lg lg:text-xl max-w-xl leading-relaxed mb-9 [text-shadow:0_1px_10px_rgba(0,0,0,0.4)]"
-            >
-              A wellness &amp; personal development retreat on the coast of
-              Ericeira, Portugal. Yoga, rest, and real clarity on the life
-              you actually want, alongside other women who feel the same
-              pull. Bookings open soon - join the waitlist to be first in
-              line for one of the 8 spots.
-            </motion.p>
-
-            <motion.div variants={fadeUp}>
-              <WaitlistForm variant="dark" />
-            </motion.div>
+          <motion.div variants={fadeUp} className="text-left">
+            <WaitlistForm />
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
       {/* ════════════════════════════════════════════════
           SECTION - What it is
          ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
+      <section className="bg-cream pt-6 sm:pt-8 lg:pt-10 pb-20 sm:pb-28 lg:pb-32 px-6 sm:px-10">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <motion.div
             initial="hidden"
@@ -308,7 +298,7 @@ export default function EricieraRetreatPage() {
             </motion.h2>
             <motion.p
               variants={fadeUp}
-              className="font-sans text-ink/75 text-base sm:text-lg leading-relaxed max-w-xl"
+              className="font-sans text-ink text-base sm:text-lg leading-relaxed max-w-xl"
             >
               Nourishment is a core part of the retreat experience. Throughout
               the week, you&rsquo;ll be deeply cared for with three delicious
