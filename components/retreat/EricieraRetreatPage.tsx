@@ -277,7 +277,7 @@ export default function EricieraRetreatPage() {
           >
             <div className="relative aspect-[16/10] w-full rounded-[24px] overflow-hidden">
               <Image
-                src="/assets/SheFlows-2.jpg"
+                src="/assets/SS_Nosara_11-02-26-221.jpg"
                 alt="Yoga and surf, the rhythm of the week"
                 fill
                 className="object-cover"
@@ -465,6 +465,39 @@ export default function EricieraRetreatPage() {
             what actually felt true. Now we help other women do the same. This
             week, in person.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.9, delay: 0.1 }}
+            className="mt-14 sm:mt-20 grid grid-cols-3 gap-2 sm:gap-4"
+          >
+            <div className="relative aspect-[3/4] rounded-[16px] sm:rounded-[20px] overflow-hidden">
+              <Image
+                src="/assets/SS_Nosara_11-02-26-132.jpg"
+                alt="Charlotte mapping the week's intentions"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-[3/4] rounded-[16px] sm:rounded-[20px] overflow-hidden">
+              <Image
+                src="/assets/SS_Nosara_11-02-26-242.jpg"
+                alt="Charlotte and Katja, evening on the coast"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-[3/4] rounded-[16px] sm:rounded-[20px] overflow-hidden">
+              <Image
+                src="/assets/SS_Nosara_11-02-26-138.jpg"
+                alt="A quiet moment by the sea"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -478,22 +511,38 @@ export default function EricieraRetreatPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.85, delay: 0.05 }}
-            className="font-display italic text-ink/85 text-2xl sm:text-3xl lg:text-[2.4rem] leading-[1.2] tracking-[-0.015em] max-w-3xl mx-auto"
+            className="font-display italic text-ink/85 text-xl sm:text-2xl lg:text-[1.7rem] leading-[1.35] tracking-[-0.01em] max-w-3xl mx-auto"
           >
-            &ldquo;It was such a special experience - a beautiful combination
-            of slowing down, reconnecting with yourself, and growing stronger
-            within who you are. Every part was thoughtfully curated and
-            filled with heart.&rdquo;
+            &ldquo;This retreat truly exceeded all expectations. It was such
+            a special experience: a beautiful combination of slowing down,
+            reconnecting with yourself, and growing stronger in who you are.
+            I was able to reflect, gain new perspectives, and broaden my
+            horizon, all while connecting with so many wonderful and
+            inspiring women. The atmosphere throughout the entire experience
+            felt incredibly genuine, warm, and supportive, and everyone felt
+            completely comfortable, seen, and cared for from the very
+            beginning. You could truly feel the passion and dedication
+            behind every detail. I would book this again in a heartbeat.&rdquo;
           </motion.blockquote>
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="mt-8 font-mono text-[11px] tracking-[0.22em] uppercase text-ink/55"
+            className="mt-10 flex flex-col items-center gap-4"
           >
-            - Past retreat guest
-          </motion.p>
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden">
+              <Image
+                src="/assets/Sheila-14.jpg"
+                alt="Sheila"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-ink/55">
+              - Sheila
+            </p>
+          </motion.div>
         </div>
       </section>
 
