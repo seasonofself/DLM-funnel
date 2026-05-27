@@ -65,62 +65,63 @@ export default function EricieraRetreatPage() {
       <Header />
 
       {/* ════════════════════════════════════════════════
-          HERO - cinematic video banner (no text overlay)
+          HERO - split on desktop (text + form left, video right)
+                 stacked on mobile (video on top, text below)
+                 designed so the waitlist button sits above the fold
          ════════════════════════════════════════════════ */}
-      <section className="relative bg-ink overflow-hidden h-[55vh] sm:h-[60vh] lg:h-[68vh]">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-[50%_50%]"
-        >
-          <source src="/assets/drone-video.mp4" type="video/mp4" />
-        </video>
-      </section>
-
-      {/* ════════════════════════════════════════════════
-          HERO TEXT - spacious, centered, on cream
-         ════════════════════════════════════════════════ */}
-      <section className="bg-cream pt-10 sm:pt-12 lg:pt-14 pb-10 sm:pb-12 lg:pb-14 px-6 sm:px-10">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={stagger}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <motion.p
-            variants={fadeUp}
-            className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-ink bg-linen/80 px-3 py-1.5 rounded-full mb-10"
+      <section className="bg-cream lg:grid lg:grid-cols-12 lg:min-h-[calc(100vh-60px)]">
+        <div className="relative bg-ink overflow-hidden h-[38vh] sm:h-[44vh] lg:h-auto lg:col-span-6 lg:order-2 lg:min-h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover object-[50%_50%]"
           >
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse" />
-            Waitlist now open · 8 spots, October 2026
-          </motion.p>
+            <source src="/assets/drone-video.mp4" type="video/mp4" />
+          </video>
+        </div>
 
-          <motion.h1
-            variants={fadeUp}
-            className="font-display text-[2.2rem] sm:text-[2.9rem] lg:text-[3.6rem] xl:text-[4.2rem] leading-[1.05] text-ink mb-10 tracking-[-0.02em] text-balance"
+        <div className="lg:col-span-6 lg:order-1 px-6 sm:px-10 lg:px-12 xl:px-16 pt-8 sm:pt-10 lg:pt-0 pb-10 sm:pb-12 lg:pb-0 flex flex-col justify-center">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+            className="w-full max-w-xl mx-auto lg:mx-0 text-center lg:text-left"
           >
-            Dream Life Retreat in Ericeira, Portugal · October 5–11, 2026
-          </motion.h1>
+            <motion.p
+              variants={fadeUp}
+              className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-ink bg-linen/80 px-3 py-1.5 rounded-full mb-6"
+            >
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse" />
+              Waitlist now open · 8 spots, October 2026
+            </motion.p>
 
-          <motion.p
-            variants={fadeUp}
-            className="font-sans text-ink/75 text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto mb-12"
-          >
-            A wellness &amp; personal development retreat on the coast of
-            Ericeira, Portugal. Yoga, rest, and real clarity on the life you
-            actually want, alongside other women who feel the same pull.
-            Bookings open soon - join the waitlist to be first in line for
-            one of the 8 spots.
-          </motion.p>
+            <motion.h1
+              variants={fadeUp}
+              className="font-display text-[1.9rem] sm:text-[2.4rem] lg:text-[2.6rem] xl:text-[3.1rem] leading-[1.05] text-ink mb-5 tracking-[-0.02em] text-balance"
+            >
+              Dream Life Retreat in Ericeira, Portugal · October 5–11, 2026
+            </motion.h1>
 
-          <motion.div variants={fadeUp} className="text-left">
-            <WaitlistForm />
+            <motion.p
+              variants={fadeUp}
+              className="font-sans text-ink/75 text-[15px] sm:text-base lg:text-[17px] leading-relaxed mb-7"
+            >
+              A wellness &amp; personal development retreat on the coast of
+              Ericeira, Portugal. Yoga, rest, and real clarity on the life
+              you actually want, alongside other women who feel the same
+              pull. Bookings open soon - join the waitlist to be first in
+              line for one of the 8 spots.
+            </motion.p>
+
+            <motion.div variants={fadeUp} className="text-left">
+              <WaitlistForm />
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </section>
 
       {/* ════════════════════════════════════════════════
