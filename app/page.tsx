@@ -111,7 +111,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-3 bg-ink text-cream font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-8 sm:px-9 py-[18px] rounded-full hover:bg-deep-sage transition-colors"
               >
-                Take the free quiz
+                Get your Ikigai Map · $27
                 <span
                   aria-hidden="true"
                   className="transition-transform group-hover:translate-x-1"
@@ -486,23 +486,23 @@ export default function HomePage() {
                 className="group block h-full bg-white rounded-[28px] p-8 sm:p-10 lg:p-12 hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
               >
                 <p className="font-sans text-[10px] font-semibold tracking-[0.32em] uppercase text-deep-sage mb-5">
-                  Quiz · 10 minutes
+                  Start here · $27
                 </p>
                 <h3 className="font-display text-[1.8rem] sm:text-[2.2rem] lg:text-[2.6rem] leading-[1.05] text-ink mb-5">
                   Find the work that is{" "}
                   <span className="italic">actually yours</span>
                 </h3>
                 <p className="font-sans text-ink/65 text-base sm:text-lg leading-relaxed mb-10 max-w-md">
-                  Our free Ikigai quiz helps you find the meeting point of
-                  what you love, what you’re great at, what the world needs,
-                  and what you can build a living around.
+                  Our Ikigai Map shows you the meeting point of what you love,
+                  what you’re great at, what the world needs, and what you can
+                  build a living around. Start here.
                 </p>
                 <span className="inline-flex items-center gap-3 border border-ink/85 rounded-full px-6 sm:px-7 py-3 sm:py-[14px] font-sans font-medium text-[11px] tracking-[0.32em] uppercase text-ink group-hover:bg-ink group-hover:text-cream transition-colors">
-                  Take the free quiz
+                  Get your Ikigai Map · $27
                   <span aria-hidden="true">→</span>
                 </span>
                 <p className="mt-4 font-sans text-xs text-ink/45">
-                  No email required to start.
+                  About 10 minutes · voice or text · yours to keep.
                 </p>
               </a>
             </motion.div>
@@ -854,7 +854,7 @@ export default function HomePage() {
               className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-10 max-w-md"
             >
               Find out what you are actually meant to build, and how to make a
-              living from it, in about 10 minutes, free.
+              living from it, in about 10 minutes.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -868,7 +868,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-deep-sage text-cream font-sans font-medium text-[11px] tracking-[0.32em] uppercase px-9 py-[18px] rounded-full hover:bg-sage transition-colors"
               >
-                Take the Ikigai quiz
+                Get your Ikigai Map · $27
                 <span aria-hidden="true">→</span>
               </a>
             </motion.div>
@@ -925,7 +925,7 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                     className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
-                    Ikigai Quiz →
+                    Ikigai Map →
                   </a>
                 </li>
                 <li>
