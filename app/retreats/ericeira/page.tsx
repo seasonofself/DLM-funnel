@@ -2,24 +2,24 @@ import type { Metadata } from "next";
 import EricieraRetreatPage from "@/components/retreat/EricieraRetreatPage";
 
 export const metadata: Metadata = {
-  title: "A Wellness Week in Ericeira, Portugal · October 2026",
+  title: "The Dream Life Retreat · Ericeira, Portugal · October 2026",
   description:
-    "Join the waitlist for a small wellness week in Ericeira, Portugal with Charlotte and Katja of Season of Self. Yoga, rest, and dream life workshops for 8 women, October 5 to 11, 2026.",
+    "A week on the Atlantic coast in Ericeira, Portugal for 8 women, with Charlotte and Katja of Season of Self. Yoga, breathwork, the full Dream Life journey, and a real plan to build the work that feels like you. October 5 to 11, 2026.",
   alternates: { canonical: "/retreats/ericeira" },
   openGraph: {
     title:
-      "A Wellness Week in Ericeira, Portugal · October 2026 — Season of Self",
+      "The Dream Life Retreat · Ericeira, Portugal · October 2026 — Season of Self",
     description:
-      "Yoga, rest, and dream life workshops for 8 women on the Atlantic coast. October 5 to 11, 2026. Hosted by Charlotte and Katja.",
+      "Six days, six movements, one life brought into focus. Yoga, breathwork, and the full Dream Life journey for 8 women on the Atlantic coast. October 5 to 11, 2026.",
     url: "/retreats/ericeira",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "A Wellness Week in Ericeira, Portugal · October 2026 — Season of Self",
+      "The Dream Life Retreat · Ericeira, Portugal · October 2026 — Season of Self",
     description:
-      "Join the waitlist. 8 women only. Hosted by Charlotte and Katja.",
+      "A week to dream, map, and leap. 8 women only. Hosted by Charlotte and Katja.",
   },
 };
 
