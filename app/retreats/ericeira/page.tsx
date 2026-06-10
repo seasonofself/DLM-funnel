@@ -4,13 +4,13 @@ import EricieraRetreatPage from "@/components/retreat/EricieraRetreatPage";
 export const metadata: Metadata = {
   title: "The Dream Life Retreat · Ericeira, Portugal · October 2026",
   description:
-    "A week on the Atlantic coast in Ericeira, Portugal for 8 women, with Charlotte and Katja of Season of Self. Yoga, breathwork, the full Dream Life journey, and a real plan to build the work that feels like you. October 5 to 11, 2026.",
+    "A week for yourself on the Atlantic coast in Ericeira, Portugal, with Charlotte and Katja of Season of Self. Wellness, true sisterhood, and the full Dream Life Mapping course included. Application-based, 6 to 10 women. October 5 to 11, 2026.",
   alternates: { canonical: "/retreats/ericeira" },
   openGraph: {
     title:
       "The Dream Life Retreat · Ericeira, Portugal · October 2026 — Season of Self",
     description:
-      "Six days, six movements, one life brought into focus. Yoga, breathwork, and the full Dream Life journey for 8 women on the Atlantic coast. October 5 to 11, 2026.",
+      "A week for yourself on the Atlantic coast. Wellness, true sisterhood, and the full Dream Life Mapping course included. Application-based. October 5 to 11, 2026.",
     url: "/retreats/ericeira",
     type: "website",
   },
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title:
       "The Dream Life Retreat · Ericeira, Portugal · October 2026 — Season of Self",
     description:
-      "A week to dream, map, and leap. 8 women only. Hosted by Charlotte and Katja.",
+      "A week for yourself. Application-based, 6 to 10 women. Hosted by Charlotte and Katja.",
   },
 };
 
