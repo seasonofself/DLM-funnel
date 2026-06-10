@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import Carousel from "@/components/retreat/Carousel";
@@ -37,6 +37,12 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] } },
 };
 const stagger = { visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } } };
+
+/* ── Early-bird pricing flips to standard automatically on this date.
+      One source of truth: change this and every card + banner follows.
+      TODO(charlotte): confirm the exact cutoff (using local midnight Jul 1, 2026). ── */
+const EARLYBIRD_END = new Date("2026-07-01T00:00:00").getTime();
+const eur = (n: number) => "€" + n.toLocaleString("en-US");
 
 /* ── Every CTA applies — booking is application-gated, no instant checkout ── */
 function ApplyButton({
@@ -95,7 +101,7 @@ const theWork = [
   },
   { title: "Mapping & strategy session", desc: "Turn that clarity into a real plan, with next steps you can actually move on." },
   { title: "Hot-seat coaching", desc: "Live coaching in a small, intimate group. Be seen, be guided, be cheered on." },
-  { title: "Daily workshops", desc: "A guided workshop every day, the heart of the week’s inner work." },
+  { title: "Daily workshops", desc: "A guided workshop every day to get clear on your dream life and build your action plan." },
   { title: "Lifelong Dream Life Mapping access", desc: "The full DLM course is yours to keep, forever. Return to it any season of your life." },
 ];
 
@@ -119,11 +125,11 @@ const dayShape = [
 
 /* Private shown first as the anchor, so Shared reads as the smart buy */
 const rooms = [
-  { name: "Private room", price: "€2,650", desc: "Your own private queen room. The deepest rest, entirely your own.", img: "/assets/double-room-far-end-surf-house-2.jpg", featured: true },
-  { name: "Shared room", price: "€2,150", desc: "A queen, shared with a friend. The smart buy, come together.", img: "/assets/double-room-far-end-surf-house.jpg" },
-  { name: "Bunk bed", price: "€1,950", desc: "A single bed in a shared room. The bring-a-friend option.", img: "/assets/farendsurfhouse-kerttukruusla_107.jpg" },
-  { name: "Glamping — private", price: "€2,250", desc: "Your own glamping unit, sole occupancy. Outdoors, under the stars.", img: "/assets/farendsurfhouse-kerttukruusla_18-1024x1536.jpg" },
-  { name: "Glamping — shared", price: "€1,750", desc: "A romantic double or twin glamping setup. Linens and towels included. A cosy October hideaway.", img: "/assets/farendsurfhouse-kerttukruusla_18-1024x1536.jpg" },
+  { name: "Private room", earlyBird: 2650, standard: 2950, desc: "Your own private queen room. The deepest rest, entirely your own.", img: "/assets/double-room-far-end-surf-house-2.jpg", featured: true },
+  { name: "Shared room", earlyBird: 2150, standard: 2400, desc: "A queen, shared with a friend. The smart buy, come together.", img: "/assets/double-room-far-end-surf-house.jpg" },
+  { name: "Bunk bed", earlyBird: 1950, standard: 2200, desc: "A single bed in a shared room. The bring-a-friend option.", img: "/assets/farendsurfhouse-kerttukruusla_107.jpg" },
+  { name: "Glamping — private", earlyBird: 2250, standard: 2500, desc: "Your own glamping unit, sole occupancy. Outdoors, under the stars.", img: "/assets/farendsurfhouse-kerttukruusla_18-1024x1536.jpg" },
+  { name: "Glamping — shared", earlyBird: 1750, standard: 1950, desc: "A romantic double or twin glamping setup. Linens and towels included. A cosy October hideaway.", img: "/assets/farendsurfhouse-kerttukruusla_18-1024x1536.jpg" },
 ];
 
 const steps = [
@@ -146,7 +152,7 @@ const goodToKnow = [
   { label: "Where", value: "Ericeira, Portugal" },
   { label: "Who", value: "6 to 10 women, hosted by Charlotte and Katja" },
   { label: "Included", value: "6 nights, three meals a day, all practices and workshops, surf, a cacao ceremony, a massage, and lifelong Dream Life Mapping access" },
-  { label: "Investment", value: "from €1,750 per person" },
+  { label: "Investment", value: "from €1,750 per person (early-bird, until July 1)" },
   { label: "Booking", value: "application-based, 50% to secure your spot and 50% later" },
   { label: "Getting there", value: "fly to Lisbon, around 45 minutes to Ericeira" },
 ];
@@ -183,9 +189,27 @@ function FaqItem({ faq, isOpen, toggle }: { faq: { q: string; a: string }; isOpe
 export default function EricieraRetreatPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [kristinOpen, setKristinOpen] = useState(false);
+  /* default true so the static HTML shows early-bird; corrected on mount */
+  const [isEarlyBird, setIsEarlyBird] = useState(true);
+  useEffect(() => {
+    setIsEarlyBird(Date.now() < EARLYBIRD_END);
+  }, []);
 
   return (
     <main className="relative overflow-hidden bg-cream">
+      {/* ════ ANNOUNCEMENT BAR (early-bird only) ════ */}
+      {isEarlyBird && (
+        <a
+          href="#apply"
+          className="block bg-deep-sage text-cream text-center px-4 py-2.5 hover:bg-sage transition-colors"
+        >
+          <span className="font-sans text-[12px] sm:text-sm font-medium tracking-wide">
+            ✨ Early-bird pricing, save up to €300. Only 6–10 spots. Apply by July 1{" "}
+            <span aria-hidden="true">→</span>
+          </span>
+        </a>
+      )}
+
       <Header />
 
       {/* ════ 1 · HERO ════ */}
@@ -456,6 +480,18 @@ export default function EricieraRetreatPage() {
           </motion.p>
         </div>
 
+        {isEarlyBird && (
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.7 }} className="max-w-3xl mx-auto mb-10 sm:mb-12 rounded-card-lg bg-terracotta/12 border border-terracotta/30 px-6 sm:px-8 py-6 sm:py-7 text-center">
+            <p className="font-display text-ink text-2xl sm:text-[1.9rem] tracking-[-0.015em] mb-3">Early-bird pricing, until July 1.</p>
+            <p className="font-sans text-ink/70 text-[15px] sm:text-base leading-relaxed max-w-2xl mx-auto">
+              Apply and secure your spot (50% deposit) before July 1 to lock in early-bird rates. After that, standard pricing applies, and with only 6 to 10 spots, it’s first to apply, first to secure.
+            </p>
+            <p className="mt-4 font-mono text-[10px] tracking-[0.18em] uppercase text-ink/45">
+              Early-bird = applied and 50% deposit paid by July 1, 2026
+            </p>
+          </motion.div>
+        )}
+
         <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {rooms.map((room, i) => (
             <motion.div key={room.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.6, delay: (i % 3) * 0.06 }} className={`flex flex-col rounded-card-lg overflow-hidden border ${room.featured ? "border-terracotta/60 shadow-lifted" : "border-ink/10 shadow-soft"} bg-offwhite`}>
@@ -467,10 +503,23 @@ export default function EricieraRetreatPage() {
               </div>
               <div className="flex flex-col flex-1 p-7">
                 <h3 className="font-display text-ink text-xl sm:text-[1.4rem] leading-snug tracking-[-0.015em] mb-2">{room.name}</h3>
-                <div className="mb-3">
-                  <span className="font-display text-ink text-3xl sm:text-[2.2rem] tracking-[-0.02em]">{room.price}</span>
-                  <span className="font-sans text-ink/55 text-sm ml-2">per person</span>
-                </div>
+                {isEarlyBird ? (
+                  <div className="mb-3">
+                    <div className="flex items-baseline gap-2.5 flex-wrap">
+                      <span className="font-display text-ink text-3xl sm:text-[2.2rem] tracking-[-0.02em]">{eur(room.earlyBird)}</span>
+                      <span className="font-sans text-ink/40 text-lg line-through">{eur(room.standard)}</span>
+                      <span className="font-sans text-ink/55 text-sm">per person</span>
+                    </div>
+                    <span className="inline-block mt-2 font-mono text-[10px] tracking-[0.18em] uppercase bg-sage/25 text-deep-sage px-2.5 py-1 rounded-full">
+                      Save {eur(room.standard - room.earlyBird)}
+                    </span>
+                  </div>
+                ) : (
+                  <div className="mb-3">
+                    <span className="font-display text-ink text-3xl sm:text-[2.2rem] tracking-[-0.02em]">{eur(room.standard)}</span>
+                    <span className="font-sans text-ink/55 text-sm ml-2">per person</span>
+                  </div>
+                )}
                 <p className="font-sans text-ink/65 text-[14px] leading-relaxed mb-7">{room.desc}</p>
                 <a href="#apply" className={`mt-auto inline-flex items-center justify-center gap-3 font-mono text-[12px] font-medium tracking-[0.2em] uppercase px-8 py-[16px] rounded-full transition-colors ${room.featured ? "bg-terracotta text-cream hover:bg-terracotta-dark" : "bg-ink text-cream hover:bg-deep-sage"}`}>
                   Apply
