@@ -290,19 +290,12 @@ export default function EricieraRetreatPage() {
             ))}
           </div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.7 }} className="rounded-card-lg bg-ink text-cream p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
-            <div className="flex-1">
-              <p className="font-display text-2xl sm:text-3xl leading-snug tracking-[-0.015em] mb-2">Yours for life.</p>
-              <p className="font-sans text-cream/75 text-[15px] sm:text-base leading-relaxed">
-                Lifelong access to Dream Life Mapping comes with your spot. Return to it in any season, as many times as you need.{" "}
-                <span className="text-cream">Included free, normally $197.</span>
-              </p>
-            </div>
-            {/* TODO(charlotte): confirm DLM page URL (currently /dream-life) */}
-            <a href="/dream-life" className="shrink-0 inline-flex items-center justify-center gap-3 font-sans font-medium text-[11px] tracking-[0.32em] uppercase px-8 py-[16px] rounded-full border border-cream/40 text-cream hover:bg-cream hover:text-ink transition-colors">
-              Read more
-              <span aria-hidden="true">→</span>
-            </a>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.7 }} className="rounded-card-lg bg-cream/70 border border-ink/10 p-8 sm:p-10 text-center max-w-2xl mx-auto">
+            <p className="font-display text-ink text-2xl sm:text-3xl leading-snug tracking-[-0.015em] mb-3">Yours for life.</p>
+            <p className="font-sans text-ink/70 text-[15px] sm:text-base leading-relaxed max-w-xl mx-auto">
+              Lifelong access to Dream Life Mapping comes with your spot. Return to it in any season, as many times as you need.{" "}
+              <span className="text-ink font-medium">Included free, normally $197.</span>
+            </p>
           </motion.div>
         </div>
       </section>
