@@ -128,7 +128,7 @@ const rooms = [
   { name: "Private room", earlyBird: 2650, standard: 2950, desc: "Your own private queen room. The deepest rest, entirely your own.", img: "/assets/double-room-far-end-surf-house-2.jpg", featured: true },
   { name: "Shared room", earlyBird: 2150, standard: 2400, desc: "A queen, shared with a friend. The smart buy, come together.", img: "/assets/double-room-far-end-surf-house.jpg" },
   { name: "Bunk bed", earlyBird: 1950, standard: 2200, desc: "A single bed in a shared room. The bring-a-friend option.", img: "/assets/farendsurfhouse-kerttukruusla_107.jpg" },
-  { name: "Glamping — private", earlyBird: 2250, standard: 2500, desc: "Your own glamping unit, sole occupancy. Outdoors, under the stars.", img: "/assets/farendsurfhouse-kerttukruusla_18-1024x1536.jpg" },
+  { name: "Glamping — private", earlyBird: 2250, standard: 2500, desc: "Your own glamping unit, sole occupancy. Outdoors, under the stars.", img: "/assets/glamping-beds-far-end-surf-house-7.jpg" },
   { name: "Glamping — shared", earlyBird: 1750, standard: 1950, desc: "A romantic double or twin glamping setup. Linens and towels included. A cosy October hideaway.", img: "/assets/farendsurfhouse-kerttukruusla_18-1024x1536.jpg" },
 ];
 
