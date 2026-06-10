@@ -70,6 +70,14 @@ const carouselSlides = [
   { src: "/assets/sheflows.jpeg", alt: "Scenes from the last retreat" },
 ];
 
+const venueSlides = [
+  { src: "/assets/The_Far_End_Surf_House_heropool.jpg", alt: "The pool at the surf house" },
+  { src: "/assets/DJI_0037.jpg", alt: "The surf house from above" },
+  { src: "/assets/IMG_2401-1.jpg", alt: "The big open kitchen" },
+  { src: "/assets/DSC02695.jpg", alt: "The rooftop terrace set up for practice" },
+  { src: "/assets/DSC03964.jpg", alt: "Yoga on the terrace" },
+];
+
 /* TODO(charlotte): confirm the exact Dream Life Mapping module names + blurbs */
 const dlmModules = [
   { n: "01", title: "Assess", desc: "Land, exhale, and get honest about where you actually are." },
@@ -87,16 +95,16 @@ const theWork = [
   },
   { title: "Mapping & strategy session", desc: "Turn that clarity into a real plan, with next steps you can actually move on." },
   { title: "Hot-seat coaching", desc: "Live coaching in a small, intimate group. Be seen, be guided, be cheered on." },
-  { title: "Two more workshops", desc: "Two additional in-person workshops woven through the week." },
+  { title: "Daily workshops", desc: "A guided workshop every day, the heart of the week’s inner work." },
   { title: "Lifelong Dream Life Mapping access", desc: "The full DLM course is yours to keep, forever. Return to it any season of your life." },
 ];
 
 const theWellness = [
-  { title: "Surf, included", desc: "Lessons with our coach when the waves are kind. Every level, total beginners welcome." },
-  { title: "Sauna & cold plunge", desc: "Heat, cold, repeat. The reset your nervous system has been quietly asking for." },
+  { title: "Daily yoga & meditation classes", desc: "Gentle daily practice to drop in and settle before the day’s work." },
+  { title: "One surf session", desc: "A guided session with our coach when the waves are kind. Every level, total beginners welcome." },
+  { title: "A cacao ceremony", desc: "An evening cacao ceremony to open the heart, connect, and arrive fully in the circle." },
   { title: "A 60-minute massage", desc: "Tailored to how you feel that day. One is included, with the option to add a second." },
-  { title: "Daily yoga & meditation", desc: "Gentle morning practice to drop in and settle before the day’s work." },
-  { title: "Two farm-to-table meals a day", desc: "Fresh, vegetarian, and lovingly prepared by our private chef." },
+  { title: "Three meals a day", desc: "Fresh, vegetarian, farm-to-table meals, lovingly prepared by our private chef." },
   { title: "A welcome gift", desc: "A goodie bag full of little surprises, waiting for you when you arrive." },
 ];
 
@@ -106,7 +114,7 @@ const dayShape = [
   { time: "9:00", note: "a slow, nourishing breakfast" },
   { time: "Late morning", note: "the day’s workshop" },
   { time: "1:00", note: "lunch, then a long, open afternoon to surf, hike the cliffs, swim, journal, nap, or book a massage" },
-  { time: "Evening", note: "an optional sunset sit, dinner, and a fire, a sauna, or a circle" },
+  { time: "Evening", note: "an optional sunset sit, dinner, and a fire, a cacao ceremony, or a circle" },
 ];
 
 /* Private shown first as the anchor, so Shared reads as the smart buy */
@@ -136,8 +144,8 @@ const faqs = [
 const goodToKnow = [
   { label: "When", value: "October 5 to 11, 2026" },
   { label: "Where", value: "Ericeira, Portugal" },
-  { label: "Who", value: "8 women, hosted by Charlotte and Katja" },
-  { label: "Included", value: "6 nights, two meals a day, all practices and workshops, surf, sauna & cold plunge, a massage, and lifelong Dream Life Mapping access" },
+  { label: "Who", value: "6 to 10 women, hosted by Charlotte and Katja" },
+  { label: "Included", value: "6 nights, three meals a day, all practices and workshops, surf, a cacao ceremony, a massage, and lifelong Dream Life Mapping access" },
   { label: "Investment", value: "from €1,750 per person" },
   { label: "Booking", value: "application-based, 50% to secure your spot and 50% later" },
   { label: "Getting there", value: "fly to Lisbon, around 45 minutes to Ericeira" },
@@ -188,10 +196,10 @@ export default function EricieraRetreatPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/35 to-ink/70" aria-hidden="true" />
         <motion.div initial="hidden" animate="visible" variants={stagger} className="relative z-10 w-full max-w-3xl mx-auto px-6 sm:px-10 text-center text-cream py-28">
           <motion.p variants={fadeUp} className="font-mono text-[10px] sm:text-[11px] font-medium tracking-[0.24em] uppercase text-cream/85 mb-7">
-            Ericeira, Portugal · October 5–11, 2026 · 8 women only
+            Ericeira, Portugal · October 5–11, 2026 · 6–10 women only
           </motion.p>
           <motion.h1 variants={fadeUp} className="font-display text-[2.8rem] sm:text-[4.2rem] lg:text-[5.4rem] leading-[1.0] tracking-[-0.02em] text-balance">
-            The week for herself
+            A week for yourself
           </motion.h1>
           <motion.p variants={fadeUp} className="mt-7 font-sans text-cream/85 text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
             Six days on the Atlantic coast to slow all the way down, feel true sisterhood, and leave knowing anything is possible, with the clarity and guidance to go after what’s meant for you.
@@ -226,32 +234,8 @@ export default function EricieraRetreatPage() {
         </div>
       </section>
 
-      {/* ════ 3 · VERTICAL VIDEO ════ */}
+      {/* ════ 3 · CAROUSEL ════ */}
       <section className="bg-cream py-20 sm:py-28 px-6 sm:px-10">
-        <div className="max-w-md mx-auto text-center">
-          <p className="font-mono text-[10px] tracking-[0.24em] uppercase text-terracotta-dark mb-6">A peek at last October</p>
-          {/* TODO(charlotte): drop the vertical (9:16) retreat film in /public/assets
-              and replace the poster block below with:
-              <video controls playsInline poster="/assets/retreat-poster.jpg"
-                className="absolute inset-0 w-full h-full object-cover">
-                <source src="/assets/retreat-vertical.mp4" type="video/mp4" />
-              </video> */}
-          <div className="relative w-full aspect-[9/16] rounded-card-lg overflow-hidden bg-ink">
-            <Image src="/assets/SS_Nosara_11-02-26-221.jpg" alt="A film from the last retreat is coming soon" fill className="object-cover opacity-80" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="flex items-center justify-center w-16 h-16 rounded-full bg-cream/90 text-ink shadow-lifted">
-                <span aria-hidden="true" className="text-2xl ml-1">▶</span>
-              </span>
-            </div>
-            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-ink/70 to-transparent p-4">
-              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-cream/80">Film coming soon</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ════ 4 · CAROUSEL ════ */}
-      <section className="bg-cream pb-20 sm:pb-28 px-6 sm:px-10">
         <div className="max-w-4xl mx-auto">
           <Carousel slides={carouselSlides} />
         </div>
@@ -287,8 +271,7 @@ export default function EricieraRetreatPage() {
               <p className="font-display text-2xl sm:text-3xl leading-snug tracking-[-0.015em] mb-2">Yours for life.</p>
               <p className="font-sans text-cream/75 text-[15px] sm:text-base leading-relaxed">
                 Lifelong access to Dream Life Mapping comes with your spot. Return to it in any season, as many times as you need.{" "}
-                {/* TODO(charlotte): confirm DLM standalone price */}
-                <span className="text-cream">Included free, normally €<span className="italic">[TODO price]</span>.</span>
+                <span className="text-cream">Included free, normally $197.</span>
               </p>
             </div>
             {/* TODO(charlotte): confirm DLM page URL (currently /dream-life) */}
@@ -387,19 +370,8 @@ export default function EricieraRetreatPage() {
             A whitewashed surf house tucked into green hills a few minutes from the coast. Sun-filled rooms, a big open kitchen, a rooftop terrace for yoga and workshops, a pool to cool off in, and quiet corners everywhere to journal, nap, and breathe.
           </motion.p>
         </div>
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 1 }} className="relative w-full max-w-6xl mx-auto aspect-[16/9] rounded-card-lg overflow-hidden mb-5 sm:mb-6">
-          <Image src="/assets/The_Far_End_Surf_House_heropool.jpg" alt="The pool at the surf house" fill sizes="100vw" className="object-cover" />
-        </motion.div>
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5">
-          {[
-            { src: "/assets/IMG_2401-1.jpg", alt: "The big open kitchen" },
-            { src: "/assets/DSC02695.jpg", alt: "The rooftop terrace set up for practice" },
-            { src: "/assets/DJI_0037.jpg", alt: "The surf house from above" },
-          ].map((g, i) => (
-            <motion.div key={g.src} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-30px" }} transition={{ duration: 0.6, delay: (i % 3) * 0.05 }} className="relative aspect-[4/3] rounded-card overflow-hidden">
-              <Image src={g.src} alt={g.alt} fill className="object-cover" />
-            </motion.div>
-          ))}
+        <div className="max-w-5xl mx-auto">
+          <Carousel slides={venueSlides} aspect="aspect-[4/3] sm:aspect-[16/9]" />
         </div>
       </section>
 
@@ -441,7 +413,7 @@ export default function EricieraRetreatPage() {
           <div className="sm:col-span-7">
             <h2 className="font-display text-[1.8rem] sm:text-[2.2rem] leading-[1.06] text-ink mb-4 tracking-[-0.02em]">Food as part of the <span className="italic">ritual</span></h2>
             <p className="font-sans text-ink/70 text-[15px] sm:text-base leading-relaxed">
-              Two home-cooked, farm-to-table meals a day from our private chef. Fresh, local, and vegetarian, built to nourish you from the inside out. Here, eating is connection and a way of coming back to yourself.
+              Three home-cooked, farm-to-table meals a day from our private chef. Fresh, local, and vegetarian, built to nourish you from the inside out. Here, eating is connection and a way of coming back to yourself.
             </p>
           </div>
         </div>
@@ -480,7 +452,7 @@ export default function EricieraRetreatPage() {
             Choose your <span className="italic">room</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85, delay: 0.06 }} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed">
-            Six nights, two home-cooked meals a day, every practice and workshop, surf, sauna, a massage, and the full Dream Life journey. Spots are by application, with 50% to secure your place and 50% later.
+            Six nights, three home-cooked meals a day, every practice and workshop, surf, a cacao ceremony, a massage, and the full Dream Life journey. Spots are by application, with 50% to secure your place and 50% later.
           </motion.p>
         </div>
 
@@ -508,7 +480,7 @@ export default function EricieraRetreatPage() {
             </motion.div>
           ))}
         </div>
-        <p className="mt-10 text-center font-display italic text-ink text-2xl sm:text-3xl leading-snug">Only 8 spots, and they go quickly.</p>
+        <p className="mt-10 text-center font-display italic text-ink text-2xl sm:text-3xl leading-snug">Only 6 to 10 spots, and they go quickly.</p>
       </section>
 
       {/* ════ 14 · HOW IT WORKS ════ */}
@@ -519,7 +491,7 @@ export default function EricieraRetreatPage() {
               How it <span className="italic">works</span>
             </motion.h2>
             <motion.p initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85, delay: 0.06 }} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed">
-              Spots are by application. We keep this to eight women and meet each of you first. It’s how we protect what makes it special: a small, safe circle where real sisterhood can happen, and everyone feels seen from the moment they arrive.
+              Spots are by application. We keep this to a small group of 6 to 10 women and meet each of you first. It’s how we protect what makes it special: a small, safe circle where real sisterhood can happen, and everyone feels seen from the moment they arrive.
             </motion.p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
