@@ -4,7 +4,7 @@ import EricieraRetreatPage from "@/components/retreat/EricieraRetreatPage";
 export const metadata: Metadata = {
   title: "The Dream Life Retreat · Ericeira, Portugal · October 2026",
   description:
-    "A week on the Atlantic coast in Ericeira, Portugal for 8 women, with Charlotte and Katja of Season of Self. Yoga, breathwork, the full Dream Life journey, and a real plan to build the work that feels like you. October 5 to 11, 2026.",
+    "The week for herself. A week on the Atlantic coast in Ericeira, Portugal for 8 women, with Charlotte and Katja of Season of Self. Wellness, true sisterhood, and the full Dream Life Mapping course included. Application-based. October 5 to 11, 2026.",
   alternates: { canonical: "/retreats/ericeira" },
   openGraph: {
     title:
