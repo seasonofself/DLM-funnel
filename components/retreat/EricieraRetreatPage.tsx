@@ -169,7 +169,7 @@ const testimonials = [
   },
   {
     name: "Kristin",
-    img: "/assets/kristin.jpg",
+    img: "/assets/kristin-1.jpeg",
     quote:
       "This week felt like a gentle journey home, back to myself. The small group, the warm, intimate atmosphere, and the lovingly prepared farm-to-table meals created a real sense of belonging. I left with deep gratitude for my body as my home, and the feeling of having arrived a little closer to myself again, a beautiful gift for any woman longing to slow down, connect with like-minded women, and create space for what truly matters.",
   },
@@ -354,7 +354,7 @@ export default function EricieraRetreatPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {theWellness.map((item, i) => (
                 <motion.div key={item.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-30px" }} transition={{ duration: 0.5, delay: (i % 3) * 0.05 }} className="rounded-card-lg bg-[#dde2d2]/50 border border-ink/8 p-6">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cream text-2xl mb-4 shadow-soft" aria-hidden="true">{item.icon}</span>
+                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cream mb-4 shadow-soft" aria-hidden="true"><Spiral className="w-6 h-6 text-terracotta-dark" /></span>
                   <h3 className="font-display text-ink text-lg sm:text-xl tracking-[-0.015em] mb-2">{item.title}</h3>
                   <p className="font-sans text-ink/70 text-[15px] leading-relaxed">{item.desc}</p>
                 </motion.div>
@@ -368,7 +368,7 @@ export default function EricieraRetreatPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {theWork.map((item, i) => (
                 <motion.div key={item.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-30px" }} transition={{ duration: 0.5, delay: (i % 3) * 0.05 }} className="rounded-card-lg bg-linen/40 border border-ink/8 p-6">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cream text-2xl mb-4 shadow-soft" aria-hidden="true">{item.icon}</span>
+                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cream mb-4 shadow-soft" aria-hidden="true"><Spiral className="w-6 h-6 text-terracotta-dark" /></span>
                   <h3 className="font-display text-ink text-lg sm:text-xl tracking-[-0.015em] mb-2">{item.title}</h3>
                   <p className="font-sans text-ink/70 text-[15px] leading-relaxed">{item.desc}</p>
                 </motion.div>
