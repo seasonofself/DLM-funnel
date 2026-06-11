@@ -96,22 +96,23 @@ const dlmModules = [
 
 const theWork = [
   {
+    icon: "🌸",
     title: "The Ikigai experience",
     desc: "A guided process to find the meeting point of what you love, what you are great at, what the world needs, and what you can build a living around. You leave with your own Ikigai map.",
   },
-  { title: "Mapping & strategy session", desc: "Turn that clarity into a real plan, with next steps you can actually move on." },
-  { title: "Hot-seat coaching", desc: "Live coaching in a small, intimate group. Be seen, be guided, be cheered on." },
-  { title: "Daily workshops", desc: "A guided workshop every day to get clear on your dream life and build your action plan." },
-  { title: "Lifelong Dream Life Mapping access", desc: "The full DLM course is yours to keep, forever. Return to it any season of your life." },
+  { icon: "🗺️", title: "Mapping & strategy session", desc: "Turn that clarity into a real plan, with next steps you can actually move on." },
+  { icon: "💬", title: "Hot-seat coaching", desc: "Live coaching in a small, intimate group. Be seen, be guided, be cheered on." },
+  { icon: "✍️", title: "Daily workshops", desc: "A guided workshop every day to get clear on your dream life and build your action plan." },
+  { icon: "♾️", title: "Lifelong Dream Life Mapping access", desc: "The full DLM course is yours to keep, forever. Return to it any season of your life." },
 ];
 
 const theWellness = [
-  { title: "Daily yoga & meditation classes", desc: "Gentle daily practice to drop in and settle before the day’s work." },
-  { title: "One surf session", desc: "A guided session with our coach when the waves are kind. Every level, total beginners welcome." },
-  { title: "A cacao ceremony", desc: "An evening cacao ceremony to open the heart, connect, and arrive fully in the circle." },
-  { title: "A 60-minute massage", desc: "Tailored to how you feel that day. One is included, with the option to add a second." },
-  { title: "Three meals a day", desc: "Fresh, vegetarian, farm-to-table meals, lovingly prepared by our private chef." },
-  { title: "A welcome gift", desc: "A goodie bag full of little surprises, waiting for you when you arrive." },
+  { icon: "🧘‍♀️", title: "Daily yoga & meditation classes", desc: "Gentle daily practice to drop in and settle before the day’s work." },
+  { icon: "🏄‍♀️", title: "One surf session", desc: "A guided session with our coach when the waves are kind. Every level, total beginners welcome." },
+  { icon: "🍫", title: "A cacao ceremony", desc: "An evening cacao ceremony to open the heart, connect, and arrive fully in the circle." },
+  { icon: "💆‍♀️", title: "A 60-minute massage", desc: "Tailored to how you feel that day. One is included, with the option to add a second." },
+  { icon: "🥗", title: "Three meals a day", desc: "Fresh, vegetarian, farm-to-table meals, lovingly prepared by our private chef." },
+  { icon: "🎁", title: "A welcome gift", desc: "A goodie bag full of little surprises, waiting for you when you arrive." },
 ];
 
 const dayShape = [
@@ -157,12 +158,43 @@ const goodToKnow = [
   { label: "Getting there", value: "fly to Lisbon, around 45 minutes to Ericeira" },
 ];
 
-const KRISTIN_FULL = [
-  "Your retreat came into my life at exactly the right time. Even though I had already spent a lot of quality time with myself during my sabbatical, I gained an important insight here: you can spend a lot of time alone without truly feeling connected to yourself.",
-  "This week felt like a gentle journey home, back to myself. The combination of slowing down intentionally, spending time in nature, joining inspiring sessions, and having valuable time for reflection helped me reconnect with my inner voice and myself on a deeper level. I also treated myself to modules from your program “Dream Life Mapping.” This was the perfect combination to discover myself even more and get closer to my dream life.",
-  "The small group, the warm and intimate atmosphere, the inspiring conversations, and the lovingly prepared farm-to-table meals created a sense of comfort, belonging, and genuine connection.",
-  "I left the retreat with a greater sense of inner calm, a deep gratitude for my body as my home, and the feeling of having arrived a little closer to myself again. What you created is a beautiful gift for any woman longing to slow down, connect with like-minded women, nurture a deeper connection with herself, and create space for what truly matters.",
+/* Sheila first, then Kristin. TODO(charlotte): drop kristin.jpg into
+   public/assets and it will replace the monogram automatically. */
+const testimonials = [
+  {
+    name: "Sheila",
+    img: "/assets/Sheila-14.jpg",
+    quote:
+      "This retreat truly exceeded all expectations. It was such a special experience: a beautiful combination of slowing down, reconnecting with yourself, and growing stronger in who you are. I was able to reflect, gain new perspectives, and broaden my horizon, all while connecting with so many wonderful and inspiring women. The atmosphere throughout the entire experience felt incredibly genuine, warm, and supportive, and everyone felt completely comfortable, seen, and cared for from the very beginning. You could truly feel the passion and dedication behind every detail. I would book this again in a heartbeat.",
+  },
+  {
+    name: "Kristin",
+    img: "/assets/kristin.jpg",
+    quote:
+      "This week felt like a gentle journey home, back to myself. The small group, the warm, intimate atmosphere, and the lovingly prepared farm-to-table meals created a real sense of belonging. I left with deep gratitude for my body as my home, and the feeling of having arrived a little closer to myself again, a beautiful gift for any woman longing to slow down, connect with like-minded women, and create space for what truly matters.",
+  },
 ];
+
+/* Small round avatar that falls back to a monogram if the photo is missing. */
+function TestiAvatar({ t }: { t: { name: string; img?: string } }) {
+  const [failed, setFailed] = useState(false);
+  if (t.img && !failed) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return (
+      <img
+        src={t.img}
+        alt={t.name}
+        onError={() => setFailed(true)}
+        className="w-full h-full object-cover"
+      />
+    );
+  }
+  return (
+    <div className="w-full h-full flex items-center justify-center bg-sage/30 text-deep-sage font-display text-3xl">
+      {t.name.charAt(0)}
+    </div>
+  );
+}
 
 function FaqItem({ faq, isOpen, toggle }: { faq: { q: string; a: string }; isOpen: boolean; toggle: () => void }) {
   return (
@@ -188,7 +220,15 @@ function FaqItem({ faq, isOpen, toggle }: { faq: { q: string; a: string }; isOpe
 
 export default function EricieraRetreatPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [kristinOpen, setKristinOpen] = useState(false);
+  const [testiIndex, setTestiIndex] = useState(0);
+  /* gently auto-advance the testimonials */
+  useEffect(() => {
+    const id = setInterval(
+      () => setTestiIndex((i) => (i + 1) % testimonials.length),
+      9000
+    );
+    return () => clearInterval(id);
+  }, []);
   /* default true so the static HTML shows early-bird; corrected on mount */
   const [isEarlyBird, setIsEarlyBird] = useState(true);
   useEffect(() => {
@@ -314,6 +354,7 @@ export default function EricieraRetreatPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {theWellness.map((item, i) => (
                 <motion.div key={item.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-30px" }} transition={{ duration: 0.5, delay: (i % 3) * 0.05 }} className="rounded-card-lg bg-[#dde2d2]/50 border border-ink/8 p-6">
+                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cream text-2xl mb-4 shadow-soft" aria-hidden="true">{item.icon}</span>
                   <h3 className="font-display text-ink text-lg sm:text-xl tracking-[-0.015em] mb-2">{item.title}</h3>
                   <p className="font-sans text-ink/70 text-[15px] leading-relaxed">{item.desc}</p>
                 </motion.div>
@@ -327,6 +368,7 @@ export default function EricieraRetreatPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {theWork.map((item, i) => (
                 <motion.div key={item.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-30px" }} transition={{ duration: 0.5, delay: (i % 3) * 0.05 }} className="rounded-card-lg bg-linen/40 border border-ink/8 p-6">
+                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cream text-2xl mb-4 shadow-soft" aria-hidden="true">{item.icon}</span>
                   <h3 className="font-display text-ink text-lg sm:text-xl tracking-[-0.015em] mb-2">{item.title}</h3>
                   <p className="font-sans text-ink/70 text-[15px] leading-relaxed">{item.desc}</p>
                 </motion.div>
@@ -436,29 +478,60 @@ export default function EricieraRetreatPage() {
         </div>
       </section>
 
-      {/* ════ 12 · TESTIMONIAL — KRISTIN ════ */}
+      {/* ════ 12 · TESTIMONIALS (carousel) ════ */}
       <section className="bg-linen py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="font-mono text-[10px] tracking-[0.24em] uppercase text-ink/45 mb-8">From last October</p>
-          <blockquote className="font-sans text-ink/85 text-lg sm:text-xl lg:text-[1.5rem] leading-[1.5] max-w-3xl mx-auto">
-            “This week felt like a gentle journey home, back to myself. The small group, the warm, intimate atmosphere, and the lovingly prepared farm-to-table meals created a real sense of belonging. I left with deep gratitude for my body as my home, and the feeling of having arrived a little closer to myself again, a beautiful gift for any woman longing to slow down, connect with like-minded women, and create space for what truly matters.”
-          </blockquote>
-          <p className="mt-7 font-mono text-[11px] tracking-[0.22em] uppercase text-ink/55">Kristin</p>
+          <p className="font-mono text-[10px] tracking-[0.24em] uppercase text-ink/45 mb-10">
+            Feedback from previous retreats
+          </p>
+          <div className="relative min-h-[360px] sm:min-h-[320px]">
+            <motion.div
+              key={testiIndex}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mx-auto mb-7">
+                <TestiAvatar t={testimonials[testiIndex]} />
+              </div>
+              <blockquote className="font-sans text-ink/85 text-base sm:text-lg lg:text-[1.35rem] leading-[1.6] max-w-2xl mx-auto">
+                &ldquo;{testimonials[testiIndex].quote}&rdquo;
+              </blockquote>
+              <p className="mt-6 font-mono text-[11px] tracking-[0.22em] uppercase text-ink/55">
+                {testimonials[testiIndex].name}
+              </p>
+            </motion.div>
+          </div>
 
-          <button onClick={() => setKristinOpen((v) => !v)} className="mt-6 font-sans text-sm text-ink/60 underline decoration-ink/30 underline-offset-4 hover:text-ink transition-colors" aria-expanded={kristinOpen}>
-            {kristinOpen ? "Show less" : "Read Kristin’s full reflection"}
-          </button>
-          <AnimatePresence>
-            {kristinOpen && (
-              <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }} className="overflow-hidden">
-                <div className="pt-8 space-y-5 text-left font-sans text-ink/70 text-base leading-relaxed max-w-2xl mx-auto">
-                  {KRISTIN_FULL.map((p, i) => (
-                    <p key={i}>{p}</p>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <div className="flex items-center justify-center gap-5 mt-8">
+            <button
+              type="button"
+              aria-label="Previous testimonial"
+              onClick={() => setTestiIndex((i) => (i - 1 + testimonials.length) % testimonials.length)}
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-ink/20 text-ink/60 hover:bg-ink hover:text-cream transition-colors text-lg leading-none"
+            >
+              &#8249;
+            </button>
+            <div className="flex items-center gap-2">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  aria-label={`Show testimonial ${i + 1}`}
+                  onClick={() => setTestiIndex(i)}
+                  className={`h-2 rounded-full transition-all ${testiIndex === i ? "w-6 bg-ink" : "w-2 bg-ink/25 hover:bg-ink/40"}`}
+                />
+              ))}
+            </div>
+            <button
+              type="button"
+              aria-label="Next testimonial"
+              onClick={() => setTestiIndex((i) => (i + 1) % testimonials.length)}
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-ink/20 text-ink/60 hover:bg-ink hover:text-cream transition-colors text-lg leading-none"
+            >
+              &#8250;
+            </button>
+          </div>
         </div>
       </section>
 
