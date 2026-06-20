@@ -116,7 +116,7 @@ export default function VariantA() {
             >
               <a
                 href={checkoutUrl}
-                className="group inline-flex items-center gap-3 bg-ink text-cream font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-8 sm:px-9 py-[18px] rounded-full hover:bg-deep-sage transition-colors"
+                className="group inline-flex items-center gap-3 bg-ink text-cream font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-8 sm:px-9 py-[18px] rounded-full shadow-soft hover:bg-deep-sage hover:shadow-glow-sage transition-all"
               >
                 Join Dream Life Mapping
                 <span
@@ -220,7 +220,7 @@ export default function VariantA() {
       {/* ════════════════════════════════════════════════
           4. INSIDE, YOU'LL — editorial list
          ════════════════════════════════════════════════ */}
-      <section className="bg-[#dde2d2] py-24 sm:py-32 px-6 sm:px-10">
+      <section className="paper-texture bg-[#dde2d2] py-24 sm:py-32 px-6 sm:px-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <motion.p
@@ -263,13 +263,15 @@ export default function VariantA() {
       {/* ════════════════════════════════════════════════
           5. THIS IS FOR YOU IF
          ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-24 sm:py-32 px-6 sm:px-10">
+      <section className="relative overflow-hidden bg-cream py-24 sm:py-32 px-6 sm:px-10">
+        <FloatingShape shape="ring" color="#939e7a" size={120} className="top-16 left-[5%] hidden lg:block" />
+        <FloatingShape shape="blob" color="#9caec1" size={90} className="bottom-24 right-[5%] hidden lg:block" delay={2} />
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={stagger}
-          className="max-w-4xl mx-auto"
+          className="relative z-10 max-w-4xl mx-auto"
         >
           <motion.h2
             variants={fadeUp}
@@ -308,7 +310,7 @@ export default function VariantA() {
       {/* ════════════════════════════════════════════════
           6. MODULES
          ════════════════════════════════════════════════ */}
-      <section id="modules" className="bg-[#dde2d2] py-24 sm:py-32 px-6 sm:px-10 scroll-mt-20">
+      <section id="modules" className="paper-texture bg-[#dde2d2] py-24 sm:py-32 px-6 sm:px-10 scroll-mt-20">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -479,7 +481,7 @@ export default function VariantA() {
               <motion.figure
                 key={i}
                 variants={fadeUp}
-                className="relative bg-white rounded-[24px] p-7 sm:p-8 hover:shadow-[0_24px_50px_-30px_rgba(34,34,34,0.25)] transition-shadow"
+                className="relative bg-white rounded-[24px] p-7 sm:p-8 shadow-soft hover:shadow-[0_24px_50px_-30px_rgba(34,34,34,0.25)] transition-shadow"
               >
                 <span
                   aria-hidden="true"
@@ -512,7 +514,7 @@ export default function VariantA() {
       {/* ════════════════════════════════════════════════
           9. MOST PEOPLE STAY
          ════════════════════════════════════════════════ */}
-      <section className="bg-[#dde2d2] py-24 sm:py-32 px-6 sm:px-10">
+      <section className="paper-texture bg-[#dde2d2] py-24 sm:py-32 px-6 sm:px-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -680,7 +682,7 @@ export default function VariantA() {
       {/* ════════════════════════════════════════════════
           11. WHAT'S INCLUDED — value stack
          ════════════════════════════════════════════════ */}
-      <section className="bg-[#cdd8e1] py-24 sm:py-32 px-6 sm:px-10">
+      <section className="paper-texture bg-[#cdd8e1] py-24 sm:py-32 px-6 sm:px-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -738,7 +740,7 @@ export default function VariantA() {
               <motion.div
                 key={item.title}
                 variants={fadeUp}
-                className="bg-white rounded-[24px] p-7 sm:p-8 flex flex-col"
+                className="bg-white rounded-[24px] p-7 sm:p-8 flex flex-col shadow-soft"
               >
                 <h3 className="font-display text-2xl text-ink mb-4 leading-tight">
                   {item.title}
@@ -922,7 +924,7 @@ export default function VariantA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.85 }}
-              className="group block bg-white rounded-[24px] overflow-hidden hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
+              className="group block bg-white rounded-[24px] overflow-hidden shadow-soft hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
@@ -956,7 +958,7 @@ export default function VariantA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.85, delay: 0.1 }}
-              className="group block bg-white rounded-[24px] overflow-hidden hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
+              className="group block bg-white rounded-[24px] overflow-hidden shadow-soft hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
@@ -987,7 +989,7 @@ export default function VariantA() {
       {/* ════════════════════════════════════════════════
           15. PRICING
          ════════════════════════════════════════════════ */}
-      <section id="pricing" className="bg-[#dde2d2] py-24 sm:py-32 px-6 sm:px-10">
+      <section id="pricing" className="paper-texture bg-[#dde2d2] py-24 sm:py-32 px-6 sm:px-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -1005,7 +1007,7 @@ export default function VariantA() {
           <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto mb-10">
             <motion.div
               variants={fadeUp}
-              className="relative bg-white rounded-[28px] p-8 sm:p-10"
+              className="relative bg-white rounded-[28px] p-8 sm:p-10 shadow-soft"
             >
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-ink text-cream text-[10px] font-semibold tracking-[0.28em] uppercase px-4 py-1 rounded-full">
                 Best value
@@ -1031,7 +1033,7 @@ export default function VariantA() {
 
             <motion.div
               variants={fadeUp}
-              className="bg-white rounded-[28px] p-8 sm:p-10"
+              className="bg-white rounded-[28px] p-8 sm:p-10 shadow-soft"
             >
               <h3 className="font-display text-xl text-ink mb-1">
                 Payment plan

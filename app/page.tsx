@@ -95,7 +95,7 @@ export default function HomePage() {
                 href={QUIZ_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 bg-ink text-cream font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-8 sm:px-9 py-[18px] rounded-full hover:bg-deep-sage transition-colors"
+                className="group inline-flex items-center gap-3 bg-ink text-cream font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-8 sm:px-9 py-[18px] rounded-full shadow-soft hover:bg-deep-sage hover:shadow-glow-sage transition-all"
               >
                 Start here · The Inner Map
                 <span
@@ -379,7 +379,7 @@ export default function HomePage() {
          ════════════════════════════════════════════════ */}
       <section
         id="gifts"
-        className="relative bg-[#cdd8e1] py-24 sm:py-32 lg:py-40 px-6 sm:px-10 scroll-mt-20 overflow-hidden"
+        className="relative paper-texture bg-[#cdd8e1] py-24 sm:py-32 lg:py-40 px-6 sm:px-10 scroll-mt-20 overflow-hidden"
       >
         <div className="relative max-w-7xl mx-auto">
           <motion.div
@@ -427,7 +427,7 @@ export default function HomePage() {
                 href={QUIZ_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block h-full bg-white rounded-[28px] p-8 sm:p-10 lg:p-12 hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
+                className="group block h-full bg-white rounded-[28px] p-8 sm:p-10 lg:p-12 shadow-soft hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
               >
                 <p className="font-sans text-[10px] font-semibold tracking-[0.32em] uppercase text-deep-sage mb-5">
                   Step one · Start here
@@ -461,7 +461,7 @@ export default function HomePage() {
             >
               <a
                 href="/clarity"
-                className="group block h-full bg-white rounded-[28px] p-8 sm:p-10 lg:p-12 hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
+                className="group block h-full bg-white rounded-[28px] p-8 sm:p-10 lg:p-12 shadow-soft hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
               >
                 <p className="font-sans text-[10px] font-semibold tracking-[0.32em] uppercase text-terracotta-dark mb-5">
                   Optional · Free workshop
@@ -487,8 +487,10 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════
           THE PATH — how the three offers work together
          ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative overflow-hidden bg-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
+        <FloatingShape shape="blob" color="#939e7a" size={120} className="top-16 right-[6%] hidden lg:block" />
+        <FloatingShape shape="ring" color="#c19673" size={90} className="bottom-20 left-[5%] hidden lg:block" delay={2} />
+        <div className="relative z-10 max-w-6xl mx-auto">
           <div className="text-center mb-16 sm:mb-20">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -559,7 +561,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.8, delay: i * 0.1 }}
-                className="group block bg-white rounded-[24px] p-7 sm:p-8 hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
+                className="group block bg-white rounded-[24px] p-7 sm:p-8 shadow-soft hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
               >
                 <span className="font-mono text-[11px] tracking-[0.18em] text-deep-sage">
                   {s.step}
