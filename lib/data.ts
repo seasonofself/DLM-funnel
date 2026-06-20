@@ -56,7 +56,7 @@ export const modules = [
 ];
 
 export const valueStack = [
-  "Direct access to both coaches inside the community",
+  "Async support from both guides inside the community",
   "10% of profit from your purchase donated to SOMA Surf + Abriendo Mentes",
 ];
 

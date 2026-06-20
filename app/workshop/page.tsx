@@ -18,25 +18,13 @@ const stagger = {
 
 const checkoutUrl = process.env.NEXT_PUBLIC_CHECKOUT_URL || "/dream-life#checkout";
 
-/* ─── countdown hook ─────────────────────────────────── */
-function useCountdown(minutes: number) {
-  const [timeLeft, setTimeLeft] = useState(() => minutes * 60);
-  useEffect(() => {
-    const id = setInterval(() => setTimeLeft((t) => (t > 0 ? t - 1 : 0)), 1000);
-    return () => clearInterval(id);
-  }, []);
-  const m = Math.floor(timeLeft / 60);
-  const s = timeLeft % 60;
-  return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
-}
-
 /* ─── offer panel items ──────────────────────────────── */
 const included = [
   "Full 6-module Dream Life Mapping course",
   "40-min guided breathwork session",
   "Personal subconscious audio creation",
   "12 months in the Season of Self community",
-  "Direct access to both coaches",
+  "Async support from both coaches",
   "10% donated to SOMA Surf + Abriendo Mentes",
 ];
 
@@ -44,7 +32,6 @@ const included = [
 function WorkshopPageContent() {
   const searchParams = useSearchParams();
   const [showOffer, setShowOffer] = useState(false);
-  const countdown = useCountdown(60);
   const offerRef = useRef<HTMLDivElement | null>(null);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const taggedRef = useRef(false);
@@ -157,8 +144,7 @@ function WorkshopPageContent() {
       <div className="sticky top-0 inset-x-0 z-50 bg-fomo-red px-4 py-2.5 text-white shadow-sm">
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-2 text-center font-sans text-[11px] sm:flex-row sm:gap-3 sm:text-sm">
           <span>
-            ✦ Dream Life Mapping · Founding Member Pricing:{" "}
-            <strong>$197</strong>
+            ✦ Dream Life Mapping · <strong>$197</strong> one-time
           </span>
           <a
             href="/dream-life"
@@ -328,16 +314,10 @@ function WorkshopPageContent() {
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className="mx-auto mt-8 max-w-2xl scroll-mt-24 overflow-hidden rounded-2xl border border-ink/5 bg-white shadow-xl sm:scroll-mt-28"
             >
-              {/* countdown header */}
-              <div className="bg-fomo-red text-white text-center py-3 px-4">
-                <p className="font-sans text-xs uppercase tracking-wider mb-0.5">
-                  Founding Member Price · Limited Time
-                </p>
-                <p
-                  className="font-bold text-lg tabular-nums"
-                  suppressHydrationWarning
-                >
-                  {countdown}
+              {/* calm header — no urgency */}
+              <div className="bg-deep-sage text-white text-center py-3 px-4">
+                <p className="font-sans text-xs uppercase tracking-wider">
+                  Dream Life Mapping · $197 one-time
                 </p>
               </div>
 
@@ -383,14 +363,11 @@ function WorkshopPageContent() {
 
                 {/* pricing */}
                 <div className="text-center mb-5">
-                  <p className="font-sans text-ink/35 text-sm line-through mb-1">
-                    $497
-                  </p>
                   <p className="font-display text-3xl text-deep-sage font-bold">
                     $197
                   </p>
                   <p className="font-sans text-ink/40 text-xs mt-1">
-                    Founding member price · Save $300
+                    One-time · yours for life
                   </p>
                 </div>
 

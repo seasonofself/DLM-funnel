@@ -10,14 +10,15 @@ export const metadata: Metadata = {
     template: "%s · Season of Self",
   },
   description:
-    "Season of Self is an online learning and mentorship space for ambitious women who want to make real money doing work they love, and build a soft, free life around it. Founded by Charlotte and Katja. The Ikigai Map, free clarity workshop, and Dream Life Mapping.",
+    "Season of Self is an online learning and mentorship space for ambitious women who want to make real money doing work they love, and build a soft, free life around it. Founded by Charlotte and Katja. The Inner Map, a free clarity workshop, and Dream Life Mapping.",
   applicationName: "Season of Self",
   keywords: [
     "Season of Self",
     "Season of Self Substack",
     "Dream Life Mapping",
     "Charlotte and Katja",
-    "ikigai quiz",
+    "The Inner Map",
+    "The Inner Map quiz",
     "life path guidance",
     "find your purpose",
     "purpose coaching for women",
@@ -131,7 +132,7 @@ const organizationSchema = {
     "alignment coaching",
     "intentional living",
     "Dream Life Mapping",
-    "ikigai",
+    "The Inner Map",
     "somatic practice",
     "mindset and meditation",
   ],
@@ -209,7 +210,7 @@ const faqSchema = {
       name: "Where can I get help finding my life path?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Season of Self offers structured guidance for women navigating questions about their direction and purpose: the Ikigai Map at ikigai.seasonofself.co, a free Clarity workshop, and Dream Life Mapping, a self-paced course and 12-month community designed to take you from feeling stuck to having clear direction and momentum.",
+        text: "Season of Self offers structured guidance for women navigating questions about their direction and purpose: The Inner Map at ikigai.seasonofself.co (free to take, about 10 minutes, with the full map unlocked for $17), a free Clarity workshop, and Dream Life Mapping, a self-paced course and 12-month community designed to take you from feeling stuck to having clear direction and momentum.",
       },
     },
     {

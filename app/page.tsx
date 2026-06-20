@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Marquee from "@/components/ui/Marquee";
 import SectionMarquee from "@/components/ui/SectionMarquee";
 import Header from "@/components/Header";
 
@@ -27,15 +26,6 @@ const whatWeFocus = [
   "Build work you love into a life that supports you, softly and fully",
 ];
 
-const marqueeWords = [
-  "Build a soft life",
-  "Make money doing what you love",
-  "Slow mornings",
-  "Work that feels like you",
-  "Aligned, soft, free",
-  "Live on purpose",
-];
-
 /* ─── main component ──────────────────────────────────── */
 export default function HomePage() {
   const [email, setEmail] = useState("");
@@ -43,7 +33,13 @@ export default function HomePage() {
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Connect to Kit (ConvertKit) when ready
+    // Feeds Kit, tagged by source so the nurture can run. Fire-and-forget:
+    // we thank the visitor regardless so the form never feels broken.
+    fetch("/api/kit-subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, source: "homepage-footer" }),
+    }).catch((err) => console.error("Mailing list signup error:", err));
     setSubmitted(true);
   };
 
@@ -57,14 +53,6 @@ export default function HomePage() {
           No overlay on faces. One soft cohesive background.
          ════════════════════════════════════════════════ */}
       <section className="relative bg-cream pt-10 sm:pt-12 lg:pt-14 pb-16 sm:pb-20 lg:pb-28 overflow-hidden">
-        {/* Vertical eyebrow on left edge — editorial detail */}
-        <div className="hidden lg:flex absolute left-6 xl:left-10 top-1/2 -translate-y-1/2 z-20 items-center gap-4 [writing-mode:vertical-rl] rotate-180">
-          <span className="font-sans text-[10px] font-semibold tracking-[0.42em] uppercase text-ink/40">
-            Season of Self · Est. 2026
-          </span>
-          <span className="h-12 w-px bg-ink/25" />
-        </div>
-
         <div className="relative max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-20 grid lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-24 items-center">
           {/* LEFT — copy */}
           <motion.div
@@ -73,14 +61,6 @@ export default function HomePage() {
             variants={stagger}
             className="lg:col-span-7 order-2 lg:order-1 relative z-10"
           >
-            <motion.p
-              variants={fadeUp}
-              className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-7"
-            >
-              <span className="inline-block w-8 h-px bg-deep-sage align-middle mr-3" />
-              Season of Self
-            </motion.p>
-
             <motion.h1
               variants={fadeUp}
               className="font-display text-[3rem] sm:text-[3.6rem] lg:text-[5rem] xl:text-[6rem] leading-[0.94] text-ink mb-8 tracking-[-0.025em]"
@@ -103,7 +83,7 @@ export default function HomePage() {
 
             <motion.div
               variants={fadeUp}
-              className="flex flex-wrap items-center gap-5 sm:gap-6 mb-12"
+              className="flex flex-wrap items-center gap-5 sm:gap-6 mb-4"
             >
               <a
                 href={QUIZ_URL}
@@ -111,7 +91,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-3 bg-ink text-cream font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-8 sm:px-9 py-[18px] rounded-full hover:bg-deep-sage transition-colors"
               >
-                Get your Ikigai Map · $27
+                Start here · The Inner Map
                 <span
                   aria-hidden="true"
                   className="transition-transform group-hover:translate-x-1"
@@ -127,36 +107,13 @@ export default function HomePage() {
               </a>
             </motion.div>
 
-            <motion.div
+            <motion.p
               variants={fadeUp}
-              className="flex items-start gap-4 max-w-lg"
+              className="font-sans text-[13px] text-ink/50 leading-relaxed max-w-md"
             >
-              <div className="flex -space-x-3 shrink-0">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-cream">
-                  <Image
-                    src="/assets/charlotte_founderheadshot.jpg"
-                    alt="Charlotte"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-cream">
-                  <Image
-                    src="/assets/katja_hero.jpeg"
-                    alt="Katja"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-              <p className="font-sans text-[13px] leading-relaxed text-ink/60">
-                Created by Charlotte &amp; Katja. Charlotte built a{" "}
-                <strong className="text-ink font-semibold">
-                  multi-million-dollar brand
-                </strong>{" "}
-                serving 100,000+ customers in 50+ countries.
-              </p>
-            </motion.div>
+              The Inner Map is free to take and takes about 10 minutes. Unlock
+              your full map for $17.
+            </motion.p>
           </motion.div>
 
           {/* RIGHT — single clean photo */}
@@ -176,27 +133,8 @@ export default function HomePage() {
               />
             </motion.div>
 
-            {/* Floating tag — top right */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.8 }}
-              className="absolute -top-3 -right-2 sm:-top-4 sm:-right-6 bg-white rounded-full shadow-[0_12px_30px_-12px_rgba(34,34,34,0.3)] px-4 py-2.5 flex items-center gap-2.5"
-            >
-              <span className="inline-block h-2 w-2 rounded-full bg-sage" />
-              <span className="font-sans text-[10px] font-semibold tracking-[0.22em] uppercase text-ink/70">
-                Now open · Founding cohort
-              </span>
-            </motion.div>
           </div>
         </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════
-          MARQUEE — sage stripe with brand mantra
-         ════════════════════════════════════════════════ */}
-      <section className="bg-sage py-6 sm:py-7">
-        <Marquee items={marqueeWords} textClassName="text-cream" speed={55} />
       </section>
 
       {/* ════════════════════════════════════════════════
@@ -472,7 +410,7 @@ export default function HomePage() {
           </motion.p>
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-            {/* PRIMARY — Ikigai Quiz */}
+            {/* PRIMARY — The Inner Map */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -486,23 +424,24 @@ export default function HomePage() {
                 className="group block h-full bg-white rounded-[28px] p-8 sm:p-10 lg:p-12 hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
               >
                 <p className="font-sans text-[10px] font-semibold tracking-[0.32em] uppercase text-deep-sage mb-5">
-                  Start here · $27
+                  Step one · Start here
                 </p>
                 <h3 className="font-display text-[1.8rem] sm:text-[2.2rem] lg:text-[2.6rem] leading-[1.05] text-ink mb-5">
                   Find the work that is{" "}
                   <span className="italic">actually yours</span>
                 </h3>
                 <p className="font-sans text-ink/65 text-base sm:text-lg leading-relaxed mb-10 max-w-md">
-                  Our Ikigai Map shows you the meeting point of what you love,
+                  The Inner Map shows you the meeting point of what you love,
                   what you’re great at, what the world needs, and what you can
-                  build a living around. Start here.
+                  build a living around. It’s free to take, and your full map
+                  unlocks for $17.
                 </p>
                 <span className="inline-flex items-center gap-3 border border-ink/85 rounded-full px-6 sm:px-7 py-3 sm:py-[14px] font-sans font-medium text-[11px] tracking-[0.32em] uppercase text-ink group-hover:bg-ink group-hover:text-cream transition-colors">
-                  Get your Ikigai Map · $27
+                  Take The Inner Map
                   <span aria-hidden="true">→</span>
                 </span>
                 <p className="mt-4 font-sans text-xs text-ink/45">
-                  About 10 minutes · voice or text · yours to keep.
+                  Free to take · about 10 minutes · voice or text · full map $17.
                 </p>
               </a>
             </motion.div>
@@ -519,7 +458,7 @@ export default function HomePage() {
                 className="group block h-full bg-white rounded-[28px] p-8 sm:p-10 lg:p-12 hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
               >
                 <p className="font-sans text-[10px] font-semibold tracking-[0.32em] uppercase text-terracotta-dark mb-5">
-                  Workshop · 27 minutes
+                  Optional · Free workshop
                 </p>
                 <h3 className="font-display text-[1.8rem] sm:text-[2.2rem] lg:text-[2.6rem] leading-[1.05] text-ink mb-5">
                   Prefer to go{" "}
@@ -535,6 +474,105 @@ export default function HomePage() {
                 </span>
               </a>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════
+          THE PATH — how the three offers work together
+         ════════════════════════════════════════════════ */}
+      <section className="bg-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16 sm:mb-20">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7 }}
+              className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-6"
+            >
+              How it works together
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, delay: 0.05 }}
+              className="font-display text-[2.2rem] sm:text-5xl lg:text-[3.6rem] leading-[1.05] text-ink max-w-3xl mx-auto"
+            >
+              One path, three <span className="italic">steps</span>.
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="font-sans text-ink/60 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mt-6"
+            >
+              You do not have to do it all at once. Each step builds on the one
+              before it, and you can start wherever you are.
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              {
+                step: "01",
+                name: "The Inner Map",
+                line: "Find your direction",
+                body: "Free to take, about 10 minutes. See the work that is actually yours, with your full map for $17.",
+                href: QUIZ_URL,
+                external: true,
+                cta: "Start here",
+              },
+              {
+                step: "02",
+                name: "Dream Life Mapping",
+                line: "Build it",
+                body: "A self-paced course that turns the direction you found into a real plan you can move on, with the structure and support to follow through.",
+                href: "/dream-life",
+                external: false,
+                cta: "Explore the course",
+              },
+              {
+                step: "03",
+                name: "The Dream Life Retreat",
+                line: "Live it",
+                body: "A week with us in person to embody the life you are building. The full Dream Life Mapping course is included.",
+                href: "/retreats/ericeira",
+                external: false,
+                cta: "See the retreat",
+              },
+            ].map((s, i) => (
+              <motion.a
+                key={s.step}
+                href={s.href}
+                target={s.external ? "_blank" : undefined}
+                rel={s.external ? "noopener noreferrer" : undefined}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.8, delay: i * 0.1 }}
+                className="group block bg-white rounded-[24px] p-7 sm:p-8 hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
+              >
+                <span className="font-mono text-[11px] tracking-[0.18em] text-deep-sage">
+                  {s.step}
+                </span>
+                <p className="mt-4 font-sans text-[10px] font-semibold tracking-[0.32em] uppercase text-terracotta-dark">
+                  {s.line}
+                </p>
+                <h3 className="mt-2 font-display text-[1.6rem] sm:text-[1.9rem] leading-[1.1] text-ink">
+                  {s.name}
+                </h3>
+                <p className="mt-4 font-sans text-ink/65 text-[15px] sm:text-base leading-relaxed">
+                  {s.body}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 font-sans font-medium text-[11px] tracking-[0.28em] uppercase text-ink group-hover:text-deep-sage transition-colors">
+                  {s.cta}
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+                </span>
+              </motion.a>
+            ))}
           </div>
         </div>
       </section>
@@ -589,7 +627,7 @@ export default function HomePage() {
               transition={{ duration: 0.85, delay: 0.1 }}
               className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-10 max-w-xl"
             >
-              A guided process that takes what you discover in the quiz and
+              A guided process that takes what you discover in The Inner Map and
               turns it into a real plan you can move on, with the structure,
               tools, and support to follow through.
             </motion.p>
@@ -800,19 +838,6 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          EDITORIAL CLOSING STATEMENT — big serif marquee
-         ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-20 sm:py-28 lg:py-32 overflow-hidden">
-        <SectionMarquee
-          text="A soft life, on purpose"
-          separator="✦"
-          speed={95}
-          italic={true}
-          textClassName="text-ink"
-        />
-      </section>
-
-      {/* ════════════════════════════════════════════════
           FINAL CTA — split, light blue background
          ════════════════════════════════════════════════ */}
       <section className="bg-[#cdd8e1]">
@@ -868,19 +893,12 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-deep-sage text-cream font-sans font-medium text-[11px] tracking-[0.32em] uppercase px-9 py-[18px] rounded-full hover:bg-sage transition-colors"
               >
-                Get your Ikigai Map · $27
+                Take The Inner Map
                 <span aria-hidden="true">→</span>
               </a>
             </motion.div>
           </div>
         </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════
-          MARQUEE — closing strip
-         ════════════════════════════════════════════════ */}
-      <section className="bg-sage py-6 sm:py-7">
-        <Marquee items={marqueeWords} textClassName="text-cream" speed={55} />
       </section>
 
       {/* ════════════════════════════════════════════════
@@ -925,7 +943,7 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                     className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
-                    Ikigai Map →
+                    The Inner Map →
                   </a>
                 </li>
                 <li>

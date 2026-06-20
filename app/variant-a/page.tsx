@@ -51,20 +51,20 @@ export default function VariantA() {
   return (
     <main className="relative overflow-hidden bg-cream">
       {/* ════════════════════════════════════════════════
-          1. ANNOUNCEMENT BAR — timer removed per brief
+          1. ANNOUNCEMENT BAR — calm, evergreen, no urgency
          ════════════════════════════════════════════════ */}
       <div className="fixed top-0 inset-x-0 z-50 bg-ink text-cream text-center py-2.5 px-4 text-xs sm:text-sm font-sans">
         <div className="flex items-center justify-center gap-3 flex-wrap">
           <span>
-            ✦ Founding cohort:{" "}
-            <strong className="text-linen">$197</strong> · Price goes to $497
-            when this cohort fills
+            ✦ Dream Life Mapping ·{" "}
+            <strong className="text-linen">$197</strong> one-time · Yours for
+            life, join anytime
           </span>
           <a
             href={checkoutUrl}
             className="inline-block bg-cream text-ink font-semibold text-[11px] tracking-[0.18em] uppercase px-4 py-1.5 rounded-full hover:bg-white transition-colors"
           >
-            Join Now →
+            Join →
           </a>
         </div>
       </div>
@@ -80,7 +80,7 @@ export default function VariantA() {
       <section className="relative bg-cream pt-10 sm:pt-12 lg:pt-14 pb-16 sm:pb-20 lg:pb-28 overflow-hidden">
         <div className="hidden lg:flex absolute left-6 xl:left-10 top-1/2 -translate-y-1/2 z-20 items-center gap-4 [writing-mode:vertical-rl] rotate-180">
           <span className="font-sans text-[10px] font-semibold tracking-[0.42em] uppercase text-ink/40">
-            Dream Life Mapping · Cohort 01
+            Dream Life Mapping · Build your life
           </span>
           <span className="h-12 w-px bg-ink/25" />
         </div>
@@ -105,19 +105,27 @@ export default function VariantA() {
               variants={fadeUp}
               className="font-display text-[2.6rem] sm:text-[3.2rem] lg:text-[4.4rem] xl:text-[5rem] leading-[0.95] text-ink mb-8 tracking-[-0.01em]"
             >
-              Turn what you{" "}
-              <span className="italic text-terracotta-dark">love</span> into
-              work that funds the life you{" "}
-              <span className="italic">actually want</span>.
+              You know you’re meant for more.{" "}
+              <span className="italic text-terracotta-dark">
+                This is how you finally build it.
+              </span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="font-subtitle italic text-ink/60 text-base sm:text-lg lg:text-xl max-w-xl leading-relaxed mb-10"
+              className="font-subtitle italic text-ink/60 text-base sm:text-lg lg:text-xl max-w-xl leading-relaxed mb-7"
             >
-              A self-paced course and 12-month community for women who are done
-              waiting, and ready to build work that feels like them and a soft,
-              free life around it.
+              A self-paced course for women who are done waiting, ready to build
+              work that feels like them and a soft, free life around it. With a
+              community alongside you so you’re never doing it alone.
+            </motion.p>
+
+            <motion.p
+              variants={fadeUp}
+              className="font-sans text-ink/70 text-[15px] sm:text-base leading-relaxed max-w-xl mb-10 border-l-2 border-sage/50 pl-4"
+            >
+              The Inner Map showed you your direction. Dream Life Mapping is how
+              you build it. New here? You can start with either one.
             </motion.p>
 
             <motion.div
@@ -148,8 +156,8 @@ export default function VariantA() {
               variants={fadeUp}
               className="font-sans text-[13px] sm:text-sm leading-relaxed text-ink/55 max-w-md"
             >
-              $197 USD · Founding cohort price · Price goes to $497 when this
-              cohort fills · 30-day money-back guarantee
+              $197 USD · one-time · yours for life · join anytime · 30-day
+              money-back guarantee
             </motion.p>
           </motion.div>
 
@@ -178,7 +186,7 @@ export default function VariantA() {
             >
               <span className="inline-block h-2 w-2 rounded-full bg-sage" />
               <span className="font-sans text-[10px] font-semibold tracking-[0.22em] uppercase text-ink/70">
-                Self-paced · 12-month community
+                Self-paced · Start anytime
               </span>
             </motion.div>
           </div>
@@ -223,6 +231,12 @@ export default function VariantA() {
             <p>
               You can feel that there is more in you. More to build, more to
               earn, a bigger and freer life with your name on it.
+            </p>
+            <p>
+              And right behind that feeling, the quieter voice. Who am I to want
+              more. What if I’m not actually good enough. What would I even do.
+              That voice is not a sign you’re wrong about wanting more. It’s just
+              the part of you that has never been shown the way.
             </p>
             <p>
               You are ready to stop circling the idea of it and start building
@@ -746,10 +760,9 @@ export default function VariantA() {
               {
                 title: "12-Month Community Access",
                 description:
-                  "A space to stay in momentum, ask questions, and be surrounded by people building aligned lives, with async support from your guides.",
+                  "A warm, low-key space to share wins, ask questions, and not do this alone. Think of it as a supportive bonus alongside the work, with async support from your guides when you need a hand.",
                 value: "$480",
-                extraNote:
-                  "This is what keeps Dream Life Mapping from becoming another course you bought and never opened.",
+                extraNote: null as string | null,
               },
               {
                 title: "Somatic Toolkit",
@@ -1038,7 +1051,7 @@ export default function VariantA() {
                 Pay in full
               </h3>
               <p className="font-sans text-ink/55 text-sm mb-5">
-                Founding cohort price
+                One-time payment
               </p>
               <p className="font-display text-6xl text-deep-sage mb-2">$197</p>
               <p className="font-sans text-ink/55 text-sm mb-7">USD</p>
@@ -1081,8 +1094,8 @@ export default function VariantA() {
             variants={fadeUp}
             className="text-center font-sans text-sm text-ink/60 mb-4 max-w-2xl mx-auto"
           >
-            Founding cohort price. The price goes to $497 when this cohort
-            fills. 30-day money-back guarantee. Instant access.
+            $197 one-time. Yours for life, join anytime. 30-day money-back
+            guarantee. Instant access.
           </motion.div>
           <motion.div
             variants={fadeUp}

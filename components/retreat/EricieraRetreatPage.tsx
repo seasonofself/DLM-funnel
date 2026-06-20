@@ -97,8 +97,8 @@ const dlmModules = [
 const theWork = [
   {
     icon: "🌸",
-    title: "The Ikigai experience",
-    desc: "A guided process to find the meeting point of what you love, what you are great at, what the world needs, and what you can build a living around. You leave with your own Ikigai map.",
+    title: "The Inner Map experience",
+    desc: "A guided process to find the meeting point of what you love, what you are great at, what the world needs, and what you can build a living around. You leave with your own Inner Map.",
   },
   { icon: "🗺️", title: "Mapping & strategy session", desc: "Turn that clarity into a real plan, with next steps you can actually move on." },
   { icon: "💬", title: "Hot-seat coaching", desc: "Live coaching in a small, intimate group. Be seen, be guided, be cheered on." },
@@ -456,7 +456,7 @@ export default function EricieraRetreatPage() {
           </div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger} className="mt-14 max-w-2xl mx-auto text-center space-y-5 font-sans text-ink/75 text-base sm:text-lg leading-relaxed">
             <motion.p variants={fadeUp}>We both rebuilt our lives around what actually felt true, and now we help other women do the same.</motion.p>
-            <motion.p variants={fadeUp}>Katja holds the body of the week: the yoga, breath, and somatic practices that bring you back into yourself. Charlotte holds the clarity: the Ikigai, the mapping, and the strategy that turn a feeling into a plan.</motion.p>
+            <motion.p variants={fadeUp}>Katja holds the body of the week: the yoga, breath, and somatic practices that bring you back into yourself. Charlotte holds the clarity: the Inner Map, the mapping, and the strategy that turn a feeling into a plan.</motion.p>
           </motion.div>
         </div>
       </section>
