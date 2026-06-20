@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionMarquee from "@/components/ui/SectionMarquee";
-import FlowLines from "@/components/ui/FlowLines";
 import Header from "@/components/Header";
 
 /* ─── helpers ──────────────────────────────────────────── */
@@ -54,13 +53,6 @@ export default function HomePage() {
           No overlay on faces. One soft cohesive background.
          ════════════════════════════════════════════════ */}
       <section className="relative bg-cream pt-10 sm:pt-12 lg:pt-14 pb-8 sm:pb-10 lg:pb-12 overflow-hidden">
-        {/* Signature flowing contour lines — from The Inner Map */}
-        <FlowLines
-          gradientId="flow-home-hero"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 w-full"
-          opacity={0.45}
-        />
-
         <div className="relative z-10 max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-20 grid lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-24 items-center">
           {/* LEFT — copy */}
           <motion.div
