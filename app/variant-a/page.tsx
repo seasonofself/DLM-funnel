@@ -12,7 +12,6 @@ import {
   imagineMoments,
 } from "@/lib/data";
 import Header from "@/components/Header";
-import Marquee from "@/components/ui/Marquee";
 
 /* ─── helpers ──────────────────────────────────────────── */
 const checkoutUrl =
@@ -26,14 +25,6 @@ const fadeUp = {
 const stagger = {
   visible: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
 };
-
-const marqueeWords = [
-  "Build a soft life",
-  "Make money doing what you love",
-  "Dream Life Mapping",
-  "Work that funds your freedom",
-  "Aligned, soft, free",
-];
 
 const insideBullets = [
   "Get clear on what you’re naturally great at",
@@ -78,13 +69,6 @@ export default function VariantA() {
           2. HERO — editorial split, no copy on faces
          ════════════════════════════════════════════════ */}
       <section className="relative bg-cream pt-10 sm:pt-12 lg:pt-14 pb-16 sm:pb-20 lg:pb-28 overflow-hidden">
-        <div className="hidden lg:flex absolute left-6 xl:left-10 top-1/2 -translate-y-1/2 z-20 items-center gap-4 [writing-mode:vertical-rl] rotate-180">
-          <span className="font-sans text-[10px] font-semibold tracking-[0.42em] uppercase text-ink/40">
-            Dream Life Mapping · Build your life
-          </span>
-          <span className="h-12 w-px bg-ink/25" />
-        </div>
-
         <div className="relative max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-20 grid lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-24 items-center">
           {/* LEFT — copy */}
           <motion.div
@@ -93,14 +77,6 @@ export default function VariantA() {
             variants={stagger}
             className="lg:col-span-7 order-2 lg:order-1 relative z-10"
           >
-            <motion.p
-              variants={fadeUp}
-              className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-7"
-            >
-              <span className="inline-block w-8 h-px bg-deep-sage align-middle mr-3" />
-              Dream Life Mapping
-            </motion.p>
-
             <motion.h1
               variants={fadeUp}
               className="font-display text-[2.6rem] sm:text-[3.2rem] lg:text-[4.4rem] xl:text-[5rem] leading-[0.95] text-ink mb-8 tracking-[-0.01em]"
@@ -177,27 +153,8 @@ export default function VariantA() {
                 className="object-cover"
               />
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.8 }}
-              className="absolute -top-3 -right-2 sm:-top-4 sm:-right-6 bg-white rounded-full shadow-[0_12px_30px_-12px_rgba(34,34,34,0.3)] px-4 py-2.5 flex items-center gap-2.5"
-            >
-              <span className="inline-block h-2 w-2 rounded-full bg-sage" />
-              <span className="font-sans text-[10px] font-semibold tracking-[0.22em] uppercase text-ink/70">
-                Self-paced · Start anytime
-              </span>
-            </motion.div>
           </div>
         </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════
-          MARQUEE
-         ════════════════════════════════════════════════ */}
-      <section className="bg-sage py-6 sm:py-7">
-        <Marquee items={marqueeWords} textClassName="text-cream" speed={55} />
       </section>
 
       {/* ════════════════════════════════════════════════
