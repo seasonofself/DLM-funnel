@@ -532,6 +532,10 @@ export default function EricieraRetreatPage() {
               &#8250;
             </button>
           </div>
+
+          <p className="mt-12 font-mono text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-terracotta-dark">
+            ✦ 2 spots already reserved for October 2026
+          </p>
         </div>
       </section>
 
