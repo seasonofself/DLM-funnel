@@ -12,7 +12,7 @@ import {
   imagineMoments,
 } from "@/lib/data";
 import Header from "@/components/Header";
-import FloatingShape from "@/components/ui/FloatingShape";
+import FlowLines from "@/components/ui/FlowLines";
 
 /* ─── helpers ──────────────────────────────────────────── */
 const checkoutUrl =
@@ -70,10 +70,12 @@ export default function VariantA() {
           2. HERO — editorial split, no copy on faces
          ════════════════════════════════════════════════ */}
       <section className="relative bg-cream pt-10 sm:pt-12 lg:pt-14 pb-8 sm:pb-10 lg:pb-12 overflow-hidden">
-        {/* Soft floating shapes — brand motif carried over from The Inner Map */}
-        <FloatingShape shape="ring" color="#939e7a" size={130} className="top-20 left-[6%] hidden lg:block" />
-        <FloatingShape shape="blob" color="#c19673" size={90} className="bottom-10 left-[3%] hidden lg:block" delay={2} />
-        <FloatingShape shape="dot" color="#9caec1" size={70} className="top-1/4 right-[5%] hidden xl:block" />
+        {/* Signature flowing contour lines — from The Inner Map */}
+        <FlowLines
+          gradientId="flow-dlm-hero"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 w-full"
+          opacity={0.45}
+        />
 
         <div className="relative z-10 max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-20 grid lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-24 items-center">
           {/* LEFT — copy */}
@@ -263,15 +265,13 @@ export default function VariantA() {
       {/* ════════════════════════════════════════════════
           5. THIS IS FOR YOU IF
          ════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-cream py-24 sm:py-32 px-6 sm:px-10">
-        <FloatingShape shape="ring" color="#939e7a" size={120} className="top-16 left-[5%] hidden lg:block" />
-        <FloatingShape shape="blob" color="#9caec1" size={90} className="bottom-24 right-[5%] hidden lg:block" delay={2} />
+      <section className="bg-cream py-24 sm:py-32 px-6 sm:px-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={stagger}
-          className="relative z-10 max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto"
         >
           <motion.h2
             variants={fadeUp}

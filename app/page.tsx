@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionMarquee from "@/components/ui/SectionMarquee";
-import FloatingShape from "@/components/ui/FloatingShape";
+import FlowLines from "@/components/ui/FlowLines";
 import Header from "@/components/Header";
 
 /* ─── helpers ──────────────────────────────────────────── */
@@ -54,10 +54,12 @@ export default function HomePage() {
           No overlay on faces. One soft cohesive background.
          ════════════════════════════════════════════════ */}
       <section className="relative bg-cream pt-10 sm:pt-12 lg:pt-14 pb-8 sm:pb-10 lg:pb-12 overflow-hidden">
-        {/* Soft floating shapes — brand motif carried over from The Inner Map */}
-        <FloatingShape shape="ring" color="#939e7a" size={130} className="top-20 left-[6%] hidden lg:block" />
-        <FloatingShape shape="blob" color="#c19673" size={90} className="bottom-10 left-[3%] hidden lg:block" delay={2} />
-        <FloatingShape shape="dot" color="#9caec1" size={70} className="top-1/4 right-[5%] hidden xl:block" />
+        {/* Signature flowing contour lines — from The Inner Map */}
+        <FlowLines
+          gradientId="flow-home-hero"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 w-full"
+          opacity={0.45}
+        />
 
         <div className="relative z-10 max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-20 grid lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-24 items-center">
           {/* LEFT — copy */}
@@ -487,10 +489,8 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════
           THE PATH — how the three offers work together
          ════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
-        <FloatingShape shape="blob" color="#939e7a" size={120} className="top-16 right-[6%] hidden lg:block" />
-        <FloatingShape shape="ring" color="#c19673" size={90} className="bottom-20 left-[5%] hidden lg:block" delay={2} />
-        <div className="relative z-10 max-w-6xl mx-auto">
+      <section className="bg-cream py-24 sm:py-32 lg:py-40 px-6 sm:px-10">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 sm:mb-20">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
