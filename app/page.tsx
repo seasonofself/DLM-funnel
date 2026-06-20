@@ -499,7 +499,7 @@ export default function HomePage() {
               transition={{ duration: 0.7 }}
               className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-6"
             >
-              How it works together
+              How to work together
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 24 }}

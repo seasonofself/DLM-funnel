@@ -11,7 +11,7 @@
    markup match. Decorative only.
 ─────────────────────────────────────────────────────────── */
 
-const LINES = 26;
+const LINES = 5;
 const W = 1440;
 const H = 360;
 const STEPS = 60;
@@ -60,7 +60,7 @@ export default function FlowLines({
           <stop offset="100%" stopColor="#c19673" />
         </linearGradient>
       </defs>
-      <g fill="none" stroke={`url(#${gradientId})`} strokeWidth="1" opacity={opacity}>
+      <g fill="none" stroke={`url(#${gradientId})`} strokeWidth="1.5" opacity={opacity}>
         {PATHS.map((d, i) => (
           <path key={i} d={d} />
         ))}

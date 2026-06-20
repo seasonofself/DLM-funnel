@@ -41,8 +41,9 @@ body {
 ─────────────────────────────────────────────────────────────────── */
 .font-display {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 144, "SOFT" 50;
-  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 42, "SOFT" 50;
+  letter-spacing: -0.015em;
+  font-weight: 500;
   font-feature-settings: "ss01", "kern", "liga";
 }
 
@@ -54,13 +55,13 @@ body {
 em.font-display,
 i.font-display,
 .italic.font-display {
-  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-variation-settings: "opsz" 42, "SOFT" 80;
 }
 
 .font-subtitle {
   font-family: var(--font-subtitle);
   font-style: italic;
-  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-variation-settings: "opsz" 60, "SOFT" 90;
   letter-spacing: -0.01em;
 }
 
