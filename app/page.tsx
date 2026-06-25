@@ -536,7 +536,7 @@ export default function HomePage() {
               },
               {
                 step: "03",
-                name: "The Dream Life Retreat",
+                name: "Season of Self · Ericeira",
                 line: "Live it",
                 body: "A week with us in person to embody the life you are building. The full Dream Life Mapping course is included.",
                 href: "/retreats/ericeira",

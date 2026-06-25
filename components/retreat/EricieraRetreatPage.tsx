@@ -546,7 +546,7 @@ export default function EricieraRetreatPage() {
             Choose your <span className="italic">room</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85, delay: 0.06 }} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed">
-            Six nights, three home-cooked meals a day, every practice and workshop, surf, a cacao ceremony, a massage, and the full Dream Life journey. Spots are by application, with 50% to secure your place and 50% later.
+            Six nights, three home-cooked meals a day, every practice and workshop, surf, a cacao ceremony, a massage, and the full Dream Life Mapping journey. Spots are by application, with 50% to secure your place and 50% later.
           </motion.p>
         </div>
 
@@ -654,7 +654,7 @@ export default function EricieraRetreatPage() {
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.7 }} className="mt-16 sm:mt-20 text-center">
             <p className="font-display text-ink text-2xl sm:text-3xl leading-snug tracking-[-0.015em] mb-5">Have any questions?</p>
             <p className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-9">Feel free to email us or book a short call. We would love to hear from you.</p>
-            <a href="mailto:hello@seasonofself.co?subject=The%20Dream%20Life%20Retreat%2C%20Ericeira" className="group inline-flex items-center justify-center gap-3 font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-9 sm:px-11 py-[18px] sm:py-[20px] rounded-full bg-ink text-cream hover:bg-deep-sage transition-colors">
+            <a href="mailto:hello@seasonofself.co?subject=Season%20of%20Self%20%C2%B7%20Ericeira" className="group inline-flex items-center justify-center gap-3 font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-9 sm:px-11 py-[18px] sm:py-[20px] rounded-full bg-ink text-cream hover:bg-deep-sage transition-colors">
               hello@seasonofself.co
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
             </a>
@@ -687,7 +687,7 @@ export default function EricieraRetreatPage() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
           <div>
             <Image src="/assets/green_logo.png" alt="Season of Self" width={200} height={200} unoptimized className="h-7 w-auto mb-3 brightness-[10]" />
-            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-cream/45">The Dream Life Retreat · Ericeira 2026</p>
+            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-cream/45">Season of Self · Ericeira 2026</p>
           </div>
           <div className="flex flex-wrap gap-x-7 gap-y-2 text-cream/55">
             <a href="/" className="font-sans text-sm hover:text-cream transition-colors">Home</a>
