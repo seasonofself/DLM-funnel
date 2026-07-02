@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 
-/* ─── helpers (same as /dream-life) ──────────────────── */
+/* ─── helpers (same as /school) ──────────────────────── */
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -16,16 +16,16 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.12 } },
 };
 
-const checkoutUrl = process.env.NEXT_PUBLIC_CHECKOUT_URL || "/dream-life#checkout";
+const checkoutUrl = process.env.NEXT_PUBLIC_CHECKOUT_URL || "/school";
 
 /* ─── offer panel items ──────────────────────────────── */
 const included = [
-  "Full 6-module Dream Life Mapping course",
-  "40-min guided breathwork session",
-  "Personal subconscious audio creation",
-  "12 months in the Season of Self community",
-  "Async support from both coaches",
-  "10% donated to SOMA Surf + Abriendo Mentes",
+  "The full 6-module Dream Life Mapping course",
+  "Monthly live group coaching with Charlotte & Katja",
+  "Async access to both of us between calls",
+  "The Season of Self community",
+  "The Somatic Toolkit",
+  "10% of profit donated to SOMA Surf + Abriendo Mentes",
 ];
 
 /* ─── main component ─────────────────────────────────── */
@@ -144,10 +144,11 @@ function WorkshopPageContent() {
       <div className="sticky top-0 inset-x-0 z-50 bg-fomo-red px-4 py-2.5 text-white shadow-sm">
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-2 text-center font-sans text-[11px] sm:flex-row sm:gap-3 sm:text-sm">
           <span>
-            ✦ Dream Life Mapping · <strong>$197</strong> one-time
+            ✦ Season of Self · The School · <strong>$25/mo</strong> · cancel
+            anytime
           </span>
           <a
-            href="/dream-life"
+            href="/school"
             className="inline-flex min-h-10 items-center justify-center rounded-full bg-white px-4 py-2 text-xs font-bold text-fomo-red hover:scale-105 sm:min-h-0 sm:py-1"
           >
             Learn More →
@@ -168,13 +169,13 @@ function WorkshopPageContent() {
           className="pointer-events-auto w-full rounded-[26px] border border-white/10 bg-deep-sage px-5 py-4 text-left text-white shadow-2xl shadow-deep-sage/25"
         >
           <p className="font-sans text-[10px] uppercase tracking-[0.28em] text-white/60">
-            Dream Life Mapping offer
+            The school
           </p>
           <p className="mt-1 font-display text-xl leading-tight">
             Click here to view offer
           </p>
           <p className="mt-2 font-sans text-sm leading-relaxed text-white/75">
-            Jump to the Dream Life Mapping details anytime.
+            Jump to the school details anytime.
           </p>
         </motion.button>
       </div>
@@ -198,7 +199,7 @@ function WorkshopPageContent() {
                   Offer unlocked
                 </span>
                 <span className="block font-display text-lg leading-tight">
-                  View Dream Life Mapping
+                  View the school
                 </span>
               </span>
               <span className="ml-4 text-sm font-bold">Open →</span>
@@ -297,7 +298,7 @@ function WorkshopPageContent() {
               onClick={() => openOffer(true)}
               className="mt-3 min-h-12 w-full rounded-full bg-deep-sage px-5 py-3 text-sm font-bold text-white shadow-lg shadow-deep-sage/20"
             >
-              View Dream Life Mapping →
+              View the school →
             </button>
           </motion.div>
         </div>
@@ -317,7 +318,7 @@ function WorkshopPageContent() {
               {/* calm header — no urgency */}
               <div className="bg-deep-sage text-white text-center py-3 px-4">
                 <p className="font-sans text-xs uppercase tracking-wider">
-                  Dream Life Mapping · $197 one-time
+                  Season of Self · The School · $25/mo
                 </p>
               </div>
 
@@ -338,7 +339,7 @@ function WorkshopPageContent() {
                 </div>
 
                 <h3 className="font-display text-2xl text-ink text-center mb-1">
-                  Dream Life Mapping
+                  Season of Self · The School
                 </h3>
                 <p className="font-sans text-ink/40 text-xs text-center mb-5">
                   Course + Community + Coaching
@@ -364,23 +365,23 @@ function WorkshopPageContent() {
                 {/* pricing */}
                 <div className="text-center mb-5">
                   <p className="font-display text-3xl text-deep-sage font-bold">
-                    $197
+                    $25<span className="text-xl">/mo</span>
                   </p>
                   <p className="font-sans text-ink/40 text-xs mt-1">
-                    One-time · yours for life
+                    or $197/year · cancel anytime
                   </p>
                 </div>
 
                 {/* CTA */}
                 <a
-                  href="/dream-life"
+                  href="/school"
                   className="block max-w-sm mx-auto bg-deep-sage text-white font-bold py-4 rounded-full text-center text-base hover:scale-[1.02] transition-transform shadow-lg shadow-deep-sage/30"
                 >
-                  Join Now →
+                  Join the school →
                 </a>
 
                 <p className="text-center font-sans text-ink/30 text-[10px] mt-3">
-                  ✦ Instant access · 30-day guarantee · Payment plan available
+                  ✦ First 100 members lock in the founder rate · cancel anytime
                 </p>
               </div>
             </motion.div>
@@ -418,14 +419,14 @@ function WorkshopPageContent() {
 
           <motion.div variants={fadeUp}>
             <a
-              href="/dream-life"
+              href="/school"
               className="inline-block bg-deep-sage text-white font-bold px-10 py-4 rounded-full text-base hover:scale-105 transition-transform shadow-lg shadow-deep-sage/30"
             >
-              Learn About Dream Life Mapping →
+              Join the school →
             </a>
             <p className="mt-4 font-sans text-sm text-ink/50 max-w-md mx-auto leading-relaxed">
-              The course, community + coaching Charlotte &amp; Katja created to
-              walk you through this, step by step.
+              The course, community, and monthly coaching Charlotte &amp; Katja
+              created to walk you through this, step by step.
             </p>
           </motion.div>
         </motion.div>

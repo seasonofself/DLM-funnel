@@ -6,69 +6,42 @@ export const metadata = {
 
 export default function RefundPolicy() {
   return (
-    <LegalPage title="Refund & Cancellation Policy" lastUpdated="1 April 2026">
-      <h2 className="font-display text-2xl text-ink mb-4 mt-10">Our Guarantee</h2>
+    <LegalPage title="Refund & Cancellation Policy" lastUpdated="2 July 2026">
+      <h2 className="font-display text-2xl text-ink mb-4 mt-10">The Season of Self School</h2>
       <p className="mb-4">
-        At Season of Self, we stand behind the value of our Dream Life Mapping course. We offer a 30-day money-back guarantee because we're confident in the transformative power of this work.
+        The Season of Self school is a membership. You can join monthly ($25/month) or annually ($197/year), and you can cancel anytime. When you cancel, you keep access until the end of the period you've already paid for, and you are not charged again.
       </p>
       <p className="mb-4">
-        Here's our promise: Go through the course. Do the work. If you don't walk away with more clarity on your direction and your next steps, you can request a full refund.
-      </p>
-      <p className="mb-4">
-        This guarantee reflects our commitment to your success and satisfaction. We believe that when you engage genuinely with the course material, you'll experience meaningful shifts in how you envision your future. If you don't, we want to make it right.
+        Membership includes the Dream Life Mapping course, monthly live group coaching, async support in the community, the somatic toolkit, and everything we add to the school over time.
       </p>
 
-      <h2 className="font-display text-2xl text-ink mb-4 mt-10">Eligibility for Refund</h2>
+      <h2 className="font-display text-2xl text-ink mb-4 mt-10">Cancelling Your Membership</h2>
       <p className="mb-4">
-        To be eligible for a refund under our 30-day money-back guarantee, the following conditions must be met:
+        You can cancel your membership at any time in two clicks from your account settings. No email is required, and there are no cancellation fees.
       </p>
       <p className="mb-4">
-        Your refund request must be made within 30 days of your original purchase date. This 30-day window gives you ample time to work through the course content and decide if it's right for you.
+        Cancelling stops all future charges. You'll keep access to the school through the end of your current billing period (the month or year you've already paid for). We do not automatically prorate or refund the unused portion of a period once it has begun, except as described in the money-back guarantee below.
+      </p>
+
+      <h2 className="font-display text-2xl text-ink mb-4 mt-10">30-Day Money-Back Guarantee</h2>
+      <p className="mb-4">
+        We want joining the school to feel like an easy yes. If the school isn't right for you, email us at hello@seasonofself.co within 30 days of your first payment and we'll refund it in full.
       </p>
       <p className="mb-4">
-        You must have engaged with the course material. This means you've accessed the lessons, watched the videos, or participated in the breathwork and guided audio sessions. We ask that you genuinely work through the content before requesting a refund, as the value of this work comes from your engagement and participation.
+        For monthly members, this applies to your first monthly charge. For annual members, this applies to your first annual charge. To help us improve, we may ask for a brief note on why it wasn't a fit, but you're not required to provide extensive detail.
       </p>
       <p className="mb-4">
-        Refund requests made after the 30-day window has closed will not be eligible for this guarantee. We encourage you to reach out to us if you have questions about whether your situation qualifies.
+        Refund requests made after the 30-day window has closed are handled through cancellation (above): future charges stop, and access continues through the end of your current period.
       </p>
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">How to Request a Refund</h2>
       <p className="mb-4">
-        If you'd like to request a refund, it's simple and straightforward. Send an email to hello@seasonofself.co with the subject line "Refund Request" and include the following information:
-      </p>
-      <p className="mb-4">
-        Your name and the email address associated with your purchase account.
-      </p>
-      <p className="mb-4">
-        The date of your original purchase.
-      </p>
-      <p className="mb-4">
-        A brief explanation of why you're requesting a refund. We'd love to hear your feedback, as it helps us improve our offerings. However, you're not required to provide extensive detail.
-      </p>
-      <p className="mb-4">
-        Once we receive your request, we'll review it and confirm your eligibility. If your request meets our refund criteria, we'll process your refund promptly.
+        Send an email to hello@seasonofself.co with the subject line "Refund Request" and include your name, the email address associated with your account, and the date of your first payment. Once we receive your request, we'll review it, confirm your eligibility, and process any eligible refund promptly.
       </p>
 
-      <h2 className="font-display text-2xl text-ink mb-4 mt-10">Payment Plan Refunds</h2>
+      <h2 className="font-display text-2xl text-ink mb-4 mt-10">Other Offerings</h2>
       <p className="mb-4">
-        If you purchased the Dream Life Mapping course using our payment plan option (3 payments of $177), refund requests are handled as follows:
-      </p>
-      <p className="mb-4">
-        If you request a refund during the 30-day guarantee period and you've made only one or two of the three payments, we'll refund the amount you've already paid and cancel any remaining payment obligations.
-      </p>
-      <p className="mb-4">
-        If you've completed all three payments and request a refund within 30 days, you're entitled to a full refund of all payments made. Remaining payment obligations will be cancelled, and no further charges will occur.
-      </p>
-      <p className="mb-4">
-        Refunds for payment plan purchases will be issued to the original payment method used for each installment. Please allow time for your financial institution to process the refund, as the timing varies by bank.
-      </p>
-
-      <h2 className="font-display text-2xl text-ink mb-4 mt-10">Non-Refundable Items</h2>
-      <p className="mb-4">
-        Our 30-day money-back guarantee applies specifically to the Dream Life Mapping course. Refund eligibility may vary for other services, such as one-on-one coaching sessions or community memberships, depending on their nature and your engagement.
-      </p>
-      <p className="mb-4">
-        Requests for refunds made after the 30-day guarantee period has expired are not eligible for a full refund. If you have questions about your specific situation or believe there are extenuating circumstances, please reach out to us directly at hello@seasonofself.co, and we'll do our best to work with you.
+        Refund eligibility for other offerings, such as The Inner Map, retreats, or one-on-one sessions, may vary depending on their nature and is communicated at the time of purchase. If you have questions about your specific situation or believe there are extenuating circumstances, please reach out to us directly at hello@seasonofself.co, and we'll do our best to work with you.
       </p>
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">Processing Time</h2>

@@ -100,10 +100,10 @@ export default function HomePage() {
                 </span>
               </a>
               <a
-                href="/dream-life"
+                href="/school"
                 className="font-sans text-sm text-ink/70 hover:text-ink underline decoration-ink/30 underline-offset-4 hover:decoration-ink/70 transition-colors"
               >
-                Or explore Dream Life Mapping
+                Or join the school
               </a>
             </motion.div>
 
@@ -527,18 +527,18 @@ export default function HomePage() {
               },
               {
                 step: "02",
-                name: "Dream Life Mapping",
-                line: "Build it",
-                body: "A self-paced course that turns the direction you found into a real plan you can move on, with the structure and support to follow through.",
-                href: "/dream-life",
+                name: "Season of Self School",
+                line: "Join the school",
+                body: "$25/mo for the Dream Life Mapping course, monthly live coaching with us, and a community of women in the same season.",
+                href: "/school",
                 external: false,
-                cta: "Explore the course",
+                cta: "Explore the school",
               },
               {
                 step: "03",
                 name: "Season of Self · Ericeira",
-                line: "Live it",
-                body: "A week with us in person to embody the life you are building. The full Dream Life Mapping course is included.",
+                line: "Live it: the school, in person",
+                body: "A week with us in person to embody the life you are designing. The full Dream Life Mapping course is included.",
                 href: "/retreats/ericeira",
                 external: false,
                 cta: "See the retreat",
@@ -617,7 +617,7 @@ export default function HomePage() {
               transition={{ duration: 0.85, delay: 0.05 }}
               className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink mb-7"
             >
-              Dream Life <span className="italic">Mapping</span>
+              Season of Self <span className="italic">School</span>
             </motion.h2>
 
             <motion.p
@@ -627,9 +627,10 @@ export default function HomePage() {
               transition={{ duration: 0.85, delay: 0.1 }}
               className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-10 max-w-xl"
             >
-              A guided process that takes what you discover in The Inner Map and
-              turns it into a real plan you can move on, with the structure,
-              tools, and support to follow through.
+              An online school that helps women design lives they love around
+              their soul work. Inside, you move through the Dream Life Mapping
+              course, meet us on monthly live coaching calls, and grow alongside
+              a community of women in the same season. $25/mo, cancel anytime.
             </motion.p>
 
             <motion.div
@@ -639,10 +640,10 @@ export default function HomePage() {
               transition={{ duration: 0.7, delay: 0.15 }}
             >
               <a
-                href="/dream-life"
+                href="/school"
                 className="inline-flex items-center gap-3 border border-ink/85 rounded-full px-7 py-[14px] font-sans font-medium text-[11px] tracking-[0.32em] uppercase text-ink hover:bg-ink hover:text-cream transition-colors"
               >
-                Explore Dream Life Mapping
+                Explore the school
                 <span aria-hidden="true">→</span>
               </a>
             </motion.div>
@@ -956,10 +957,10 @@ export default function HomePage() {
                 </li>
                 <li>
                   <a
-                    href="/dream-life"
+                    href="/school"
                     className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                   >
-                    Dream Life Mapping →
+                    The School →
                   </a>
                 </li>
                 <li>

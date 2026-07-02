@@ -691,7 +691,7 @@ export default function EricieraRetreatPage() {
           </div>
           <div className="flex flex-wrap gap-x-7 gap-y-2 text-cream/55">
             <a href="/" className="font-sans text-sm hover:text-cream transition-colors">Home</a>
-            <a href="/dream-life" className="font-sans text-sm hover:text-cream transition-colors">Dream Life Mapping</a>
+            <a href="/school" className="font-sans text-sm hover:text-cream transition-colors">The School</a>
             <a href="/about" className="font-sans text-sm hover:text-cream transition-colors">About</a>
             <a href="/privacy-policy" className="font-sans text-sm hover:text-cream transition-colors">Privacy</a>
           </div>

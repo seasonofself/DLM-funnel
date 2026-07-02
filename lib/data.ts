@@ -164,3 +164,109 @@ export const imagineMoments = [
 
 // Legacy export — kept for unused components that still import it
 export const whyItWorks: { title: string; description: string }[] = [];
+
+// ─────────────────────────────────────────
+//  Season of Self · The School (/school)
+//  Copy for the membership school page.
+// ─────────────────────────────────────────
+
+// The mirror — her inner monologue. First person, like thoughts.
+export const mirrorLines = [
+  "I’m grateful for my life. So why does it feel like it isn’t mine?",
+  "I go through my days doing what I need to do. But my work doesn’t light me up, and I know I’m capable of more.",
+  "I have ideas. Maybe too many. I’m just not moving on any of them.",
+  "I keep waiting to feel ready. I’ve been waiting for a while.",
+];
+
+// What’s inside — exact, quantified. Vagueness kills memberships.
+export const whatsInside = [
+  {
+    title: "The Dream Life Mapping course",
+    description:
+      "6 modules, self-paced, yours from day one. The step-by-step process for going from something’s missing to living it.",
+    note: "Sold alone for $197.",
+  },
+  {
+    title: "Monthly live group coaching with Charlotte & Katja",
+    description:
+      "Bring your real situation and get coached live by both of us. Every call is recorded, so you never lose it if you can’t make it.",
+    note: null as string | null,
+  },
+  {
+    title: "Us, between calls",
+    description:
+      "Async access to both of us inside the community. Post a question anytime. We answer.",
+    note: null as string | null,
+  },
+  {
+    title: "The Season of Self community",
+    description:
+      "Women in the same season, sharing wins, stuck points, and next steps. A room of women walking the path alongside you.",
+    note: null as string | null,
+  },
+  {
+    title: "The Somatic Toolkit",
+    description:
+      "Nervous-system practices for the fear that shows up when you start moving. Come back to your body, then keep going.",
+    note: null as string | null,
+  },
+];
+
+// FAQ — objections in her voice, each answer ending on a soft micro-CTA.
+export const schoolFaqs = [
+  {
+    question: "What if I don’t know what I want at all?",
+    answer:
+      "That’s exactly where we start. The first stage of Dream Life Mapping, Assess, meets you there and helps you reconnect to what feels true for you. You don’t need to arrive with answers. You just need to be willing to look. Join and start with stage one tonight.",
+  },
+  {
+    question: "How much time does this take?",
+    answer:
+      "About 1 to 2 hours a week, and it’s fully self-paced. The course is yours to move through at your own speed, the live calls are recorded, and there’s no schedule to keep up with. You move as your season allows.",
+  },
+  {
+    question: "What exactly happens on the monthly calls?",
+    answer:
+      "Live group coaching with Charlotte and Katja. You bring your real situation, and we coach you through it, right there on the call. Every call is recorded and posted, so you can watch back or catch up anytime. Come to the next one and bring your question.",
+  },
+  {
+    question: "What if I’m shy about sharing in a community?",
+    answer:
+      "You’re welcome to lurk. You can read, take what you need, and write instead of speak. There’s no performance here and no pressure to show up a certain way. Come in quietly and move at your own pace.",
+  },
+  {
+    question: "Can I really cancel anytime?",
+    answer:
+      "Yes. Two clicks, no email needed, no hoops. You stay because it’s helping, not because you’re locked in. Join today and see how it feels.",
+  },
+  {
+    question: "I already bought Dream Life Mapping. What happens to me?",
+    answer:
+      "Your access continues exactly as promised, and you’re being upgraded to full school membership at no extra cost. We’ll email you the details. Nothing you paid for goes away.",
+  },
+  {
+    question: "Is this a business course?",
+    answer:
+      "It’s a life-direction school. Building your own thing is one path we support, not a requirement. Whatever your soul work turns out to be, this helps you design a life around it. Join and find your direction first.",
+  },
+  {
+    question: "What if I fall behind?",
+    answer:
+      "There’s no behind. This is a season, not a sprint. The course, the calls, and the community are all here whenever you come back to them. Start where you are.",
+  },
+];
+
+// This is for you if — contradictions, not demographics.
+export const schoolForYou = [
+  "You have a job that looks good on paper, and a quiet voice that keeps asking “is this really it?”",
+  "You’ve done the inner work, read the books, and you’re still circling the same decision",
+  "You have ideas, maybe several, but you’re overthinking instead of moving",
+  "You want work that feels like you, and pays you, without a life of nonstop pushing to get it",
+  "You don’t need more information. You need direction, support, and momentum",
+];
+
+export const schoolNotForYou = [
+  "You want a get-rich-quick promise",
+  "You want someone to hand you the answer instead of walking with you",
+  "You’re not willing to actually do the work",
+];

@@ -10,12 +10,46 @@
    Mono:     JetBrains Mono (editorial metadata labels)
 ───────────────────────────────────────── */
 
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap");
+/* Fallback webfonts that render immediately:
+   Instrument Serif  → stand-in for Gaya (elegant high-contrast display serif)
+   DM Sans           → stand-in for Neue Montreal (clean grotesque)
+   JetBrains Mono    → small metadata labels */
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap");
+
+/* ── Brand fonts — self-hosted. Drop the licensed files into /public/fonts/
+   (see /public/fonts/README.md for exact filenames). Until they exist, the
+   browser falls back to the stacks in :root below, so the page still looks
+   right — it just upgrades automatically once the files are added. ── */
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/NeueMontreal-Regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/NeueMontreal-Medium.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/NeueMontreal-Italic.woff2") format("woff2");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Gaya";
+  src: url("/fonts/Gaya-Regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Gaya";
+  src: url("/fonts/Gaya-Italic.woff2") format("woff2");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
 
 :root {
-  --font-display: "Fraunces", Georgia, serif;
-  --font-sans: "DM Sans", system-ui, sans-serif;
-  --font-subtitle: "Fraunces", Georgia, serif;
+  --font-display: "Gaya", "Instrument Serif", Georgia, serif;
+  --font-sans: "Neue Montreal", "DM Sans", system-ui, sans-serif;
+  --font-subtitle: "Gaya", "Instrument Serif", Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
@@ -31,38 +65,21 @@ body {
   background-color: #f6f4ef;
   color: #222222;
   overflow-x: hidden;
-  font-feature-settings: "ss01", "cv11", "kern";
-  font-variation-settings: "opsz" 14;
+  font-feature-settings: "kern", "liga";
 }
 
-/* ── Display font helper — Fraunces tuned for editorial display ──
-   opsz 144 = largest optical size (most contrast, most personality)
-   SOFT 50  = medium-soft letterforms (warm without being twee)
-─────────────────────────────────────────────────────────────────── */
+/* ── Display font helper — elegant editorial serif, regular weight ── */
 .font-display {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 42, "SOFT" 50;
-  letter-spacing: -0.015em;
-  font-weight: 500;
-  font-feature-settings: "ss01", "kern", "liga";
-}
-
-/* When italic is applied to .font-display, push SOFT higher
-   so italic moments feel even softer & more romantic */
-.font-display em,
-.font-display i,
-.font-display .italic,
-em.font-display,
-i.font-display,
-.italic.font-display {
-  font-variation-settings: "opsz" 42, "SOFT" 80;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+  font-feature-settings: "kern", "liga";
 }
 
 .font-subtitle {
   font-family: var(--font-subtitle);
   font-style: italic;
-  font-variation-settings: "opsz" 60, "SOFT" 90;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
 }
 
 /* ── Editorial mono label — small tracked metadata captions ──

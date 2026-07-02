@@ -255,8 +255,8 @@ export default function AboutPage() {
             <span className="italic">Season of Self</span>?
           </h2>
           <p className="font-sans text-ink/65 text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            Take a free gift to start, or step into Dream Life Mapping when
-            you&apos;re ready.
+            Take a free gift to start, or join the school when you&apos;re
+            ready.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -267,10 +267,10 @@ export default function AboutPage() {
               Free Gifts →
             </a>
             <a
-              href="/dream-life"
+              href="/school"
               className="inline-flex items-center gap-3 bg-ink text-cream font-sans font-medium text-[11px] tracking-[0.32em] uppercase px-8 py-[18px] rounded-full hover:bg-deep-sage transition-colors"
             >
-              Dream Life Mapping →
+              The School →
             </a>
           </div>
         </div>

@@ -10,12 +10,14 @@ export const metadata: Metadata = {
     template: "%s · Season of Self",
   },
   description:
-    "Season of Self is an online learning and mentorship space for ambitious women who want to make real money doing work they love, and build a soft, free life around it. Founded by Charlotte and Katja. The Inner Map, a free clarity workshop, and Dream Life Mapping.",
+    "Season of Self is an online school that helps women design lives they love around their soul work. Founded by Charlotte and Katja. Includes the Dream Life Mapping course, monthly live coaching, and a community of women in the same season. Start with The Inner Map or a free clarity workshop.",
   applicationName: "Season of Self",
   keywords: [
     "Season of Self",
+    "Season of Self school",
     "Season of Self Substack",
     "Dream Life Mapping",
+    "online school for women",
     "Charlotte and Katja",
     "The Inner Map",
     "The Inner Map quiz",
@@ -165,14 +167,14 @@ const websiteSchema = {
   inLanguage: "en-US",
 };
 
-const dreamLifeMappingSchema = {
+const schoolSchema = {
   "@context": "https://schema.org",
   "@type": ["Course", "Service"],
-  "@id": `${SITE_URL}/dream-life#course`,
-  name: "Dream Life Mapping",
-  url: `${SITE_URL}/dream-life`,
+  "@id": `${SITE_URL}/school#school`,
+  name: "Season of Self · The School",
+  url: `${SITE_URL}/school`,
   description:
-    "A self-paced course and 12-month community for women ready to build work they love into a living, and a soft, free life around it. Designed to help you get clear on your direction, identify your zone of genius, work through what's keeping you stuck, and start building a life that actually feels like yours.",
+    "A $25/month online school that helps women design lives they love around their soul work. Includes the Dream Life Mapping course (6 modules, self-paced), monthly live group coaching with Charlotte and Katja, async support between calls, a somatic toolkit, and a community of women in the same season.",
   provider: { "@id": `${SITE_URL}#organization` },
   audience: {
     "@type": "PeopleAudience",
@@ -189,6 +191,24 @@ const dreamLifeMappingSchema = {
     courseMode: "online",
     courseWorkload: "self-paced",
   },
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Monthly membership",
+      price: "25",
+      priceCurrency: "USD",
+      category: "subscription",
+      url: `${SITE_URL}/school`,
+    },
+    {
+      "@type": "Offer",
+      name: "Annual membership",
+      price: "197",
+      priceCurrency: "USD",
+      category: "subscription",
+      url: `${SITE_URL}/school`,
+    },
+  ],
   inLanguage: "en-US",
 };
 
@@ -210,7 +230,7 @@ const faqSchema = {
       name: "Where can I get help finding my life path?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Season of Self offers structured guidance for women navigating questions about their direction and purpose: The Inner Map at ikigai.seasonofself.co (free to take, about 10 minutes, with the full map unlocked for $17), a free Clarity workshop, and Dream Life Mapping, a self-paced course and 12-month community designed to take you from feeling stuck to having clear direction and momentum.",
+        text: "Season of Self offers structured guidance for women navigating questions about their direction and purpose: The Inner Map at ikigai.seasonofself.co (free to take, about 10 minutes, with the full map unlocked for $17), a free Clarity workshop, and the Season of Self school ($25/month), which includes the Dream Life Mapping course, monthly live coaching with Charlotte and Katja, and a community of women in the same season.",
       },
     },
     {
@@ -226,7 +246,7 @@ const faqSchema = {
       name: "What is Dream Life Mapping?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Dream Life Mapping is Season of Self's flagship offering: a self-paced online course paired with a 12-month community. It helps you get clear on your zone of genius, your most aligned path, and the next steps to start building it. It includes a somatic toolkit and async coaching support from Charlotte and Katja.",
+        text: "Dream Life Mapping is the flagship course inside the Season of Self school: a self-paced online course of 6 modules that helps you get clear on your zone of genius, your most aligned path, and the next steps to start building it. School membership ($25/month) also includes monthly live coaching with Charlotte and Katja, async support between calls, a somatic toolkit, and the community.",
       },
     },
     {
@@ -290,7 +310,7 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(dreamLifeMappingSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schoolSchema) }}
         />
         <script
           type="application/ld+json"
