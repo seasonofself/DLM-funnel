@@ -130,7 +130,7 @@ export default function ApplicationForm() {
         animate={{ opacity: 1, y: 0 }}
         className="rounded-card-lg border border-ink/15 bg-white/60 p-8 sm:p-12 text-center"
       >
-        <p className="font-mono text-[10px] tracking-[0.28em] uppercase text-deep-sage mb-4">
+        <p className="font-mono text-[10px] tracking-[0.28em] uppercase text-ink/60 mb-4">
           Application received
         </p>
         <p className="font-display text-ink text-2xl sm:text-3xl leading-snug tracking-[-0.015em] mb-4">
@@ -282,7 +282,7 @@ export default function ApplicationForm() {
           <button
             type="button"
             onClick={next}
-            className="group inline-flex items-center justify-center gap-3 font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-9 py-[18px] rounded-full bg-ink text-cream hover:bg-deep-sage transition-colors"
+            className="group inline-flex items-center justify-center gap-3 font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-9 py-[18px] rounded-full bg-ink text-cream hover:bg-deep-brown transition-colors"
           >
             Continue
             <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
@@ -293,7 +293,7 @@ export default function ApplicationForm() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="group inline-flex items-center justify-center gap-3 font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-9 py-[18px] rounded-full bg-ink text-cream hover:bg-deep-sage transition-colors disabled:opacity-60"
+            className="group inline-flex items-center justify-center gap-3 font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-9 py-[18px] rounded-full bg-ink text-cream hover:bg-deep-brown transition-colors disabled:opacity-60"
           >
             {status === "loading" ? "Sending…" : "Submit application"}
             {status !== "loading" && (

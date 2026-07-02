@@ -48,7 +48,7 @@ function ApplyButton({
   label?: string;
   dark?: boolean;
 }) {
-  const cls = dark ? "bg-cream text-ink hover:bg-linen" : "bg-ink text-cream hover:bg-deep-sage";
+  const cls = dark ? "bg-cream text-ink hover:bg-linen" : "bg-ink text-cream hover:bg-deep-brown";
   return (
     <a
       href="#apply"
@@ -186,7 +186,7 @@ function TestiAvatar({ t }: { t: { name: string; img?: string } }) {
     );
   }
   return (
-    <div className="w-full h-full flex items-center justify-center bg-sage/30 text-deep-sage font-display text-3xl">
+    <div className="w-full h-full flex items-center justify-center bg-sage/30 text-ink/60 font-display text-3xl">
       {t.name.charAt(0)}
     </div>
   );
@@ -264,7 +264,7 @@ export default function EricieraRetreatPage() {
               <>You’re ready to <span className="marker marker--terracotta">take your dreams seriously</span>, in a room of women doing the same.</>,
             ].map((line, i) => (
               <motion.li key={i} variants={fadeUp} className="flex gap-4 font-sans text-ink/80 text-base sm:text-lg leading-relaxed">
-                <Spiral className="w-6 h-6 text-terracotta-dark shrink-0 mt-0.5" />
+                <Spiral className="w-6 h-6 text-terracotta shrink-0 mt-0.5" />
                 <span>{line}</span>
               </motion.li>
             ))}
@@ -286,7 +286,7 @@ export default function EricieraRetreatPage() {
       <section className="bg-[#f1ead8] py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
-            <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="font-mono text-[10px] tracking-[0.24em] uppercase text-terracotta-dark mb-6">
+            <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="font-mono text-[10px] tracking-[0.24em] uppercase text-terracotta mb-6">
               Your signature course, included
             </motion.p>
             <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85 }} className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.4rem] leading-[1.04] text-ink mb-7 tracking-[-0.02em]">
@@ -301,7 +301,7 @@ export default function EricieraRetreatPage() {
             {dlmModules.map((m, i) => (
               <motion.div key={m.title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-30px" }} transition={{ duration: 0.55, delay: (i % 3) * 0.05 }} className="rounded-card-lg bg-cream/70 border border-ink/8 p-6 sm:p-7">
                 <span className="font-mono text-[11px] tracking-[0.2em] text-ink/35">{m.n}</span>
-                <h3 className="font-display text-terracotta-dark text-xl sm:text-[1.4rem] tracking-[-0.015em] mt-2 mb-2">{m.title}</h3>
+                <h3 className="font-display text-terracotta text-xl sm:text-[1.4rem] tracking-[-0.015em] mt-2 mb-2">{m.title}</h3>
                 <p className="font-sans text-ink/70 text-[15px] leading-relaxed">{m.desc}</p>
               </motion.div>
             ))}
@@ -326,12 +326,12 @@ export default function EricieraRetreatPage() {
 
           {/* The Wellness — lead with it */}
           <div className="mb-16">
-            <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-terracotta-dark mb-2">The Wellness</p>
+            <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-terracotta mb-2">The Wellness</p>
             <p className="font-display italic text-ink/80 text-lg sm:text-xl mb-8">First and foremost, this is a true wellness retreat.</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {theWellness.map((item, i) => (
                 <motion.div key={item.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-30px" }} transition={{ duration: 0.5, delay: (i % 3) * 0.05 }} className="rounded-card-lg bg-[#dde2d2]/50 border border-ink/8 p-6">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cream mb-4 shadow-soft" aria-hidden="true"><Spiral className="w-6 h-6 text-terracotta-dark" /></span>
+                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cream mb-4 shadow-soft" aria-hidden="true"><Spiral className="w-6 h-6 text-terracotta" /></span>
                   <h3 className="font-display text-ink text-lg sm:text-xl tracking-[-0.015em] mb-2">{item.title}</h3>
                   <p className="font-sans text-ink/70 text-[15px] leading-relaxed">{item.desc}</p>
                 </motion.div>
@@ -341,11 +341,11 @@ export default function EricieraRetreatPage() {
 
           {/* The Work */}
           <div>
-            <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-terracotta-dark mb-8">The Work</p>
+            <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-terracotta mb-8">The Work</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {theWork.map((item, i) => (
                 <motion.div key={item.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-30px" }} transition={{ duration: 0.5, delay: (i % 3) * 0.05 }} className="rounded-card-lg bg-linen/40 border border-ink/8 p-6">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cream mb-4 shadow-soft" aria-hidden="true"><Spiral className="w-6 h-6 text-terracotta-dark" /></span>
+                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cream mb-4 shadow-soft" aria-hidden="true"><Spiral className="w-6 h-6 text-terracotta" /></span>
                   <h3 className="font-display text-ink text-lg sm:text-xl tracking-[-0.015em] mb-2">{item.title}</h3>
                   <p className="font-sans text-ink/70 text-[15px] leading-relaxed">{item.desc}</p>
                 </motion.div>
@@ -368,7 +368,7 @@ export default function EricieraRetreatPage() {
             <motion.ul variants={stagger} className="space-y-0">
               {dayShape.map((d, i) => (
                 <motion.li key={i} variants={fadeUp} className="grid grid-cols-12 gap-4 py-4 border-t border-ink/12">
-                  <span className="col-span-4 sm:col-span-3 font-mono text-[11px] sm:text-xs tracking-[0.12em] uppercase text-terracotta-dark pt-1">{d.time}</span>
+                  <span className="col-span-4 sm:col-span-3 font-mono text-[11px] sm:text-xs tracking-[0.12em] uppercase text-terracotta pt-1">{d.time}</span>
                   <span className="col-span-8 sm:col-span-9 font-sans text-ink/80 text-[15px] sm:text-base leading-relaxed">{d.note}</span>
                 </motion.li>
               ))}
@@ -510,7 +510,7 @@ export default function EricieraRetreatPage() {
             </button>
           </div>
 
-          <p className="mt-12 font-mono text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-terracotta-dark">
+          <p className="mt-12 font-mono text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-terracotta">
             ✦ 2 spots already reserved for October 2026
           </p>
         </div>
@@ -543,7 +543,7 @@ export default function EricieraRetreatPage() {
                   <span className="font-sans text-ink/55 text-sm ml-2">per person</span>
                 </div>
                 <p className="font-sans text-ink/65 text-[14px] leading-relaxed mb-7">{room.desc}</p>
-                <a href="#apply" className={`mt-auto inline-flex items-center justify-center gap-3 font-mono text-[12px] font-medium tracking-[0.2em] uppercase px-8 py-[16px] rounded-full transition-colors ${room.featured ? "bg-terracotta text-cream hover:bg-terracotta-dark" : "bg-ink text-cream hover:bg-deep-sage"}`}>
+                <a href="#apply" className={`mt-auto inline-flex items-center justify-center gap-3 font-mono text-[12px] font-medium tracking-[0.2em] uppercase px-8 py-[16px] rounded-full transition-colors ${room.featured ? "bg-terracotta text-cream hover:bg-deep-brown" : "bg-ink text-cream hover:bg-deep-brown"}`}>
                   Apply
                   <span aria-hidden="true">→</span>
                 </a>
@@ -568,7 +568,7 @@ export default function EricieraRetreatPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {steps.map((s, i) => (
               <motion.div key={s.title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-30px" }} transition={{ duration: 0.55, delay: i * 0.06 }} className="rounded-card-lg bg-cream/70 border border-ink/8 p-6 sm:p-7">
-                <span className="font-mono text-[11px] tracking-[0.2em] text-terracotta-dark">{s.n}</span>
+                <span className="font-mono text-[11px] tracking-[0.2em] text-terracotta">{s.n}</span>
                 <h3 className="font-display text-ink text-xl sm:text-[1.4rem] tracking-[-0.015em] mt-2 mb-2">{s.title}</h3>
                 <p className="font-sans text-ink/70 text-[15px] leading-relaxed">{s.desc}</p>
               </motion.div>
@@ -606,7 +606,7 @@ export default function EricieraRetreatPage() {
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.7 }} className="mt-16 sm:mt-20 text-center">
             <p className="font-display text-ink text-2xl sm:text-3xl leading-snug tracking-[-0.015em] mb-5">Have any questions?</p>
             <p className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-9">Feel free to email us or book a short call. We would love to hear from you.</p>
-            <a href="mailto:hello@seasonofself.co?subject=Season%20of%20Self%20%C2%B7%20Ericeira" className="group inline-flex items-center justify-center gap-3 font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-9 sm:px-11 py-[18px] sm:py-[20px] rounded-full bg-ink text-cream hover:bg-deep-sage transition-colors">
+            <a href="mailto:hello@seasonofself.co?subject=Season%20of%20Self%20%C2%B7%20Ericeira" className="group inline-flex items-center justify-center gap-3 font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-9 sm:px-11 py-[18px] sm:py-[20px] rounded-full bg-ink text-cream hover:bg-deep-brown transition-colors">
               hello@seasonofself.co
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
             </a>

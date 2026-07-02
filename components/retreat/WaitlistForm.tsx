@@ -63,7 +63,7 @@ export default function WaitlistForm({
     : "bg-transparent border-ink/25 text-ink placeholder:text-ink/40 focus:border-ink";
   const buttonClass = isDark
     ? "bg-cream text-ink hover:bg-linen"
-    : "bg-ink text-cream hover:bg-deep-sage";
+    : "bg-ink text-cream hover:bg-deep-brown";
   const microlineClass = isDark ? "text-cream/55" : "text-ink/55";
 
   return (
@@ -82,7 +82,7 @@ export default function WaitlistForm({
           >
             <p
               className={`font-mono text-[10px] tracking-[0.28em] uppercase mb-4 ${
-                isDark ? "text-cream/55" : "text-deep-sage"
+                isDark ? "text-cream/55" : "text-ink/60"
               }`}
             >
               You are in
