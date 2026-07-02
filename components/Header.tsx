@@ -11,11 +11,10 @@ type HeaderLink = {
 
 const links: HeaderLink[] = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "https://ikigai.seasonofself.co", label: "The Inner Map", external: true },
   { href: "/school", label: "The School" },
   { href: "/retreats/ericeira", label: "Retreats" },
-  { href: "/clarity", label: "Free Workshop" },
+  { href: "/about", label: "About" },
 ];
 
 export default function Header({ sticky = true }: { sticky?: boolean }) {
