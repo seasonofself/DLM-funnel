@@ -194,7 +194,7 @@ const schoolSchema = {
   offers: [
     {
       "@type": "Offer",
-      name: "Monthly membership",
+      name: "Monthly tuition",
       price: "25",
       priceCurrency: "USD",
       category: "subscription",
@@ -202,7 +202,7 @@ const schoolSchema = {
     },
     {
       "@type": "Offer",
-      name: "Annual membership",
+      name: "Annual tuition",
       price: "197",
       priceCurrency: "USD",
       category: "subscription",
@@ -246,7 +246,7 @@ const faqSchema = {
       name: "What is Dream Life Mapping?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Dream Life Mapping is the flagship course inside the Season of Self school: a self-paced online course of 6 modules that helps you get clear on your zone of genius, your most aligned path, and the next steps to start building it. School membership ($25/month) also includes monthly live coaching with Charlotte and Katja, async support between calls, a somatic toolkit, and the community.",
+        text: "Dream Life Mapping is the flagship course inside the Season of Self school: a self-paced online course of 6 modules that helps you get clear on your zone of genius, your most aligned path, and the next steps to start building it. Enrollment ($25/month) also includes monthly live coaching with Charlotte and Katja, async support between calls, a somatic toolkit, and the community.",
       },
     },
     {

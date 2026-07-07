@@ -2,32 +2,37 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import {
+  checkoutUrl,
   modules,
+  somaticToolkit,
   mirrorLines,
   whatsInside,
+  howItWorks,
+  thisMonth,
+  pricing,
+  foundingHundredNote,
+  teacherCredentials,
+  teachersSharedLine,
+  seasonalManifesto,
+  journeyVerbs,
   schoolFaqs,
   schoolForYou,
   schoolNotForYou,
   testimonials,
-} from "@/lib/data";
+} from "@/content/school";
 import Header from "@/components/Header";
 
-/* ─── checkout ─────────────────────────────────────────────
-   One Circle paywall holds both price options ($25/mo and
-   $197/yr); members pick their plan on the checkout page, so
-   every "join" button points to the same URL. */
-const checkoutUrl = "https://seasonofself.circle.so/checkout/season-of-self";
 const checkoutMonthly = checkoutUrl;
 const checkoutAnnual = checkoutUrl;
 
-/* Next live group coaching call. Update this by hand each month. */
-const nextCall = "July 23, 2026";
-
+/* Section-entry reveal: fade + 16px rise, 400ms, once per section.
+   MotionConfig reducedMotion="user" (below) disables the rise for
+   visitors with prefers-reduced-motion. */
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
 };
 
 const stagger = {
@@ -40,6 +45,7 @@ export default function SchoolPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
+    <MotionConfig reducedMotion="user">
     <main className="relative overflow-hidden bg-cream">
       {/* ════════════════════════════════════════════════
           1. ANNOUNCEMENT BAR — founder rate, real scarcity
@@ -47,7 +53,7 @@ export default function SchoolPage() {
       <div className="fixed top-0 inset-x-0 z-50 bg-ink text-cream text-center py-2.5 px-4 text-xs sm:text-sm font-sans">
         <div className="flex items-center justify-center gap-3 flex-wrap">
           <span>
-            ✦ Founder rate: first 100 members lock in{" "}
+            ✦ The Founding 100: first 100 students lock in{" "}
             <strong className="text-linen">$25/mo</strong> for as long as they
             stay
           </span>
@@ -147,6 +153,7 @@ export default function SchoolPage() {
                 alt="Charlotte and Katja"
                 fill
                 priority
+                sizes="(max-width: 640px) 240px, (max-width: 1024px) 384px, 448px"
                 className="object-cover"
               />
             </motion.div>
@@ -189,6 +196,46 @@ export default function SchoolPage() {
       </section>
 
       {/* ════════════════════════════════════════════════
+          3b. HOW THE SCHOOL WORKS — the learn-then-live rhythm
+         ════════════════════════════════════════════════ */}
+      <section className="bg-cream pb-24 sm:pb-32 lg:pb-40 px-6 sm:px-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={stagger}
+          className="max-w-5xl mx-auto"
+        >
+          <motion.p
+            variants={fadeUp}
+            className="text-center font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-ink/55 mb-12 sm:mb-16"
+          >
+            How the school works
+          </motion.p>
+
+          <div className="grid sm:grid-cols-3 gap-10 sm:gap-8 lg:gap-12">
+            {howItWorks.map((s) => (
+              <motion.div
+                key={s.step}
+                variants={fadeUp}
+                className="text-center sm:text-left"
+              >
+                <span className="font-display italic text-terracotta/70 text-3xl block mb-3">
+                  {s.step}
+                </span>
+                <h3 className="font-display text-2xl sm:text-[1.7rem] text-ink mb-3">
+                  {s.title}
+                </h3>
+                <p className="font-sans text-ink/70 text-[15px] sm:text-base leading-relaxed">
+                  {s.line}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ════════════════════════════════════════════════
           4. WHY THE OTHER THINGS HAVEN'T WORKED
          ════════════════════════════════════════════════ */}
       <section className="paper-texture bg-[#dde2d2] py-24 sm:py-32 px-6 sm:px-10">
@@ -207,6 +254,7 @@ export default function SchoolPage() {
               src="/assets/SheFlows-8.jpg"
               alt="Katja leading a somatic sound practice"
               fill
+              sizes="(max-width: 512px) 100vw, 448px"
               className="object-cover"
             />
           </motion.div>
@@ -253,7 +301,7 @@ export default function SchoolPage() {
               variants={fadeUp}
               className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-ink/55 mb-5"
             >
-              The method
+              The curriculum
             </motion.p>
             <motion.h2
               variants={fadeUp}
@@ -279,6 +327,7 @@ export default function SchoolPage() {
               src="/assets/SS_Nosara_11-03-26-67.jpg"
               alt="Charlotte and Katja mapping the Dream Life Mapping framework"
               fill
+              sizes="(max-width: 1024px) 100vw, 896px"
               className="object-cover"
             />
           </motion.div>
@@ -292,37 +341,39 @@ export default function SchoolPage() {
               >
                 <button
                   onClick={() => setOpenModule(openModule === i ? null : i)}
+                  aria-expanded={openModule === i}
+                  aria-controls={`module-panel-${i}`}
                   className="w-full flex items-center gap-5 sm:gap-7 p-6 sm:p-7 text-left hover:bg-cream/40 transition-colors"
                 >
                   <span className="font-display italic text-terracotta/70 text-2xl sm:text-3xl shrink-0 w-10 sm:w-12">
-                    {mod.number === "✧" ? "✦" : `0${mod.number}`}
+                    {mod.number}
                   </span>
                   <div className="flex-1 min-w-0">
                     <p className="font-sans text-[10px] font-semibold tracking-[0.28em] uppercase text-ink/40 mb-1.5">
-                      {mod.number === "✧"
-                        ? "Bonus"
-                        : `Module ${mod.number}`}{" "}
-                      · {mod.keyword}
+                      Module {mod.number} · {mod.verb}
                     </p>
                     <h3 className="font-display text-lg sm:text-xl lg:text-2xl text-ink leading-snug">
                       {mod.title}
                     </h3>
                   </div>
                   <motion.span
+                    aria-hidden="true"
                     animate={{ rotate: openModule === i ? 45 : 0 }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                     className="text-ink/40 text-2xl shrink-0 leading-none"
                   >
                     +
                   </motion.span>
                 </button>
 
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                   {openModule === i && (
                     <motion.div
+                      id={`module-panel-${i}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35 }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
                       <div className="px-6 sm:px-7 pb-7 pl-[4.5rem] sm:pl-[5rem]">
@@ -335,6 +386,62 @@ export default function SchoolPage() {
                 </AnimatePresence>
               </motion.div>
             ))}
+
+            {/* The Somatic Toolkit — woven through every module */}
+            <motion.div
+              variants={fadeUp}
+              className="bg-white rounded-[20px] overflow-hidden"
+            >
+              <button
+                onClick={() =>
+                  setOpenModule(
+                    openModule === modules.length ? null : modules.length
+                  )
+                }
+                aria-expanded={openModule === modules.length}
+                aria-controls="module-panel-toolkit"
+                className="w-full flex items-center gap-5 sm:gap-7 p-6 sm:p-7 text-left hover:bg-cream/40 transition-colors"
+              >
+                <span className="font-display italic text-terracotta/70 text-2xl sm:text-3xl shrink-0 w-10 sm:w-12">
+                  ✦
+                </span>
+                <div className="flex-1 min-w-0">
+                  <p className="font-sans text-[10px] font-semibold tracking-[0.28em] uppercase text-ink/40 mb-1.5">
+                    {somaticToolkit.verb} · woven through every module
+                  </p>
+                  <h3 className="font-display text-lg sm:text-xl lg:text-2xl text-ink leading-snug">
+                    {somaticToolkit.title}
+                  </h3>
+                </div>
+                <motion.span
+                  aria-hidden="true"
+                  animate={{ rotate: openModule === modules.length ? 45 : 0 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-ink/40 text-2xl shrink-0 leading-none"
+                >
+                  +
+                </motion.span>
+              </button>
+
+              <AnimatePresence initial={false}>
+                {openModule === modules.length && (
+                  <motion.div
+                    id="module-panel-toolkit"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-6 sm:px-7 pb-7 pl-[4.5rem] sm:pl-[5rem]">
+                      <p className="font-sans text-ink/70 leading-relaxed text-[15px] sm:text-base">
+                        {somaticToolkit.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           </div>
         </motion.div>
       </section>
@@ -361,7 +468,7 @@ export default function SchoolPage() {
               variants={fadeUp}
               className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink"
             >
-              Everything your membership{" "}
+              Everything your enrollment{" "}
               <span className="italic">includes</span>.
             </motion.h2>
           </div>
@@ -398,19 +505,43 @@ export default function SchoolPage() {
             className="text-center font-sans text-ink/70 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-10"
           >
             New workshops, practices, and trainings get added as the school
-            grows. Your membership includes everything we ever add.
+            grows. Your enrollment includes everything we ever add.
           </motion.p>
 
+          {/* This month at school — the living notice board.
+              All values come from content/school.ts (thisMonth). */}
           <motion.div
             variants={fadeUp}
-            className="max-w-md mx-auto bg-ink text-cream rounded-full px-7 py-4 text-center"
+            className="max-w-md mx-auto bg-white rounded-[24px] shadow-soft overflow-hidden"
           >
-            <span className="font-sans text-[11px] font-semibold tracking-[0.28em] uppercase text-cream/55">
-              Next live call
-            </span>
-            <span className="block font-display text-xl mt-0.5">
-              {nextCall}
-            </span>
+            <div className="bg-ink text-center py-3.5 px-6">
+              <p className="font-sans text-[11px] font-semibold tracking-[0.28em] uppercase text-cream">
+                ✦ This month at school
+              </p>
+            </div>
+            <div className="p-7 sm:p-8 space-y-6">
+              {/* Next-live-call row removed for now — bring it back
+                  once the Circle calendar wiring is set up (see
+                  lib/circleCalendar.ts). */}
+              <div>
+                <p className="font-sans text-[10px] font-semibold tracking-[0.28em] uppercase text-ink/45 mb-1">
+                  Office hours
+                </p>
+                <p className="font-sans text-[15px] text-ink/75 leading-relaxed">
+                  {thisMonth.officeHours}
+                </p>
+              </div>
+              {thisMonth.theme && (
+                <div className="border-t border-ink/10 pt-6">
+                  <p className="font-sans text-[10px] font-semibold tracking-[0.28em] uppercase text-ink/45 mb-1">
+                    This month in the school
+                  </p>
+                  <p className="font-sans text-[15px] text-ink/75 leading-relaxed">
+                    {thisMonth.theme}
+                  </p>
+                </div>
+              )}
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -424,6 +555,7 @@ export default function SchoolPage() {
             src="/assets/SS_Nosara_11-02-26-242.jpg"
             alt="Charlotte and Katja at golden hour"
             fill
+            sizes="100vw"
             className="object-cover object-[50%_40%]"
           />
         </div>
@@ -456,16 +588,16 @@ export default function SchoolPage() {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.4 }}
               className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-ink/55 mb-5"
             >
-              Your guides
+              Your teachers
             </motion.p>
             <motion.h2
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.05 }}
+              transition={{ duration: 0.4, delay: 0.05 }}
               className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink"
             >
               Meet Charlotte &amp; <span className="italic">Katja</span>
@@ -475,22 +607,26 @@ export default function SchoolPage() {
           <div className="grid md:grid-cols-2 gap-10 lg:gap-16 max-w-6xl mx-auto">
             {/* Charlotte */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85 }}
+              transition={{ duration: 0.4 }}
             >
               <div className="relative aspect-[3/4] w-full max-w-sm mx-auto rounded-[20px] overflow-hidden mb-8">
                 <Image
                   src="/assets/SS_Nosara_11-03-26-546.jpg"
                   alt="Charlotte"
                   fill
+                  sizes="(max-width: 448px) 100vw, 384px"
                   className="object-cover"
                 />
               </div>
-              <h3 className="font-display text-3xl sm:text-4xl text-ink mb-5">
+              <h3 className="font-display text-3xl sm:text-4xl text-ink mb-2">
                 Charlotte
               </h3>
+              <p className="font-sans text-[13px] text-ink/55 leading-relaxed mb-5">
+                {teacherCredentials.charlotte}
+              </p>
               <div className="space-y-4 font-sans text-ink/70 text-base sm:text-[17px] leading-relaxed">
                 <p>
                   Charlotte grew up moving constantly. Twelve schools before
@@ -529,22 +665,26 @@ export default function SchoolPage() {
 
             {/* Katja */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.1 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
             >
               <div className="relative aspect-[3/4] w-full max-w-sm mx-auto rounded-[20px] overflow-hidden mb-8">
                 <Image
                   src="/assets/katja_hero.jpeg"
                   alt="Katja"
                   fill
+                  sizes="(max-width: 448px) 100vw, 384px"
                   className="object-cover"
                 />
               </div>
-              <h3 className="font-display text-3xl sm:text-4xl text-ink mb-5">
+              <h3 className="font-display text-3xl sm:text-4xl text-ink mb-2">
                 Katja
               </h3>
+              <p className="font-sans text-[13px] text-ink/55 leading-relaxed mb-5">
+                {teacherCredentials.katja}
+              </p>
               <div className="space-y-4 font-sans text-ink/70 text-base sm:text-[17px] leading-relaxed">
                 <p>
                   Katja had checked every box. Top universities, corporate
@@ -568,16 +708,19 @@ export default function SchoolPage() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.85, delay: 0.15 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
             className="mt-20 max-w-3xl mx-auto text-center"
           >
             <div className="w-12 h-px bg-ink/25 mx-auto mb-8" />
             <p className="font-display italic text-2xl sm:text-3xl text-ink/75 leading-relaxed">
               Dream Life Mapping is the exact process we used. The school is the
               support we wish we’d had.
+            </p>
+            <p className="mt-6 font-sans text-sm sm:text-base text-ink/60 leading-relaxed">
+              {teachersSharedLine}
             </p>
           </motion.div>
         </div>
@@ -601,7 +744,7 @@ export default function SchoolPage() {
               variants={fadeUp}
               className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-ink/55 mb-5"
             >
-              Real stories
+              Student stories
             </motion.p>
             <motion.h2
               variants={fadeUp}
@@ -620,6 +763,7 @@ export default function SchoolPage() {
               src="/assets/SS_Nosara_11-02-26-222.jpg"
               alt="Charlotte and Katja on the beach with surfboards"
               fill
+              sizes="(max-width: 832px) 100vw, 768px"
               className="object-cover object-[50%_52%]"
             />
           </motion.div>
@@ -660,6 +804,49 @@ export default function SchoolPage() {
       </section>
 
       {/* ════════════════════════════════════════════════
+          8b. SEASONAL NARRATIVE — philosophy band
+         ════════════════════════════════════════════════ */}
+      <section className="bg-ink py-24 sm:py-32 px-6 sm:px-10 overflow-hidden">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={stagger}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <motion.p
+            variants={fadeUp}
+            className="font-display italic text-cream text-2xl sm:text-3xl lg:text-[2.4rem] leading-snug max-w-3xl mx-auto"
+          >
+            {seasonalManifesto}
+          </motion.p>
+
+          <motion.div
+            variants={stagger}
+            aria-label="The Dream Life Mapping journey"
+            className="mt-12 sm:mt-16 flex flex-wrap items-center justify-center gap-x-3 gap-y-3 sm:gap-x-5"
+          >
+            {journeyVerbs.map((verb, i) => (
+              <motion.span
+                key={verb}
+                variants={fadeUp}
+                className="flex items-center gap-3 sm:gap-5"
+              >
+                <span className="font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.32em] uppercase text-cream/55">
+                  {verb}
+                </span>
+                {i < journeyVerbs.length - 1 && (
+                  <span aria-hidden="true" className="text-cream/30 text-sm">
+                    →
+                  </span>
+                )}
+              </motion.span>
+            ))}
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ════════════════════════════════════════════════
           9. PRICING (mid-page)
          ════════════════════════════════════════════════ */}
       <section id="pricing" className="bg-cream py-24 sm:py-32 px-6 sm:px-10 scroll-mt-20">
@@ -691,19 +878,25 @@ export default function SchoolPage() {
             {/* Monthly */}
             <motion.div
               variants={fadeUp}
-              className="bg-white rounded-[28px] p-8 sm:p-10 shadow-soft"
+              className="bg-white rounded-[28px] p-8 sm:p-10 shadow-soft hover:shadow-lifted transition-shadow"
             >
-              <h3 className="font-display text-xl text-ink mb-1">Monthly</h3>
+              <h3 className="font-display text-xl text-ink mb-1">
+                {pricing.monthly.label}
+              </h3>
               <p className="font-sans text-ink/55 text-sm mb-5">
-                Founder rate, locked for as long as you stay
+                {pricing.monthly.sublabel}
               </p>
-              <p className="font-display text-6xl text-ink mb-2">$25</p>
-              <p className="font-sans text-ink/55 text-sm mb-7">per month</p>
+              <p className="font-display text-6xl text-ink mb-2">
+                {pricing.monthly.price}
+              </p>
+              <p className="font-sans text-ink/55 text-sm mb-7">
+                {pricing.monthly.per}
+              </p>
               <a
                 href={checkoutMonthly}
                 className="block text-center border border-ink text-ink font-sans font-medium text-[11px] tracking-[0.32em] uppercase py-4 rounded-full hover:bg-ink hover:text-cream transition-colors"
               >
-                Join monthly →
+                {pricing.monthly.cta}
               </a>
               <p className="text-center text-xs text-ink/45 mt-3">
                 Cancel anytime
@@ -713,22 +906,30 @@ export default function SchoolPage() {
             {/* Annual */}
             <motion.div
               variants={fadeUp}
-              className="relative bg-white rounded-[28px] p-8 sm:p-10 shadow-soft"
+              className="relative bg-white rounded-[28px] p-8 sm:p-10 shadow-soft hover:shadow-lifted transition-shadow"
             >
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-ink text-cream text-[10px] font-semibold tracking-[0.28em] uppercase px-4 py-1 rounded-full whitespace-nowrap">
-                What the course alone used to cost
-              </span>
-              <h3 className="font-display text-xl text-ink mb-1">Annual</h3>
+              {pricing.annual.badge && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-ink text-cream text-[10px] font-semibold tracking-[0.28em] uppercase px-4 py-1 rounded-full whitespace-nowrap">
+                  {pricing.annual.badge}
+                </span>
+              )}
+              <h3 className="font-display text-xl text-ink mb-1">
+                {pricing.annual.label}
+              </h3>
               <p className="font-sans text-ink/55 text-sm mb-5">
-                Same everything, about 4 months free
+                {pricing.annual.sublabel}
               </p>
-              <p className="font-display text-6xl text-ink mb-2">$197</p>
-              <p className="font-sans text-ink/55 text-sm mb-7">per year</p>
+              <p className="font-display text-6xl text-ink mb-2">
+                {pricing.annual.price}
+              </p>
+              <p className="font-sans text-ink/55 text-sm mb-7">
+                {pricing.annual.per}
+              </p>
               <a
                 href={checkoutAnnual}
                 className="block text-center bg-ink text-cream font-sans font-medium text-[11px] tracking-[0.32em] uppercase py-4 rounded-full hover:bg-deep-brown transition-colors"
               >
-                Join annual →
+                {pricing.annual.cta}
               </a>
               <p className="text-center text-xs text-ink/45 mt-3">
                 Cancel anytime
@@ -741,9 +942,7 @@ export default function SchoolPage() {
             className="max-w-2xl mx-auto bg-[#dde2d2] rounded-[24px] p-7 sm:p-8 text-center mb-8"
           >
             <p className="font-sans text-ink/75 text-[15px] sm:text-base leading-relaxed">
-              We’re opening the school with a founder rate for the first 100
-              members. Join now and $25/mo (or $197/yr) is your price for as long
-              as you’re a member, even when the price goes up.
+              {foundingHundredNote}
             </p>
           </motion.div>
 
@@ -824,19 +1023,19 @@ export default function SchoolPage() {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.4 }}
               className="inline-flex rounded-full bg-[#dde2d2] px-5 py-2 font-sans text-[11px] font-semibold tracking-[0.28em] uppercase text-ink/55"
             >
               10% of profit donated
             </motion.span>
             <motion.h2
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.05 }}
+              transition={{ duration: 0.4, delay: 0.05 }}
               className="mt-7 font-display text-[2.2rem] sm:text-4xl lg:text-[3rem] leading-[1.05] text-ink"
             >
-              Your membership creates impact{" "}
+              Your enrollment creates impact{" "}
               <span className="italic">beyond your own life</span>.
             </motion.h2>
           </div>
@@ -846,10 +1045,10 @@ export default function SchoolPage() {
               href="https://www.somasurf.org/"
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85 }}
+              transition={{ duration: 0.4 }}
               className="group block bg-white rounded-[24px] overflow-hidden shadow-soft hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
@@ -857,6 +1056,7 @@ export default function SchoolPage() {
                   src="/assets/somasurf.jpg"
                   alt="SOMA Surf"
                   fill
+                  sizes="(max-width: 640px) 100vw, 496px"
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               </div>
@@ -880,10 +1080,10 @@ export default function SchoolPage() {
               href="https://abriendomentes.org/"
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.1 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               className="group block bg-white rounded-[24px] overflow-hidden shadow-soft hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
@@ -891,6 +1091,7 @@ export default function SchoolPage() {
                   src="/assets/abriendomendes.png"
                   alt="Abriendo Mentes"
                   fill
+                  sizes="(max-width: 640px) 100vw, 496px"
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               </div>
@@ -939,25 +1140,30 @@ export default function SchoolPage() {
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-panel-${i}`}
                   className="w-full flex items-center justify-between gap-4 p-6 sm:p-7 text-left hover:bg-cream/40 transition-colors"
                 >
                   <span className="font-display text-lg sm:text-xl text-ink leading-snug">
                     {faq.question}
                   </span>
                   <motion.span
+                    aria-hidden="true"
                     animate={{ rotate: openFaq === i ? 45 : 0 }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                     className="text-ink/40 text-2xl shrink-0 leading-none"
                   >
                     +
                   </motion.span>
                 </button>
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                   {openFaq === i && (
                     <motion.div
+                      id={`faq-panel-${i}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35 }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
                       <p className="px-6 sm:px-7 pb-7 font-sans text-ink/70 leading-relaxed text-[15px]">
@@ -981,6 +1187,7 @@ export default function SchoolPage() {
             src="/assets/founders_vibing.jpg"
             alt=""
             fill
+            sizes="100vw"
             className="object-cover"
           />
         </div>
@@ -1004,8 +1211,9 @@ export default function SchoolPage() {
             variants={fadeUp}
             className="font-sans text-cream/80 text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto"
           >
-            Join Season of Self today. Lock in the founder rate, start Dream Life
-            Mapping tonight, and be on the next live call with us.
+            Join Season of Self today. Claim your place in the Founding 100,
+            start Dream Life Mapping tonight, and be on the next live call with
+            us.
           </motion.p>
           <motion.div variants={fadeUp}>
             <a
@@ -1023,5 +1231,6 @@ export default function SchoolPage() {
 
       <div className="h-2 bg-ink" />
     </main>
+    </MotionConfig>
   );
 }
