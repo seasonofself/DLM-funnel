@@ -110,8 +110,8 @@ const rooms = [
   { name: "Private room", was: 2950, price: 2490, desc: "Your own private queen room. The deepest rest, entirely your own.", img: "/assets/double-room-far-end-surf-house-2.jpg", featured: true },
   { name: "Shared room", was: 2400, price: 1990, desc: "A queen, shared with a friend. The smart buy, come together.", img: "/assets/double-room-far-end-surf-house.jpg" },
   { name: "Bunk bed", was: 2200, price: 1850, desc: "A single bed in a shared room. The bring-a-friend option.", img: "/assets/farendsurfhouse-kerttukruusla_107.jpg" },
-  { name: "Glamping — private", was: 2500, price: 2090, desc: "Your own glamping unit, sole occupancy. Outdoors, under the stars.", img: "/assets/glamping-beds-far-end-surf-house-7.jpg" },
-  { name: "Glamping — shared", was: 1950, price: 1650, desc: "A romantic double or twin glamping setup. Linens and towels included. A cosy October hideaway.", img: "/assets/farendsurfhouse-kerttukruusla_18-1024x1536.jpg" },
+  { name: "Glamping · private", was: 2500, price: 2090, desc: "Your own glamping unit, sole occupancy. Outdoors, under the stars.", img: "/assets/glamping-beds-far-end-surf-house-7.jpg" },
+  { name: "Glamping · shared", was: 1950, price: 1650, desc: "A romantic double or twin glamping setup. Linens and towels included. A cosy October hideaway.", img: "/assets/farendsurfhouse-kerttukruusla_18-1024x1536.jpg" },
 ];
 
 const steps = [
@@ -244,7 +244,7 @@ export default function LourinhaRetreatPage() {
           </motion.h2>
           <motion.ul initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger} className="space-y-7 max-w-2xl mx-auto">
             {[
-              <>Your life looks good on paper, but lately you feel a deep longing for <span className="marker marker--terracotta">more</span> — more connection, more community, more freedom — and you don’t yet know what it could be or where to start.</>,
+              <>Your life looks good on paper, but lately you feel a deep longing for <span className="marker marker--terracotta">more</span>: more connection, more community, more freedom. And you don’t yet know what it could be or where to start.</>,
               <>You’ve been living on autopilot and crave a <span className="marker marker--terracotta">real pause</span>: time to disconnect, immerse yourself in nature and community, and put the focus back on you.</>,
               <>You’ve been hustling and grinding for so long that a week just for yourself feels like a gift you keep putting off. This is you <span className="marker marker--terracotta">finally giving it to yourself</span>.</>,
               <>You feel a pull to <span className="marker marker--terracotta">dream bigger again</span>, to step outside the life you’ve carefully built. Not because anything is wrong, but because you can feel there’s so much more to experience, to feel the magic again, and to create something of your own.</>,
@@ -623,7 +623,7 @@ export default function LourinhaRetreatPage() {
           </div>
           <div className="flex flex-wrap gap-x-7 gap-y-2 text-cream/55">
             <a href="/" className="font-sans text-sm hover:text-cream transition-colors">Home</a>
-            <a href="/school" className="font-sans text-sm hover:text-cream transition-colors">The School</a>
+            <a href="/cohort" className="font-sans text-sm hover:text-cream transition-colors">The Season</a>
             <a href="/about" className="font-sans text-sm hover:text-cream transition-colors">About</a>
             <a href="/privacy-policy" className="font-sans text-sm hover:text-cream transition-colors">Privacy</a>
           </div>

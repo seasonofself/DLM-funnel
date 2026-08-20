@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionMarquee from "@/components/ui/SectionMarquee";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 /* ─── helpers ──────────────────────────────────────────── */
 const fadeUp = {
@@ -28,21 +28,6 @@ const whatWeFocus = [
 
 /* ─── main component ──────────────────────────────────── */
 export default function HomePage() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Feeds Kit, tagged by source so the nurture can run. Fire-and-forget:
-    // we thank the visitor regardless so the form never feels broken.
-    fetch("/api/kit-subscribe", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, source: "homepage-footer" }),
-    }).catch((err) => console.error("Mailing list signup error:", err));
-    setSubmitted(true);
-  };
-
   return (
     <main className="relative overflow-hidden bg-cream">
       <Header />
@@ -75,41 +60,36 @@ export default function HomePage() {
               variants={fadeUp}
               className="font-subtitle italic text-ink/60 text-base sm:text-lg lg:text-xl max-w-xl leading-relaxed mb-10"
             >
-              A school for women who want to make a living doing something they
-              love, and design a soft, free life around it.
+              A 12-week guided season for women who feel unfulfilled in their
+              work &amp; dream of starting something of their own. The autumn
+              season begins September 29.
             </motion.p>
 
             <motion.div
               variants={fadeUp}
-              className="flex flex-wrap items-center gap-5 sm:gap-6 mb-4"
+              className="flex flex-wrap items-center gap-4 sm:gap-5 mb-5"
             >
+              <a href="/cohort" className="btn btn-accent">
+                Apply for the autumn season
+                <span aria-hidden="true">→</span>
+              </a>
               <a
                 href={QUIZ_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 bg-ink text-cream font-sans font-semibold text-[11px] sm:text-xs tracking-[0.18em] uppercase px-8 sm:px-10 py-[18px] rounded-full shadow-soft hover:bg-deep-brown hover:shadow-lifted transition-all"
+                className="btn btn-outline"
               >
-                Start here · The Inner Map
-                <span
-                  aria-hidden="true"
-                  className="transition-transform group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </a>
-              <a
-                href="/school"
-                className="font-sans text-sm text-ink/70 hover:text-ink underline decoration-ink/30 underline-offset-4 hover:decoration-ink/70 transition-colors"
-              >
-                Or join the school
+                Start smaller · The Inner Map
+                <span aria-hidden="true">→</span>
               </a>
             </motion.div>
 
             <motion.p
               variants={fadeUp}
-              className="font-sans text-[13px] text-ink/50 leading-relaxed max-w-md"
+              className="font-sans text-[13px] text-ink/70 leading-relaxed max-w-md"
             >
-              The Inner Map takes about 10 minutes. Get your full map for $17.
+              Applications close September 24. We keep the circle small on
+              purpose.
             </motion.p>
           </motion.div>
 
@@ -386,12 +366,12 @@ export default function HomePage() {
               },
               {
                 step: "02",
-                name: "Season of Self School",
-                line: "Join the school",
-                body: "$25/mo for the Dream Life Mapping course, monthly live coaching with us, and a community of women in the same season.",
-                href: "/school",
+                name: "The Season",
+                line: "Give yourself a season",
+                body: "Our 12-week guided container. Small group, live calls with both of us, & a 30-day experiment that gets you moving. By application.",
+                href: "/cohort",
                 external: false,
-                cta: "Explore the school",
+                cta: "Apply",
               },
               {
                 step: "03",
@@ -412,7 +392,9 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.8, delay: i * 0.1 }}
-                className="group block bg-white rounded-[24px] p-7 sm:p-8 shadow-soft hover:shadow-[0_30px_60px_-30px_rgba(34,34,34,0.25)] transition-shadow"
+                className={`group block card-editorial p-7 sm:p-8 transition-colors ${
+                  ["bg-[#DDE2D2]", "bg-[#CDD8E1]", "bg-[#E7DFC5]"][i % 3]
+                }`}
               >
                 <span className="font-mono text-[11px] tracking-[0.18em] text-terracotta">
                   {s.step}
@@ -466,7 +448,7 @@ export default function HomePage() {
               transition={{ duration: 0.7 }}
               className="font-sans text-xs font-semibold tracking-[0.16em] uppercase text-ink/60 mb-6"
             >
-              When you are ready to go all in
+              When you&rsquo;re ready to go all in
             </motion.p>
 
             <motion.h2
@@ -474,9 +456,9 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.85, delay: 0.05 }}
-              className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink mb-7"
+              className="font-display lowercase text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink mb-7"
             >
-              Season of Self <span className="italic">School</span>
+              the autumn <span className="italic">season</span>
             </motion.h2>
 
             <motion.p
@@ -484,12 +466,24 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.85, delay: 0.1 }}
-              className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-10 max-w-xl"
+              className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-6 max-w-xl"
             >
-              An online school that helps women design lives they love around
-              their soul work. Inside, you move through the Dream Life Mapping
-              course, meet us on monthly live coaching calls, and grow alongside
-              a community of women in the same season. $25/mo, cancel anytime.
+              A 12-week guided season for women who feel unfulfilled in their
+              work &amp; have been dreaming of starting something of their own,
+              but aren&rsquo;t sure what it is yet. Twelve weeks, a small
+              circle, live calls with both of us, two private sessions, &amp; a
+              30-day experiment out in the real world. You leave knowing which
+              direction is yours, already testing it.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, delay: 0.12 }}
+              className="card-label mb-10"
+            >
+              sep 29 – dec 18 · founding tuition $997 · by application
             </motion.p>
 
             <motion.div
@@ -498,11 +492,8 @@ export default function HomePage() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: 0.15 }}
             >
-              <a
-                href="/school"
-                className="inline-flex items-center gap-3 bg-ink text-cream rounded-full px-8 py-4 font-sans font-semibold text-[11px] tracking-[0.18em] uppercase shadow-soft hover:shadow-lifted hover:bg-deep-brown transition-all"
-              >
-                Explore the school
+              <a href="/cohort" className="btn btn-accent">
+                Apply for the autumn season
                 <span aria-hidden="true">→</span>
               </a>
             </motion.div>
@@ -714,8 +705,8 @@ export default function HomePage() {
               transition={{ duration: 0.85, delay: 0.05 }}
               className="font-display text-[2.2rem] sm:text-4xl lg:text-[3rem] leading-[1.05] text-ink mb-7"
             >
-              Your Season of Self starts with one{" "}
-              <span className="italic">honest question</span>.
+              Your next season starts with one{" "}
+              <span className="italic">honest application</span>.
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 24 }}
@@ -724,22 +715,27 @@ export default function HomePage() {
               transition={{ duration: 0.85, delay: 0.1 }}
               className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-10 max-w-md"
             >
-              Find out what you are actually meant to build, and how to make a
-              living from it, in about 10 minutes.
+              Tell us where you are &amp; what you&rsquo;ve been dreaming
+              about. One of us replies personally within 48 hours.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: 0.15 }}
+              className="flex flex-col sm:flex-row flex-wrap gap-4"
             >
+              <a href="/cohort" className="btn btn-accent">
+                Apply for the autumn season
+                <span aria-hidden="true">→</span>
+              </a>
               <a
                 href={QUIZ_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-ink text-cream font-sans font-semibold text-[11px] tracking-[0.18em] uppercase px-9 py-[18px] rounded-full shadow-soft hover:bg-deep-brown hover:shadow-lifted transition-all"
+                className="btn btn-outline"
               >
-                Take The Inner Map
+                Or start with The Inner Map
                 <span aria-hidden="true">→</span>
               </a>
             </motion.div>
@@ -748,168 +744,9 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          FOOTER
+          FOOTER — shared component (components/Footer.tsx)
          ════════════════════════════════════════════════ */}
-      <footer className="bg-ink py-16 sm:py-20 px-6 sm:px-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16">
-            <div>
-              <Image
-                src="/assets/green_logo.png"
-                alt="Season of Self"
-                width={200}
-                height={200}
-                unoptimized
-                className="h-8 w-auto mb-4 brightness-[10]"
-              />
-              <p className="font-sans text-sm text-cream/40 leading-relaxed">
-                An online learning and mentorship space for women ready to make
-                money doing what they love and build a soft, free life around
-                it.
-              </p>
-            </div>
-
-            <div>
-              <p className="font-sans text-xs font-semibold tracking-[0.28em] uppercase text-cream/50 mb-5">
-                Explore
-              </p>
-              <ul className="space-y-3">
-                <li>
-                  <a
-                    href="/about"
-                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
-                  >
-                    About Us →
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={QUIZ_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
-                  >
-                    The Inner Map →
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/school"
-                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
-                  >
-                    The School →
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/seasonofself.co"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
-                  >
-                    Instagram →
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://substack.com/@seasonofselfco"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
-                  >
-                    Season of Self Substack →
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <p className="font-sans text-xs font-semibold tracking-[0.28em] uppercase text-cream/50 mb-5">
-                Legal
-              </p>
-              <ul className="space-y-3">
-                <li>
-                  <a
-                    href="/terms-of-service"
-                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
-                  >
-                    Terms of Service
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/privacy-policy"
-                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
-                  >
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/cookie-policy"
-                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
-                  >
-                    Cookie Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/refund-policy"
-                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
-                  >
-                    Refund Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/disclaimer"
-                    className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
-                  >
-                    Disclaimer
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <p className="font-sans text-xs font-semibold tracking-[0.28em] uppercase text-cream/50 mb-5">
-                Join the mailing list
-              </p>
-              {!submitted ? (
-                <form onSubmit={handleEmailSubmit} className="space-y-3">
-                  <input
-                    type="email"
-                    required
-                    placeholder="you@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-white/10 border border-cream/15 rounded-full px-5 py-3 text-sm text-cream placeholder:text-cream/30 font-sans focus:outline-none focus:border-cream/30 transition-colors"
-                  />
-                  <button
-                    type="submit"
-                    className="w-full bg-cream text-ink font-sans font-semibold text-xs tracking-[0.16em] uppercase px-5 py-3 rounded-full hover:bg-linen transition-colors"
-                  >
-                    Subscribe →
-                  </button>
-                </form>
-              ) : (
-                <p className="font-sans text-sm text-cream/60">
-                  Thank you. We’ll be in touch.
-                </p>
-              )}
-            </div>
-          </div>
-
-          <div className="border-t border-cream/10 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-            <p className="font-sans text-xs text-cream/25 leading-relaxed">
-              Season of Self LLC · 312 W 2nd St, Unit #A8972, Casper, WY 82601
-            </p>
-            <p className="font-sans text-xs text-cream/20">
-              © {new Date().getFullYear()} Season of Self. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer source="homepage-footer" />
     </main>
   );
 }

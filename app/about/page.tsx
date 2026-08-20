@@ -185,60 +185,6 @@ export default function AboutPage() {
       </section>
 
       {/* ════════════════════════════════════════════════
-          GIVING BACK
-         ════════════════════════════════════════════════ */}
-      <section className="bg-cream py-24 sm:py-32 px-6 sm:px-10">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <div className="lg:col-span-5">
-            <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[24px] overflow-hidden shadow-[0_40px_80px_-40px_rgba(34,34,34,0.3)]">
-              <Image
-                src="/assets/founders_vibing.jpg"
-                alt="Charlotte and Katja in Costa Rica"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-          <div className="lg:col-span-7">
-            <p className="font-sans text-[11px] font-semibold tracking-[0.36em] uppercase text-deep-sage mb-6">
-              Giving back
-            </p>
-            <h2 className="font-display text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink mb-8">
-              10% of every purchase goes to{" "}
-              <span className="italic text-terracotta-dark">education</span>.
-            </h2>
-
-            <div className="space-y-5 font-sans text-ink/70 text-base sm:text-[17px] leading-relaxed">
-              <p>
-                A huge part of this work, for us, is being able to give back.
-                We both really care about education, and 10% of every Season of
-                Self purchase goes to two organizations doing meaningful work
-                in our local Costa Rican community:
-              </p>
-              <ul className="space-y-3 pl-1">
-                <li className="flex items-start gap-3">
-                  <span className="text-terracotta mt-2 flex-shrink-0">✦</span>
-                  <span>
-                    <strong className="text-ink/85">SOMA Surf</strong>, a surf
-                    therapy program for girls and women.
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-terracotta mt-2 flex-shrink-0">✦</span>
-                  <span>
-                    <strong className="text-ink/85">Abriendo Mentes</strong>,
-                    education and opportunities for young people in rural
-                    communities.
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════
           SIGN OFF + CTA
          ════════════════════════════════════════════════ */}
       <section className="bg-[#dde2d2] py-24 sm:py-32 px-6 sm:px-10">
@@ -255,8 +201,8 @@ export default function AboutPage() {
             <span className="italic">Season of Self</span>?
           </h2>
           <p className="font-sans text-ink/65 text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            Take a free gift to start, or join the school when you&apos;re
-            ready.
+            Start smaller with The Inner Map, or apply for the autumn season
+            when you&apos;re ready.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -264,15 +210,12 @@ export default function AboutPage() {
               href="https://ikigai.seasonofself.co"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 border border-ink text-ink font-sans font-medium text-[11px] tracking-[0.18em] uppercase px-8 py-[18px] rounded-full hover:bg-ink hover:text-cream transition-colors"
+              className="btn btn-outline"
             >
               The Inner Map →
             </a>
-            <a
-              href="/school"
-              className="inline-flex items-center gap-3 bg-ink text-cream font-sans font-medium text-[11px] tracking-[0.18em] uppercase px-8 py-[18px] rounded-full shadow-soft hover:bg-deep-brown hover:shadow-lifted transition-all"
-            >
-              The School →
+            <a href="/cohort" className="btn btn-accent">
+              Apply for the autumn season →
             </a>
           </div>
         </div>

@@ -6,37 +6,26 @@ export const metadata = {
 
 export default function RefundPolicy() {
   return (
-    <LegalPage title="Refund & Cancellation Policy" lastUpdated="2 July 2026">
-      <h2 className="font-display text-2xl text-ink mb-4 mt-10">The Season of Self School</h2>
+    <LegalPage title="Refund & Cancellation Policy" lastUpdated="20 August 2026">
+      <h2 className="font-display text-2xl text-ink mb-4 mt-10">The Season</h2>
       <p className="mb-4">
-        The Season of Self school is a membership. You can join monthly ($25/month) or annually ($197/year), and you can cancel anytime. When you cancel, you keep access until the end of the period you've already paid for, and you are not charged again.
+        The Season is a 12-week guided program that runs on fixed dates (for the autumn season: September 29 to December 18, 2026). Admission is by application, and tuition is $997, or 3 payments of $350.
       </p>
       <p className="mb-4">
-        Membership includes the Dream Life Mapping course, monthly live group coaching, async support in the community, the somatic toolkit, and everything we add to the school over time.
-      </p>
-
-      <h2 className="font-display text-2xl text-ink mb-4 mt-10">Cancelling Your Membership</h2>
-      <p className="mb-4">
-        You can cancel your membership at any time in two clicks from your account settings. No email is required, and there are no cancellation fees.
-      </p>
-      <p className="mb-4">
-        Cancelling stops all future charges. You'll keep access to the school through the end of your current billing period (the month or year you've already paid for). We do not automatically prorate or refund the unused portion of a period once it has begun, except as described in the money-back guarantee below.
+        Tuition includes the weekly live calls, the curriculum (which remains yours after the season ends), the group chat and community, the daily practices, and the 30-day experiment.
       </p>
 
-      <h2 className="font-display text-2xl text-ink mb-4 mt-10">30-Day Money-Back Guarantee</h2>
+      <h2 className="font-display text-2xl text-ink mb-4 mt-10">Refunds</h2>
       <p className="mb-4">
-        We want joining the school to feel like an easy yes. If the school isn't right for you, email us at hello@seasonofself.co within 30 days of your first payment and we'll refund it in full.
+        We want you to join fully. If by the end of week 2 of the season you find the Season isn't right for you, email us at hello@seasonofself.co before the end of that week and we'll refund your tuition in full.
       </p>
       <p className="mb-4">
-        For monthly members, this applies to your first monthly charge. For annual members, this applies to your first annual charge. To help us improve, we may ask for a brief note on why it wasn't a fit, but you're not required to provide extensive detail.
-      </p>
-      <p className="mb-4">
-        Refund requests made after the 30-day window has closed are handled through cancellation (above): future charges stop, and access continues through the end of your current period.
+        After the end of week 2, tuition is no longer refundable. If life intervenes, you may defer your seat to the next season instead: write to us and we'll move your enrollment forward at no extra cost. If you're on the payment plan, the remaining installments still fall due on their original schedule, and your deferred seat is confirmed once the plan is complete.
       </p>
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">How to Request a Refund</h2>
       <p className="mb-4">
-        Send an email to hello@seasonofself.co with the subject line "Refund Request" and include your name, the email address associated with your account, and the date of your first payment. Once we receive your request, we'll review it, confirm your eligibility, and process any eligible refund promptly.
+        Send an email to hello@seasonofself.co with the subject line "Refund Request" and include your name, the email address you applied with, and the date of your first payment. Once we receive your request, we'll review it, confirm your eligibility, and process any eligible refund promptly.
       </p>
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">Other Offerings</h2>

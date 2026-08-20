@@ -10,14 +10,17 @@ export const metadata: Metadata = {
     template: "%s · Season of Self",
   },
   description:
-    "Season of Self is an online school that helps women design lives they love around their soul work. Founded by Charlotte and Katja. Includes the Dream Life Mapping course, monthly live coaching, and a community of women in the same season. Start with The Inner Map or a free clarity workshop.",
+    "Season of Self is a 12-week guided season for women who feel unfulfilled in their work & dream of starting something of their own. Led by Charlotte & Katja. Applications open for the autumn season, beginning September 29.",
   applicationName: "Season of Self",
   keywords: [
     "Season of Self",
-    "Season of Self school",
+    "season of self cohort",
     "Season of Self Substack",
     "Dream Life Mapping",
-    "online school for women",
+    "12-week program for women",
+    "start your own business",
+    "career change for women",
+    "find your path",
     "Charlotte and Katja",
     "The Inner Map",
     "The Inner Map quiz",
@@ -49,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Season of Self · Build a soft life around work you love",
     description:
-      "An online learning and mentorship space for women ready to make money doing what they love and build a soft, free life around it.",
+      "A 12-week guided season for women who feel unfulfilled in their work & dream of starting something of their own. Led by Charlotte & Katja. Applications open for the autumn season, beginning September 29.",
     url: SITE_URL,
     siteName: "Season of Self",
     type: "website",
@@ -59,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Season of Self · Build a soft life around work you love",
     description:
-      "An online learning and mentorship space for women ready to make money doing what they love and build a soft, free life around it.",
+      "A 12-week guided season for women who feel unfulfilled in their work & dream of starting something of their own. Applications open for the autumn season, beginning September 29.",
     creator: "@seasonofselfco",
   },
   robots: {
@@ -126,7 +129,7 @@ const organizationSchema = {
   url: SITE_URL,
   logo: `${SITE_URL}/assets/green_logo.png`,
   description:
-    "Season of Self is an online learning and mentorship space for ambitious women who want to make real money doing work they love, and build a soft, free life around it. Clarity on your purpose, your direction, and how to build a life that actually feels like you.",
+    "Season of Self is a 12-week guided season for women who feel unfulfilled in their work and dream of starting something of their own. Led by Charlotte and Katja. Clarity on your direction, reconnection with your body and intuition, and the first real steps toward work that is actually yours.",
   knowsAbout: [
     "life path guidance",
     "finding your purpose",
@@ -167,51 +170,6 @@ const websiteSchema = {
   inLanguage: "en-US",
 };
 
-const schoolSchema = {
-  "@context": "https://schema.org",
-  "@type": ["Course", "Service"],
-  "@id": `${SITE_URL}/school#school`,
-  name: "Season of Self · The School",
-  url: `${SITE_URL}/school`,
-  description:
-    "A $25/month online school that helps women design lives they love around their soul work. Includes the Dream Life Mapping course (6 modules, self-paced), monthly live group coaching with Charlotte and Katja, async support between calls, a somatic toolkit, and a community of women in the same season.",
-  provider: { "@id": `${SITE_URL}#organization` },
-  audience: {
-    "@type": "PeopleAudience",
-    audienceType: "Women seeking life-path clarity, purpose, and aligned direction",
-  },
-  about: [
-    "finding your life path",
-    "identifying your purpose and zone of genius",
-    "moving past fear, resistance, and overthinking",
-    "building a life aligned with your values",
-  ],
-  hasCourseInstance: {
-    "@type": "CourseInstance",
-    courseMode: "online",
-    courseWorkload: "self-paced",
-  },
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Monthly tuition",
-      price: "25",
-      priceCurrency: "USD",
-      category: "subscription",
-      url: `${SITE_URL}/school`,
-    },
-    {
-      "@type": "Offer",
-      name: "Annual tuition",
-      price: "197",
-      priceCurrency: "USD",
-      category: "subscription",
-      url: `${SITE_URL}/school`,
-    },
-  ],
-  inLanguage: "en-US",
-};
-
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -222,7 +180,7 @@ const faqSchema = {
       name: "What is Season of Self?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Season of Self is an online learning and mentorship space, founded by Charlotte and Katja, for women looking for guidance on their life path. It helps you get clear on what you actually want, identify your most aligned direction, and start building a life that feels true to you.",
+        text: "Season of Self is a 12-week guided season, led by Charlotte and Katja, for women who feel unfulfilled in their work and dream of starting something of their own. A small circle, weekly live calls, and a 30-day experiment in the real world. You leave knowing which direction is yours, already testing it.",
       },
     },
     {
@@ -230,7 +188,7 @@ const faqSchema = {
       name: "Where can I get help finding my life path?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Season of Self offers structured guidance for women navigating questions about their direction and purpose: The Inner Map at ikigai.seasonofself.co (free to take, about 10 minutes, with the full map unlocked for $17), a free Clarity workshop, and the Season of Self school ($25/month), which includes the Dream Life Mapping course, monthly live coaching with Charlotte and Katja, and a community of women in the same season.",
+        text: "Season of Self offers structured guidance for women navigating questions about their direction and purpose: The Inner Map at ikigai.seasonofself.co (free to take, about 10 minutes, with the full map unlocked for $17), and the Season, a 12-week application-based guided container with weekly live calls led by Charlotte and Katja. The autumn season runs September 29 to December 18.",
       },
     },
     {
@@ -243,10 +201,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What is Dream Life Mapping?",
+      name: "What is the Season?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Dream Life Mapping is the flagship course inside the Season of Self school: a self-paced online course of 6 modules that helps you get clear on your zone of genius, your most aligned path, and the next steps to start building it. Enrollment ($25/month) also includes monthly live coaching with Charlotte and Katja, async support between calls, a somatic toolkit, and the community.",
+        text: "The Season is the 12-week guided container at the heart of Season of Self. It moves through four movements (come home, remember what matters, find your direction, live it), with a weekly live call, a curriculum that stays yours, daily practices, a gentle tech agreement, and a 30-day real-world experiment. It is application-based and founding tuition is $997, or 3 payments of $350.",
       },
     },
     {
@@ -307,10 +265,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(katjaSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schoolSchema) }}
         />
         <script
           type="application/ld+json"

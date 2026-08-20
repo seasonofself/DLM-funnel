@@ -9,13 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /* ── Brand Kit Colors ── */
-        cream: "#f6f4ef",
-        offwhite: "#ede9e0",
-        ink: "#222222",
+        /* ── Brand Kit Colors ──
+           Editorial direction (Aug 2026): warm cream canvas, soft
+           charcoal ink, one muted sage accent. No pure white, no
+           pure black anywhere customer-facing. */
+        cream: "#F6F2E8",
+        offwhite: "#EFEAE0",
+        ink: "#2B2B26",
         charcoal: "#333333",
-        sage: "#939e7a",
-        "sage-dark": "#6b7a5a",
+        sage: "#9AA48D",
+        "sage-dark": "#6E7A62",
+        surface: "#AEB4AC",
         "dusty-blue": "#9caec1",
         "blue-light": "#c8d4e0",
         terracotta: "#c19673",
@@ -28,9 +32,9 @@ const config: Config = {
         "fomo-red": "#c0392b",
       },
       fontFamily: {
-        display: ["var(--font-display)", "Fraunces", "Georgia", "serif"],
-        sans: ["var(--font-sans)", "DM Sans", "system-ui", "sans-serif"],
-        subtitle: ["var(--font-subtitle)", "Fraunces", "Georgia", "serif"],
+        display: ["var(--font-display)", "Instrument Serif", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
+        subtitle: ["var(--font-subtitle)", "Instrument Serif", "Georgia", "serif"],
         mono: ["var(--font-mono)", "JetBrains Mono", "ui-monospace", "monospace"],
       },
       fontSize: {

@@ -9,8 +9,10 @@ import { NextRequest, NextResponse } from "next/server";
  * Subscribing an email to a tag in Kit both CREATES the subscriber (if
  * new) and applies the tag, so one call handles signup + segmentation.
  *
- * Body: { email: string, source?: string, firstName?: string }
+ * Body: { email: string, source?: string, firstName?: string, tag?: string }
  *  - source becomes the tag, e.g. "homepage-footer" -> tag "source-homepage-footer"
+ *  - tag (when provided) is used verbatim instead, e.g. "autumn-applicant"
+ *    for the Season application two-step form
  *
  * Requires KIT_API_SECRET in your .env.local
  * (find it in Kit -> Settings -> Developer -> API Secret)
@@ -20,7 +22,7 @@ const KIT_API_SECRET = process.env.KIT_API_SECRET;
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, source, firstName } = await req.json();
+    const { email, source, firstName, tag: explicitTag } = await req.json();
 
     if (!email) {
       return NextResponse.json({ error: "Email required" }, { status: 400 });
@@ -34,7 +36,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const tagName = `source-${source || "site"}`;
+    const tagName =
+      typeof explicitTag === "string" && explicitTag.trim()
+        ? explicitTag.trim()
+        : `source-${source || "site"}`;
 
     /* ── Step 1: Find or create the source tag ── */
     const tagsRes = await fetch(

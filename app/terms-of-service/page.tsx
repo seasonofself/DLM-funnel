@@ -21,7 +21,7 @@ export default function TermsOfServicePage() {
       </p>
       <h3 className="font-sans font-semibold text-ink mb-2 mt-6">Services</h3>
       <p>
-        "Services" refers to all offerings provided by Season of Self, including online courses, group coaching, live Q&A calls, community membership, breathwork sessions, guided audio recordings, and digital content access.
+        "Services" refers to all offerings provided by Season of Self, including guided programs, online courses, group coaching, live Q&A calls, community access, breathwork sessions, guided audio recordings, and digital content access.
       </p>
       <h3 className="font-sans font-semibold text-ink mb-2 mt-6">Website</h3>
       <p>
@@ -44,10 +44,10 @@ export default function TermsOfServicePage() {
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">4 | Services Description</h2>
       <p>
-        Season of Self provides a comprehensive online school for women. Our Services include the Season of Self school membership, which contains the Dream Life Mapping online course, monthly live group coaching calls with our founders, community membership with access to exclusive content and discussions, breathwork sessions designed to support your personal development, guided audio recordings for meditation and reflection, and access to our library of digital content including videos, worksheets, and educational materials.
+        Season of Self provides guided programs for women. Our Services include the Season, a 12-week guided group program admitted by application, which contains weekly live group calls with our founders, a structured curriculum unlocked week by week, group chat and community support, breathwork and somatic sessions designed to support your personal development, guided audio recordings for meditation and reflection, and access to our library of digital content including videos, worksheets, and educational materials.
       </p>
       <p>
-        The scope, features, and availability of Services may vary based on your membership level, subscription plan, or specific course enrollment. We reserve the right to modify, add to, or discontinue any aspect of our Services with appropriate notice to users.
+        The scope, features, and availability of Services may vary based on your program, enrollment terms, or specific offering. We reserve the right to modify, add to, or discontinue any aspect of our Services with appropriate notice to users.
       </p>
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">5 | Account Registration and Security</h2>
@@ -60,7 +60,7 @@ export default function TermsOfServicePage() {
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">6 | Payment and Pricing</h2>
       <p>
-        Pricing for our Services is displayed on the Website and is subject to change at our discretion. The Season of Self school is offered as a recurring subscription, billed monthly or annually, which renews automatically until you cancel. You may cancel at any time from your account, and cancellation stops future charges while your access continues through the end of the period you have already paid for. Some offerings may include founder pricing or other arrangements as communicated at the time of purchase.
+        Pricing for our Services is displayed on the Website and is subject to change at our discretion. The Season is offered as a one-time tuition, payable in full or through an installment plan as displayed at the time of enrollment. Installment plans authorize us to charge the remaining payments on their stated schedule. Some offerings may include founding pricing or other arrangements as communicated at the time of purchase.
       </p>
       <p>
         Payment must be made in accordance with the payment terms specified at checkout. All prices are in U.S. dollars. You are responsible for any taxes, duties, or other governmental charges associated with your purchase. We accept payment through the methods indicated on our checkout page. By providing payment information, you authorize us to charge your selected payment method in accordance with your purchase.

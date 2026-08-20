@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 
-/* ─── helpers (same as /school) ──────────────────────── */
+/* ─── helpers (same as /cohort) ──────────────────────── */
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -16,16 +16,15 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.12 } },
 };
 
-const checkoutUrl = process.env.NEXT_PUBLIC_CHECKOUT_URL || "/school";
+const applyUrl = "/cohort";
 
 /* ─── offer panel items ──────────────────────────────── */
 const included = [
-  "The full 6-module Dream Life Mapping course",
-  "Monthly live group coaching with Charlotte & Katja",
-  "Async access to both of us between calls",
-  "The Season of Self community",
-  "The Somatic Toolkit",
-  "10% of profit donated to SOMA Surf + Abriendo Mentes",
+  "A live call every week with Charlotte & Katja",
+  "The curriculum, yours to keep",
+  "Private group chat support & sisterhood",
+  "The digital detox & daily practices",
+  "Your 30-day experiment in the real world",
 ];
 
 /* ─── main component ─────────────────────────────────── */
@@ -144,19 +143,19 @@ function WorkshopPageContent() {
       <div className="sticky top-0 inset-x-0 z-50 bg-fomo-red px-4 py-2.5 text-white shadow-sm">
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-2 text-center font-sans text-[11px] sm:flex-row sm:gap-3 sm:text-sm">
           <span>
-            ✦ Season of Self · The School · <strong>$25/mo</strong> · cancel
-            anytime
+            ✦ the autumn season · sep 29 – dec 18 ·{" "}
+            <strong>applications open</strong>
           </span>
           <a
-            href="/school"
-            className="inline-flex min-h-10 items-center justify-center rounded-full bg-white px-4 py-2 text-xs font-bold text-fomo-red hover:scale-105 sm:min-h-0 sm:py-1"
+            href={applyUrl}
+            className="inline-flex min-h-10 items-center justify-center rounded-[8px] bg-cream px-4 py-2 text-xs font-bold text-fomo-red hover:scale-105 sm:min-h-0 sm:py-1"
           >
-            Learn More →
+            Apply →
           </a>
         </div>
       </div>
 
-      <Header sticky={false} />
+      <Header sticky={false} banner={false} />
 
       <div className="pointer-events-none fixed bottom-4 left-1/2 z-50 hidden w-[23rem] -translate-x-1/2 sm:block lg:left-auto lg:right-6 lg:translate-x-0">
         <motion.button
@@ -169,13 +168,13 @@ function WorkshopPageContent() {
           className="pointer-events-auto w-full rounded-[26px] border border-white/10 bg-deep-sage px-5 py-4 text-left text-white shadow-2xl shadow-deep-sage/25"
         >
           <p className="font-sans text-[10px] uppercase tracking-[0.28em] text-white/60">
-            The school
+            The Season
           </p>
           <p className="mt-1 font-display text-xl leading-tight">
             Click here to view offer
           </p>
           <p className="mt-2 font-sans text-sm leading-relaxed text-white/75">
-            Jump to the school details anytime.
+            Jump to the Season details anytime.
           </p>
         </motion.button>
       </div>
@@ -199,7 +198,7 @@ function WorkshopPageContent() {
                   Offer unlocked
                 </span>
                 <span className="block font-display text-lg leading-tight">
-                  View the school
+                  View the Season
                 </span>
               </span>
               <span className="ml-4 text-sm font-bold">Open →</span>
@@ -296,9 +295,9 @@ function WorkshopPageContent() {
             <button
               type="button"
               onClick={() => openOffer(true)}
-              className="mt-3 min-h-12 w-full rounded-full bg-deep-sage px-5 py-3 text-sm font-bold text-white shadow-lg shadow-deep-sage/20"
+              className="mt-3 min-h-12 w-full rounded-[8px] bg-deep-sage px-5 py-3 text-sm font-bold text-cream shadow-lg shadow-deep-sage/20"
             >
-              View the school →
+              View the Season →
             </button>
           </motion.div>
         </div>
@@ -316,9 +315,9 @@ function WorkshopPageContent() {
               className="mx-auto mt-8 max-w-2xl scroll-mt-24 overflow-hidden rounded-2xl border border-ink/5 bg-white shadow-xl sm:scroll-mt-28"
             >
               {/* calm header — no urgency */}
-              <div className="bg-deep-sage text-white text-center py-3 px-4">
+              <div className="bg-deep-sage text-cream text-center py-3 px-4">
                 <p className="font-sans text-xs uppercase tracking-wider">
-                  Season of Self · The School · $25/mo
+                  Season of Self · The Season · by application
                 </p>
               </div>
 
@@ -339,10 +338,10 @@ function WorkshopPageContent() {
                 </div>
 
                 <h3 className="font-display text-2xl text-ink text-center mb-1">
-                  Season of Self · The School
+                  Season of Self · The Season
                 </h3>
                 <p className="font-sans text-ink/40 text-xs text-center mb-5">
-                  Course + Community + Coaching
+                  Twelve weeks · small circle · sep 29 – dec 18
                 </p>
 
                 {/* what's included — two-column on larger screens */}
@@ -365,23 +364,23 @@ function WorkshopPageContent() {
                 {/* pricing */}
                 <div className="text-center mb-5">
                   <p className="font-display text-3xl text-deep-sage font-bold">
-                    $25<span className="text-xl">/mo</span>
+                    $997
                   </p>
                   <p className="font-sans text-ink/40 text-xs mt-1">
-                    or $197/year · cancel anytime
+                    founding tuition · or 3 × $350 · by application
                   </p>
                 </div>
 
                 {/* CTA */}
                 <a
-                  href="/school"
-                  className="block max-w-sm mx-auto bg-deep-sage text-white font-bold py-4 rounded-full text-center text-base hover:scale-[1.02] transition-transform shadow-lg shadow-deep-sage/30"
+                  href={applyUrl}
+                  className="block max-w-sm mx-auto bg-deep-sage text-cream font-bold py-4 rounded-[8px] text-center text-base hover:scale-[1.02] transition-transform shadow-lg shadow-deep-sage/30"
                 >
-                  Join the school →
+                  Apply for the autumn season →
                 </a>
 
                 <p className="text-center font-sans text-ink/30 text-[10px] mt-3">
-                  ✦ First 100 members lock in the founder rate · cancel anytime
+                  ✦ Applications close September 24, or when the circle is full
                 </p>
               </div>
             </motion.div>
@@ -419,14 +418,14 @@ function WorkshopPageContent() {
 
           <motion.div variants={fadeUp}>
             <a
-              href="/school"
-              className="inline-block bg-deep-sage text-white font-bold px-10 py-4 rounded-full text-base hover:scale-105 transition-transform shadow-lg shadow-deep-sage/30"
+              href={applyUrl}
+              className="inline-block bg-deep-sage text-cream font-bold px-10 py-4 rounded-[8px] text-base hover:scale-105 transition-transform shadow-lg shadow-deep-sage/30"
             >
-              Join the school →
+              Apply for the autumn season →
             </a>
             <p className="mt-4 font-sans text-sm text-ink/50 max-w-md mx-auto leading-relaxed">
-              The course, community, and monthly coaching Charlotte &amp; Katja
-              created to walk you through this, step by step.
+              The 12-week guided season Charlotte &amp; Katja created to walk
+              you through this, step by step.
             </p>
           </motion.div>
         </motion.div>

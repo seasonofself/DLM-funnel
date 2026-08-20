@@ -36,8 +36,8 @@ const EMPTY: FormState = {
 };
 
 const ROOM_TIERS = [
-  "Glamping — shared",
-  "Glamping — private",
+  "Glamping · shared",
+  "Glamping · private",
   "Bunk bed",
   "Shared room",
   "Private room",

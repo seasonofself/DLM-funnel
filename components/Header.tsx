@@ -12,12 +12,18 @@ type HeaderLink = {
 const links: HeaderLink[] = [
   { href: "/", label: "Home" },
   { href: "https://ikigai.seasonofself.co", label: "The Inner Map", external: true },
-  { href: "/school", label: "The School" },
+  { href: "/cohort", label: "The Season" },
   { href: "/retreats/lourinha", label: "Retreats" },
   { href: "/about", label: "About" },
 ];
 
-export default function Header({ sticky = true }: { sticky?: boolean }) {
+export default function Header({
+  sticky = true,
+  banner = true,
+}: {
+  sticky?: boolean;
+  banner?: boolean;
+}) {
   const [open, setOpen] = useState(false);
 
   const positionClass = sticky ? "sticky top-0" : "relative";
@@ -26,6 +32,14 @@ export default function Header({ sticky = true }: { sticky?: boolean }) {
     <header
       className={`${positionClass} z-30 bg-cream/95 backdrop-blur-sm border-b border-ink/5`}
     >
+      {banner && (
+        <a
+          href="/cohort"
+          className="block bg-sage text-ink text-center py-2.5 px-4 font-sans text-xs sm:text-[13px] tracking-[0.06em] hover:bg-sage-dark hover:text-cream transition-colors"
+        >
+          ✦ the autumn season · sep 29 – dec 18 · applications open →
+        </a>
+      )}
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-10 py-3.5 sm:py-4">
         <a href="/" aria-label="Season of Self, home" className="flex items-center">
           <Image
