@@ -245,8 +245,6 @@ export const guides = [
   },
 ];
 
-export const guidesSharedLine =
-  "We teach every call ourselves. There is no team of coaches behind the curtain.";
 export const guidesClosingLine =
   "This is the life we designed for ourselves. The Season is how we help you design yours.";
 

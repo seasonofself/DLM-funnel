@@ -19,7 +19,6 @@ import {
   forYou,
   notForYou,
   guides,
-  guidesSharedLine,
   guidesClosingLine,
   tuition,
   faqs,
@@ -129,61 +128,64 @@ export default function CohortPage() {
               className="object-cover object-[50%_35%]"
             />
           </div>
-          <div className="absolute inset-0 bg-ink/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/20 to-ink/25" />
+          <div className="absolute inset-0 bg-ink/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-ink/35 to-ink/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
 
+          {/* Conversion-first: who it's for → outcome → apply, with the
+              deadline right under the button. Left-aligned, vertically
+              centered so the CTA lands above the fold. */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="relative z-10 max-w-4xl mx-auto text-center px-6 sm:px-10 pt-24 sm:pt-32 lg:pt-36 pb-20 sm:pb-28"
+            className="relative z-10 max-w-[1200px] mx-auto px-6 sm:px-10 min-h-[82svh] flex flex-col justify-center py-20 sm:py-24"
           >
-            <motion.div variants={fadeUp} className="flex justify-center mb-8">
-              <Engraving
-                motif="shell"
-                className="w-20 sm:w-24 text-linen engraving-drift"
-              />
-            </motion.div>
+            <div className="max-w-2xl">
+              <motion.p
+                variants={fadeUp}
+                className="font-sans text-[11px] sm:text-xs font-medium tracking-[0.1em] uppercase text-cream/85 mb-6"
+              >
+                season of self · {season.name} · {season.dates}
+              </motion.p>
 
-            <motion.h1
-              variants={fadeUp}
-              className="font-display lowercase text-[3rem] sm:text-[4rem] lg:text-[5rem] leading-[1] text-cream mb-8 tracking-[-0.01em]"
-            >
-              {hero.h1}
-            </motion.h1>
+              <motion.h1
+                variants={fadeUp}
+                className="font-display lowercase text-[2.1rem] sm:text-[2.8rem] lg:text-[3.4rem] leading-[1.12] text-cream mb-6 tracking-[-0.01em]"
+              >
+                {hero.h2}
+              </motion.h1>
 
-            <motion.h2
-              variants={fadeUp}
-              className="font-display lowercase text-xl sm:text-2xl lg:text-[1.8rem] leading-[1.35] text-cream/95 max-w-3xl mx-auto mb-8"
-            >
-              {hero.h2}
-            </motion.h2>
+              <motion.p
+                variants={fadeUp}
+                className="font-sans text-cream/90 text-base sm:text-lg leading-relaxed mb-3"
+              >
+                You leave the Season knowing which direction is yours,{" "}
+                <em className="font-display">
+                  already testing it in the real world.
+                </em>
+              </motion.p>
 
-            <motion.p
-              variants={fadeUp}
-              className="font-sans text-cream/90 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-4"
-            >
-              You leave the Season knowing which direction is yours,{" "}
-              <em className="font-display">already testing it in the real world.</em>
-            </motion.p>
+              <motion.p
+                variants={fadeUp}
+                className="font-display italic text-cream/75 text-[15px] sm:text-base mb-9"
+              >
+                {hero.aside}
+              </motion.p>
 
-            <motion.p
-              variants={fadeUp}
-              className="font-display italic text-cream/80 text-base sm:text-lg mb-10"
-            >
-              {hero.aside}
-            </motion.p>
+              <motion.div variants={fadeUp} className="mb-5">
+                <ApplyButton accent className="w-full sm:w-auto">
+                  {hero.cta}
+                </ApplyButton>
+              </motion.div>
 
-            <motion.div variants={fadeUp} className="mb-6">
-              <ApplyButton accent>{hero.cta}</ApplyButton>
-            </motion.div>
-
-            <motion.p
-              variants={fadeUp}
-              className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-cream/80"
-            >
-              {hero.microline}
-            </motion.p>
+              <motion.p
+                variants={fadeUp}
+                className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-cream/85"
+              >
+                applications close september 24 · {hero.microline}
+              </motion.p>
+            </div>
           </motion.div>
         </section>
 
@@ -683,15 +685,6 @@ export default function CohortPage() {
               ))}
             </div>
 
-            <motion.div
-              variants={fadeUp}
-              className="mt-16 max-w-2xl mx-auto text-center"
-            >
-              <div className="w-12 h-px bg-ink/25 mx-auto mb-8" />
-              <p className="font-display italic text-xl sm:text-2xl text-ink/80 leading-[1.5]">
-                {guidesSharedLine}
-              </p>
-            </motion.div>
           </motion.div>
         </section>
 
