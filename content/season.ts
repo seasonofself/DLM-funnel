@@ -321,9 +321,30 @@ export const applyPage = {
   heading: "the autumn season · application",
   intro:
     "This takes about ten minutes, and honest beats polished. Many women tell us the application was the first place they'd ever said these things. One of us will reply personally within 48 hours.",
-  /* TODO(Charlotte): create the Tally form (7 questions from the
-     copy doc) & paste its share URL here. Until it's set, the
-     page shows a warm fallback instead of an empty embed. */
+  /* Optional: if a Tally form is ever created, paste its share URL
+     here and the embed replaces the built-in form below. */
   tallyUrl: "",
   reassurance: "Applying isn't committing. It's a conversation.",
+};
+
+/* ─── the application form questions ────────────────────── */
+export const application = {
+  blockers: [
+    "self-doubt",
+    "fear of judgment",
+    "“who am I to do this?”",
+    "no structure or accountability",
+    "doing it all alone",
+    "not enough time or energy",
+    "something else",
+  ],
+  readiness: [
+    "yes, that's exactly what I need",
+    "nervous, but willing",
+    "that might be hard for me",
+  ],
+  tuitionReadiness: ["yes, ready", "yes, on the payment plan", "I have questions first"],
+  callOptions: ["yes, I'd love that", "no, I'm good"],
+  afterSubmit:
+    "Received. One of us will be in your inbox (or your voice notes) within 48 hours. Until then, maybe don't open the scroll. Consider it practice.",
 };

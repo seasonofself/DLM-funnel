@@ -98,6 +98,16 @@ export default function CohortPage() {
     } catch (err) {
       console.error("Application signup error:", err);
     }
+    // Carry name & email to the /apply form (sessionStorage, never URL
+    // params) so she doesn't type them twice.
+    try {
+      sessionStorage.setItem(
+        "sos-applicant",
+        JSON.stringify({ firstName, email })
+      );
+    } catch {
+      /* prefill is a nicety, never a requirement */
+    }
     router.push(applyForm.redirect);
   };
 
