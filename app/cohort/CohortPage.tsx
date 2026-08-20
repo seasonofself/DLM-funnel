@@ -116,39 +116,52 @@ export default function CohortPage() {
         </a>
 
         {/* ══════════════════════════════════════════════════
-            HERO
+            HERO — full-bleed golden-hour photo of the two of us
            ══════════════════════════════════════════════════ */}
-        <section className="relative bg-cream pt-20 sm:pt-28 lg:pt-32 pb-16 sm:pb-24 px-6 sm:px-10 overflow-hidden">
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0">
+            <Image
+              src="/assets/SS_Nosara_11-02-26-242.jpg"
+              alt="Charlotte and Katja at golden hour in Nosara"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[50%_35%]"
+            />
+          </div>
+          <div className="absolute inset-0 bg-ink/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/20 to-ink/25" />
+
           <motion.div
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="relative z-10 max-w-4xl mx-auto text-center"
+            className="relative z-10 max-w-4xl mx-auto text-center px-6 sm:px-10 pt-24 sm:pt-32 lg:pt-36 pb-20 sm:pb-28"
           >
             <motion.div variants={fadeUp} className="flex justify-center mb-8">
               <Engraving
-                motif="starburst"
-                className="w-16 sm:w-20 text-terracotta engraving-drift"
+                motif="shell"
+                className="w-20 sm:w-24 text-linen engraving-drift"
               />
             </motion.div>
 
             <motion.h1
               variants={fadeUp}
-              className="font-display lowercase text-[3rem] sm:text-[4rem] lg:text-[5rem] leading-[1] text-ink mb-8 tracking-[-0.01em]"
+              className="font-display lowercase text-[3rem] sm:text-[4rem] lg:text-[5rem] leading-[1] text-cream mb-8 tracking-[-0.01em]"
             >
               {hero.h1}
             </motion.h1>
 
             <motion.h2
               variants={fadeUp}
-              className="font-display lowercase text-xl sm:text-2xl lg:text-[1.8rem] leading-[1.35] text-ink/85 max-w-3xl mx-auto mb-8"
+              className="font-display lowercase text-xl sm:text-2xl lg:text-[1.8rem] leading-[1.35] text-cream/95 max-w-3xl mx-auto mb-8"
             >
               {hero.h2}
             </motion.h2>
 
             <motion.p
               variants={fadeUp}
-              className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-4"
+              className="font-sans text-cream/90 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-4"
             >
               You leave the Season knowing which direction is yours,{" "}
               <em className="font-display">already testing it in the real world.</em>
@@ -156,7 +169,7 @@ export default function CohortPage() {
 
             <motion.p
               variants={fadeUp}
-              className="font-display italic text-ink/70 text-base sm:text-lg mb-10"
+              className="font-display italic text-cream/80 text-base sm:text-lg mb-10"
             >
               {hero.aside}
             </motion.p>
@@ -165,7 +178,10 @@ export default function CohortPage() {
               <ApplyButton accent>{hero.cta}</ApplyButton>
             </motion.div>
 
-            <motion.p variants={fadeUp} className="card-label">
+            <motion.p
+              variants={fadeUp}
+              className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-cream/80"
+            >
               {hero.microline}
             </motion.p>
           </motion.div>
@@ -325,6 +341,19 @@ export default function CohortPage() {
               ))}
             </div>
 
+            <motion.div
+              variants={fadeUp}
+              className="relative aspect-[16/10] w-full max-w-3xl mx-auto rounded-[8px] overflow-hidden mb-14"
+            >
+              <Image
+                src="/assets/SheFlows-8.jpg"
+                alt="Katja leading a somatic sound practice"
+                fill
+                sizes="(max-width: 832px) 100vw, 768px"
+                className="object-cover"
+              />
+            </motion.div>
+
             <motion.p
               variants={fadeUp}
               className="text-center font-display text-xl sm:text-2xl text-ink leading-[1.5] max-w-2xl mx-auto"
@@ -350,10 +379,23 @@ export default function CohortPage() {
             </motion.p>
             <motion.h2
               variants={fadeUp}
-              className="text-center font-display lowercase text-[2.2rem] sm:text-[3rem] leading-[1.05] text-ink mb-16"
+              className="text-center font-display lowercase text-[2.2rem] sm:text-[3rem] leading-[1.05] text-ink mb-12"
             >
               {movements.heading}
             </motion.h2>
+
+            <motion.div
+              variants={fadeUp}
+              className="relative aspect-[16/10] w-full rounded-[8px] overflow-hidden mb-12"
+            >
+              <Image
+                src="/assets/SS_Nosara_11-03-26-67.jpg"
+                alt="Charlotte and Katja mapping the Season's curriculum"
+                fill
+                sizes="(max-width: 1024px) 100vw, 896px"
+                className="object-cover"
+              />
+            </motion.div>
 
             <div className="space-y-5">
               {movements.items.map((mv, i) => (
@@ -562,9 +604,40 @@ export default function CohortPage() {
         </section>
 
         {/* ══════════════════════════════════════════════════
+            FULL-BLEED — the life we designed
+           ══════════════════════════════════════════════════ */}
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0">
+            <Image
+              src="/assets/SS_Nosara_11-02-26-222.jpg"
+              alt="Charlotte and Katja on the beach with surfboards"
+              fill
+              sizes="100vw"
+              className="object-cover object-[50%_52%]"
+            />
+          </div>
+          <div className="absolute inset-0 bg-ink/45" />
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={stagger}
+            className="relative z-10 max-w-3xl mx-auto px-6 sm:px-10 py-28 sm:py-40 min-h-[50svh] flex flex-col justify-center text-center"
+          >
+            <motion.p
+              variants={fadeUp}
+              className="font-display italic text-cream text-2xl sm:text-4xl lg:text-[2.6rem] leading-snug"
+            >
+              {guidesClosingLine}
+            </motion.p>
+          </motion.div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════
             MEET YOUR GUIDES
            ══════════════════════════════════════════════════ */}
-        <section className="bg-cream py-20 sm:py-28 px-6 sm:px-10 border-t border-ink/10">
+        <section className="bg-cream py-20 sm:py-28 px-6 sm:px-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -615,11 +688,8 @@ export default function CohortPage() {
               className="mt-16 max-w-2xl mx-auto text-center"
             >
               <div className="w-12 h-px bg-ink/25 mx-auto mb-8" />
-              <p className="font-sans text-ink/70 text-base leading-relaxed">
+              <p className="font-display italic text-xl sm:text-2xl text-ink/80 leading-[1.5]">
                 {guidesSharedLine}
-              </p>
-              <p className="mt-4 font-display italic text-xl sm:text-2xl text-ink/80 leading-[1.5]">
-                {guidesClosingLine}
               </p>
             </motion.div>
           </motion.div>
@@ -729,15 +799,26 @@ export default function CohortPage() {
         </section>
 
         {/* ══════════════════════════════════════════════════
-            FINAL CALL
+            FINAL CALL — photo, dark overlay
            ══════════════════════════════════════════════════ */}
-        <section className="bg-ink py-24 sm:py-32 px-6 sm:px-10">
+        <section className="relative overflow-hidden py-24 sm:py-32 px-6 sm:px-10">
+          <div className="absolute inset-0">
+            <Image
+              src="/assets/founders_vibing.jpg"
+              alt="Charlotte and Katja"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="absolute inset-0 bg-ink/65" />
+
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={stagger}
-            className="max-w-3xl mx-auto text-center"
+            className="relative z-10 max-w-3xl mx-auto text-center"
           >
             <motion.div variants={fadeUp} className="flex justify-center mb-10">
               <Engraving

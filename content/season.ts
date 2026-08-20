@@ -147,9 +147,8 @@ export const movements = {
 };
 
 /* ─── what you receive ──────────────────────────────────── */
-/* Final list per the copy doc. NOTE(Charlotte): the homepage
-   offer paragraph mentions "two private sessions"; the copy
-   doc's final tile list does not include them. Confirm & align. */
+/* Final list per the copy doc. Confirmed Aug 2026: there are NO
+   private sessions in the offer — never mention them anywhere. */
 export const receive = {
   heading: "what you receive",
   items: [

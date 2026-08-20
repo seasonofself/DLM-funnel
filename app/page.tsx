@@ -471,9 +471,9 @@ export default function HomePage() {
               A 12-week guided season for women who feel unfulfilled in their
               work &amp; have been dreaming of starting something of their own,
               but aren&rsquo;t sure what it is yet. Twelve weeks, a small
-              circle, live calls with both of us, two private sessions, &amp; a
-              30-day experiment out in the real world. You leave knowing which
-              direction is yours, already testing it.
+              circle, live calls with both of us, &amp; a 30-day experiment out
+              in the real world. You leave knowing which direction is yours,
+              already testing it.
             </motion.p>
 
             <motion.p
