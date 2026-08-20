@@ -55,23 +55,50 @@ export default function ApplyPage() {
               />
             </div>
           ) : (
-            /* Fallback until the Tally form URL is set in
-               content/season.ts (applyPage.tallyUrl). */
+            /* The application is open, by email, until the Tally form URL
+               is set in content/season.ts (applyPage.tallyUrl). The mailto
+               prefills the application questions so writing in IS applying. */
             <div className="card-editorial bg-[#DDE2D2] p-8 sm:p-12 text-center">
               <p className="font-display lowercase text-xl text-ink mb-5">
-                the application opens here very soon.
+                the application is open. it happens over email.
               </p>
-              <p className="font-sans text-ink/70 text-[15px] sm:text-base leading-[1.7] mb-8">
-                We are putting the finishing touches on it. In the meantime,
-                write to us directly & tell us where you are and what
-                you&rsquo;ve been dreaming about. One of us will reply
-                personally within 48 hours.
+              <p className="font-sans text-ink/75 text-[15px] sm:text-base leading-[1.7] mb-8">
+                Write to us at{" "}
+                <a
+                  href="mailto:hello@seasonofself.co"
+                  className="underline decoration-ink/30 underline-offset-4 hover:decoration-ink/70"
+                >
+                  hello@seasonofself.co
+                </a>
+                . Tell us where you are in your work life, what you&rsquo;ve
+                been dreaming of starting, &amp; anything else you want us to
+                know. The button below starts the email with our questions
+                already in it.
               </p>
               <a
-                href="mailto:hello@seasonofself.co?subject=the%20autumn%20season%20%C2%B7%20application"
+                href={
+                  "mailto:hello@seasonofself.co" +
+                  "?subject=" +
+                  encodeURIComponent("the autumn season · application") +
+                  "&body=" +
+                  encodeURIComponent(
+                    [
+                      "hi Charlotte & Katja,",
+                      "",
+                      "1 · where I am in my work life right now, & what's no longer fitting:",
+                      "",
+                      "2 · what I've dreamt of starting (even the half-formed ideas count):",
+                      "",
+                      "3 · imagine it's december 18 & the season went beautifully. what's different:",
+                      "",
+                      "4 · anything else I want you to know · & would I like a 20-minute call before deciding?",
+                      "",
+                    ].join("\n")
+                  )
+                }
                 className="btn btn-accent"
               >
-                write to us →
+                apply by email →
               </a>
             </div>
           )}
