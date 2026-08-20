@@ -13,7 +13,7 @@ const links: HeaderLink[] = [
   { href: "/", label: "Home" },
   { href: "https://ikigai.seasonofself.co", label: "The Inner Map", external: true },
   { href: "/school", label: "The School" },
-  { href: "/retreats/ericeira", label: "Retreats" },
+  { href: "/retreats/lourinha", label: "Retreats" },
   { href: "/about", label: "About" },
 ];
 

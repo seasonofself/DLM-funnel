@@ -4,6 +4,8 @@ import { NextRequest, NextResponse } from "next/server";
  * POST /api/retreat-waitlist
  * Adds a subscriber to Kit (ConvertKit) with the
  * "ericeira-waitlist-oct-2026" tag, capturing their first name.
+ * The retreat moved to Lourinha, but the tag keeps its old name so the
+ * existing Kit automation and past subscribers stay intact.
  *
  * Body: { firstName: string, email: string }
  *

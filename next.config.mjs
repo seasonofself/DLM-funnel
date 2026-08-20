@@ -10,6 +10,9 @@ const nextConfig = {
       { source: "/dream-life", destination: "/school", permanent: true },
       // Old one-time-course sales page.
       { source: "/variant-a", destination: "/school", permanent: true },
+      // The October 2026 retreat moved from Ericeira to Lourinhã. Keep the old
+      // URL alive for shared links, live ads, and anything already emailed out.
+      { source: "/retreats/ericeira", destination: "/retreats/lourinha", permanent: true },
     ];
   },
 };

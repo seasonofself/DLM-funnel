@@ -80,34 +80,18 @@ const venueSlides = [
   { src: "/assets/DSC03964.jpg", alt: "Yoga on the terrace" },
 ];
 
-/* TODO(charlotte): confirm the exact Dream Life Mapping module names + blurbs */
-const dlmModules = [
-  { n: "01", title: "Assess", desc: "Land, exhale, and get honest about where you actually are." },
-  { n: "02", title: "Visualize", desc: "Get a clear picture of the life, and the work, you actually want." },
-  { n: "03", title: "Release", desc: "Move out the fear, doubt, and overthinking that keep you stuck." },
-  { n: "04", title: "Align", desc: "Find your zone of genius and the path only you can walk." },
-  { n: "05", title: "Create", desc: "Turn it into a real map and a first aligned step." },
-  { n: "06", title: "Embody", desc: "Become her, and leave with a 30-day plan to keep walking it." },
-];
-
 const theWork = [
-  {
-    icon: "🌸",
-    title: "The Inner Map experience",
-    desc: "A guided process to find the meeting point of what you love, what you are great at, what the world needs, and what you can build a living around. You leave with your own Inner Map.",
-  },
-  { icon: "🗺️", title: "Mapping & strategy session", desc: "Turn that clarity into a real plan, with next steps you can actually move on." },
-  { icon: "💬", title: "Hot-seat coaching", desc: "Live coaching in a small, intimate group. Be seen, be guided, be cheered on." },
-  { icon: "✍️", title: "Daily workshops", desc: "A guided workshop every day to get clear on your dream life and build your action plan." },
-  { icon: "♾️", title: "A full year of the school", desc: "A full year of the Season of Self school: the Dream Life Mapping course, monthly live coaching, and the community." },
+  { icon: "✍️", title: "Daily workshops on dharma & purpose", desc: "A guided workshop every day to get honest about what you actually want, and what your work in the world might be." },
+  { icon: "💬", title: "Group & hot-seat coaching", desc: "Live coaching in a small, intimate circle. Be seen, be guided, be cheered on." },
+  { icon: "🌬️", title: "Breathwork & journaling", desc: "Guided practices to move what words cannot, and put language to what surfaces." },
 ];
 
 const theWellness = [
   { icon: "🧘‍♀️", title: "Daily yoga & meditation classes", desc: "Gentle daily practice to drop in and settle before the day’s work." },
-  { icon: "🏄‍♀️", title: "One surf session", desc: "A guided session with our coach when the waves are kind. Every level, total beginners welcome." },
+  { icon: "🏄‍♀️", title: "One surf session", desc: "A guided session with the surf coach when the waves are kind. Every level, total beginners welcome." },
   { icon: "🍫", title: "A cacao ceremony", desc: "An evening cacao ceremony to open the heart, connect, and arrive fully in the circle." },
   { icon: "💆‍♀️", title: "A 60-minute massage", desc: "Tailored to how you feel that day. One is included, with the option to add a second." },
-  { icon: "🥗", title: "Three meals a day", desc: "Fresh, vegetarian, farm-to-table meals, lovingly prepared by our private chef." },
+  { icon: "🥗", title: "Three meals a day", desc: "Fresh, vegetarian, farm-to-table meals, lovingly prepared by the private chef." },
   { icon: "🎁", title: "A welcome gift", desc: "A goodie bag full of little surprises, waiting for you when you arrive." },
 ];
 
@@ -120,38 +104,39 @@ const dayShape = [
   { time: "Evening", note: "an optional sunset sit, dinner, and a fire, a cacao ceremony, or a circle" },
 ];
 
-/* Private shown first as the anchor, so Shared reads as the smart buy */
+/* Private shown first as the anchor, so Shared reads as the smart buy.
+   `was` is the original price, struck through beside the last-spots price. */
 const rooms = [
-  { name: "Private room", earlyBird: 2650, standard: 2950, desc: "Your own private queen room. The deepest rest, entirely your own.", img: "/assets/double-room-far-end-surf-house-2.jpg", featured: true },
-  { name: "Shared room", earlyBird: 2150, standard: 2400, desc: "A queen, shared with a friend. The smart buy, come together.", img: "/assets/double-room-far-end-surf-house.jpg" },
-  { name: "Bunk bed", earlyBird: 1950, standard: 2200, desc: "A single bed in a shared room. The bring-a-friend option.", img: "/assets/farendsurfhouse-kerttukruusla_107.jpg" },
-  { name: "Glamping — private", earlyBird: 2250, standard: 2500, desc: "Your own glamping unit, sole occupancy. Outdoors, under the stars.", img: "/assets/glamping-beds-far-end-surf-house-7.jpg" },
-  { name: "Glamping — shared", earlyBird: 1750, standard: 1950, desc: "A romantic double or twin glamping setup. Linens and towels included. A cosy October hideaway.", img: "/assets/farendsurfhouse-kerttukruusla_18-1024x1536.jpg" },
+  { name: "Private room", was: 2950, price: 2490, desc: "Your own private queen room. The deepest rest, entirely your own.", img: "/assets/double-room-far-end-surf-house-2.jpg", featured: true },
+  { name: "Shared room", was: 2400, price: 1990, desc: "A queen, shared with a friend. The smart buy, come together.", img: "/assets/double-room-far-end-surf-house.jpg" },
+  { name: "Bunk bed", was: 2200, price: 1850, desc: "A single bed in a shared room. The bring-a-friend option.", img: "/assets/farendsurfhouse-kerttukruusla_107.jpg" },
+  { name: "Glamping — private", was: 2500, price: 2090, desc: "Your own glamping unit, sole occupancy. Outdoors, under the stars.", img: "/assets/glamping-beds-far-end-surf-house-7.jpg" },
+  { name: "Glamping — shared", was: 1950, price: 1650, desc: "A romantic double or twin glamping setup. Linens and towels included. A cosy October hideaway.", img: "/assets/farendsurfhouse-kerttukruusla_18-1024x1536.jpg" },
 ];
 
 const steps = [
   { n: "01", title: "Apply", desc: "Submit the short application below. It only takes a few minutes." },
-  { n: "02", title: "Connect", desc: "A short video call with us to talk through the retreat, your goals, and what’s drawing you here." },
+  { n: "02", title: "Connect", desc: "A short video call with Katja to talk through the retreat, your goals, and what’s drawing you here." },
   { n: "03", title: "Invite", desc: "If it feels like a fit, you’ll be invited to book your spot." },
-  { n: "04", title: "Book", desc: "You’ll receive your booking link to choose your room and pay your 50% deposit. The balance comes later." },
+  { n: "04", title: "Book", desc: "You’ll receive your booking link to choose your room. Your spot is confirmed with full payment at booking." },
 ];
 
 const faqs = [
   { q: "Do I need experience in yoga or meditation?", a: "No, not at all. Whether you’ve never rolled out a mat or you practice every morning, every session meets you exactly where you are. This is a safe space to slow down and try new tools, with zero pressure to get anything “right.”" },
-  { q: "Do I really need to finish the course first?", a: "No, it’s not required. But we really do encourage you to watch the Dream Life Mapping course before you arrive (it’s included with your spot). Doing the inner work beforehand is what lets us go deep together in person, instead of starting from scratch. And if life gets in the way and you don’t finish it, no worries at all, we’ll meet you where you are." },
-  { q: "What if I have never surfed?", a: "That’s completely okay. If the conditions are right and you feel called to paddle out, our surf coach will guide you every step of the way, so you feel comfortable and safe even on your very first wave. And if you’d rather stay on the sand, that’s just as welcome. Surf is always a bonus, never a must." },
-  { q: "Do you cater to dietary needs?", a: "Absolutely. Our menu is fresh, nourishing, and vegetarian, and we’re so happy to work around any allergies or preferences you have. Just let us know when you book, and we’ll take care of the rest." },
+  { q: "What if I have never surfed?", a: "That’s completely okay. If the conditions are right and you feel called to paddle out, the surf coach will guide you every step of the way, so you feel comfortable and safe even on your very first wave. And if you’d rather stay on the sand, that’s just as welcome. Surf is always a bonus, never a must." },
+  { q: "Do you cater to dietary needs?", a: "Absolutely. The menu is fresh, nourishing, and vegetarian, and I’m so happy to work around any allergies or preferences you have. Just let me know when you book, and I’ll take care of the rest." },
   { q: "Is it a wellness or work retreat?", a: "A little of both, woven together on purpose. The somatic and restful side isn’t separate from the work, it’s what makes the work possible. We soften and settle first, so the clarity has somewhere to take root." },
+  { q: "How does payment work?", a: "Your spot is confirmed with full payment at booking. These are the last spots for October, priced for late booking, so there’s no deposit split this time around." },
 ];
 
 const goodToKnow = [
   { label: "When", value: "October 5 to 11, 2026" },
-  { label: "Where", value: "Ericeira, Portugal" },
-  { label: "Who", value: "6 to 10 women, hosted by Charlotte and Katja" },
-  { label: "Included", value: "6 nights, three meals a day, all practices and workshops, surf, a cacao ceremony, a massage, and a full year of the Season of Self school" },
-  { label: "Investment", value: "from €1,950 per person" },
-  { label: "Booking", value: "application-based, 50% to secure your spot and 50% later" },
-  { label: "Getting there", value: "fly to Lisbon, around 45 minutes to Ericeira" },
+  { label: "Where", value: "Lourinhã, Portugal" },
+  { label: "Who", value: "6 to 10 women, hosted by Katja" },
+  { label: "Included", value: "6 nights, three meals a day, all practices and workshops, surf, a cacao ceremony, and a massage" },
+  { label: "Investment", value: "from €1,650 per person, last spots pricing" },
+  { label: "Booking", value: "application-based, confirmed with full payment at booking" },
+  { label: "Getting there", value: "fly to Lisbon, around an hour up the coast to Lourinhã" },
 ];
 
 /* Sheila first, then Kristin. TODO(charlotte): drop kristin.jpg into
@@ -214,7 +199,7 @@ function FaqItem({ faq, isOpen, toggle }: { faq: { q: string; a: string }; isOpe
   );
 }
 
-export default function EricieraRetreatPage() {
+export default function LourinhaRetreatPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [testiIndex, setTestiIndex] = useState(0);
   /* gently auto-advance the testimonials */
@@ -237,7 +222,7 @@ export default function EricieraRetreatPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/35 to-ink/70" aria-hidden="true" />
         <motion.div initial="hidden" animate="visible" variants={stagger} className="relative z-10 w-full max-w-3xl mx-auto px-6 sm:px-10 text-center text-cream py-28">
           <motion.p variants={fadeUp} className="font-mono text-[10px] sm:text-[11px] font-medium tracking-[0.24em] uppercase text-cream/85 mb-7">
-            Ericeira, Portugal · October 5–11, 2026 · 6–10 women only
+            Lourinhã, Portugal · October 5–11, 2026 · 6–10 women only
           </motion.p>
           <motion.h1 variants={fadeUp} className="font-display text-[2.8rem] sm:text-[4.2rem] lg:text-[5.4rem] leading-[1.0] tracking-[-0.02em] text-balance">
             A week for yourself
@@ -260,7 +245,10 @@ export default function EricieraRetreatPage() {
           <motion.ul initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger} className="space-y-7 max-w-2xl mx-auto">
             {[
               <>Your life looks good on paper, but lately you feel a deep longing for <span className="marker marker--terracotta">more</span> — more connection, more community, more freedom — and you don’t yet know what it could be or where to start.</>,
+              <>You’ve been living on autopilot and crave a <span className="marker marker--terracotta">real pause</span>: time to disconnect, immerse yourself in nature and community, and put the focus back on you.</>,
+              <>You’ve been hustling and grinding for so long that a week just for yourself feels like a gift you keep putting off. This is you <span className="marker marker--terracotta">finally giving it to yourself</span>.</>,
               <>You feel a pull to <span className="marker marker--terracotta">dream bigger again</span>, to step outside the life you’ve carefully built. Not because anything is wrong, but because you can feel there’s so much more to experience, to feel the magic again, and to create something of your own.</>,
+              <>You want to <span className="marker marker--terracotta">reconnect with your intuition</span> and get clear on what you truly want in life. You’re open to learning spiritual tools like breathwork, journaling, yoga and meditation that you can take home with you, so you feel grounded when life gets busy again after the retreat.</>,
               <>You’re ready to <span className="marker marker--terracotta">take your dreams seriously</span>, in a room of women doing the same.</>,
             ].map((line, i) => (
               <motion.li key={i} variants={fadeUp} className="flex gap-4 font-sans text-ink/80 text-base sm:text-lg leading-relaxed">
@@ -282,42 +270,7 @@ export default function EricieraRetreatPage() {
         </div>
       </section>
 
-      {/* ════ 5 · DREAM LIFE MAPPING INCLUDED ════ */}
-      <section className="bg-[#f1ead8] py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
-            <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="font-mono text-[10px] tracking-[0.24em] uppercase text-terracotta mb-6">
-              Your signature course, included
-            </motion.p>
-            <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85 }} className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.4rem] leading-[1.04] text-ink mb-7 tracking-[-0.02em]">
-              The full Dream Life <span className="italic marker marker--sage">Mapping</span> course
-            </motion.h2>
-            <motion.p initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85, delay: 0.06 }} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed">
-              Before you arrive, you receive our complete six-module course, so the week in person can go deep instead of starting from scratch. Six guided modules to move you from “something’s missing” to a real, mapped direction.
-            </motion.p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-12">
-            {dlmModules.map((m, i) => (
-              <motion.div key={m.title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-30px" }} transition={{ duration: 0.55, delay: (i % 3) * 0.05 }} className="rounded-card-lg bg-cream/70 border border-ink/8 p-6 sm:p-7">
-                <span className="font-mono text-[11px] tracking-[0.2em] text-ink/35">{m.n}</span>
-                <h3 className="font-display text-terracotta text-xl sm:text-[1.4rem] tracking-[-0.015em] mt-2 mb-2">{m.title}</h3>
-                <p className="font-sans text-ink/70 text-[15px] leading-relaxed">{m.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.7 }} className="rounded-card-lg bg-cream/70 border border-ink/10 p-8 sm:p-10 text-center max-w-2xl mx-auto">
-            <p className="font-display text-ink text-2xl sm:text-3xl leading-snug tracking-[-0.015em] mb-3">A full year of the school.</p>
-            <p className="font-sans text-ink/70 text-[15px] sm:text-base leading-relaxed max-w-xl mx-auto">
-              A full year of the Season of Self school comes with your spot: the Dream Life Mapping course, monthly live coaching with us, and the community.{" "}
-              <span className="text-ink font-medium">Included, a $197 value.</span>
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ════ 6 · EVERYTHING INCLUDED ════ */}
+      {/* ════ 4 · EVERYTHING INCLUDED ════ */}
       <section className="bg-cream py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-5xl mx-auto">
           <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85 }} className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.4rem] leading-[1.04] text-ink mb-14 sm:mb-16 tracking-[-0.02em] text-center">
@@ -355,7 +308,37 @@ export default function EricieraRetreatPage() {
         </div>
       </section>
 
-      {/* ════ 7 · WHAT A DAY LOOKS LIKE ════ */}
+      {/* ════ 5 · ADD-ON · PHOTOSHOOT WITH KATJA ════
+          TODO(charlotte): swap in Katja's own shoot images (the grid she sent)
+          and drop the real price into the microline below. */}
+      <section className="bg-[#cdd8e1] py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
+        <div className="max-w-5xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.9 }} className="lg:col-span-5 order-2 lg:order-1">
+            <div className="relative aspect-[4/5] w-full max-w-sm mx-auto rounded-card-lg overflow-hidden">
+              <Image src="/assets/SS_Nosara_11-02-26-222.jpg" alt="Golden hour on the coast" fill className="object-cover" />
+            </div>
+          </motion.div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger} className="lg:col-span-7 order-1 lg:order-2">
+            <motion.p variants={fadeUp} className="font-mono text-[10px] tracking-[0.24em] uppercase text-terracotta mb-6">
+              Optional add-on
+            </motion.p>
+            <motion.h2 variants={fadeUp} className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.2rem] leading-[1.04] text-ink mb-7 tracking-[-0.02em]">
+              A self-love <span className="italic marker marker--sage">photoshoot</span> with Katja
+            </motion.h2>
+            <motion.p variants={fadeUp} className="font-sans text-ink/75 text-base sm:text-lg leading-relaxed mb-5 max-w-xl">
+              During the retreat you can book a photoshoot with me. Choose a self-love session that captures your essence, truly alive, your beauty inside and out.
+            </motion.p>
+            <motion.p variants={fadeUp} className="font-sans text-ink/75 text-base sm:text-lg leading-relaxed max-w-xl">
+              Or personal branding images for your next chapter, shot in the golden light of the Portuguese coast.
+            </motion.p>
+            <motion.p variants={fadeUp} className="mt-8 font-mono text-[11px] tracking-[0.18em] uppercase text-ink/50">
+              Booked separately during the week · pricing and session options shared once your spot is confirmed
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ════ 6 · WHAT A DAY LOOKS LIKE ════ */}
       <section className="bg-[#f1ead8] py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger} className="lg:col-span-6">
@@ -382,21 +365,21 @@ export default function EricieraRetreatPage() {
         </div>
       </section>
 
-      {/* ════ 8 · ERICEIRA ════ */}
+      {/* ════ 7 · LOURINHÃ ════ */}
       <section className="relative w-full min-h-[80vh] flex items-end overflow-hidden">
-        <Image src="/assets/SheFlows-24.jpg" alt="Ericeira, Portugal, on the Atlantic coast" fill sizes="100vw" className="object-cover" />
+        <Image src="/assets/SheFlows-24.jpg" alt="The Atlantic coast in Portugal" fill sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" aria-hidden="true" />
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.9 }} className="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-10 pb-16 sm:pb-20">
           <div className="max-w-xl">
-            <h2 className="font-display text-cream text-[2.2rem] sm:text-[2.8rem] lg:text-[3.6rem] leading-[1.02] mb-5 tracking-[-0.02em]"><span className="italic">Ericeira</span>, Portugal</h2>
+            <h2 className="font-display text-cream text-[2.2rem] sm:text-[2.8rem] lg:text-[3.6rem] leading-[1.02] mb-5 tracking-[-0.02em]"><span className="italic">Lourinhã</span>, Portugal</h2>
             <p className="font-sans text-cream/85 text-base sm:text-lg leading-relaxed">
-              A whitewashed surf town on the Atlantic coast. Slow mornings, clean waves, salt in the air, an easy pace. Katja lives in Portugal, so this is a place we know and genuinely love. It is the kind of place that does half the work for you.
+              A quiet stretch of the Atlantic coast, an hour north of Lisbon. Whitewashed streets, wide open beaches, cliffs to walk at sunset, and hardly a crowd in October. I live in Portugal, so this is a coast I know and genuinely love. It is the kind of place that does half the work for you.
             </p>
           </div>
         </motion.div>
       </section>
 
-      {/* ════ 9 · YOUR HOME ════ */}
+      {/* ════ 8 · YOUR HOME ════ */}
       <section className="bg-cream pt-20 sm:pt-28 lg:pt-32 pb-20 sm:pb-28 px-6 sm:px-10">
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
           <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85 }} className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.4rem] leading-[1.04] text-ink mb-7 tracking-[-0.02em]">
@@ -411,34 +394,27 @@ export default function EricieraRetreatPage() {
         </div>
       </section>
 
-      {/* ════ 10 · YOUR GUIDES ════ */}
+      {/* ════ 9 · YOUR GUIDE ════ */}
       <section className="bg-[#cdd8e1] py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-5xl mx-auto">
           <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85 }} className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.4rem] leading-[1.04] text-ink mb-14 sm:mb-16 tracking-[-0.02em] text-center">
-            Your guides, Charlotte <span className="italic">and</span> Katja
+            Your guide, <span className="italic">Katja</span>
           </motion.h2>
-          <div className="grid grid-cols-2 gap-4 sm:gap-8 lg:gap-12 max-w-3xl mx-auto items-start">
-            {[
-              { src: "/assets/charlotte_founderheadshot.jpg", name: "Charlotte", pos: "object-center" },
-              { src: "/assets/katja_hero.jpeg", name: "Katja", pos: "object-top" },
-            ].map((p, i) => (
-              <motion.div key={p.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85, delay: i * 0.1 }}>
-                <div className="relative aspect-[3/4] w-full rounded-card sm:rounded-card-lg overflow-hidden mb-4 sm:mb-5">
-                  <Image src={p.src} alt={p.name} fill className={`object-cover ${p.pos}`} />
-                </div>
-                <h3 className="font-display text-lg sm:text-2xl lg:text-3xl text-ink mb-1 sm:mb-2">{p.name}</h3>
-                <p className="font-mono text-[9px] sm:text-[11px] tracking-[0.18em] uppercase text-ink/50">Co-founder, Season of Self</p>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85 }} className="max-w-sm mx-auto text-center">
+            <div className="relative aspect-[3/4] w-full rounded-card sm:rounded-card-lg overflow-hidden mb-4 sm:mb-5">
+              <Image src="/assets/katja_hero.jpeg" alt="Katja" fill className="object-cover object-top" />
+            </div>
+            <h3 className="font-display text-2xl sm:text-3xl text-ink mb-1 sm:mb-2">Katja</h3>
+            <p className="font-mono text-[9px] sm:text-[11px] tracking-[0.18em] uppercase text-ink/50">Co-founder, Season of Self</p>
+          </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger} className="mt-14 max-w-2xl mx-auto text-center space-y-5 font-sans text-ink/75 text-base sm:text-lg leading-relaxed">
-            <motion.p variants={fadeUp}>We both rebuilt our lives around what actually felt true, and now we help other women do the same.</motion.p>
-            <motion.p variants={fadeUp}>Katja holds the body of the week: the yoga, breath, and somatic practices that bring you back into yourself. Charlotte holds the clarity: the Inner Map, the mapping, and the strategy that turn a feeling into a plan.</motion.p>
+            <motion.p variants={fadeUp}>I rebuilt my life around what actually felt true, and now I help other women do the same.</motion.p>
+            <motion.p variants={fadeUp}>I hold the whole week: the yoga, breath, and somatic practices that bring you back into your body, the daily workshops on dharma and purpose, and the coaching that turns a feeling into a first real step.</motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* ════ 11 · FOOD (lighter, moved lower) ════ */}
+      {/* ════ 10 · FOOD (lighter, moved lower) ════ */}
       <section className="bg-cream py-16 sm:py-20 px-6 sm:px-10">
         <div className="max-w-4xl mx-auto grid sm:grid-cols-12 gap-8 sm:gap-12 items-center">
           <div className="sm:col-span-5">
@@ -449,13 +425,13 @@ export default function EricieraRetreatPage() {
           <div className="sm:col-span-7">
             <h2 className="font-display text-[1.8rem] sm:text-[2.2rem] leading-[1.06] text-ink mb-4 tracking-[-0.02em]">Food as part of the <span className="italic">ritual</span></h2>
             <p className="font-sans text-ink/70 text-[15px] sm:text-base leading-relaxed">
-              Three home-cooked, farm-to-table meals a day from our private chef. Fresh, local, and vegetarian, built to nourish you from the inside out. Here, eating is connection and a way of coming back to yourself.
+              Three home-cooked, farm-to-table meals a day from the private chef. Fresh, local, and vegetarian, built to nourish you from the inside out. Here, eating is connection and a way of coming back to yourself.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ════ 12 · TESTIMONIALS (carousel) ════ */}
+      {/* ════ 11 · TESTIMONIALS (carousel) ════ */}
       <section className="bg-linen py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-3xl mx-auto text-center">
           <p className="font-mono text-[10px] tracking-[0.24em] uppercase text-ink/45 mb-10">
@@ -511,19 +487,22 @@ export default function EricieraRetreatPage() {
           </div>
 
           <p className="mt-12 font-mono text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-terracotta">
-            ✦ 2 spots already reserved for October 2026
+            ✦ Only the last spots remain for October 2026
           </p>
         </div>
       </section>
 
-      {/* ════ 13 · ACCOMMODATION & PRICING ════ */}
+      {/* ════ 12 · ACCOMMODATION & LAST SPOTS PRICING ════ */}
       <section className="bg-cream py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-3xl mx-auto text-center mb-14 sm:mb-16">
+          <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="font-mono text-[10px] tracking-[0.24em] uppercase text-terracotta mb-6">
+            Last spots pricing
+          </motion.p>
           <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85 }} className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.4rem] leading-[1.04] text-ink mb-7 tracking-[-0.02em]">
             Choose your <span className="italic">room</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85, delay: 0.06 }} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed">
-            Six nights, three home-cooked meals a day, every practice and workshop, surf, a cacao ceremony, a massage, and a full year of the Season of Self school. Spots are by application, with 50% to secure your place and 50% later.
+            Six nights, three home-cooked meals a day, every practice and workshop, surf, a cacao ceremony, and a massage. These are the last spots for October, priced for late booking. Your spot is confirmed with full payment at booking.
           </motion.p>
         </div>
 
@@ -538,9 +517,10 @@ export default function EricieraRetreatPage() {
               </div>
               <div className="flex flex-col flex-1 p-7">
                 <h3 className="font-display text-ink text-xl sm:text-[1.4rem] leading-snug tracking-[-0.015em] mb-2">{room.name}</h3>
-                <div className="mb-3">
-                  <span className="font-display text-ink text-3xl sm:text-[2.2rem] tracking-[-0.02em]">{eur(room.standard)}</span>
-                  <span className="font-sans text-ink/55 text-sm ml-2">per person</span>
+                <div className="mb-3 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+                  <span className="font-sans text-ink/40 text-lg line-through decoration-ink/40">{eur(room.was)}</span>
+                  <span className="font-display text-ink text-3xl sm:text-[2.2rem] tracking-[-0.02em]">{eur(room.price)}</span>
+                  <span className="font-sans text-ink/55 text-sm">per person</span>
                 </div>
                 <p className="font-sans text-ink/65 text-[14px] leading-relaxed mb-7">{room.desc}</p>
                 <a href="#apply" className={`mt-auto inline-flex items-center justify-center gap-3 font-mono text-[12px] font-medium tracking-[0.2em] uppercase px-8 py-[16px] rounded-full transition-colors ${room.featured ? "bg-terracotta text-cream hover:bg-deep-brown" : "bg-ink text-cream hover:bg-deep-brown"}`}>
@@ -554,7 +534,7 @@ export default function EricieraRetreatPage() {
         <p className="mt-10 text-center font-display italic text-ink text-2xl sm:text-3xl leading-snug">Only 6 to 10 spots, and they go quickly.</p>
       </section>
 
-      {/* ════ 14 · HOW IT WORKS ════ */}
+      {/* ════ 13 · HOW IT WORKS ════ */}
       <section className="bg-[#dde2d2] py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
@@ -562,7 +542,7 @@ export default function EricieraRetreatPage() {
               How it <span className="italic">works</span>
             </motion.h2>
             <motion.p initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85, delay: 0.06 }} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed">
-              Spots are by application. We keep this to a small group of 6 to 10 women and meet each of you first. It’s how we protect what makes it special: a small, safe circle where real sisterhood can happen, and everyone feels seen from the moment they arrive.
+              Spots are by application. I keep this to a small group of 6 to 10 women and meet each of you first. It’s how I protect what makes it special: a small, safe circle where real sisterhood can happen, and everyone feels seen from the moment they arrive.
             </motion.p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
@@ -577,7 +557,7 @@ export default function EricieraRetreatPage() {
         </div>
       </section>
 
-      {/* ════ 15 · APPLICATION FORM ════ */}
+      {/* ════ 14 · APPLICATION FORM ════ */}
       <section id="apply" className="bg-cream py-20 sm:py-28 lg:py-32 px-6 sm:px-10 scroll-mt-20">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
@@ -585,14 +565,14 @@ export default function EricieraRetreatPage() {
               Apply for your <span className="italic">spot</span>
             </motion.h2>
             <motion.p initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85, delay: 0.06 }} className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed">
-              Tell us a little about you. We read every application and will be in touch within 48 hours to find a time to connect.
+              Tell me a little about you. I read every application and will be in touch within 48 hours to find a time to connect.
             </motion.p>
           </div>
           <ApplicationForm />
         </div>
       </section>
 
-      {/* ════ 16 · FAQ ════ */}
+      {/* ════ 15 · FAQ ════ */}
       <section className="bg-[#f1ead8] py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-3xl mx-auto">
           <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85 }} className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.4rem] leading-[1.04] text-ink mb-12 sm:mb-14 tracking-[-0.02em] text-center">
@@ -605,8 +585,8 @@ export default function EricieraRetreatPage() {
           </div>
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.7 }} className="mt-16 sm:mt-20 text-center">
             <p className="font-display text-ink text-2xl sm:text-3xl leading-snug tracking-[-0.015em] mb-5">Have any questions?</p>
-            <p className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-9">Feel free to email us or book a short call. We would love to hear from you.</p>
-            <a href="mailto:hello@seasonofself.co?subject=Season%20of%20Self%20%C2%B7%20Ericeira" className="group inline-flex items-center justify-center gap-3 font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-9 sm:px-11 py-[18px] sm:py-[20px] rounded-full bg-ink text-cream hover:bg-deep-brown transition-colors">
+            <p className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-9">Feel free to email me or book a short call. I would love to hear from you.</p>
+            <a href="mailto:hello@seasonofself.co?subject=Season%20of%20Self%20%C2%B7%20Lourinh%C3%A3" className="group inline-flex items-center justify-center gap-3 font-sans font-medium text-[11px] sm:text-xs tracking-[0.32em] uppercase px-9 sm:px-11 py-[18px] sm:py-[20px] rounded-full bg-ink text-cream hover:bg-deep-brown transition-colors">
               hello@seasonofself.co
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
             </a>
@@ -614,7 +594,7 @@ export default function EricieraRetreatPage() {
         </div>
       </section>
 
-      {/* ════ 17 · GOOD TO KNOW ════ */}
+      {/* ════ 16 · GOOD TO KNOW ════ */}
       <section className="bg-cream py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
         <div className="max-w-3xl mx-auto">
           <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.85 }} className="font-display text-[2rem] sm:text-[2.6rem] lg:text-[3rem] leading-[1.04] text-ink mb-12 sm:mb-14 tracking-[-0.02em] text-center">
@@ -639,7 +619,7 @@ export default function EricieraRetreatPage() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
           <div>
             <Image src="/assets/green_logo.png" alt="Season of Self" width={200} height={200} unoptimized className="h-7 w-auto mb-3 brightness-[10]" />
-            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-cream/45">Season of Self · Ericeira 2026</p>
+            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-cream/45">Season of Self · Lourinhã 2026</p>
           </div>
           <div className="flex flex-wrap gap-x-7 gap-y-2 text-cream/55">
             <a href="/" className="font-sans text-sm hover:text-cream transition-colors">Home</a>

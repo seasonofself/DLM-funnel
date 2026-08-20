@@ -12,9 +12,10 @@ type Props = {
 };
 
 /**
- * Waitlist form for the Ericeira retreat.
+ * Waitlist form for the October 2026 retreat (Lourinha, Portugal).
  * POSTs to /api/retreat-waitlist which tags the subscriber in Kit
- * with "ericeira-waitlist-oct-2026".
+ * with "ericeira-waitlist-oct-2026". The tag keeps its old name on
+ * purpose: the Kit automation is already wired to it.
  */
 export default function WaitlistForm({
   variant = "light",

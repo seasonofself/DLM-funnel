@@ -233,7 +233,7 @@ export default function ApplicationForm() {
                   ))}
                 </select>
               </Field>
-              <Field label="Tell us a little about you, and what's drawing you to this retreat right now" error={errors.about}>
+              <Field label="Tell me a little about you, and what's drawing you to this retreat right now" error={errors.about}>
                 <textarea className={boxCls} rows={4} value={data.about} onChange={set("about")} placeholder="There are no wrong answers here." />
               </Field>
               <Field label="What are you hoping to walk away with?" error={errors.walkAway}>
@@ -248,12 +248,12 @@ export default function ApplicationForm() {
           {step === 2 && (
             <>
               <Field label="Dietary needs & allergies">
-                <input className={inputCls} value={data.dietary} onChange={set("dietary")} placeholder="Our menu is vegetarian; tell us anything else" />
+                <input className={inputCls} value={data.dietary} onChange={set("dietary")} placeholder="The menu is vegetarian; tell me anything else" />
               </Field>
               <Field label="How did you hear about us?">
                 <input className={inputCls} value={data.heardFrom} onChange={set("heardFrom")} placeholder="Instagram, a friend, …" />
               </Field>
-              <Field label="Anything else you'd like us to know? (optional)">
+              <Field label="Anything else you'd like me to know? (optional)">
                 <textarea className={boxCls} rows={3} value={data.anythingElse} onChange={set("anythingElse")} />
               </Field>
             </>
