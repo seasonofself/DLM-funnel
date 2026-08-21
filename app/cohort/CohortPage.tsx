@@ -125,61 +125,80 @@ export default function CohortPage() {
         </a>
 
         {/* ══════════════════════════════════════════════════
-            HERO — full-bleed golden-hour photo of the two of us
+            HERO — split: copy left on cream, the two of us on
+            the right as a clean editorial photo block
            ══════════════════════════════════════════════════ */}
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0">
+        <section className="relative bg-cream border-b border-ink/10 overflow-hidden">
+          {/* lg+: one seamless canvas — the photo's plaster wall extended
+              left as the text field, the two of us on the right */}
+          <div className="hidden lg:block absolute inset-0">
             <Image
-              src="/assets/SS_Nosara_11-02-26-242.jpg"
-              alt="Charlotte and Katja at golden hour in Nosara"
+              src="/assets/season-hero-wide.jpg"
+              alt=""
               fill
               priority
               sizes="100vw"
-              className="object-cover object-[50%_35%]"
+              className="object-cover object-right"
             />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#F6F2E8]/75 via-[#F6F2E8]/40 to-transparent" />
           </div>
-          <div className="absolute inset-0 bg-ink/35" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-ink/35 to-ink/10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
 
-          {/* Conversion-first: who it's for → outcome → apply, with the
-              deadline right under the button. Left-aligned, vertically
-              centered so the CTA lands above the fold. */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="relative z-10 max-w-[1200px] mx-auto px-6 sm:px-10 min-h-[82svh] flex flex-col justify-center py-20 sm:py-24"
-          >
-            <div className="max-w-2xl">
-              <motion.p
-                variants={fadeUp}
-                className="font-sans text-[11px] sm:text-xs font-medium tracking-[0.1em] uppercase text-cream/85 mb-6"
-              >
-                {hero.eyebrow}
-              </motion.p>
+          <div className="relative z-10 grid lg:grid-cols-2 items-stretch">
+            {/* LEFT — copy, vertically centered */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={stagger}
+              className="flex flex-col justify-center px-6 sm:px-10 lg:pl-16 xl:pl-24 lg:pr-14 py-16 sm:py-20 lg:py-24 lg:min-h-[78svh] order-1"
+            >
+              <div className="max-w-xl">
+                <motion.p
+                  variants={fadeUp}
+                  className="font-sans text-[11px] sm:text-xs font-medium tracking-[0.1em] uppercase text-ink/70 mb-6"
+                >
+                  {hero.eyebrow}
+                </motion.p>
 
-              <motion.h1
-                variants={fadeUp}
-                className="font-display lowercase text-[2.3rem] sm:text-[3.1rem] lg:text-[3.8rem] leading-[1.12] text-cream mb-9 tracking-[-0.01em]"
-              >
-                {hero.headline}
-              </motion.h1>
+                <motion.h1
+                  variants={fadeUp}
+                  className="font-display lowercase text-[2.3rem] sm:text-[3.1rem] lg:text-[3.4rem] xl:text-[3.8rem] leading-[1.12] text-ink mb-9 tracking-[-0.01em]"
+                >
+                  {hero.headline}
+                </motion.h1>
 
-              <motion.div variants={fadeUp} className="mb-5">
-                <ApplyButton accent className="w-full sm:w-auto">
-                  {hero.cta}
-                </ApplyButton>
-              </motion.div>
+                <motion.div variants={fadeUp} className="mb-5">
+                  <ApplyButton accent className="w-full sm:w-auto">
+                    {hero.cta}
+                  </ApplyButton>
+                </motion.div>
 
-              <motion.p
-                variants={fadeUp}
-                className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-cream/85"
-              >
-                {hero.microline}
-              </motion.p>
-            </div>
-          </motion.div>
+                <motion.p
+                  variants={fadeUp}
+                  className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-ink/70"
+                >
+                  {hero.microline}
+                </motion.p>
+              </div>
+            </motion.div>
+
+            {/* RIGHT — mobile & tablet only: the photo as its own block
+                (on lg+ it lives in the seamless background above) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="relative order-2 aspect-[4/5] sm:aspect-[16/10] lg:hidden"
+            >
+              <Image
+                src="/assets/SeasonofSelf-40.jpg"
+                alt="Charlotte and Katja working together"
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover object-[50%_22%]"
+              />
+            </motion.div>
+          </div>
         </section>
 
         {/* ══════════════════════════════════════════════════
