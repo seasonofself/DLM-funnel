@@ -156,32 +156,15 @@ export default function CohortPage() {
                 variants={fadeUp}
                 className="font-sans text-[11px] sm:text-xs font-medium tracking-[0.1em] uppercase text-cream/85 mb-6"
               >
-                season of self · {season.name} · {season.dates}
+                {hero.eyebrow}
               </motion.p>
 
               <motion.h1
                 variants={fadeUp}
-                className="font-display lowercase text-[2.1rem] sm:text-[2.8rem] lg:text-[3.4rem] leading-[1.12] text-cream mb-6 tracking-[-0.01em]"
+                className="font-display lowercase text-[2.3rem] sm:text-[3.1rem] lg:text-[3.8rem] leading-[1.12] text-cream mb-9 tracking-[-0.01em]"
               >
-                {hero.h2}
+                {hero.headline}
               </motion.h1>
-
-              <motion.p
-                variants={fadeUp}
-                className="font-sans text-cream/90 text-base sm:text-lg leading-relaxed mb-3"
-              >
-                You leave the Season knowing which direction is yours,{" "}
-                <em className="font-display">
-                  already testing it in the real world.
-                </em>
-              </motion.p>
-
-              <motion.p
-                variants={fadeUp}
-                className="font-display italic text-cream/75 text-[15px] sm:text-base mb-9"
-              >
-                {hero.aside}
-              </motion.p>
 
               <motion.div variants={fadeUp} className="mb-5">
                 <ApplyButton accent className="w-full sm:w-auto">
@@ -193,7 +176,7 @@ export default function CohortPage() {
                 variants={fadeUp}
                 className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-cream/85"
               >
-                applications close september 24 · {hero.microline}
+                {hero.microline}
               </motion.p>
             </div>
           </motion.div>

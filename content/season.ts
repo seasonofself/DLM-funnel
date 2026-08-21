@@ -25,13 +25,14 @@ export const season = {
 };
 
 /* ─── hero ──────────────────────────────────────────────── */
+/* Slimmed Aug 21 per Charlotte: eyebrow, one headline, CTA,
+   microline. No outcome line or aside in the hero. */
 export const hero = {
-  h1: "season of self",
-  h2: "a 12-week guided season for women who feel unfulfilled in their work & have been dreaming of starting something of their own, but aren't sure of what it is yet.",
-  line: "You leave the Season knowing which direction is yours, already testing it in the real world.",
-  aside: "(this is not a business course. it's how you find the thing worth building.)",
+  eyebrow: "season of self · the autumn season · sep 29 – dec 18",
+  headline:
+    "for women who feel unfulfilled in their work & have been dreaming of starting something of their own",
   cta: "apply for the autumn season",
-  microline: "small group · two founders · twelve weeks · begins september 29",
+  microline: "live cohort · small group · two founders · twelve weeks",
 };
 
 /* ─── the opening letter ────────────────────────────────── */
