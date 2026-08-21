@@ -309,31 +309,37 @@ export default function LourinhaRetreatPage() {
       </section>
 
       {/* ════ 5 · ADD-ON · PHOTOSHOOT WITH KATJA ════
-          TODO(charlotte): swap in Katja's own shoot images (the grid she sent)
-          and drop the real price into the microline below. */}
+          The grid runs full width below the copy, at its own 1422×802 ratio —
+          it is a wide 5-across contact sheet, so a portrait crop would bury it.
+          TODO(charlotte): drop the real price into the microline below. */}
       <section className="bg-[#cdd8e1] py-20 sm:py-28 lg:py-32 px-6 sm:px-10">
-        <div className="max-w-5xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.9 }} className="lg:col-span-5 order-2 lg:order-1">
-            <div className="relative aspect-[4/5] w-full max-w-sm mx-auto rounded-card-lg overflow-hidden">
-              <Image src="/assets/SS_Nosara_11-02-26-222.jpg" alt="Golden hour on the coast" fill className="object-cover" />
-            </div>
-          </motion.div>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger} className="lg:col-span-7 order-1 lg:order-2">
+        <div className="max-w-5xl mx-auto">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger} className="max-w-2xl">
             <motion.p variants={fadeUp} className="font-mono text-[10px] tracking-[0.24em] uppercase text-terracotta mb-6">
               Optional add-on
             </motion.p>
             <motion.h2 variants={fadeUp} className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.2rem] leading-[1.04] text-ink mb-7 tracking-[-0.02em]">
               A self-love <span className="italic marker marker--sage">photoshoot</span> with Katja
             </motion.h2>
-            <motion.p variants={fadeUp} className="font-sans text-ink/75 text-base sm:text-lg leading-relaxed mb-5 max-w-xl">
+            <motion.p variants={fadeUp} className="font-sans text-ink/75 text-base sm:text-lg leading-relaxed mb-5">
               During the retreat you can book a photoshoot with me. Choose a self-love session that captures your essence, truly alive, your beauty inside and out.
             </motion.p>
-            <motion.p variants={fadeUp} className="font-sans text-ink/75 text-base sm:text-lg leading-relaxed max-w-xl">
+            <motion.p variants={fadeUp} className="font-sans text-ink/75 text-base sm:text-lg leading-relaxed">
               Or personal branding images for your next chapter, shot in the golden light of the Portuguese coast.
             </motion.p>
-            <motion.p variants={fadeUp} className="mt-8 font-mono text-[11px] tracking-[0.18em] uppercase text-ink/50">
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.9, delay: 0.1 }} className="mt-12 sm:mt-14">
+            {/* Five tiles across shrink to nothing on a phone, so the sheet
+                scrolls sideways below sm rather than the page doing it. */}
+            <div className="overflow-x-auto rounded-card-lg">
+              <div className="relative min-w-[620px] aspect-[1422/802] rounded-card-lg overflow-hidden">
+                <Image src="/assets/photoshoot.png" alt="A selection of Katja's self-love portraits, shot on the coast" fill sizes="(min-width: 1024px) 64rem, (min-width: 640px) 100vw, 620px" className="object-cover" />
+              </div>
+            </div>
+            <p className="mt-8 font-mono text-[11px] tracking-[0.18em] uppercase text-ink/50">
               Booked separately during the week · pricing and session options shared once your spot is confirmed
-            </motion.p>
+            </p>
           </motion.div>
         </div>
       </section>
