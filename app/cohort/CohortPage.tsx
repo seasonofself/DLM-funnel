@@ -119,42 +119,29 @@ export default function CohortPage() {
         {/* ── banner ─────────────────────────────────────── */}
         <a
           href={season.applyAnchor}
-          className="block bg-sage text-ink text-center py-2.5 px-4 font-sans text-xs sm:text-[13px] tracking-[0.06em] hover:bg-sage-dark hover:text-cream transition-colors"
+          className="block bg-ink text-cream text-center py-2.5 px-4 font-sans text-xs sm:text-[13px] tracking-[0.06em] hover:bg-sage-dark transition-colors"
         >
           ✦ {season.banner}
         </a>
 
         {/* ══════════════════════════════════════════════════
-            HERO — split: copy left on cream, the two of us on
-            the right as a clean editorial photo block
+            HERO — one solid sage field on every screen, copy
+            left in ink, the two of us as a photo block on the
+            right (stacked below on mobile)
            ══════════════════════════════════════════════════ */}
-        <section className="relative bg-cream border-b border-ink/10 overflow-hidden">
-          {/* lg+: one seamless canvas — the photo's plaster wall extended
-              left as the text field, the two of us on the right */}
-          <div className="hidden lg:block absolute inset-0">
-            <Image
-              src="/assets/season-hero-wide.jpg"
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-right"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#F6F2E8]/75 via-[#F6F2E8]/40 to-transparent" />
-          </div>
-
-          <div className="relative z-10 grid lg:grid-cols-2 items-stretch">
+        <section className="relative bg-sage overflow-hidden">
+          <div className="grid lg:grid-cols-12 items-stretch">
             {/* LEFT — copy, vertically centered */}
             <motion.div
               initial="hidden"
               animate="visible"
               variants={stagger}
-              className="flex flex-col justify-center px-6 sm:px-10 lg:pl-16 xl:pl-24 lg:pr-14 py-16 sm:py-20 lg:py-24 lg:min-h-[78svh] order-1"
+              className="lg:col-span-7 flex flex-col justify-center px-6 sm:px-10 lg:pl-16 xl:pl-24 lg:pr-16 py-16 sm:py-20 lg:py-24 lg:min-h-[74svh] order-1"
             >
               <div className="max-w-xl">
                 <motion.p
                   variants={fadeUp}
-                  className="font-sans text-[11px] sm:text-xs font-medium tracking-[0.1em] uppercase text-ink/70 mb-6"
+                  className="font-sans text-[11px] sm:text-xs font-medium tracking-[0.1em] uppercase text-ink/80 mb-6"
                 >
                   {hero.eyebrow}
                 </motion.p>
@@ -167,35 +154,37 @@ export default function CohortPage() {
                 </motion.h1>
 
                 <motion.div variants={fadeUp} className="mb-5">
-                  <ApplyButton accent className="w-full sm:w-auto">
+                  <a
+                    href={season.applyAnchor}
+                    className="btn bg-ink text-cream hover:bg-cream hover:text-ink w-full sm:w-auto"
+                  >
                     {hero.cta}
-                  </ApplyButton>
+                  </a>
                 </motion.div>
 
                 <motion.p
                   variants={fadeUp}
-                  className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-ink/70"
+                  className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-ink/80"
                 >
                   {hero.microline}
                 </motion.p>
               </div>
             </motion.div>
 
-            {/* RIGHT — mobile & tablet only: the photo as its own block
-                (on lg+ it lives in the seamless background above) */}
+            {/* RIGHT — the two of us, flush to the edge */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="relative order-2 aspect-[4/5] sm:aspect-[16/10] lg:hidden"
+              className="relative order-2 lg:col-span-5 aspect-[4/5] sm:aspect-[16/10] lg:aspect-auto lg:min-h-[74svh]"
             >
               <Image
                 src="/assets/SeasonofSelf-40.jpg"
                 alt="Charlotte and Katja working together"
                 fill
                 priority
-                sizes="100vw"
-                className="object-cover object-[50%_22%]"
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover object-[50%_20%]"
               />
             </motion.div>
           </div>

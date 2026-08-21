@@ -280,19 +280,9 @@ export const faqs = [
       "No. Most women here dream of working for themselves someday, that's who we built this for. But this season is about finding what's yours & taking the first real steps, not funnels & marketing plans. And if your honest answer turns out to be a new role, a creative practice, or a braver version of your current path, that counts. We help you find your direction. We don't push you toward ours.",
   },
   {
-    question: "what does the tech agreement actually mean?",
-    answer:
-      "Gentle, chosen boundaries, not a monastery. We design yours together in week one. Most women describe it as the biggest relief of the season.",
-  },
-  {
     question: "is this therapy?",
     answer:
       "No. It's a guided season of reconnection & direction. If we believe you'd be better served by clinical support, we'll say so with care.",
-  },
-  {
-    question: "what if it's not for me?",
-    answer:
-      "Join fully. If by the end of week two the Season isn't right for you, write to us & we'll refund your tuition in full. After that, no refunds, but you can defer your seat to the next season.",
   },
   {
     question: "when does it start?",
