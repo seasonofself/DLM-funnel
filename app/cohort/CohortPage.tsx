@@ -125,67 +125,104 @@ export default function CohortPage() {
         </a>
 
         {/* ══════════════════════════════════════════════════
-            HERO — golden hour, boards under the palms. The
-            photo is its own untouched block (no text over
-            anyone); the copy sits on a solid warm-dark field
-            sampled from the photo's palm shadows so the two
-            read as one scene. Photo left / copy right on
-            desktop; photo top / copy below on mobile.
+            HERO — artsy film full-bleed (the dancing shot,
+            matte grade + grain). The copy lives in the empty
+            sky beside/above the two of us, never over anyone:
+            top-left of the sky on desktop; in the extended sky
+            above them on mobile.
            ══════════════════════════════════════════════════ */}
-        <section className="relative overflow-hidden bg-[#291F12]">
-          <div className="grid md:grid-cols-12 items-stretch">
-            {/* the photo — never covered */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="relative md:col-span-7 aspect-[4/5] sm:aspect-[4/3] md:aspect-auto md:min-h-[82svh] order-1"
-            >
-              <Image
-                src="/assets/season-hero-side.jpg"
-                alt="Charlotte and Katja carrying longboards at golden hour in Nosara"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover object-[45%_30%]"
-              />
-            </motion.div>
+        <section className="relative overflow-hidden bg-[#AEBDCA]">
+          {/* desktop art */}
+          <div className="hidden md:block absolute inset-0">
+            <Image
+              src="/assets/season-hero-art-desktop.jpg"
+              alt="Charlotte and Katja dancing on the beach at dusk"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
 
-            {/* the copy — solid field, fully readable */}
+          {/* desktop copy — in the open sky, left of the two of us */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+            className="hidden md:flex relative z-10 w-full px-10 min-h-[88svh] flex-col justify-start pt-[9svh]"
+          >
+            {/* width capped at 30vw so the copy can never reach the two of
+                us (they start at ~35% of the frame at every window size) */}
+            <div className="w-[30vw] max-w-lg">
+              <motion.p
+                variants={fadeUp}
+                className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-ink/80 mb-5"
+              >
+                {hero.eyebrow}
+              </motion.p>
+
+              <motion.h1
+                variants={fadeUp}
+                className="font-display lowercase text-[clamp(1.5rem,2.5vw,2.9rem)] leading-[1.12] text-ink mb-7 tracking-[-0.01em]"
+              >
+                {hero.headline}
+              </motion.h1>
+
+              <motion.div variants={fadeUp} className="mb-5">
+                <ApplyButton accent>{hero.cta}</ApplyButton>
+              </motion.div>
+
+              <motion.p
+                variants={fadeUp}
+                className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-ink/80"
+              >
+                {hero.microline}
+              </motion.p>
+            </div>
+          </motion.div>
+
+          {/* mobile: extended-sky canvas, copy in the sky above them */}
+          <div className="md:hidden relative w-full aspect-[9/16]">
+            <Image
+              src="/assets/season-hero-art-mobile.jpg"
+              alt="Charlotte and Katja dancing on the beach at dusk"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-bottom"
+            />
             <motion.div
               initial="hidden"
               animate="visible"
               variants={stagger}
-              className="md:col-span-5 flex flex-col justify-center px-6 sm:px-10 lg:px-14 py-14 sm:py-16 md:py-20 order-2"
+              className="absolute inset-x-0 top-0 px-6 pt-5"
             >
-              <div className="max-w-md">
-                <motion.p
-                  variants={fadeUp}
-                  className="font-sans text-[11px] sm:text-xs font-medium tracking-[0.1em] uppercase text-cream/80 mb-6"
-                >
-                  {hero.eyebrow}
-                </motion.p>
+              <motion.p
+                variants={fadeUp}
+                className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-ink/80 mb-3"
+              >
+                {hero.eyebrow}
+              </motion.p>
 
-                <motion.h1
-                  variants={fadeUp}
-                  className="font-display lowercase text-[2.3rem] sm:text-[2.9rem] lg:text-[3.1rem] xl:text-[3.5rem] leading-[1.12] text-cream mb-9 tracking-[-0.01em]"
-                >
-                  {hero.headline}
-                </motion.h1>
+              <motion.h1
+                variants={fadeUp}
+                className="font-display lowercase text-[1.85rem] leading-[1.12] text-ink mb-5 tracking-[-0.01em]"
+              >
+                {hero.headline}
+              </motion.h1>
 
-                <motion.div variants={fadeUp} className="mb-5">
-                  <ApplyButton accent className="w-full sm:w-auto">
-                    {hero.cta}
-                  </ApplyButton>
-                </motion.div>
+              <motion.div variants={fadeUp} className="mb-3">
+                <ApplyButton accent className="w-full">
+                  {hero.cta}
+                </ApplyButton>
+              </motion.div>
 
-                <motion.p
-                  variants={fadeUp}
-                  className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-cream/80"
-                >
-                  {hero.microline}
-                </motion.p>
-              </div>
+              <motion.p
+                variants={fadeUp}
+                className="font-sans text-[10px] font-medium tracking-[0.1em] uppercase text-ink/80"
+              >
+                {hero.microline}
+              </motion.p>
             </motion.div>
           </div>
         </section>
