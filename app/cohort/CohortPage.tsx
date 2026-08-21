@@ -125,72 +125,69 @@ export default function CohortPage() {
         </a>
 
         {/* ══════════════════════════════════════════════════
-            HERO — golden hour, boards under the palms.
-            Art-directed crops: cinematic band on desktop with
-            the copy over the dark palms at right; tall crop on
-            mobile with the copy anchored over the sand below.
+            HERO — golden hour, boards under the palms. The
+            photo is its own untouched block (no text over
+            anyone); the copy sits on a solid warm-dark field
+            sampled from the photo's palm shadows so the two
+            read as one scene. Photo left / copy right on
+            desktop; photo top / copy below on mobile.
            ══════════════════════════════════════════════════ */}
-        <section className="relative overflow-hidden bg-ink">
-          {/* desktop crop */}
-          <div className="absolute inset-0 hidden md:block">
-            <Image
-              src="/assets/season-hero-desktop.jpg"
-              alt="Charlotte and Katja carrying longboards at golden hour in Nosara"
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-l from-ink/70 via-ink/25 to-transparent" />
+        <section className="relative overflow-hidden bg-[#291F12]">
+          <div className="grid md:grid-cols-12 items-stretch">
+            {/* the photo — never covered */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="relative md:col-span-7 aspect-[4/5] sm:aspect-[4/3] md:aspect-auto md:min-h-[82svh] order-1"
+            >
+              <Image
+                src="/assets/season-hero-side.jpg"
+                alt="Charlotte and Katja carrying longboards at golden hour in Nosara"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 58vw"
+                className="object-cover object-[45%_30%]"
+              />
+            </motion.div>
+
+            {/* the copy — solid field, fully readable */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={stagger}
+              className="md:col-span-5 flex flex-col justify-center px-6 sm:px-10 lg:px-14 py-14 sm:py-16 md:py-20 order-2"
+            >
+              <div className="max-w-md">
+                <motion.p
+                  variants={fadeUp}
+                  className="font-sans text-[11px] sm:text-xs font-medium tracking-[0.1em] uppercase text-cream/80 mb-6"
+                >
+                  {hero.eyebrow}
+                </motion.p>
+
+                <motion.h1
+                  variants={fadeUp}
+                  className="font-display lowercase text-[2.3rem] sm:text-[2.9rem] lg:text-[3.1rem] xl:text-[3.5rem] leading-[1.12] text-cream mb-9 tracking-[-0.01em]"
+                >
+                  {hero.headline}
+                </motion.h1>
+
+                <motion.div variants={fadeUp} className="mb-5">
+                  <ApplyButton accent className="w-full sm:w-auto">
+                    {hero.cta}
+                  </ApplyButton>
+                </motion.div>
+
+                <motion.p
+                  variants={fadeUp}
+                  className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-cream/80"
+                >
+                  {hero.microline}
+                </motion.p>
+              </div>
+            </motion.div>
           </div>
-          {/* mobile crop */}
-          <div className="absolute inset-0 md:hidden">
-            <Image
-              src="/assets/season-hero-mobile.jpg"
-              alt="Charlotte and Katja carrying longboards at golden hour in Nosara"
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/25 to-ink/15" />
-          </div>
-
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="relative z-10 max-w-[1280px] mx-auto px-6 sm:px-10 min-h-[86svh] flex flex-col justify-end md:justify-center md:items-end pb-12 sm:pb-16 md:pb-0 pt-24"
-          >
-            <div className="max-w-xl">
-              <motion.p
-                variants={fadeUp}
-                className="font-sans text-[11px] sm:text-xs font-medium tracking-[0.1em] uppercase text-cream/90 mb-6"
-              >
-                {hero.eyebrow}
-              </motion.p>
-
-              <motion.h1
-                variants={fadeUp}
-                className="font-display lowercase text-[2.3rem] sm:text-[3.1rem] lg:text-[3.4rem] xl:text-[3.8rem] leading-[1.12] text-cream mb-9 tracking-[-0.01em]"
-              >
-                {hero.headline}
-              </motion.h1>
-
-              <motion.div variants={fadeUp} className="mb-5">
-                <ApplyButton accent className="w-full sm:w-auto">
-                  {hero.cta}
-                </ApplyButton>
-              </motion.div>
-
-              <motion.p
-                variants={fadeUp}
-                className="font-sans text-[11px] font-medium tracking-[0.1em] uppercase text-cream/90"
-              >
-                {hero.microline}
-              </motion.p>
-            </div>
-          </motion.div>
         </section>
 
         {/* ══════════════════════════════════════════════════
