@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "crons": [
+    {
+      "comment": "Blue nightly reminder dispatcher. Runs hourly so each user can be nudged near their chosen time; the route only emails people whose reminder_time matches the current hour and who haven't listened today. NOTE: Vercel Hobby plan allows cron once/day only — upgrade to Pro for hourly, or set a single fixed evening schedule below.",
+      "path": "/api/blue/remind",
+      "schedule": "0 * * * *"
+    }
+  ]
+}

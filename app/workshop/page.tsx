@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 
-/* ─── helpers (same as /cohort) ──────────────────────── */
+/* ─── helpers (same as /your-next-season) ────────────── */
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -16,15 +16,15 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.12 } },
 };
 
-const applyUrl = "/cohort";
+const applyUrl = "/your-next-season";
 
 /* ─── offer panel items ──────────────────────────────── */
 const included = [
-  "A live call every week with Charlotte & Katja",
-  "The curriculum, yours to keep",
-  "Private group chat support & sisterhood",
-  "The digital detox & daily practices",
-  "Your 30-day experiment in the real world",
+  "The full self-paced course",
+  "Six life-design modules",
+  "The somatic toolkit",
+  "Season of Self community access",
+  "No calls. Self-paced work.",
 ];
 
 /* ─── main component ─────────────────────────────────── */
@@ -143,14 +143,14 @@ function WorkshopPageContent() {
       <div className="sticky top-0 inset-x-0 z-50 bg-fomo-red px-4 py-2.5 text-white shadow-sm">
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-2 text-center font-sans text-[11px] sm:flex-row sm:gap-3 sm:text-sm">
           <span>
-            ✦ the autumn season · sep 29 – dec 18 ·{" "}
-            <strong>applications open</strong>
+            ✦ your next season · self-paced course ·{" "}
+            <strong>$197 or 3 x $77</strong>
           </span>
           <a
             href={applyUrl}
             className="inline-flex min-h-10 items-center justify-center rounded-[8px] bg-cream px-4 py-2 text-xs font-bold text-fomo-red hover:scale-105 sm:min-h-0 sm:py-1"
           >
-            Apply →
+            View offer →
           </a>
         </div>
       </div>
@@ -168,13 +168,13 @@ function WorkshopPageContent() {
           className="pointer-events-auto w-full rounded-[26px] border border-white/10 bg-deep-sage px-5 py-4 text-left text-white shadow-2xl shadow-deep-sage/25"
         >
           <p className="font-sans text-[10px] uppercase tracking-[0.28em] text-white/60">
-            The Season
+            Your Next Season
           </p>
           <p className="mt-1 font-display text-xl leading-tight">
             Click here to view offer
           </p>
           <p className="mt-2 font-sans text-sm leading-relaxed text-white/75">
-            Jump to the Season details anytime.
+            Jump to the course details anytime.
           </p>
         </motion.button>
       </div>
@@ -198,7 +198,7 @@ function WorkshopPageContent() {
                   Offer unlocked
                 </span>
                 <span className="block font-display text-lg leading-tight">
-                  View the Season
+                  View the course
                 </span>
               </span>
               <span className="ml-4 text-sm font-bold">Open →</span>
@@ -297,7 +297,7 @@ function WorkshopPageContent() {
               onClick={() => openOffer(true)}
               className="mt-3 min-h-12 w-full rounded-[8px] bg-deep-sage px-5 py-3 text-sm font-bold text-cream shadow-lg shadow-deep-sage/20"
             >
-              View the Season →
+              View the course →
             </button>
           </motion.div>
         </div>
@@ -317,7 +317,7 @@ function WorkshopPageContent() {
               {/* calm header — no urgency */}
               <div className="bg-deep-sage text-cream text-center py-3 px-4">
                 <p className="font-sans text-xs uppercase tracking-wider">
-                  Season of Self · The Season · by application
+                  Season of Self · Your Next Season
                 </p>
               </div>
 
@@ -338,10 +338,10 @@ function WorkshopPageContent() {
                 </div>
 
                 <h3 className="font-display text-2xl text-ink text-center mb-1">
-                  Season of Self · The Season
+                  Season of Self · Your Next Season
                 </h3>
                 <p className="font-sans text-ink/40 text-xs text-center mb-5">
-                  Twelve weeks · small circle · sep 29 – dec 18
+                  Self-paced life-design course
                 </p>
 
                 {/* what's included — two-column on larger screens */}
@@ -364,10 +364,10 @@ function WorkshopPageContent() {
                 {/* pricing */}
                 <div className="text-center mb-5">
                   <p className="font-display text-3xl text-deep-sage font-bold">
-                    $997
+                    $197
                   </p>
                   <p className="font-sans text-ink/40 text-xs mt-1">
-                    founding tuition · or 3 × $350 · by application
+                    one-time payment · or 3 x $77 · no calls
                   </p>
                 </div>
 
@@ -376,11 +376,11 @@ function WorkshopPageContent() {
                   href={applyUrl}
                   className="block max-w-sm mx-auto bg-deep-sage text-cream font-bold py-4 rounded-[8px] text-center text-base hover:scale-[1.02] transition-transform shadow-lg shadow-deep-sage/30"
                 >
-                  Apply for the autumn season →
+                  View Your Next Season →
                 </a>
 
                 <p className="text-center font-sans text-ink/30 text-[10px] mt-3">
-                  ✦ Applications close September 24, or when the circle is full
+                  ✦ Community access with thoughtful feedback from us included
                 </p>
               </div>
             </motion.div>
@@ -421,11 +421,11 @@ function WorkshopPageContent() {
               href={applyUrl}
               className="inline-block bg-deep-sage text-cream font-bold px-10 py-4 rounded-[8px] text-base hover:scale-105 transition-transform shadow-lg shadow-deep-sage/30"
             >
-              Apply for the autumn season →
+              Explore Your Next Season →
             </a>
             <p className="mt-4 font-sans text-sm text-ink/50 max-w-md mx-auto leading-relaxed">
-              The 12-week guided season Charlotte &amp; Katja created to walk
-              you through this, step by step.
+              The self-paced life-design course Charlotte &amp; Katja created
+              to help you clarify what you want and start moving toward it.
             </p>
           </motion.div>
         </motion.div>

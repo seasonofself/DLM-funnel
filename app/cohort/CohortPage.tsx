@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -20,10 +19,9 @@ import {
   notForYou,
   guides,
   guidesClosingLine,
-  tuition,
+  enrollment,
   faqs,
   finalCall,
-  applyForm,
 } from "@/content/season";
 
 /* Section-entry reveal: fade + 16px rise, 400ms, staggered, once.
@@ -52,7 +50,7 @@ const TINTS = [
   "bg-[#EAD9C8]",
 ];
 
-function ApplyButton({
+function CtaButton({
   children,
   accent = false,
   className = "",
@@ -63,7 +61,7 @@ function ApplyButton({
 }) {
   return (
     <a
-      href={season.applyAnchor}
+      href={season.ctaAnchor}
       className={`btn ${accent ? "btn-accent" : "btn-outline"} ${className}`}
     >
       {children}
@@ -78,38 +76,6 @@ function CardLabel({ children }: { children: React.ReactNode }) {
 
 export default function CohortPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [firstName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
-  const [submitting, setSubmitting] = useState(false);
-  const router = useRouter();
-
-  const handleApplySubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (submitting) return;
-    setSubmitting(true);
-    // Tag in Kit, then send her straight to the application. The
-    // redirect happens regardless so the form never feels broken.
-    try {
-      await fetch("/api/kit-subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, firstName, tag: applyForm.kitTag }),
-      });
-    } catch (err) {
-      console.error("Application signup error:", err);
-    }
-    // Carry name & email to the /apply form (sessionStorage, never URL
-    // params) so she doesn't type them twice.
-    try {
-      sessionStorage.setItem(
-        "sos-applicant",
-        JSON.stringify({ firstName, email })
-      );
-    } catch {
-      /* prefill is a nicety, never a requirement */
-    }
-    router.push(applyForm.redirect);
-  };
 
   return (
     <MotionConfig reducedMotion="user">
@@ -118,18 +84,17 @@ export default function CohortPage() {
 
         {/* ── banner ─────────────────────────────────────── */}
         <a
-          href={season.applyAnchor}
+          href={season.ctaAnchor}
           className="block bg-ink text-cream text-center py-2.5 px-4 font-sans text-xs sm:text-[13px] tracking-[0.06em] hover:bg-sage-dark transition-colors"
         >
           ✦ {season.banner}
         </a>
 
         {/* ══════════════════════════════════════════════════
-            HERO — artsy film full-bleed (the dancing shot,
-            matte grade + grain). The copy lives in the empty
-            sky beside/above the two of us, never over anyone:
-            top-left of the sky on desktop; in the extended sky
-            above them on mobile.
+            HERO — artsy film full-bleed. The copy lives in the
+            empty sky beside/above the two of us, never over
+            anyone: top-left on desktop; in the extended sky on
+            mobile.
            ══════════════════════════════════════════════════ */}
         <section className="relative overflow-hidden bg-[#AEBDCA]">
           {/* desktop art */}
@@ -163,13 +128,13 @@ export default function CohortPage() {
 
               <motion.h1
                 variants={fadeUp}
-                className="font-display lowercase text-[clamp(1.5rem,2.5vw,2.9rem)] leading-[1.12] text-ink mb-7 tracking-[-0.01em]"
+                className="font-display text-[clamp(1.5rem,2.5vw,2.9rem)] leading-[1.12] text-ink mb-7 tracking-[-0.01em]"
               >
                 {hero.headline}
               </motion.h1>
 
               <motion.div variants={fadeUp} className="mb-5">
-                <ApplyButton accent>{hero.cta}</ApplyButton>
+                <CtaButton accent>{hero.cta}</CtaButton>
               </motion.div>
 
               <motion.p
@@ -206,15 +171,15 @@ export default function CohortPage() {
 
               <motion.h1
                 variants={fadeUp}
-                className="font-display lowercase text-[1.85rem] leading-[1.12] text-ink mb-5 tracking-[-0.01em]"
+                className="font-display text-[1.85rem] leading-[1.12] text-ink mb-5 tracking-[-0.01em]"
               >
                 {hero.headline}
               </motion.h1>
 
               <motion.div variants={fadeUp} className="mb-3">
-                <ApplyButton accent className="w-full">
+                <CtaButton accent className="w-full">
                   {hero.cta}
-                </ApplyButton>
+                </CtaButton>
               </motion.div>
 
               <motion.p
@@ -268,7 +233,7 @@ export default function CohortPage() {
               </div>
 
               <div className="mt-10">
-                <ApplyButton>{letter.cta}</ApplyButton>
+                <CtaButton>{letter.cta}</CtaButton>
               </div>
             </motion.div>
           </motion.div>
@@ -308,16 +273,9 @@ export default function CohortPage() {
               variants={fadeUp}
               className="space-y-5 font-sans text-ink/75 text-base sm:text-[17px] leading-[1.7] max-w-2xl mx-auto"
             >
-              <p>{mirror.paragraphs[0]}</p>
-              <p>{mirror.paragraphs[1]}</p>
-              <p>
-                You have a notes app full of ideas. The retreat. The creative
-                studio. The consulting thing. Maybe you want to serve and help
-                other people. You are just craving work that actually feels
-                meaningful and impactful. But then self-doubt creeps in:{" "}
-                <em className="font-display">{mirror.italicFragment}</em>
-              </p>
-              <p>{mirror.paragraphs[3]}</p>
+              {mirror.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </motion.div>
           </motion.div>
         </section>
@@ -505,7 +463,7 @@ export default function CohortPage() {
             </div>
 
             <motion.div variants={fadeUp} className="text-center">
-              <ApplyButton accent>apply for the autumn season</ApplyButton>
+              <CtaButton accent>{hero.cta}</CtaButton>
             </motion.div>
           </motion.div>
         </section>
@@ -562,7 +520,7 @@ export default function CohortPage() {
                   <Engraving motif="sun" className="w-12 text-sage-dark" />
                 </div>
                 <ul className="space-y-3">
-                  {promise.leave.map((line, i) => (
+                  {promise.leave.map((line) => (
                     <li
                       key={line}
                       className="font-sans text-ink/80 text-[15px] sm:text-base leading-[1.6] flex gap-3"
@@ -570,16 +528,7 @@ export default function CohortPage() {
                       <span aria-hidden="true" className="text-ink/45">
                         ·
                       </span>
-                      {i === promise.leave.length - 1 ? (
-                        <span>
-                          decided on the direction that&rsquo;s yours,{" "}
-                          <em className="font-display">
-                            already taking the first real steps toward it
-                          </em>
-                        </span>
-                      ) : (
-                        line
-                      )}
+                      {line}
                     </li>
                   ))}
                 </ul>
@@ -727,39 +676,65 @@ export default function CohortPage() {
         </section>
 
         {/* ══════════════════════════════════════════════════
-            TUITION
+            ENROLLMENT
            ══════════════════════════════════════════════════ */}
-        <section className="bg-cream py-20 sm:py-28 px-6 sm:px-10 border-t border-ink/10">
+        <section
+          id="enroll"
+          className="bg-cream py-20 sm:py-28 px-6 sm:px-10 border-t border-ink/10 scroll-mt-16"
+        >
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={stagger}
-            className="max-w-xl mx-auto"
+            className="max-w-4xl mx-auto"
           >
             <motion.div
               variants={fadeUp}
               className="group card-editorial bg-[#E7DFC5] p-10 sm:p-14 text-center"
             >
-              <CardLabel>tuition</CardLabel>
-              <h2 className="font-display lowercase text-[2rem] sm:text-[2.6rem] text-ink mb-8">
-                {tuition.heading}
+              <CardLabel>enrollment</CardLabel>
+              <h2 className="font-display lowercase text-[2rem] sm:text-[2.6rem] text-ink mb-6">
+                {enrollment.heading}
               </h2>
               <div className="flex justify-center mb-8">
                 <Engraving motif="shell" className="w-24 text-terracotta engraving" />
               </div>
-              <p className="font-display text-6xl sm:text-7xl text-ink mb-2">
-                {tuition.price}
+              <p className="font-sans text-ink/70 text-[15px] sm:text-base leading-[1.7] max-w-2xl mx-auto mb-4">
+                {enrollment.intro}
               </p>
-              <p className="font-sans text-ink/70 text-base mb-8">
-                {tuition.plan}
+              <p className="font-sans text-ink/70 text-sm sm:text-base mb-10">
+                {enrollment.note}
               </p>
-              <p className="font-sans text-ink/70 text-[15px] sm:text-base leading-[1.7] mb-10">
-                {tuition.note}
-              </p>
-              <ApplyButton accent className="w-full sm:w-auto">
-                apply for the autumn season
-              </ApplyButton>
+
+              <div className="grid sm:grid-cols-2 gap-5 text-left">
+                {enrollment.options.map((option) => (
+                  <div
+                    key={option.label}
+                    className={`rounded-[16px] border p-6 sm:p-7 ${
+                      option.featured
+                        ? "border-sage-dark/25 bg-cream/80"
+                        : "border-ink/10 bg-white/60"
+                    }`}
+                  >
+                    <p className="card-label mb-4">{option.label}</p>
+                    <p className="font-display text-4xl sm:text-5xl text-ink mb-2">
+                      {option.price}
+                    </p>
+                    <p className="font-sans text-ink/65 text-sm sm:text-base mb-6">
+                      {option.detail}
+                    </p>
+                    <a
+                      href={option.href}
+                      className={`btn w-full justify-center ${
+                        option.featured ? "btn-accent" : "btn-outline"
+                      }`}
+                    >
+                      {option.cta}
+                    </a>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
         </section>
@@ -870,81 +845,10 @@ export default function CohortPage() {
               {finalCall.body}
             </motion.p>
             <motion.div variants={fadeUp}>
-              <a href={season.applyAnchor} className="btn btn-light">
+              <a href={season.ctaAnchor} className="btn btn-light">
                 {finalCall.cta}
               </a>
             </motion.div>
-          </motion.div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════
-            THE TWO-STEP FORM — every apply button lands here
-           ══════════════════════════════════════════════════ */}
-        <section
-          id="apply"
-          className="bg-cream py-24 sm:py-32 px-6 sm:px-10 scroll-mt-16"
-        >
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={stagger}
-            className="max-w-lg mx-auto"
-          >
-            <motion.div
-              variants={fadeUp}
-              className="group card-editorial bg-[#DDE2D2] p-8 sm:p-12"
-            >
-              <div className="flex items-start justify-between gap-6 mb-8">
-                <CardLabel>the application</CardLabel>
-                <Engraving
-                  motif="arc"
-                  className="w-14 text-sage-dark engraving -mt-1"
-                />
-              </div>
-
-              <h2 className="font-display lowercase text-[1.8rem] sm:text-[2.2rem] leading-[1.15] text-ink mb-8">
-                {applyForm.heading}
-              </h2>
-
-              <form onSubmit={handleApplySubmit} className="space-y-4">
-                <input
-                  type="text"
-                  required
-                  placeholder="your first name"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  className="w-full bg-transparent border border-ink/25 rounded-[8px] px-5 py-4 text-base text-ink placeholder:text-ink/35 font-sans focus:outline-none focus:border-ink/60 transition-colors"
-                />
-                <input
-                  type="email"
-                  required
-                  placeholder="your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-transparent border border-ink/25 rounded-[8px] px-5 py-4 text-base text-ink placeholder:text-ink/35 font-sans focus:outline-none focus:border-ink/60 transition-colors"
-                />
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="btn btn-accent w-full disabled:opacity-60"
-                >
-                  {submitting ? "one moment…" : applyForm.cta}
-                </button>
-              </form>
-
-              <p className="mt-6 font-sans text-[13px] text-ink/70 leading-relaxed">
-                {applyForm.note}
-              </p>
-            </motion.div>
-
-            <motion.p
-              variants={fadeUp}
-              className="text-center card-label mt-10 normal-case tracking-[0.04em]"
-            >
-              applications close {season.applicationsCloseLong} · the season runs{" "}
-              {season.dates}
-            </motion.p>
           </motion.div>
         </section>
 

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s · Season of Self",
   },
   description:
-    "Season of Self is a 12-week guided season for women who feel unfulfilled in their work & dream of starting something of their own. Led by Charlotte & Katja. Applications open for the autumn season, beginning September 29.",
+    "Season of Self helps women get clear on their direction and build lives that feel aligned with who they are. Start with The Inner Map or go deeper with Your Next Season, a self-paced life-design course from Charlotte and Katja.",
   applicationName: "Season of Self",
   keywords: [
     "Season of Self",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Season of Self · Build a soft life around work you love",
     description:
-      "A 12-week guided season for women who feel unfulfilled in their work & dream of starting something of their own. Led by Charlotte & Katja. Applications open for the autumn season, beginning September 29.",
+      "Get clear on your direction and build a life that feels aligned with who you are. Explore The Inner Map and Your Next Season from Charlotte and Katja.",
     url: SITE_URL,
     siteName: "Season of Self",
     type: "website",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Season of Self · Build a soft life around work you love",
     description:
-      "A 12-week guided season for women who feel unfulfilled in their work & dream of starting something of their own. Applications open for the autumn season, beginning September 29.",
+      "Explore The Inner Map and Your Next Season from Charlotte and Katja to get clear on your direction and begin building what feels aligned.",
     creator: "@seasonofselfco",
   },
   robots: {
@@ -129,7 +129,7 @@ const organizationSchema = {
   url: SITE_URL,
   logo: `${SITE_URL}/assets/green_logo.png`,
   description:
-    "Season of Self is a 12-week guided season for women who feel unfulfilled in their work and dream of starting something of their own. Led by Charlotte and Katja. Clarity on your direction, reconnection with your body and intuition, and the first real steps toward work that is actually yours.",
+    "Season of Self helps women get clear on their direction, reconnect with their intuition, and begin building lives and work that feel aligned with who they are.",
   knowsAbout: [
     "life path guidance",
     "finding your purpose",
@@ -180,7 +180,7 @@ const faqSchema = {
       name: "What is Season of Self?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Season of Self is a 12-week guided season, led by Charlotte and Katja, for women who feel unfulfilled in their work and dream of starting something of their own. A small circle, weekly live calls, and a 30-day experiment in the real world. You leave knowing which direction is yours, already testing it.",
+        text: "Season of Self is an online learning space for women who want clarity on their direction, deeper connection to themselves, and support in building lives that feel aligned.",
       },
     },
     {
@@ -188,7 +188,7 @@ const faqSchema = {
       name: "Where can I get help finding my life path?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Season of Self offers structured guidance for women navigating questions about their direction and purpose: The Inner Map at ikigai.seasonofself.co (free to take, about 10 minutes, with the full map unlocked for $17), and the Season, a 12-week application-based guided container with weekly live calls led by Charlotte and Katja. The autumn season runs September 29 to December 18.",
+        text: "Season of Self offers structured guidance for women navigating questions about direction and purpose: The Inner Map at ikigai.seasonofself.co, and Your Next Season, a self-paced life-design course from Charlotte and Katja.",
       },
     },
     {
@@ -201,10 +201,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What is the Season?",
+      name: "What is Your Next Season?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The Season is the 12-week guided container at the heart of Season of Self. It moves through four movements (come home, remember what matters, find your direction, live it), with a weekly live call, a curriculum that stays yours, daily practices, a gentle tech agreement, and a 30-day real-world experiment. It is application-based and founding tuition is $997, or 3 payments of $350.",
+        text: "Your Next Season is a self-paced life-design course from Season of Self. It helps you clarify what you want, move through what is keeping you stuck, choose your next direction, and begin bringing it to life.",
       },
     },
     {

@@ -629,7 +629,7 @@ export default function LourinhaRetreatPage() {
           </div>
           <div className="flex flex-wrap gap-x-7 gap-y-2 text-cream/55">
             <a href="/" className="font-sans text-sm hover:text-cream transition-colors">Home</a>
-            <a href="/cohort" className="font-sans text-sm hover:text-cream transition-colors">The Season</a>
+            <a href="/your-next-season" className="font-sans text-sm hover:text-cream transition-colors">Your Next Season</a>
             <a href="/about" className="font-sans text-sm hover:text-cream transition-colors">About</a>
             <a href="/privacy-policy" className="font-sans text-sm hover:text-cream transition-colors">Privacy</a>
           </div>

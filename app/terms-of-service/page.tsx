@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function TermsOfServicePage() {
   return (
-    <LegalPage title="Terms of Service" lastUpdated="1 April 2026">
+    <LegalPage title="Terms of Service" lastUpdated="1 September 2026">
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">1 | Definitions</h2>
       <p>
         For the purposes of these Terms of Service, the following definitions apply:
@@ -44,7 +44,7 @@ export default function TermsOfServicePage() {
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">4 | Services Description</h2>
       <p>
-        Season of Self provides guided programs for women. Our Services include the Season, a 12-week guided group program admitted by application, which contains weekly live group calls with our founders, a structured curriculum unlocked week by week, group chat and community support, breathwork and somatic sessions designed to support your personal development, guided audio recordings for meditation and reflection, and access to our library of digital content including videos, worksheets, and educational materials.
+        Season of Self provides educational and personal development offerings for women. Our Services may include self-paced courses, workshops, community spaces, guided audio recordings, digital content libraries, retreats, and other learning experiences described on the Website at the time of purchase or enrollment.
       </p>
       <p>
         The scope, features, and availability of Services may vary based on your program, enrollment terms, or specific offering. We reserve the right to modify, add to, or discontinue any aspect of our Services with appropriate notice to users.
@@ -60,7 +60,7 @@ export default function TermsOfServicePage() {
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">6 | Payment and Pricing</h2>
       <p>
-        Pricing for our Services is displayed on the Website and is subject to change at our discretion. The Season is offered as a one-time tuition, payable in full or through an installment plan as displayed at the time of enrollment. Installment plans authorize us to charge the remaining payments on their stated schedule. Some offerings may include founding pricing or other arrangements as communicated at the time of purchase.
+        Pricing for our Services is displayed on the Website and is subject to change at our discretion. Certain offerings, including Your Next Season, may be available as a one-time purchase or through an installment plan as displayed at checkout. By selecting an installment plan, you authorize us to charge the remaining payments according to the schedule presented when you enroll.
       </p>
       <p>
         Payment must be made in accordance with the payment terms specified at checkout. All prices are in U.S. dollars. You are responsible for any taxes, duties, or other governmental charges associated with your purchase. We accept payment through the methods indicated on our checkout page. By providing payment information, you authorize us to charge your selected payment method in accordance with your purchase.
@@ -140,7 +140,7 @@ export default function TermsOfServicePage() {
       </p>
 
       <p className="mt-10 text-sm">
-        <em>Last updated: 1 April 2026</em>
+        <em>Last updated: 1 September 2026</em>
       </p>
     </LegalPage>
   );

@@ -34,3 +34,7 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# Blue — generated audio assets (regenerate via scripts/generate-soundbed.mjs)
+/public/blue/*.wav
+/public/blue/*.mp3

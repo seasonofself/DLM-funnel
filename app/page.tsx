@@ -60,17 +60,17 @@ export default function HomePage() {
               variants={fadeUp}
               className="font-subtitle italic text-ink/60 text-base sm:text-lg lg:text-xl max-w-xl leading-relaxed mb-10"
             >
-              A 12-week guided season for women who feel unfulfilled in their
-              work &amp; dream of starting something of their own. The autumn
-              season begins September 29.
+              A self-paced life-design course for women who feel unfulfilled in
+              their work and want clarity on what they want, what is keeping
+              them stuck, and what direction to move in next.
             </motion.p>
 
             <motion.div
               variants={fadeUp}
               className="flex flex-wrap items-center gap-4 sm:gap-5 mb-5"
             >
-              <a href="/cohort" className="btn btn-accent">
-                Apply for the autumn season
+              <a href="/your-next-season" className="btn btn-accent">
+                Explore Your Next Season
                 <span aria-hidden="true">→</span>
               </a>
               <a
@@ -88,8 +88,7 @@ export default function HomePage() {
               variants={fadeUp}
               className="font-sans text-[13px] text-ink/70 leading-relaxed max-w-md"
             >
-              Applications close September 24. We keep the circle small on
-              purpose.
+              $197 one-time or 3 x $77. No calls. Self-paced work.
             </motion.p>
           </motion.div>
 
@@ -366,12 +365,12 @@ export default function HomePage() {
               },
               {
                 step: "02",
-                name: "The Season",
-                line: "Give yourself a season",
-                body: "Our 12-week guided container. Small group, live calls with both of us, & a 30-day experiment that gets you moving. By application.",
-                href: "/cohort",
+                name: "Your Next Season",
+                line: "Choose your next direction",
+                body: "A self-paced life-design course to help you get clear on what you want, move through what is keeping you stuck, and begin bringing your next chapter to life.",
+                href: "/your-next-season",
                 external: false,
-                cta: "Apply",
+                cta: "View the course",
               },
               {
                 step: "03",
@@ -458,7 +457,7 @@ export default function HomePage() {
               transition={{ duration: 0.85, delay: 0.05 }}
               className="font-display lowercase text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.02] text-ink mb-7"
             >
-              the autumn <span className="italic">season</span>
+              your next <span className="italic">season</span>
             </motion.h2>
 
             <motion.p
@@ -468,12 +467,10 @@ export default function HomePage() {
               transition={{ duration: 0.85, delay: 0.1 }}
               className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-6 max-w-xl"
             >
-              A 12-week guided season for women who feel unfulfilled in their
-              work &amp; have been dreaming of starting something of their own,
-              but aren&rsquo;t sure what it is yet. Twelve weeks, a small
-              circle, live calls with both of us, &amp; a 30-day experiment out
-              in the real world. You leave knowing which direction is yours,
-              already testing it.
+              A life-design course to clarify what you want, move through
+              what&rsquo;s keeping you stuck, choose your next direction, and
+              begin bringing it to life. Self-paced work, no calls, and access
+              to the Season of Self community for thoughtful feedback from us.
             </motion.p>
 
             <motion.p
@@ -483,7 +480,7 @@ export default function HomePage() {
               transition={{ duration: 0.7, delay: 0.12 }}
               className="card-label mb-10"
             >
-              sep 29 – dec 18 · founding tuition $997 · by application
+              self-paced course · $197 or 3 x $77 · no calls
             </motion.p>
 
             <motion.div
@@ -492,8 +489,8 @@ export default function HomePage() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: 0.15 }}
             >
-              <a href="/cohort" className="btn btn-accent">
-                Apply for the autumn season
+              <a href="/your-next-season" className="btn btn-accent">
+                Explore Your Next Season
                 <span aria-hidden="true">→</span>
               </a>
             </motion.div>
@@ -706,7 +703,7 @@ export default function HomePage() {
               className="font-display text-[2.2rem] sm:text-4xl lg:text-[3rem] leading-[1.05] text-ink mb-7"
             >
               Your next season starts with one{" "}
-              <span className="italic">honest application</span>.
+              <span className="italic">honest decision</span>.
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 24 }}
@@ -715,8 +712,9 @@ export default function HomePage() {
               transition={{ duration: 0.85, delay: 0.1 }}
               className="font-sans text-ink/70 text-base sm:text-lg leading-relaxed mb-10 max-w-md"
             >
-              Tell us where you are &amp; what you&rsquo;ve been dreaming
-              about. One of us replies personally within 48 hours.
+              Meet the self-paced course we created to help you get clear,
+              start moving, and receive thoughtful community feedback along the
+              way.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -725,8 +723,8 @@ export default function HomePage() {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="flex flex-col sm:flex-row flex-wrap gap-4"
             >
-              <a href="/cohort" className="btn btn-accent">
-                Apply for the autumn season
+              <a href="/your-next-season" className="btn btn-accent">
+                Explore Your Next Season
                 <span aria-hidden="true">→</span>
               </a>
               <a

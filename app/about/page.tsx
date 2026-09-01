@@ -201,8 +201,8 @@ export default function AboutPage() {
             <span className="italic">Season of Self</span>?
           </h2>
           <p className="font-sans text-ink/65 text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            Start smaller with The Inner Map, or apply for the autumn season
-            when you&apos;re ready.
+            Start smaller with The Inner Map, or explore Your Next Season when
+            you&apos;re ready.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -214,8 +214,8 @@ export default function AboutPage() {
             >
               The Inner Map →
             </a>
-            <a href="/cohort" className="btn btn-accent">
-              Apply for the autumn season →
+            <a href="/your-next-season" className="btn btn-accent">
+              Explore Your Next Season →
             </a>
           </div>
         </div>

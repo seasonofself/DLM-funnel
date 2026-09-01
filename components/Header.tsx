@@ -12,7 +12,7 @@ type HeaderLink = {
 const links: HeaderLink[] = [
   { href: "/", label: "Home" },
   { href: "https://ikigai.seasonofself.co", label: "The Inner Map", external: true },
-  { href: "/cohort", label: "The Season" },
+  { href: "/your-next-season", label: "Your Next Season" },
   { href: "/retreats/lourinha", label: "Retreats" },
   { href: "/about", label: "About" },
 ];
@@ -34,10 +34,10 @@ export default function Header({
     >
       {banner && (
         <a
-          href="/cohort"
+          href="/your-next-season"
           className="block bg-sage text-ink text-center py-2.5 px-4 font-sans text-xs sm:text-[13px] tracking-[0.06em] hover:bg-sage-dark hover:text-cream transition-colors"
         >
-          ✦ the autumn season · sep 29 – dec 18 · applications open →
+          ✦ your next season · self-paced course · $197 or 3 x $77 →
         </a>
       )}
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-10 py-3.5 sm:py-4">

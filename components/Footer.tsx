@@ -74,10 +74,10 @@ export default function Footer({
               </li>
               <li>
                 <a
-                  href="/cohort"
+                  href="/your-next-season"
                   className="font-sans text-sm text-cream/60 hover:text-cream transition-colors"
                 >
-                  The Season →
+                  Your Next Season →
                 </a>
               </li>
               <li>

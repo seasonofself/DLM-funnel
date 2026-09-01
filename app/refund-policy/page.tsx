@@ -6,26 +6,26 @@ export const metadata = {
 
 export default function RefundPolicy() {
   return (
-    <LegalPage title="Refund & Cancellation Policy" lastUpdated="20 August 2026">
-      <h2 className="font-display text-2xl text-ink mb-4 mt-10">The Season</h2>
+    <LegalPage title="Refund & Cancellation Policy" lastUpdated="1 September 2026">
+      <h2 className="font-display text-2xl text-ink mb-4 mt-10">Your Next Season</h2>
       <p className="mb-4">
-        The Season is a 12-week guided program that runs on fixed dates (for the autumn season: September 29 to December 18, 2026). Admission is by application, and tuition is $997, or 3 payments of $350.
+        Your Next Season is a self-paced digital course. Pricing and payment options, including any installment plan, are shown on the sales page and at checkout at the time of purchase.
       </p>
       <p className="mb-4">
-        Tuition includes the weekly live calls, the curriculum (which remains yours after the season ends), the group chat and community, the daily practices, and the 30-day experiment.
+        Access includes the course materials and any related community or bonus resources specifically listed on the sales page at the time you enroll.
       </p>
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">Refunds</h2>
       <p className="mb-4">
-        We want you to join fully. If by the end of week 2 of the season you find the Season isn't right for you, email us at hello@seasonofself.co before the end of that week and we'll refund your tuition in full.
+        If a specific refund window, guarantee, or special purchase term is stated on the sales page or at checkout when you buy, that stated policy governs your purchase.
       </p>
       <p className="mb-4">
-        After the end of week 2, tuition is no longer refundable. If life intervenes, you may defer your seat to the next season instead: write to us and we'll move your enrollment forward at no extra cost. If you're on the payment plan, the remaining installments still fall due on their original schedule, and your deferred seat is confirmed once the plan is complete.
+        If no separate refund promise is stated at the time of purchase, digital-course purchases are non-refundable once access has been granted, except where required by law. If you choose an installment plan, you remain responsible for completing the scheduled payments unless we agree otherwise in writing.
       </p>
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">How to Request a Refund</h2>
       <p className="mb-4">
-        Send an email to hello@seasonofself.co with the subject line "Refund Request" and include your name, the email address you applied with, and the date of your first payment. Once we receive your request, we'll review it, confirm your eligibility, and process any eligible refund promptly.
+        Send an email to hello@seasonofself.co with the subject line "Refund Request" and include your name, the email address used at checkout, and the date of your payment. Once we receive your request, we'll review it against the policy that applied to your purchase and respond as promptly as we can.
       </p>
 
       <h2 className="font-display text-2xl text-ink mb-4 mt-10">Other Offerings</h2>
